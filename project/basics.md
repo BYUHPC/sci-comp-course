@@ -17,7 +17,7 @@ Your job is to simulate a simple [damped](https://en.wikipedia.org/wiki/Damping)
 
 $$\ddot u = \nabla^2 u - c \space \dot u$$
 
-...where $c$ is the damping coefficient, $u$ represents displacement from equilibrium, $\dot u$ represents the first derivative of $u$ with respect to time (and $\ddot u$ the second), and $\nabla^2$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator).
+...where $$c$$ is the damping coefficient, $$u$$ represents displacement from equilibrium, $$\dot u$$ represents the first derivative of $$u$$ with respect to time (and $$\ddot u$$ the second), and $$\nabla^2$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator).
 
 
 
@@ -30,17 +30,17 @@ $$v_I^{(t+dt)} = (1-dt \space c) v_I^{(t)} + dt \space \nabla^2 u_I^{(t)}$$
 
 $$u_I^{(t+dt)} = u_I^{(t)} + dt \space v_I^{(t+dt)}$$
 
-...where $c$ is again the damping coefficient, $u$ is the displacement, $v$ is its velocity, $I$ is an index in the discretized grid, $t$ is the simulation time, and $dt$ is the time step.
+...where $$c$$ is again the damping coefficient, $$u$$ is the displacement, $$v$$ is its velocity, $$I$$ is an index in the discretized grid, $$t$$ is the simulation time, and $$dt$$ is the time step.
 
 We [approximate the Laplacian](https://en.wikipedia.org/wiki/Discrete_Laplace_operator#Finite_differences) as:
 
 $$\nabla^2 x_{I} \approx \left( \sum_n^{2N} \frac{x_{n}}{2} \right) - N \space x$$
 
-...where $N$ is the dimension of the problem and each of $n$ are indices adjacent to $I$ in positive and negative directions along each axis; in two dimensions this is:
+...where $$N$$ is the dimension of the problem and each of $$n$$ are indices adjacent to $$I$$ in positive and negative directions along each axis; in two dimensions this is:
 
 $$\nabla^2 x_{i,j} \approx \frac{x_{i,j-1}+x_{i,j+1}+x_{i-1,j}+x_{i+1,j}}{2} - 2 \space x_{i,j}$$
 
-...for cell $(i, j)$.
+...for cell $$(i, j)$$.
 
 
 
@@ -64,7 +64,7 @@ Division is by 4 rather than two because both ends of each spring are free; it c
 
 ## The simulation
 
-Given a damping coefficient of 0.01, a time step of 0.01, an initial grid of size 25x50 with [edges fixed at zero](https://en.wikipedia.org/wiki/Dirichlet_boundary_condition), displacement $u$ initialized to all zeros, and the interior of displacement velocity $v$ initialized to 0.1:
+Given a damping coefficient of 0.01, a time step of 0.01, an initial grid of size 25x50 with [edges fixed at zero](https://en.wikipedia.org/wiki/Dirichlet_boundary_condition), displacement $$u$$ initialized to all zeros, and the interior of displacement velocity $$v$$ initialized to 0.1:
 
 $$u_0 = \begin{bmatrix}
     0      & \dots  & 0      \\
@@ -80,7 +80,7 @@ $$v_0 = \begin{bmatrix}
     0      & 0      & \dots  & 0      & 0      \\
 \end{bmatrix}$$
 
-...your job is to determine how much time it takes for the average energy of cells in the interior grid to fall below 0.001--that is, how much time it takes for the total system energy to drop below $\left(25-2\right) \times \left(50-2\right) / 1000$.
+...your job is to determine how much time it takes for the average energy of cells in the interior grid to fall below 0.001--that is, how much time it takes for the total system energy to drop below $$\left(25-2\right) \times \left(50-2\right) / 1000$$.
 
 
 

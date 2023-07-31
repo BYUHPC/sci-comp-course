@@ -57,3 +57,9 @@ plugins:
 relative_links:
   enabled:     true
   collections: true
+
+header_pages:
+  - syllabus.md
+  - programming-resources.md
+  - readings.md
+  - assignments.md

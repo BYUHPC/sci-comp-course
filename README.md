@@ -22,7 +22,6 @@ If you need help, contact us via [email](mailto:scicompcourse@byu.edu), [Slack](
 
 ## Resources
 
-### [Contact Information](misc/contact.md)
-### [Syllabus](misc/syllabus.md)
-### [Programming](misc/programming-resources.md)
-### [Example Code](misc/example-code.md)
+### [Syllabus and Contact Information](syllabus.md)
+### [Programming](resources.md)
+### [Assignments](assignments.md)
