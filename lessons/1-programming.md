@@ -1,7 +1,9 @@
 ---
 ---
 
-# Programming in C++ and Julia
+# Programming
+
+This lesson will be frenetic since it's meant to let you figure out whether you're prepared for the class by the add/drop deadline. There's a lot that will happen in the first phase of the project that you'll have to just take on faith, we'll cover it later.
 
 ## Study Guide
 
@@ -22,5 +24,7 @@
 [Reading: C++](../readings/cpp.md)
 
 [Quiz: Programming](../quizzes/programming-languages.md)
+
+[Assignment: Get an Office of Research Computing Account](../assignments/get-account.md)
 
 [Project: C++ Basics](../project/basics.md)
