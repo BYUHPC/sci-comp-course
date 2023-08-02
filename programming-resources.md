@@ -15,6 +15,8 @@ Since this is a class about HCP you'll be doing some [optimization](https://vira
 
 Modules on the supercomputer
 
+Careful about 0- vs 1-based indexing
+
 
 
 ## C++
