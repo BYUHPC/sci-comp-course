@@ -9,7 +9,6 @@ The next few sections explain what the code is doing; if you don't care, feel fr
 
 
 
-
 ## The problem
 
 Your job is to simulate a simple [damped](https://en.wikipedia.org/wiki/Damping) version of the [wave equation](https://en.wikipedia.org/wiki/Wave_equation):

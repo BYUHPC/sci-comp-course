@@ -1,7 +1,7 @@
 ---
 ---
 
-# Damped Wave Simulation
+# Course Project: Damped Wave Simulation
 
 For the project, your job is to simulate the [damped](https://en.wikipedia.org/wiki/Damping) [wave equation](https://en.wikipedia.org/wiki/Wave_equation) with [fixed boundary conditions](https://en.wikipedia.org/wiki/Dirichlet_boundary_condition) in two dimensions. This is most easily imagined as the evolution in time of a rectangular drum head. The [first phase's simulation](1-basics.md), for example, looks like this when visualized as an elastic membrane:
 
@@ -18,13 +18,13 @@ Some aspects of the wave equation are ignored and a rudimentary algorithm is use
 
 ## Moving the Simulation Forward in Time
 
-To step interior cell $\left(i, j\right)$ from time $t$ to time $t+dt$, given displacement $u$ and velocity $v$, the following algorithm is used:
+To **step** interior cell $$\left(i, j\right)$$ from time $$t$$ to time $$t+dt$$, given displacement $$u$$ and velocity $$v$$, the following [leapfrog algorithm](https://en.wikipedia.org/wiki/Leapfrog_integration) is used:
 
-$$L_{i,j}^{(t)} \lArr \frac{u_{i,j-1}^{(t)} + u_{i,j+1}^{(t)} + u_{i-1,j}^{(t)} + u_{i+1,j}^{(t)}}{2} - 2 \space u_{i,j}^{(t)}$$
+$$L_{i,j}^{(t)} = \frac{u_{i,j-1}^{(t)} + u_{i,j+1}^{(t)} + u_{i-1,j}^{(t)} + u_{i+1,j}^{(t)}}{2} - 2 \space u_{i,j}^{(t)}$$
 
-$$v_{i,j}^{(t+dt)} \lArr (1-dt \space c) v_{i,j}^{(t)} + dt \space L_{i,j}^{(t)}$$
+$$v_{i,j}^{(t+dt)} = (1-dt \space c) v_{i,j}^{(t)} + dt \space L_{i,j}^{(t)}$$
 
-$$u_{i,j}^{(t+dt)} \lArr u_{i,j}^{(t)} + dt \space v_{i,j}^{(t+dt)}$$
+$$u_{i,j}^{(t+dt)} = u_{i,j}^{(t)} + dt \space v_{i,j}^{(t+dt)}$$
 
 To enforce the fixed boundary condition, cells at the edge of the array are never updated.
 
@@ -47,15 +47,15 @@ end
 
 ## Stopping Criterion: Energy
 
-The simulation proceeds in time steps of `dt` until the energy in the grid falls below an average of 0.001 per interior cell. The total energy constitutes two parts, which we'll call **dynamic energy** and **potential energy**.
+The simulation proceeds in time steps of `dt` until the **energy** in the grid falls below an average of 0.001 per interior cell. The total energy constitutes two parts, which we'll call dynamic energy and potential energy.
 
 Dynamic energy is the energy stored within each cell, and is defined for cell $(i, j)$ as:
 
 $$D_{i,j} = \frac{v_{i,j}^2}{2}$$
 
-Potential energy is the energy stored in the boundaries between adjacent cells, and is defined for cells $(i, j)$ and $(I, J)$ as:
+Potential energy is the energy stored in the boundaries between adjacent cells, and is defined for cells $$(i, j)$$ and $$(I, J)$$ as:
 
-$$P_{i,j,I,J} = \frac{\left( u_{i,j} - u_{I,J} \right)^2}{4}$$
+$$P_{i,j;I,J} = \frac{\left( u_{i,j} - u_{I,J} \right)^2}{4}$$
 
 Here's how the total energy might be determined in [Julia](../programming-resources.md#julia) given `u` and `v`:
 
@@ -81,7 +81,7 @@ end
 
 ## Running the Simulation
 
-Given damping coefficient `c`, time step `dt`, initial simulation time `t0`, initial displacement `u0`, and initial velocify `v0`, your job is to repeatedly step the simulation forward in time by steps of `dt` until the total energy falls below an average of 0.001 per interior cell. Given the [`step`](#moving-the-simulation-forward-in-time) and [`energy`](#stopping-criterion:-energy) functions defined above, here is a Julia function that would do so and return the final time, displacement, and velocity:
+Your job is to determine an initial state (the specifics of which vary phase to phase), repeatedly step the simulation forward until total energy falls below an average of 0.001 per interior cell (**solve** the initial state), and do something with the resultant final state (again, the specifics varying by phase). Given damping coefficient `c`, time step `dt`, initial simulation time `t0`, initial displacement `u0`, and initial velocify `v0`, and functions [`step`](#moving-the-simulation-forward-in-time) and [`energy`](#stopping-criterion-energy) defined above, here is a Julia function that would solve the state defined by `c`, `t0`, `u0`, and `v0` and return the changed elements of the final state.
 
 ```julia
 function solve(c, dt, t0, u0, v0)
@@ -99,3 +99,39 @@ function solve(c, dt, t0, u0, v0)
     return t, u, v
 end
 ```
+
+
+
+## Appendix: Mathematical Justification
+
+You don't need to read any of the following, but [some of it](#evolution-in-time) is helpful for the extra credit.
+
+The damped wave equation is defined as:
+
+$$\ddot u = \nabla^2 u - c \space \dot u$$
+
+...where $$c$$ is the damping coefficient, $$u$$ represents displacement from equilibrium, $$\dot u$$ represents the first derivative of $$u$$ with respect to time (and $$\ddot u$$ the second), and $$\nabla^2$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator).
+
+Although some of the equations and justifications in this document are specific to an elastic membrane and/or to 2 dimensions, the same equations can (if appropriately modified for the number of dimensions) can represent other wave phenomena in different dimensions. For example, light bouncing around in a perfectly reflective box containing an opaque medium could be simulated.
+
+### Laplacian
+
+The $$L$$ equation defined [above](#moving-the-simulation-forward-in-time) is a 2-dimensional [approximation of the Laplacian](https://en.wikipedia.org/wiki/Discrete_Laplace_operator#Finite_differences), the general form of which is:
+
+$$\nabla^2 x_{I} \approx \left( \sum_n^{2N} \frac{x_{n}}{2} \right) - N \space x$$
+
+...where $$N$$ is the dimension of the problem and each of $$n$$ are indices adjacent to $$I$$ in positive and negative directions along each axis.
+
+### Energy
+
+To determine the energy stored in a 2-dimensional rectangular wave plane, we imagine each cell as a particle of unit mass, each connected to the four adjacent particles by springs of unit spring coefficient constrained to move along the axis orthogonal to the plane.
+
+Since each particle is of unit mass, the kinetic energy of a cell is:
+
+$$KE_{i,j} = \frac{v_{i,j}^2}{2}$$
+
+The potential energy is held not in cells, but in the boundaries between cells (the springs in our example case). Given unit spring coefficient, the potential energy between two adjacent cells is:
+
+$$PE_{i,j;I,J} = \frac{\left( u_{i,j} - u_{I,J} \right)^2}{4}$$
+
+Division is by 4 rather than two because both ends of each spring are free; it can thus be modeled as a central point with springs of half length on each side, with half the potential energy of a system with only one free end. The potential of the boundaries at the edges is made identical (and, importantly, the simulation is simplified) by considering these "springs" to have half the spring coefficient of interior "springs."
