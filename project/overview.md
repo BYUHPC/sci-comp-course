@@ -110,7 +110,19 @@ end
 
 
 
-## Appendix A: Skeleton Wave Simulation Class
+## Appendix A: Tips and Tricks
+
+Check out all the phases early so you can see what you'll be dealing with from the start.
+
+Pay down technical debt early--e.g. refractor headers to avoid redundancy.
+
+Get familiar with the Julia implementation--you'll need to be familiar with it anyway for a couple phases, may as well take advantage of its utility from the start.
+
+Look at the example code often, there's usually very little difference (outside of the algorithm) from what you'll need to do.
+
+
+
+## Appendix B: Skeleton Wave Simulation Class
 
 Below is a class that contains the state of a wave simulation. It's provided since this isn't a programming class--we want you to learn relavant general concepts, not the painful ins and outs of C++. The parts you'll need to implement (for the [first phase](basics.md), at least) are marked with `// TODO` comments. You'll likely need to modify it for each phase; look to the [example code](TODO) for ideas on how to do so.
 
@@ -183,7 +195,7 @@ public:
 
 
 
-## Appendix B: Mathematical Justification
+## Appendix C: Mathematical Justification
 
 You don't need to read any of the following, but [some of it](#laplacian) is helpful for the extra credit.
 
