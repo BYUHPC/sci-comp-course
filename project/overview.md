@@ -3,9 +3,11 @@
 
 # Course Project: Damped Wave Simulation
 
-For the project, your job is to simulate the [damped](https://en.wikipedia.org/wiki/Damping) [wave equation](https://en.wikipedia.org/wiki/Wave_equation) with [fixed boundary conditions](https://en.wikipedia.org/wiki/Dirichlet_boundary_condition) in two dimensions. This is most easily imagined as the evolution in time of a rectangular drum head. The [first phase's simulation](1-basics.md), for example, looks like this when visualized as an elastic membrane:
+For the project, your job is to simulate the [damped](https://en.wikipedia.org/wiki/Damping) [wave equation](https://en.wikipedia.org/wiki/Wave_equation) with [fixed boundary conditions](https://en.wikipedia.org/wiki/Dirichlet_boundary_condition) in two dimensions. This is most easily imagined as the evolution in time of a rectangular drum head. The [first phase's simulation](basics.md), for example, looks like this when visualized as an elastic membrane:
 
 ![Elastic Membrane](../img/phase-1-animation-2D.gif)
+
+
 
 ## Setup
 
@@ -16,9 +18,11 @@ Some aspects of the wave equation are ignored and a rudimentary algorithm is use
 - `u`: an array in which each element represents the **displacement** at the corresponding point on the plane. If visualizing as a drum head, this is the height of a point on the head relative to the height at its edges.
 - `v`: an array in which each element represents the rate of change with respect to time of the displacement (its **velocity**) at the corresponding point on the plane. If visualizing as a drum head, this is the velocity of a point on the head.
 
+
+
 ## Moving the Simulation Forward in Time
 
-To **step** interior cell $$\left(i, j\right)$$ from time $$t$$ to time $$t+dt$$, given displacement $$u$$ and velocity $$v$$, the following [leapfrog algorithm](https://en.wikipedia.org/wiki/Leapfrog_integration) is used:
+To **step** interior cell $$(i, j)$$ from time $$t$$ to time $$t+dt$$, given displacement $$u$$ and velocity $$v$$, the following [leapfrog algorithm](https://en.wikipedia.org/wiki/Leapfrog_integration) is used:
 
 $$L_{i,j}^{(t)} = \frac{u_{i,j-1}^{(t)} + u_{i,j+1}^{(t)} + u_{i-1,j}^{(t)} + u_{i+1,j}^{(t)}}{2} - 2 \space u_{i,j}^{(t)}$$
 
@@ -45,11 +49,13 @@ function step(u, v, dt)
 end
 ```
 
+
+
 ## Stopping Criterion: Energy
 
 The simulation proceeds in time steps of `dt` until the **energy** in the grid falls below an average of 0.001 per interior cell. The total energy constitutes two parts, which we'll call dynamic energy and potential energy.
 
-Dynamic energy is the energy stored within each cell, and is defined for cell $(i, j)$ as:
+Dynamic energy is the energy stored within each cell, and is defined for cell $$(i, j)$$ as:
 
 $$D_{i,j} = \frac{v_{i,j}^2}{2}$$
 
@@ -71,7 +77,7 @@ function energy(u, v)
     for i in 1:m-1, j in 2:n-1 # along x axis (note i range)
         E += (u[i,j] - u[i+1,j])^2 / 4;
     end
-    for i in 2:m-1, j in 1:n-1 { # along y axis (note j range)
+    for i in 2:m-1, j in 1:n-1 # along y axis (note j range)
         E += (u[i,j] - u[i,j+1])^2 / 4;
     end
     # Return the total
@@ -79,9 +85,11 @@ function energy(u, v)
 end
 ```
 
+
+
 ## Running the Simulation
 
-Your job is to determine an initial state (the specifics of which vary phase to phase), repeatedly step the simulation forward until total energy falls below an average of 0.001 per interior cell (**solve** the initial state), and do something with the resultant final state (again, the specifics varying by phase). Given damping coefficient `c`, time step `dt`, initial simulation time `t0`, initial displacement `u0`, and initial velocify `v0`, and functions [`step`](#moving-the-simulation-forward-in-time) and [`energy`](#stopping-criterion-energy) defined above, here is a Julia function that would solve the state defined by `c`, `t0`, `u0`, and `v0` and return the changed elements of the final state.
+Your job is to determine an initial state (the specifics of which vary phase to phase), repeatedly step the simulation forward until total energy falls below an average of 0.001 per interior cell (i.e. **solve** the simulation), and do something with the resultant final state (again, the specifics varying by phase). Given damping coefficient `c`, time step `dt`, initial simulation time `t0`, initial displacement `u0`, and initial velocify `v0`, and functions [`step`](#moving-the-simulation-forward-in-time) and [`energy`](#stopping-criterion-energy) defined above, here is a Julia function that would solve the state defined by `c`, `t0`, `u0`, and `v0` and return the changed elements of the final state.
 
 ```julia
 function solve(c, dt, t0, u0, v0)
@@ -102,9 +110,82 @@ end
 
 
 
-## Appendix: Mathematical Justification
+## Appendix A: Skeleton Wave Simulation Class
 
-You don't need to read any of the following, but [some of it](#evolution-in-time) is helpful for the extra credit.
+Below is a class that contains the state of a wave simulation. It's provided since this isn't a programming class--we want you to learn relavant general concepts, not the painful ins and outs of C++. The parts you'll need to implement (for the [first phase](basics.md), at least) are marked with `// TODO` comments. You'll likely need to modify it for each phase; look to the [example code](TODO) for ideas on how to do so.
+
+```c++
+#include <array>
+#include <vector>
+#include <iostream>
+
+// Class representing a rectangular plane with Dirichlet boundary conditions over which waves propagate
+// Called "orthotope" rather than "rectangle" since extra credit is given later for generalizing to arbitrary dimension
+class WaveOrthotope {
+    // Types
+    using size_type = size_t;
+    using value_type = double;
+
+    // Members
+    const size_type m, n;              // size
+    const value_type c;                // damping coefficient
+    value_type t;                      // simulation time
+    std::vector<value_type> disp, vel; // displacement and velocity arrays
+
+public:
+    // Constructor
+    // USAGE: auto my_wave_orthotope = WaveOrthotope(20, 30, 0.1, 0);
+    // SEE: https://www.learncpp.com/cpp-tutorial/constructor-member-initializer-lists/
+    WaveOrthotope(const auto m, const auto n, const auto c, const value_type t=0): m(m), n(n), c(c), t(t), disp(m*n), vel(m*n) {}
+
+    // Return the size as a std::array
+    // USAGE: const auto [rows, cols] = my_wave_orthotope.size();
+    // SEE: https://codeburst.io/c-17-structural-binding-180696f7a678#63b1
+    constexpr const auto size() const { return std::array{m, n}; }
+
+    // Displacement indexing
+    // USAGE: my_wave_orthotope.u(1, 2) = 1.0;
+    constexpr const value_type  u(const auto i, const auto j) const { return disp[i*n+j]; }
+    constexpr       value_type& u(const auto i, const auto j)       { return disp[i*n+j]; }
+
+    // Displacement velocity indexing
+    // USAGE: const auto v12 = my_wave_orthotope.v(1, 2);
+    constexpr const value_type  v(const auto i, const auto j) const { return vel [i*n+j]; }
+    constexpr       value_type& v(const auto i, const auto j)       { return vel [i*n+j]; }
+
+    // Return the energy contained in this WaveOrthotope
+    // USAGE: const auto E = my_wave_orthotope.energy();
+    const value_type energy() const {
+        T E{};
+        // TODO: calculate total energy
+        return E;
+    }
+
+    // Advance the membrane in time by dt
+    // USAGE: my_wave_orthotope.step();
+    const value_type step() {
+        const T dt = 0.01;
+        // TODO: update u and v by one time step
+        t += dt;
+        return t;
+    }
+
+    // Advance the membrane in time by steps of dt until the average interior cell energy drops below 0.001
+    // USAGE: const auto sim_time = my_wave_orthotope.solve();
+    const value_type solve() {
+        while (energy() > (m-2)*(n-2)*0.001) {
+            step();
+        }
+        return t;
+    }
+};
+```
+
+
+
+## Appendix B: Mathematical Justification
+
+You don't need to read any of the following, but [some of it](#laplacian) is helpful for the extra credit.
 
 The damped wave equation is defined as:
 
@@ -126,11 +207,11 @@ $$\nabla^2 x_{I} \approx \left( \sum_n^{2N} \frac{x_{n}}{2} \right) - N \space x
 
 To determine the energy stored in a 2-dimensional rectangular wave plane, we imagine each cell as a particle of unit mass, each connected to the four adjacent particles by springs of unit spring coefficient constrained to move along the axis orthogonal to the plane.
 
-Since each particle is of unit mass, the kinetic energy of a cell is:
+Since each particle is of unit mass, the kinetic energy (which is generalized as "dynamic" energy above) for a cell is:
 
 $$KE_{i,j} = \frac{v_{i,j}^2}{2}$$
 
-The potential energy is held not in cells, but in the boundaries between cells (the springs in our example case). Given unit spring coefficient, the potential energy between two adjacent cells is:
+The potential energy is held in the springs. Given unit spring coefficient, the potential energy between two adjacent cells is:
 
 $$PE_{i,j;I,J} = \frac{\left( u_{i,j} - u_{I,J} \right)^2}{4}$$
 
