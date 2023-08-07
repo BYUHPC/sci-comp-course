@@ -27,13 +27,17 @@ $$v_0 = \begin{bmatrix}
     0      & 0      & \dots  & 0      & 0      \\
 \end{bmatrix}$$
 
-...your job is to [solve](overview.md#running-the-simulation) these initial conditions and print the simulation time to stdout followed by a newline. The answer should be 155.77; I care more about the means of getting this answer than the answer itself, though. The C++20 file (or files) you'll create will be compiled by the latest version of GCC with the following invocation:
+...your job is to [solve](overview.md#running-the-simulation) these initial conditions and print the simulation time to stdout followed by a newline. The answer should be 155.77, but I care more about the means of getting this answer than the answer itself. You'll turn in a file named `wave_solve.cpp` and (optionally) any headers required by it.
+
+The C++20 file (or files) you create will be [compiled and run](../resources.md#compilation) by the latest version of GCC installed on the supercomputer with the following:
 
 ```shell
+module load gcc/latest
 g++ -std=c++20 -o wave_solve wave_solve.cpp
+./wave_solve
 ```
 
-If you don't have access to and practice with a C++20 compiler for testing, [the supercomputer](../programming-resources.md#compilation) or an online C++ compiler such as [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler) will work. For online compilers, usually you'll have to find a menu that allows you to use C++20; in the case of OnlineGDB, it's the dropdown at the upper right that says "C++".
+You can test your implementation in the same way. You'll probably want to [set up VS Code](../resources.md#programming) on the supercomputer to develop your code unless you're familiar with vim or emacs.
 
 The [skeleton class in the overview](overview.md#appendix-a-skeleton-wave-simulation-class) and the `main` below constitute a good starting point, and I recommend using them as a scaffold for your program unless you have extensive experience with modern C++.
 

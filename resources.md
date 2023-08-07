@@ -27,7 +27,7 @@ Keep in mind that [C++ indexes from 0](https://www.w3schools.com/cpp/cpp_arrays.
 
 ## C++
 
-[C++](https://en.cppreference.com) is more [expressive](https://en.wikipedia.org/wiki/Expressive_power_%28computer_science%29) than C while retaining most of its benefits, but it is complex and carries a lot of baggage from its long history. It's easy enough to get a grasp of the basics, but mastery and learning [good style](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) require more time and effort than most languages you're likely to encounter. [Bjarne Stroustrup](https://www.stroustrup.com/)'s ["The C++ Programming Language"](https://www.stroustrup.com/4th.html) is the definitive guide to using C++, but it's probably overkill to buy it just for this class when acceptable online tutorials like [the one offered by W3 Schools](https://www.w3schools.com/cpp/) are available. Most online tutorials, though, should be taken with a grain of salt--they often encourage bad style, so it's best to be guided by our [example code](readings/example-code-cpp.md) and [expert opinion](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) when possible.
+[C++](https://en.cppreference.com) is more [expressive](https://en.wikipedia.org/wiki/Expressive_power_%28computer_science%29) than C while retaining most of its benefits, but it is complex and carries a lot of baggage from its long history. It's easy enough to get a grasp of the basics, but mastery and learning [good style](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) require more time and effort than most languages you're likely to encounter. [Bjarne Stroustrup](https://www.stroustrup.com/)'s ["The C++ Programming Language"](https://www.stroustrup.com/4th.html) is the definitive guide to using C++, but it's probably overkill to buy it just for this class when acceptable online tutorials like [the one offered by W3 Schools](https://www.w3schools.com/cpp/) are available. Most online tutorials (including the W3 Schools one), though, should be taken with a grain of salt--they often encourage bad style, so it's best to be guided by our [example code](readings/example-code-cpp.md) and [expert opinion](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) when possible.
 
 ### Compilation
 
@@ -40,7 +40,7 @@ int main() {
 	std::cout << "Hello, world!" << std::endl;
 }
 EOF
-module load gcc/12
+module load gcc/latest
 g++ -g -std=c++20 -o hello hello.cpp
 ./hello
 ```
@@ -62,6 +62,8 @@ One aspect of C++ that trips up many students is fact that '`&`' is used for so 
 
 There are [many tools available for profiling in C++](https://hackingcpp.com/cpp/tools/profilers.html); [perf]() is a good, simple choice in combination with Valgrind. Profiling and [optimization](https://www.agner.org/optimize/optimizing_cpp.pdf) in C++ are hard--this class will be the start of a long journey.
 
+[Catch2](https://github.com/catchorg/Catch2) is a ubiquitous C++ testing framework that [integrates with CMake](https://github.com/catchorg/Catch2/blob/4dd6e81d0f4b6f88058e7b71f3f672aa478161ef/docs/cmake-integration.md). `module load catch2` makes it available on the supercomputer.
+
 
 
 ## Julia
@@ -70,4 +72,4 @@ There are [many tools available for profiling in C++](https://hackingcpp.com/cpp
 
 [Revise](https://timholy.github.io/Revise.jl/stable/) makes development in Julia (especially [packages](https://pkgdocs.julialang.org/v1/creating-packages/)) a breeze. [Pluto notebooks](https://github.com/fonsp/Pluto.jl) are nice if you're used to a Jupyter-like interface.
 
-[Profiling](https://docs.julialang.org/en/v1/manual/profile/), [optimization](https://docs.julialang.org/en/v1/manual/performance-tips/), and [debugging](https://www.julia-vscode.org/docs/stable/userguide/debugging/) in Julia is much easier than in C++. [ProfileView](https://github.com/timholy/ProfileView.jl) and [BenchmarkTools](https://github.com/JuliaCI/BenchmarkTools.jl) in particular are very helpful.
+[Profiling](https://docs.julialang.org/en/v1/manual/profile/), [optimization](https://docs.julialang.org/en/v1/manual/performance-tips/), and [debugging](https://www.julia-vscode.org/docs/stable/userguide/debugging/) in Julia is much easier than in C++. [ProfileView](https://github.com/timholy/ProfileView.jl) and [BenchmarkTools](https://github.com/JuliaCI/BenchmarkTools.jl) in particular are very helpful. [Unit testing](https://docs.julialang.org/en/v1/stdlib/Test/) is easy, especially for [packages](https://pkgdocs.julialang.org/dev/creating-packages/#Adding-tests-to-the-package).
