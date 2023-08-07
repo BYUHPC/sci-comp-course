@@ -14,6 +14,6 @@ This course is intended for students whose current or future coursework or resea
 - results verification
 - single- and multi-node programming
 
-A guided semester-long project will help students apply the principles that are taught in class.
+A guided semester-long [project](project/overview.md) will help students apply the principles that are taught in class.
 
 If you need help, contact us via [email](mailto:scicompcourse@byu.edu), [Slack](https://byu-sci-comp.slack.com), or in person at CB 403.

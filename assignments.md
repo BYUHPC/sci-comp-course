@@ -3,4 +3,10 @@
 
 # Assignments
 
-Placeholder. This will have all the labs, projects, and quizzes, listed in chronological order
+The project overview can be found [here](project/overview.md)
+
+Listed below are links to all assignments for the course in chronological order.
+
+[Set up an account](assignments/get-account.md)
+
+[Project phase 1: basics](project/basics.md)

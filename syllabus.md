@@ -29,4 +29,4 @@ Contact us if you have exceptional circumstances.
 
 ## BYU Online Policies
 
-TODO: maybe I can just link to these? There's so much.
+TODO: can I just link to these? There's so much, plus I don't want it to get out of date.

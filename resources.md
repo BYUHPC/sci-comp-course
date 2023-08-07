@@ -1,21 +1,27 @@
 ---
 ---
 
-# Programming Resources
+<!---TODO: split this out into mutliple pages?-->
 
-This is basically just meant to be a collection of links. You're expected to come into the class with either some C++ experience or the ability to [pick up languages quickly](https://prirai.github.io/books/unix-koans.html#recruiter), so we don't teach programming in general or C++ specifically.
+# Resources
+
+You're expected to come into the class with either some C++ experience or the ability to [pick up languages quickly](https://prirai.github.io/books/unix-koans.html#recruiter), so we don't teach programming in general or C++ specifically. This page is meant to bridge the gap between your skills and those required to thrive in the course. At its core, it's a glorified collection of links; the most helpful way to use it is to find what you're confused about and check out all the links in the relevant paragraph.
 
 
 
-## General
+## Linux
 
-Unless you have an established workflow for programming on the supercomputer, we strongly recommend [setting up VS Code for remote editing](https://rc.byu.edu/wiki/index.php?page=Remote+Development+with+VS+Code). Some nice extensions: C++ and Julia (duh), CMake for later assignments. The Vim extension is nice if you're into that.
+Software on the supercomputer is generally accessed with [modules](https://rc.byu.edu/wiki/?id=Environment+Modules).
 
-Since this is a class about HCP you'll be doing some [optimization](https://viralinstruction.com/posts/hardware/). Obviously you want an efficient algorithm (e.g. [using quicksort rather than bubble sort](https://youtu.be/ZZuD6iUe3Pc)), but [data locality is critical](http://gameprogrammingpatterns.com/data-locality.html) and not talked about enough--for example, linked lists are theoretically faster than arrays for some algorithms, but [the hardware realities mean they're almost never actually the right choice](https://youtu.be/YQs6IC-vgmo).
 
-Modules on the supercomputer
 
-Careful about 0- vs 1-based indexing
+## Programming
+
+Unless you have an established workflow for programming on the supercomputer, we strongly recommend [setting up VS Code for remote editing](https://rc.byu.edu/wiki/index.php?page=Remote+Development+with+VS+Code). You'll find the [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and [Julia](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) [extensions](https://marketplace.visualstudio.com/) helpful. The enlightened will love the [Vim extension](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim).
+
+Since this is a class about *high performance* computing you'll do some [optimization](https://viralinstruction.com/posts/hardware/). An [efficient algorithm](https://youtu.be/ZZuD6iUe3Pc) is of course vital for speed, but [data locality is critical](http://gameprogrammingpatterns.com/data-locality.html) and not talked about enough--for example, linked lists are theoretically faster than arrays for some algorithms, but [the hardware realities mean they're almost never actually the right choice](https://youtu.be/YQs6IC-vgmo).
+
+Keep in mind that [C++ indexes from 0](https://www.w3schools.com/cpp/cpp_arrays.asp) and Julia [(mostly)](https://juliaarrays.github.io/OffsetArrays.jl/stable/) indexes from 1, although you [usually shouldn't need to worry about that in Julia](https://docs.julialang.org/en/v1/manual/arrays/#man-array-indexing).
 
 
 
@@ -54,7 +60,7 @@ One aspect of C++ that trips up many students is fact that '`&`' is used for so 
 
 [GDB](https://www.bitdegree.org/learn/gdb-debugger) is ubiquitous for debugging C++ programs; you'll want to `module load gdb` to [get access to a recent version](https://rc.byu.edu/wiki/?id=Environment+Modules) on the supercomputer. If you prefer a graphical debugger, you can [integrate GDB into VS Code](https://youtu.be/G9gnSGKYIg4). If you do so, make sure to set [`miDebuggerPath`](https://youtu.be/G9gnSGKYIg4?t=109) to the path returned by `module load gdb && which gdb`; you'll probably also want to modify `tasks.json` by changing `command` to the result of `module load gcc/12 && which g++` and adding `-std=c++20` to `args`. [Valgrind](https://valgrind.org/docs/manual/quick-start.html) is essential for [tracking down memory problems](https://prajankya.me/valgrind-on-linux/); again, you'll want to `module load valgrind` for a recent version.
 
-Profiling tools--TLDR: it kinda sucks to profile C++. TODO: need to make a new video that uses the example code for the updated class.
+There are [many tools available for profiling in C++](https://hackingcpp.com/cpp/tools/profilers.html); [perf]() is a good, simple choice in combination with Valgrind. Profiling and [optimization](https://www.agner.org/optimize/optimizing_cpp.pdf) in C++ are hard--this class will be the start of a long journey.
 
 
 
@@ -62,8 +68,6 @@ Profiling tools--TLDR: it kinda sucks to profile C++. TODO: need to make a new v
 
 [Julia](https://julialang.org/) is like Python on steroids--it's more [expressive](https://docs.julialang.org/en/v1/manual/metaprogramming/), [faster](https://julialang.org/benchmarks/), and was [designed from the ground up for HPC](https://julialang.org/blog/2012/02/why-we-created-julia/). It [has its quirks](https://viralinstruction.com/posts/badjulia/) and isn't the right tool for everything, but [it's probably the best widely-used language available to write programs for supercomputers](https://viralinstruction.com/posts/goodjulia/).
 
-Revise so you can edit fast
+[Revise](https://timholy.github.io/Revise.jl/stable/) makes development in Julia (especially [packages](https://pkgdocs.julialang.org/v1/creating-packages/)) a breeze. [Pluto notebooks](https://github.com/fonsp/Pluto.jl) are nice if you're used to a Jupyter-like interface.
 
-Pluto: Like Jupyter but better
-
-Profiling and debugging
+[Profiling](https://docs.julialang.org/en/v1/manual/profile/), [optimization](https://docs.julialang.org/en/v1/manual/performance-tips/), and [debugging](https://www.julia-vscode.org/docs/stable/userguide/debugging/) in Julia is much easier than in C++. [ProfileView](https://github.com/timholy/ProfileView.jl) and [BenchmarkTools](https://github.com/JuliaCI/BenchmarkTools.jl) in particular are very helpful.

@@ -11,12 +11,14 @@ For the project, your job is to simulate the [damped](https://en.wikipedia.org/w
 
 ## Setup
 
-Some aspects of the wave equation are ignored and a rudimentary algorithm is used to simulate it; this comes at the expense of accuracy but keeps complexity to a level appropriate for this course. 4 parameters fully describe the state of this basic simulation:
+Some aspects of the wave equation are ignored and a rudimentary algorithm is used to simulate it; this comes at the expense of accuracy and versatility but keeps complexity to a level appropriate for this course. 4 parameters fully describe the state of this basic simulation:
 
 - `c`: the **damping coefficient**, which determines how quickly energy dissipates--higher `c` means faster dissipation.
 - `t`: the amount of **time** that the simulation has progressed. Given a time step `dt`, this is the amount of iterations multiplied by `dt`, which will be fixed at `0.01` for most phases of the project to ensure simulation accuracy.
 - `u`: an array in which each element represents the **displacement** at the corresponding point on the plane. If visualizing as a drum head, this is the height of a point on the head relative to the height at its edges.
 - `v`: an array in which each element represents the rate of change with respect to time of the displacement (its **velocity**) at the corresponding point on the plane. If visualizing as a drum head, this is the velocity of a point on the head.
+
+This state will hence be called a **wave [orthotope](https://en.wikipedia.org/wiki/Hyperrectangle)**. In two dimensions it is a **wave rectangle**, but there is extra credit for generalizing to an arbitrary number of dimensions.
 
 
 
@@ -32,7 +34,7 @@ $$u_{i,j}^{(t+dt)} = u_{i,j}^{(t)} + dt \space v_{i,j}^{(t+dt)}$$
 
 To enforce the fixed boundary condition, cells at the edge of the array are never updated.
 
-Here's how one step of `dt` for the whole wave plane might look in [Julia](../programming-resources.md#julia) given displacement `u` and velocity `v`:
+Here's how one step of `dt` for the whole wave rectangle might look in [Julia](../programming-resources.md#julia) given displacement `u` and velocity `v`:
 
 ```julia
 function step(u, v, dt)
@@ -89,7 +91,7 @@ end
 
 ## Running the Simulation
 
-Your job is to determine an initial state (the specifics of which vary phase to phase), repeatedly step the simulation forward until total energy falls below an average of 0.001 per interior cell (i.e. **solve** the simulation), and do something with the resultant final state (again, the specifics varying by phase). Given damping coefficient `c`, time step `dt`, initial simulation time `t0`, initial displacement `u0`, and initial velocify `v0`, and functions [`step`](#moving-the-simulation-forward-in-time) and [`energy`](#stopping-criterion-energy) defined above, here is a Julia function that would solve the state defined by `c`, `t0`, `u0`, and `v0` and return the changed elements of the final state.
+Your job is to determine an initial state (the specifics of which vary phase to phase), repeatedly step the simulation forward until total energy falls below an average of 0.001 per interior cell (i.e. **solve** the simulation), and do something with the resultant final state (again, the specifics varying by phase). Given damping coefficient `c`, time step `dt`, initial simulation time `t0`, initial displacement `u0`, and initial velocify `v0`, and functions [`step`](#moving-the-simulation-forward-in-time) and [`energy`](#stopping-criterion-energy) defined above, here is a Julia function that would solve the wave rectangle defined by `c`, `t0`, `u0`, and `v0` and return the changed elements of the final state.
 
 ```julia
 function solve(c, dt, t0, u0, v0)
@@ -111,6 +113,8 @@ end
 
 
 ## Appendix A: Tips and Tricks
+
+The foundation you lay in the first phases will be used for the rest of the course. It's thus a good idea to look at each project
 
 Check out all the phases early so you can see what you'll be dealing with from the start.
 

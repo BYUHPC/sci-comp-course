@@ -3,10 +3,11 @@
 
 # Lessons
 
-[Lesson 1: Programming in C++ and Julia](lessons/1-programming.md)
+### [1: Programming in C++ and Julia](lessons/1-programming.md)
 
-[Lesson 2: Linux](lessons/2-linux.md)
+### [2: Linux](lessons/2-linux.md)
 
+<!---
 [Lesson 3: Building and Using Software Effectively](lessons/3-using-software.md)
 
 [Lesson 4: Schedulers, grep/sed/awk](lessons/.md) TODO
@@ -28,3 +29,4 @@
 [Lesson 12: Accelerators](lessons/12-accelerators.md)
 
 [Lesson 13: HPC Programming IRL](lessons/13-irl.md)
+-->
