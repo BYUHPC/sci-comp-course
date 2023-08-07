@@ -128,7 +128,7 @@ Look at the example code often, there's usually very little difference (outside 
 
 ## Appendix B: Skeleton Wave Simulation Class
 
-Below is a class that contains the state of a wave simulation. It's provided since this isn't a programming class--we want you to learn relavant general concepts, not the painful ins and outs of C++. The parts you'll need to implement (for the [first phase](basics.md), at least) are marked with `// TODO` comments. You'll likely need to modify it for each phase; look to the [example code](TODO) for ideas on how to do so.
+Below is a class that contains the state of a wave simulation. It's provided since this isn't a programming class--we want you to learn relavant general concepts, not the painful ins and outs of C++. The parts you'll need to implement (for the [first phase](basics.md), at least) are marked with `// TODO` comments. You'll likely need to modify it for each phase; look to the [example code](../example-code.md) for ideas on how to do so.
 
 ```c++
 #include <array>
