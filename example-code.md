@@ -3,7 +3,7 @@
 
 # Example Problem: Mountain Range
 
-This is a somewhat similar problem to the [assignment](Phase 1) so that you can get an idea of what to do. The goal of this program is to crudely simulate the evolution of a mountain range given uplift rates:
+This is a meant to be  the [semester-long project](project/overview.md) so that you can get an idea of what to do. The goal of this program is to crudely simulate the evolution of a mountain range given uplift rates:
 
 ![Evolution of Simulated Mountain Range, with Steepness and its Derivative Shown](/img/example-code-animation-1D.gif)
 
