@@ -3,9 +3,9 @@
 
 # Lessons
 
-### [1: Programming in C++ and Julia](lessons/1-programming.md)
+### [1: Programming in C++ and Julia](lessons/1.md)
 
-### [2: Linux](lessons/2-linux.md)
+### [2: Linux](lessons/2.md)
 
 <!---
 [Lesson 3: Building and Using Software Effectively](lessons/3-using-software.md)

@@ -29,6 +29,7 @@ plugins:
   - jekyll-feed
   - jekyll-relative-links
   - jekyll-titles-from-headings
+  - jekyll-redirect-from
 
 # Exclude from processing.
 # The following items will not be processed, by default.

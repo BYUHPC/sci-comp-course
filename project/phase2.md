@@ -9,7 +9,7 @@ In this phase you'll make your wave simulation program more capable and versatil
 
 ## I/O
 
-In [phase 1](basics.md), you [created and solved a specific wave plane](basics.md#the-simulation); in this assignment, you'll read in an arbitrary wave plane, solve it, and write the solved wave plane out. The input file will be specified as the first command line argument, and the output file as the second. Running it might look something like:
+In [phase 1](phase1.md), you [created and solved a specific wave plane](phase1.md#the-simulation); in this assignment, you'll read in an arbitrary wave plane, solve it, and write the solved wave plane out. The input file will be specified as the first command line argument, and the output file as the second. Running it might look something like:
 
 ```shell
 ./wave_solve initial.dat solved.dat
