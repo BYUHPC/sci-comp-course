@@ -27,7 +27,7 @@ $$v_0 = \begin{bmatrix}
     0      & 0      & \dots  & 0      & 0      \\
 \end{bmatrix}$$
 
-...your job is to [solve](overview.md#running-the-simulation) these initial conditions and print the simulation time to stdout followed by a newline. The answer should be 155.77, but I care more about the means of getting this answer than the answer itself. You'll turn in a C++20 source file named `wave_solve.cpp` and (optionally) any headers required by it.
+...your job is to [solve](overview.md#running-the-simulation) these initial conditions and print the simulation time to stdout followed by a newline. The answer should be 157.77, but I care more about the means of getting this answer than the answer itself. You'll turn in a C++20 source file named `wave_solve.cpp` and (optionally) any headers required by it.
 
 The file(s) you create will be [compiled and run](../resources.md#compilation) by the latest version of GCC installed on the supercomputer with the following:
 
@@ -53,3 +53,19 @@ int main() {
     return 0;
 }
 ```
+
+
+
+## Grading
+
+This phase is worth 20 points. The following deductions, up to 20 points total, will apply for a program that doesn't work as laid out by the spec:
+
+| Defect | Deduction |
+| --- | --- |
+| Failure to compile | 5 points |
+| Failure to output a result between 157 and 158 | 2 points |
+| Failure to output exactly 157.77 | 3 points |
+| Failure to run successfully (e.g. due to a segmentation fault) | 5 points |
+| Code isn't relevant to the assignment, or just prints "157.77" or similar | 20 points |
+
+As an example, code that looks about right but fails to compile would receive 5 points--deductions for failure to compile, failure to run successfully, and failure to output a correct result all apply.

@@ -18,7 +18,7 @@ Some aspects of the wave equation are ignored and a rudimentary algorithm is use
 - `u`: an array in which each element represents the **displacement** at the corresponding point on the plane. If visualizing as a drum head, this is the height of a point on the head relative to the height at its edges.
 - `v`: an array in which each element represents the rate of change with respect to time of the displacement (its **velocity**) at the corresponding point on the plane. If visualizing as a drum head, this is the velocity of a point on the head.
 
-This state will hence be called a **wave [orthotope](https://en.wikipedia.org/wiki/Hyperrectangle)**. In two dimensions it is a **wave rectangle**, but there is extra credit for generalizing to an arbitrary number of dimensions.
+This state will hence be called a **wave [orthotope](https://en.wikipedia.org/wiki/Hyperrectangle)**. In two dimensions it is a **wave rectangle**, but there is [extra credit](extra-credit.md#project) for generalizing to an arbitrary number of dimensions.
 
 
 

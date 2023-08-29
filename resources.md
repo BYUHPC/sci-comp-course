@@ -5,7 +5,7 @@
 
 # Resources
 
-You're expected to come into the class with either some C++ experience or the ability to [pick up languages quickly](https://prirai.github.io/books/unix-koans.html#recruiter), so we don't teach programming in general or C++ specifically. This page is meant to bridge the gap between your skills and those required to thrive in the course. At its core, it's a glorified collection of links; the most helpful way to use it is to find what you're confused about and check out all the links in the relevant paragraph.
+ This page is meant to bridge the gap between your skills and those required to thrive in the course. At its core, it's a glorified collection of links; the most helpful way to use it is to find what you're confused about and check out all the links in the relevant paragraph.
 
 
 
@@ -17,6 +17,8 @@ Software on the supercomputer is generally accessed with [modules](https://rc.by
 
 ## Programming
 
+You're expected to come into the class with either some C++ experience or the ability to [pick up languages quickly](https://prirai.github.io/books/unix-koans.html#recruiter), so we don't teach programming in general or C++ specifically.
+
 Unless you have an established workflow for programming on the supercomputer, we strongly recommend [setting up VS Code for remote editing](https://rc.byu.edu/wiki/index.php?page=Remote+Development+with+VS+Code). You'll find the [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and [Julia](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) [extensions](https://marketplace.visualstudio.com/) helpful. The enlightened will love the [Vim extension](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim).
 
 Since this is a class about *high performance* computing you'll do some [optimization](https://viralinstruction.com/posts/hardware/). An [efficient algorithm](https://youtu.be/ZZuD6iUe3Pc) is of course vital for speed, but [data locality is critical](http://gameprogrammingpatterns.com/data-locality.html) and not talked about enough--for example, linked lists are theoretically faster than arrays for some algorithms, but [the hardware realities mean they're almost never actually the right choice](https://youtu.be/YQs6IC-vgmo).
@@ -27,7 +29,7 @@ Keep in mind that [C++ indexes from 0](https://www.w3schools.com/cpp/cpp_arrays.
 
 ## C++
 
-[C++](https://en.cppreference.com) is more [expressive](https://en.wikipedia.org/wiki/Expressive_power_%28computer_science%29) than C while retaining most of its benefits, but it is complex and carries a lot of baggage from its long history. It's easy enough to get a grasp of the basics, but mastery and learning [good style](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) require more time and effort than most languages you're likely to encounter. [Bjarne Stroustrup](https://www.stroustrup.com/)'s ["The C++ Programming Language"](https://www.stroustrup.com/4th.html) is the definitive guide to using C++, but it's probably overkill to buy it just for this class when acceptable online tutorials like [the one offered by W3 Schools](https://www.w3schools.com/cpp/) are available. Most online tutorials (including the W3 Schools one), though, should be taken with a grain of salt--they often encourage bad style, so it's best to be guided by our [example code](readings/example-code-cpp.md) and [expert opinion](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) when possible.
+[C++](https://en.cppreference.com) is more [expressive](https://en.wikipedia.org/wiki/Expressive_power_%28computer_science%29) than C while retaining most of its benefits, but it is complex and carries a lot of baggage from its long history. It's easy enough to get a grasp of the basics, but mastery and learning [good style](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) require more time and effort than most languages you're likely to encounter. [Bjarne Stroustrup](https://www.stroustrup.com/)'s ["The C++ Programming Language"](https://www.stroustrup.com/4th.html) is the definitive guide to using C++, but it's probably overkill to buy it just for this class when acceptable online tutorials like [the one offered by W3 Schools](https://www.w3schools.com/cpp/) are available. Most online tutorials (including the W3 Schools one), though, should be taken with a grain of salt--they often encourage bad style, so it's best to be guided by our [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx) and [expert opinion](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) when possible.
 
 ### Compilation
 
