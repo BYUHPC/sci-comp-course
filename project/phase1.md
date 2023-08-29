@@ -29,7 +29,7 @@ $$v_0 = \begin{bmatrix}
 
 ...your job is to [solve](overview.md#running-the-simulation) these initial conditions and print the simulation time to stdout followed by a newline. The answer should be 157.77, but I care more about the means of getting this answer than the answer itself. You'll turn in a C++20 source file named `wave_solve.cpp` and (optionally) any headers required by it.
 
-The file(s) you create will be [compiled and run](../resources.md#compilation) by the latest version of GCC installed on the supercomputer with the following:
+The file(s) you create will be [compiled and run](../resources.md#compilation) by the latest version of GCC installed on the [supercomputer](../assignments/get-account.md) with the following:
 
 ```shell
 module load gcc/latest
@@ -53,6 +53,12 @@ int main() {
     return 0;
 }
 ```
+
+
+
+## Submission
+
+Submit your `wave_solve.cpp` and any associated headers on [Canvas](https://byu.instructure.com/courses/22942/assignments/810940).
 
 
 

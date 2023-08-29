@@ -11,7 +11,7 @@ As a graduate-level course, this class affords more independence than most under
 
 ## Prerequisites
 
-Prior to taking the class, students must know how to program in at least one language, including knowing how to write conditionals, loops, and functions. Experience with only the R programming language has been found to be insufficient preparation. Prior C++ experience is preferred. No particular course is required as a prerequisite. A computer science background is not necessary except for the programming skills requirement.
+Prior to taking the class, students must know how to program in at least one language, including knowing how to write conditionals, loops, and functions. Experience with only the R programming language has been found to be insufficient preparation. Prior C++ experience is preferred. No particular course is required as a prerequisite. A computer science background is not necessary except for the programming skills requirement. The [first phase of the project](project/phase1.md) serves as a good litmus test--if you struggle with it, the course will be hard for you since subsequent assignments increase in difficulty.
 
 
 

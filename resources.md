@@ -1,11 +1,9 @@
 ---
 ---
 
-<!---TODO: split this out into mutliple pages?-->
-
 # Resources
 
- This page is meant to bridge the gap between your skills and those required to thrive in the course. At its core, it's a glorified collection of links; the most helpful way to use it is to find what you're confused about and check out all the links in the relevant paragraph.
+This page is meant to bridge the gap between your skills and those required to thrive in the course. At its core, it's a glorified collection of links; the most helpful way to use it is to find what you're confused about and check out all the links in the relevant paragraph.
 
 
 

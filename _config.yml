@@ -63,8 +63,7 @@ titles_from_headings:
   collections: true
 
 header_pages:
-  - syllabus.md
   - resources.md
+  - syllabus.md
   - lessons.md
-  - readings.md
-  - assignments.md
+  - assignments.html
