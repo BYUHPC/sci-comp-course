@@ -12,12 +12,12 @@ In this phase you'll make your wave simulation program more capable and versatil
 In [phase 1](phase1.md), you [created and solved a specific wave plane](phase1.md#the-simulation); in this assignment, you'll read in an arbitrary wave plane, solve it, and write the solved wave plane out. The input file will be specified as the first command line argument, and the output file as the second. Running it might look something like:
 
 ```shell
-./wave_solve initial.dat solved.dat
+./wavesolve_serial initial.dat solved.dat
 ```
 
 ### Data Format
 
-The input files are binary--the bytes written there are the same literal bytes the machine uses to represent floats and integers. They aren't human-readable without translation--for example, when the double precision float 1.23 is "printed" as a Unicode string, it looks like nonsense:
+The input files are binary--the bytes written there are the same literal bytes the machine uses to represent floats and integers. They aren't human-readable without translation--for example, when the double precision float 1.23 is "printed" in binary as a Unicode string, it looks like nonsense:
 
 ```julia
 julia> join(Char.(reinterpret(UInt8, [1.23])))
@@ -41,26 +41,26 @@ $$\begin{bmatrix}
     9 & 10 & 11 & 12 \\
 \end{bmatrix}$$
 
-I recommend adding a constructor and a `write` function to your class, each of which take a filename as their sole argument; see the [example code](TODO) for an idea of how to do so.
+I recommend adding a constructor and a `write` function to your class, each of which take a filename as their sole argument; see the [example code]() for an idea of how to do so.
 
-You can check whether your input and output files are correct with [`WaveSim`](TODO)--see `?WaveOrthotope` and `?write` after loading the `WaveSim` module.
-
-TODO: explain this:
+You can check whether your input and output files are correct with [`WaveSim`](https://github.com/BYUHPC/WaveSim.jl)--see `?WaveOrthotope` and `?write` after loading the `WaveSim` module. You can try to read `infile.wo` gracefully thus:
 
 ```julia
 w = try
-    WaveOrthotope("infile")
+    WaveOrthotope("infile.wo")
 catch e
     print("Failed to read")
     e isa WaveSim.WaveOrthotopeException ? e : rethrow(e)
 end
 ```
 
+If there was an exception that the `WaveOrthotope` constructor is equipped to handle, `w` will be a [`WaveOrthotopeReadException`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/io.jl#L20), which may contain useful data about the nature of the read failure.
+
 ### Reading and Writing Binary in C++
 
-I highly recommend using [`binary_io.hpp`](TODO), which I wrote specifically to alleviate the suffering of students who would otherwise have to use C++'s [terrible binary I/O](https://martincmartin.com/2015/02/02/writing-to-a-binary-stream-in-cc-harder-than-it-should-be/) without protection. Read the documentation comment at the top of `binary_io.hh` for usage.
+I highly recommend using [`binary_io.hpp`](https://github.com/BYUHPC/simple-cxx-binary-io), which I wrote specifically to alleviate the suffering of students who would otherwise have to use C++'s [terrible binary I/O](https://martincmartin.com/2015/02/02/writing-to-a-binary-stream-in-cc-harder-than-it-should-be/) without protection.
 
-If you insist, you can read and write manually:
+If you insist, though, you can read and write manually:
 
 ```c++
 // Read x from istream is:
@@ -71,24 +71,23 @@ os.write(reinterpret_cast<const char *const>(&x), sizeof(x));
 
 ### Resilience to Bad Data
 
-Since this isn't a class about parsing or error handling, you aren't required to deal with bad arguments or bad data files gracefully. That said, sanity checks help with debugging; mimicking the bad input handling from the [example code](TODO) is encouraged.
+Since this isn't a class about parsing or error handling, you aren't required to deal with bad arguments or bad data files gracefully. That said, sanity checks help with debugging; mimicking the bad input handling from the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeSharedMem.hpp) is encouraged.
 
 
 
 ## Checkpointing
 
-In addition to the final state, the program will also write checkpoint files at regular intervals. The **interval** will be determined by the [environment variable](TODO) `INTVL`, which if it exists will be a positive value that will be parsed as a float. During the course of the solve, if the interval is set to a positive value, the simulation time of the wave orthotope after a step divided by the interval is less than 0.002 (to account for floating point imprecision), a checkpoint file should be written, unless it hasn't been stepped yet. Said file should be named `chk-<time>.dat`, where `<time>` is the simulation time formatted as 4 digits, then the decimal point, then 2 digits. The solve loop that does this might look something like:
+In addition to the final state, the program will also write checkpoint files at regular intervals. The **interval** will be determined by the [environment variable](../readings/environment-variables.md) `INTVL`, which if it exists will be a positive value that will be parsed as a float. During the course of the solve, if the interval is set to a positive value, the simulation time of the wave orthotope after a step divided by the interval is less than 0.002 (to account for floating point imprecision), a checkpoint file should be written, unless it hasn't been stepped yet. Said file should be named `chk-<time>.wo`, where `<time>` is the simulation time formatted as 4 digits, then the decimal point, then 2 digits. The solve loop that does this might look something like:
 
 ```c++
 #include <format>
-// ...
 while (w.energy() > stop_energy) {
     w.step();
     if (interval > 0 && w.time() / interval < 0.002) {
-        auto check_file_name = std::format("chk-{:07.2f}.dat", w.time());
+        auto check_file_name = std::format("chk-{:07.2f}.wo", w.time());
         w.write(check_file_name);
     }
 }
 ```
 
-As an example, if `INTVL` is set to `1.23` and a simulation runs for 3 seconds, two checkpoint files, `chk-0001.23.dat` and `chk-0002.46.dat`, will be created.
+As an example, if `INTVL` is set to `1.23` and a simulation runs for 3 seconds, two checkpoint files, `chk-0001.23.wo` and `chk-0002.46.wo`, should be created.

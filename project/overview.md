@@ -18,7 +18,7 @@ Some aspects of the wave equation are ignored and a rudimentary algorithm is use
 - `u`: an array in which each element represents the **displacement** at the corresponding point on the plane. If visualizing as a drum head, this is the height of a point on the head relative to the height at its edges.
 - `v`: an array in which each element represents the rate of change with respect to time of the displacement (its **velocity**) at the corresponding point on the plane. If visualizing as a drum head, this is the velocity of a point on the head.
 
-This state will hence be called a **wave [orthotope](https://en.wikipedia.org/wiki/Hyperrectangle)**. In two dimensions it is a **wave rectangle**, but there is [extra credit](extra-credit.md#project) for generalizing to an arbitrary number of dimensions.
+This state will hence be called a **wave [orthotope](https://en.wikipedia.org/wiki/Hyperrectangle)**. In two dimensions it is a **wave rectangle**, but there is [extra credit](../assignments/extra-credit.md#project) for generalizing to an arbitrary number of dimensions.
 
 
 
@@ -34,7 +34,7 @@ $$u_{i,j}^{(t+dt)} = u_{i,j}^{(t)} + dt \space v_{i,j}^{(t+dt)}$$
 
 To enforce the fixed boundary condition, cells at the edge of the array are never updated.
 
-Here's how one step of `dt` for the whole wave rectangle might look in [Julia](../programming-resources.md#julia) given displacement `u` and velocity `v`:
+Here's how one step of `dt` for the whole wave rectangle might look in [Julia](../resources.md#julia) given displacement `u` and velocity `v`:
 
 ```julia
 function step(u, v, dt)
@@ -91,7 +91,7 @@ end
 
 ## Running the Simulation
 
-Your job is to determine an initial state (the specifics of which vary phase to phase), repeatedly step the simulation forward until total energy falls below an average of 0.001 per interior cell (i.e. **solve** the simulation), and do something with the resultant final state (again, the specifics varying by phase). Given damping coefficient `c`, time step `dt`, initial simulation time `t0`, initial displacement `u0`, and initial velocify `v0`, and functions [`step`](#moving-the-simulation-forward-in-time) and [`energy`](#stopping-criterion-energy) defined above, here is a Julia function that would solve the wave rectangle defined by `c`, `t0`, `u0`, and `v0` and return the changed elements of the final state.
+Your job is to determine an initial state (the specifics of which vary phase to phase), repeatedly step the simulation forward until total energy falls below an average of 0.001 per interior cell (i.e. **solve** the simulation), and do something with the resultant final state (again, the specifics vary by phase). Given damping coefficient `c`, time step `dt`, initial simulation time `t0`, initial displacement `u0`, and initial velocify `v0`, and functions [`step`](#moving-the-simulation-forward-in-time) and [`energy`](#stopping-criterion-energy) defined above, here is a Julia function that would solve the wave rectangle defined by `c`, `t0`, `u0`, and `v0` and return the changed elements of the final state.
 
 ```julia
 function solve(c, dt, t0, u0, v0)
@@ -104,6 +104,7 @@ function solve(c, dt, t0, u0, v0)
     # Solve
     while energy(u, v) > stopping_energy
         step(u, v, dt)
+        t += dt
     end
     # Return updated state as a tuple
     return t, u, v
@@ -114,21 +115,17 @@ end
 
 ## Appendix A: Tips and Tricks
 
-The foundation you lay in the first phases will be used for the rest of the course. It's thus a good idea to look at each project
+The foundation you lay in the first phases will be used for the rest of the course. It's thus a good idea to skim over future [phases of the project](../assignments.html) often to ensure that your code maintains the flexibility to easily accomodate future requirements. Pay down [technical debt](https://en.wikipedia.org/wiki/Technical_debt) early.
 
-Check out all the phases early so you can see what you'll be dealing with from the start.
+Get familiar with [`WaveSim.jl`](TODOhttps://github.com/BYUHPC/WaveSim.jl) early, ideally by [phase2](phase2.md)--you'll be modifying it in phases [4](phase4.md) and [8](phase8.md), so you may as well take advantage of its utility early on.
 
-Pay down technical debt early--e.g. refractor headers to avoid redundancy.
-
-Get familiar with the Julia implementation--you'll need to be familiar with it anyway for a couple phases, may as well take advantage of its utility from the start.
-
-Look at the example code often, there's usually very little difference (outside of the algorithm) from what you'll need to do.
+Look at the example [code often](https://github.com/BYUHPC/sci-comp-course-example-cxx), as there's usually very little difference (outside of the algorithm) between it and what you'll be required to do.
 
 
 
 ## Appendix B: Skeleton Wave Simulation Class
 
-Below is a class that contains the state of a wave simulation. It's provided since this isn't a programming class--we want you to learn relavant general concepts, not the painful ins and outs of C++. The parts you'll need to implement (for the [first phase](basics.md), at least) are marked with `// TODO` comments. You'll likely need to modify it for each phase; look to the [example code](../example-code.md) for ideas on how to do so.
+Below is a class that contains the state of a wave simulation. It's provided since this isn't a programming class--we want you to learn relavant general concepts, not the painful ins and outs of C++. The parts you'll need to implement (for the [first phase](basics.md), at least) are marked with `// TODO` comments. You'll likely need to modify it and split it into separate headers for each phase; look to the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx) for ideas on how to do so.
 
 ```c++
 #include <array>
@@ -136,7 +133,7 @@ Below is a class that contains the state of a wave simulation. It's provided sin
 #include <iostream>
 
 // Class representing a rectangular plane with Dirichlet boundary conditions over which waves propagate
-// Called "orthotope" rather than "rectangle" since extra credit is given later for generalizing to arbitrary dimension
+// Called "orthotope" rather than "rectangle" since extra credit is given for generalizing to arbitrary dimension
 class WaveOrthotope {
     // Types
     using size_type = size_t;
@@ -209,7 +206,7 @@ $$\ddot u = \nabla^2 u - c \space \dot u$$
 
 ...where $$c$$ is the damping coefficient, $$u$$ represents displacement from equilibrium, $$\dot u$$ represents the first derivative of $$u$$ with respect to time (and $$\ddot u$$ the second), and $$\nabla^2$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator).
 
-Although some of the equations and justifications in this document are specific to an elastic membrane and/or to 2 dimensions, the same equations can (if appropriately modified for the number of dimensions) can represent other wave phenomena in different dimensions. For example, light bouncing around in a perfectly reflective box containing an opaque medium could be simulated.
+Although some of the equations and justifications in this document are specific to an elastic membrane and/or to 2 dimensions, the same equations can (if appropriately modified for the number of dimensions) represent other wave phenomena in different dimensions. For example, light bouncing around in a perfectly reflective box containing an opaque medium could be simulated, as could longitudinal pulses traveling through a stiff rod.
 
 ### Laplacian
 

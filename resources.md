@@ -3,11 +3,11 @@
 
 # Resources
 
-This page is meant to bridge the gap between your skills and those required to thrive in the course. At its core, it's a glorified collection of links; the most helpful way to use it is to find what you're confused about and check out all the links in the relevant paragraph.
+This page is meant to bridge the gap between your skills and those required to thrive in the course. At its core, it's a glorified collection of links; the most helpful way to use it is to find what you're confused about and check out all the links in the relevant paragraphs.
 
 
 
-## Linux
+## The Supercomputer
 
 Software on the supercomputer is generally accessed with [modules](https://rc.byu.edu/wiki/?id=Environment+Modules).
 
@@ -68,7 +68,7 @@ There are [many tools available for profiling in C++](https://hackingcpp.com/cpp
 
 ## Julia
 
-[Julia](https://julialang.org/) is like Python on steroids--it's more [expressive](https://docs.julialang.org/en/v1/manual/metaprogramming/), [faster](https://julialang.org/benchmarks/), and was [designed from the ground up for HPC](https://julialang.org/blog/2012/02/why-we-created-julia/). It [has its quirks](https://viralinstruction.com/posts/badjulia/) and isn't the right tool for everything, but [it's probably the best widely-used language available to write programs for supercomputers](https://viralinstruction.com/posts/goodjulia/).
+[Julia](https://julialang.org/) is like Python on steroids--it's more [expressive](https://docs.julialang.org/en/v1/manual/metaprogramming/), [faster](https://julialang.org/benchmarks/), and was [designed from the ground up for HPC](https://julialang.org/blog/2012/02/why-we-created-julia/). It [has its quirks](https://viralinstruction.com/posts/badjulia/) and isn't the right tool for everything, but [it's probably the best widely-used language available to write programs for supercomputers](https://viralinstruction.com/posts/goodjulia/). The [example code](https://github.com/BYUHPC/WaveSim.jl) is a good start for the Julia phases of the [project](project/overview.md).
 
 [Revise](https://timholy.github.io/Revise.jl/stable/) makes development in Julia (especially [packages](https://pkgdocs.julialang.org/v1/creating-packages/)) a breeze. [Pluto notebooks](https://github.com/fonsp/Pluto.jl) are nice if you're used to a Jupyter-like interface.
 
