@@ -3,11 +3,9 @@
 
 # Syllabus
 
-This course is intended for students whose current or future coursework or research involves computational science (e.g. computational fluid dynamics, genomics, finite element analysis, economics simulations, computational linguistics, physics, etc). The class will help students learn the principles of operating in a typical scientific computing environment. Topics include typical Linux shells and commands, hardware (CPU, memory , network, etc), storage management, batch job scheduling, code and workflow optimization, code management, results verification, and programming. A semester-long project will help students apply the principles that are taught in class.
+This course is intended for students whose current or future coursework or research involves computational science (e.g. computational fluid dynamics, genomics, finite element analysis, economics simulations, computational linguistics, physics, etc). The class will help students learn the principles of operating in a typical scientific computing environment. Topics include typical Linux shells and commands, hardware (CPU, memory , network, etc), storage management, batch job scheduling, code and workflow optimization, code management, results verification, and programming. A semester-long [project](project/overview.md) will help students apply the principles that are taught in class.
 
 As a graduate-level course, this class affords more independence than most undergraduate classes. Assignments and projects usually involve more decision-making; you are given specs and expected to find your own path to fulfill them, which may involve searching language and library documentation and difficult high-level design choices. If you haven't done much open-ended programming, this will help you mature as a programmer--expect some growing pains to accompany your progression.
-
-A guided semester-long [project](project/overview.md) will help students apply the principles that are taught in class.
 
 
 

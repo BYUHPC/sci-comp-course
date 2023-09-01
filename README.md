@@ -3,17 +3,8 @@
 
 # BYU Scientific Computing Course
 
-This course is intended for students whose current or future coursework or research involves computational science (e.g., computational fluid dynamics, genomics, finite element analysis, economics simulations, computational linguistics, physics, etc.). The class will help students learn the principles of operating in a typical scientific computing environment. Topics include:
+Most of the material for the course is hosted here, but [due dates](https://byu.instructure.com/calendar), [grades](https://byu.instructure.com/courses/22942/gradebook), and [assignment submissions](https://byu.instructure.com/courses/22942/assignments) are found on [Canvas](https://byu.instructure.com/courses/22942).
 
-- Linux shells and commands
-- sed, awk, and grep
-- computer hardware (CPU, memory, network, etc.)
-- storage management
-- batch job scheduling
-- code and workflow optimization and management
-- results verification
-- single- and multi-node programming
+Announcements will be made exclusively via [Slack](https://byu-sci-comp.slack.com). You can get help there, via [email](mailto:scicompcourse@byu.edu), or in person at CB 403.
 
-A guided semester-long [project](project/overview.md) will help students apply the principles that are taught in class.
-
-If you need help, contact us via [email](mailto:scicompcourse@byu.edu), [Slack](https://byu-sci-comp.slack.com), or in person at CB 403.
+Most of the time you spend on this class will probably be devoted to the [project](project/overview.md). Refer to the [tips and tricks](project/overview.md#appendix-a-tips-and-tricks) and [C++ resources](resources.md#c) often as you go through each phase.
