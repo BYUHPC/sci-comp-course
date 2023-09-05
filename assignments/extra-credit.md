@@ -7,6 +7,8 @@
 
 You can get up to 2 points of extra credit for finding errors in the course--this includes typos, broken links, etc. The first time you'll get 1 point, the second time 1/2 point, the third 1/4 point, etc. We prefer [pull requests](https://github.com/BYUHPC/sci-comp-course/compare) when possible.
 
+Since **the course is a work in progress**, material that hasn't yet been created doesn't constitute an error.
+
 
 
 ## Project
