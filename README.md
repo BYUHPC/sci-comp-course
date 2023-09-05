@@ -3,7 +3,7 @@
 
 # BYU Scientific Computing Course
 
-Most of the material for the course is hosted here, but [due dates](https://byu.instructure.com/calendar), [grades](https://byu.instructure.com/courses/22942/gradebook), and [assignment submissions](https://byu.instructure.com/courses/22942/assignments) are found on [Canvas](https://byu.instructure.com/courses/22942).
+Most of the material for the course is hosted here, but [due dates](https://byu.instructure.com/calendar), [grades](https://byu.instructure.com/courses/21221/gradebook), and [assignment submissions](https://byu.instructure.com/courses/21221/assignments) are found on [Canvas](https://byu.instructure.com/courses/21221).
 
 Announcements will be made exclusively via [Slack](https://byu-sci-comp.slack.com). You can get help there, via [email](mailto:scicompcourse@byu.edu), or in person at CB 403.
 

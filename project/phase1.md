@@ -58,7 +58,7 @@ int main() {
 
 ## Submission
 
-Submit your `wave_solve.cpp` and any associated headers on [Canvas](https://byu.instructure.com/courses/22942/assignments/810940).
+Submit your `wave_solve.cpp` and any associated headers on [Canvas](https://byu.instructure.com/courses/21221/assignments/810940).
 
 
 
