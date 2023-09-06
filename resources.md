@@ -5,6 +5,8 @@
 
 This page is meant to bridge the gap between your skills and those required to thrive in the course. At its core, it's a glorified collection of links; the most helpful way to use it is to find what you're confused about and check out all the links in the relevant paragraphs.
 
+The course relies heavily on [Victor Eijkhout's Art of HPC](https://theartofhpc.com/) (especially [volume 4](https://rc.byu.edu/course/EijkhoutHPCtutorials.pdf)), which goes into greater depth than we do in this class--if the content here isn't enough for you, that's a great place to look for more.
+
 
 
 ## The Supercomputer
@@ -15,7 +17,7 @@ Software on the supercomputer is generally accessed with [modules](https://rc.by
 
 ## Programming
 
-You're expected to come into the class with either some C++ experience or the ability to [pick up languages quickly](https://prirai.github.io/books/unix-koans.html#recruiter), so we don't teach programming in general or C++ specifically.
+You're expected to come into the class with either some C++ experience or the ability to [pick up languages quickly](https://prirai.github.io/books/unix-koans.html#master-foo-and-the-recruiter), so we don't teach programming in general or C++ specifically.
 
 Unless you have an established workflow for programming on the supercomputer, we strongly recommend [setting up VS Code for remote editing](https://rc.byu.edu/wiki/index.php?page=Remote+Development+with+VS+Code). You'll find the [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and [Julia](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) [extensions](https://marketplace.visualstudio.com/) helpful. The enlightened will love the [Vim extension](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim).
 
@@ -58,7 +60,7 @@ One aspect of C++ that trips up many students is fact that '`&`' is used for so 
 
 ### Debugging, Profiling, and Optimization
 
-[GDB](https://www.bitdegree.org/learn/gdb-debugger) is ubiquitous for debugging C++ programs; you'll want to `module load gdb` to [get access to a recent version](https://rc.byu.edu/wiki/?id=Environment+Modules) on the supercomputer. If you prefer a graphical debugger, you can [integrate GDB into VS Code](https://youtu.be/G9gnSGKYIg4). If you do so, make sure to set [`miDebuggerPath`](https://youtu.be/G9gnSGKYIg4?t=109) to the path returned by `module load gdb && which gdb`; you'll probably also want to modify `tasks.json` by changing `command` to the result of `module load gcc/12 && which g++` and adding `-std=c++20` to `args`. [Valgrind](https://valgrind.org/docs/manual/quick-start.html) is essential for [tracking down memory problems](https://prajankya.me/valgrind-on-linux/); again, you'll want to `module load valgrind` for a recent version.
+[GDB](https://www.bitdegree.org/learn/gdb-debugger) is ubiquitous for debugging C++ programs; you'll want to `module load gdb` to [get access to a recent version](https://rc.byu.edu/wiki/?id=Environment+Modules) on the supercomputer. If you prefer a graphical debugger, you can [integrate GDB into VS Code](https://youtu.be/G9gnSGKYIg4). If you do so, make sure to set [`miDebuggerPath`](https://youtu.be/G9gnSGKYIg4?t=109) to the path returned by `module load gdb && which gdb`; you'll probably also want to modify `tasks.json` by changing `command` to the result of `module load gcc/latest && which g++` and adding `-std=c++20` to `args`. [Valgrind](https://valgrind.org/docs/manual/quick-start.html) is essential for [tracking down memory problems](https://prajankya.me/valgrind-on-linux/); again, you'll want to `module load valgrind` for a recent version.
 
 There are [many tools available for profiling in C++](https://hackingcpp.com/cpp/tools/profilers.html); [perf]() is a good, simple choice in combination with Valgrind. Profiling and [optimization](https://www.agner.org/optimize/optimizing_cpp.pdf) in C++ are hard--this class will be the start of a long journey.
 
