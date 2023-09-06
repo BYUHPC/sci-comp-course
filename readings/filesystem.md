@@ -62,7 +62,7 @@ You should know the following shell commands. Run the listed examples on the sup
 | `*` | Wildcard pattern | `ls -d /apps/j*` |
 | `cat` | Print files to screen, or create text files | `cat ~/.bash_history` |
 | `grep` | Search for a pattern | `grep 'ls' ~/.bash_history` |
-| `sort` | Sort alphabetically or numerically | `seq 15 \| sort`<br/>`seq 15 \| sort -n` |
+| `sort` | Sort alphabetically or numerically | `seq 15 | sort`<br/>`seq 15 | sort -n` |
 
 Arguably the most important command is `man` (as in *manual*). Run `man [command]` to learn about a command--for example, `man ls` will give you details on how to use `ls`. Within a `man` page, you can search for "somestring" by typing `/somestring`. Exit by typing "`q`".
 
