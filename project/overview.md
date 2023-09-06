@@ -169,7 +169,7 @@ public:
     // Return the energy contained in this WaveOrthotope
     // USAGE: const auto E = my_wave_orthotope.energy();
     const value_type energy() const {
-        T E{};
+        value_type E{};
         // TODO: calculate total energy
         return E;
     }
@@ -177,7 +177,7 @@ public:
     // Advance the membrane in time by dt
     // USAGE: my_wave_orthotope.step();
     const value_type step() {
-        const T dt = 0.01;
+        const value_type dt = 0.01;
         // TODO: update u and v by one time step
         t += dt;
         return t;

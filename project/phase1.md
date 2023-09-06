@@ -39,7 +39,7 @@ g++ -std=c++20 -o wave_solve wave_solve.cpp
 
 You can test your implementation in the same way. You'll probably want to [set up VS Code](../resources.md#programming) on the supercomputer to develop your code unless you're familiar with vim or emacs. If you have no experience with [Linux](../lessons/2-linux.md), you can also [test with an online C++ compiler](../resources.md#compilation).
 
-The [skeleton class in the overview](overview.md#appendix-a-skeleton-wave-simulation-class) and the `main` below constitute a good starting point, and I recommend using them as a scaffold for your program unless you have extensive experience with modern C++.
+The [skeleton class in the overview](overview.md#appendix-b-skeleton-wave-simulation-class) and the `main` below constitute a good starting point, and I recommend using them as a scaffold for your program unless you have extensive experience with modern C++.
 
 ```c++
 int main() {
