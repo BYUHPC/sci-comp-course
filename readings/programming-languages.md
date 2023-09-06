@@ -7,7 +7,7 @@ There are [many ways](https://www.techtarget.com/searchapparchitecture/tip/Funct
 
 There are a few steps that code of any language has to go through before being run by a machine:
 
-- [Lexical analysis](https://en.wikipedia.org/wiki/Lexical_analysis): the process of converting a sequence of chracters into a sequence of tokens
+- [Lexical analysis](https://en.wikipedia.org/wiki/Lexical_analysis): the process of converting a sequence of characters into a sequence of tokens
 - [Syntax analysis](https://en.wikipedia.org/wiki/Parsing): the process of ensuring that the lexed tokens conform to the rules of the language
 - [Semantic analysis](https://en.wikipedia.org/wiki/Compiler#Front_end): the process of ensuring that the relationships between the lexed tokens are valid.
 
