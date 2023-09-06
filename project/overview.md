@@ -3,7 +3,7 @@
 
 # Course Project: Damped Wave Simulation
 
-For the project, your job is to simulate the [damped](https://en.wikipedia.org/wiki/Damping) [wave equation](https://en.wikipedia.org/wiki/Wave_equation) with [fixed boundary conditions](https://en.wikipedia.org/wiki/Dirichlet_boundary_condition) in two dimensions. This is most easily imagined as the evolution in time of a rectangular drum head. The [first phase's simulation](basics.md), for example, looks like this when visualized as an elastic membrane:
+For the project, your job is to simulate the [damped](https://en.wikipedia.org/wiki/Damping) [wave equation](https://en.wikipedia.org/wiki/Wave_equation) with [fixed boundary conditions](https://en.wikipedia.org/wiki/Dirichlet_boundary_condition) in two dimensions. This is most easily imagined as the evolution in time of a rectangular drum head. The [first phase's simulation](phase1.md), for example, looks like this when visualized as an elastic membrane:
 
 ![Elastic Membrane](../img/phase-1-animation-2D.gif)
 
