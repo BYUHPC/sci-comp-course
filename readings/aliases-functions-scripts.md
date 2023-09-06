@@ -85,7 +85,7 @@ It is often useful to define variables within a function to explicate the meanin
 
 ```shell
 $ hello() {
->     name="$1" # no more leaking!
+>     name="$1"
 >     echo "Hello, $name, how are you?"
 > }
 $ echo "$name" # not defined yet
@@ -100,7 +100,7 @@ This can be solved by using **local variables** which don't remain defined after
 
 ```shell
 $ hello() {
->     local name="$1"
+>     local name="$1" # no more leaking!
 >     echo "Hello, $name, how are you?"
 > }
 $ echo "$name" # not defined yet
