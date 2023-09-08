@@ -7,7 +7,7 @@
 
 ### [2: Linux](lessons/2.md)
 
-### [3: Building and Software](lessons/3.md)
+### [3: Building Software](lessons/3.md)
 
 <!---
 [Lesson 4: Schedulers, grep/sed/awk](lessons/.md) TODO
