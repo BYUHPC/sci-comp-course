@@ -5,7 +5,11 @@
 
 In this phase you'll make your wave simulation program more capable and versatile by reading from arbitrary data files to determine initial state, writing to data files to indicate final state, and implementing [checkpointing](../readings/checkpointing.md) for resilience against unexpected program termination. You'll check in your work via [git](../readings/version-control.md) and build it with [CMake](../readings/cmake.md), which will make life easier for this and subsequent assignments.
 
+It's a good idea to break your wave orthotope class over multiple classes in such a way that it'll be maximally useful for subsequent phases. I recommend a structure very similar to [`solver_serial` in the example code](https://github.com/BYUHPC/sci-comp-course-example-cxx#usage)--two abstract classes and one concrete one:
 
+- `WaveOrthotope`: an abstract class containing the simulation state (damping coefficient, simulation time, displacement, and velocity) and any common utilities you find a need for
+- `WaveOrthotopeSharedMem`: an abstract class inheriting from `WaveOrthotope` with I/O functionality
+- `WaveOrthotopeOpenMP`: a concrete class inheriting from `WaveOrthotopeSharedMem` containing the infrastructure required to solve wave orthotopes; you'll add OpenMP functionality later
 
 
 
@@ -148,3 +152,15 @@ cmake --build . --parallel
 I recommend doing the same when you're finished to ensure that everything is in its place within the repo.
 
 I'll also test that the generated `wavesolve_serial` produces correct results; you should [do so](../resources.md#the-project) as well.
+
+
+
+## Grading
+
+This phase is worth 20 points. The following deductions, up to 20 points total, will apply for a program that doesn't work as laid out by the spec:
+
+| Defect | Deduction |
+| --- | --- |
+| Failure to compile | 5 points |
+| Failure to work on each of 4 test files | 2.5 points each |
+| Failure to run successfully (e.g. due to a segmentation fault or hang) | 5 points |
