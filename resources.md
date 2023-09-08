@@ -15,6 +15,32 @@ Software on the supercomputer is generally accessed with [modules](https://rc.by
 
 
 
+## The [Project](project/overview.md)
+
+From [phase 2](project/phase2.md) onward, you'll want reference input and output files to test your work; **you can find them in [`wavefiles.tar.gz`](https://rc.byu.edu/course/wavefiles.tar.gz)**. Download and extract them with:
+
+```shell
+wget https://rc.byu.edu/course/wavefiles.tar.gz
+tar xf wavefiles.tar.gz
+```
+
+Within the resultant `wavefiles` directory you'll find many wave orthotope files from 1 to 4 dimensions (in case you're doing the [extra credit](assignments/extra-credit.md#project)). Files with "`in`" in their names are input files, initialized and with simulation time zero; the corresponding "`out`" files are correct output files. As an example, `small-2d-out.wo` is the same wave orthotope as the one represented by `small-2d-in.wo`, but after solving. You could test your implementation using these two files by running your solver on the input file:
+
+```shell
+./wavesolve_serial small-2d-in.wo my-small-2d-out.wo
+```
+
+...then using [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl) to ensure that your output file is correct:
+
+```julia
+using WaveSim
+correct = WaveOrthotope("small-2d-out.wo")
+mine = WaveOrthotope("my-small-2d-out.wo")
+@assert isapprox(correct, mine)
+```
+
+
+
 ## Programming
 
 You're expected to come into the class with either some C++ experience or the ability to [pick up languages quickly](https://prirai.github.io/books/unix-koans.html#master-foo-and-the-recruiter), so we don't teach programming in general or C++ specifically.

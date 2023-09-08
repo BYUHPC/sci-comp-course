@@ -117,7 +117,7 @@ end
 
 The foundation you lay in the first phases will be used for the rest of the course. It's thus a good idea to skim over future [phases of the project](../assignments.html) often to ensure that your code maintains the flexibility to easily accomodate future requirements. Pay down [technical debt](https://en.wikipedia.org/wiki/Technical_debt) early.
 
-Get familiar with [`WaveSim.jl`](TODOhttps://github.com/BYUHPC/WaveSim.jl) early, ideally by [phase 2](phase2.md)--you'll be modifying it in phases [4](phase4.md) and [8](phase8.md), so you may as well take advantage of its utility early on.
+Get familiar with [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl) early, ideally by [phase 2](phase2.md)--you'll be modifying it in phases [4](phase4.md) and [8](phase8.md), so you may as well take advantage of its utility early on.
 
 Look at the example [code often](https://github.com/BYUHPC/sci-comp-course-example-cxx), as there's usually very little difference (outside of the algorithm) between it and what you'll be required to do.
 
@@ -125,7 +125,7 @@ Look at the example [code often](https://github.com/BYUHPC/sci-comp-course-examp
 
 ## Appendix B: Skeleton Wave Simulation Class
 
-Below is a class that contains the state of a wave simulation. It's provided since this isn't a programming class--we want you to learn relavant general concepts, not the painful ins and outs of C++. The parts you'll need to implement (for the [first phase](phase1.md), at least) are marked with `// TODO` comments. You'll likely need to modify it and split it into separate headers for each phase; look to the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx) for ideas on how to do so.
+Below is a class that contains the state of a wave simulation. It's provided since this isn't a programming class--we want you to learn relevant general concepts, not the painful ins and outs of C++. The parts you'll need to implement (for the [first phase](phase1.md), at least) are marked with `// TODO` comments. You'll likely need to modify it and split it into separate headers for each phase; look to the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx) for ideas on how to do so.
 
 ```c++
 #include <array>

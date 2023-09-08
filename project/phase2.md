@@ -3,16 +3,18 @@
 
 # Phase 2: I/O, Checkpointing, and Version Control
 
-In this phase you'll make your wave simulation program more capable and versatile by reading from arbitrary data files to determine initial state, writing to data files to indicate final state, and implementing [checkpointing](../readings/checkpointing.md) for resilience against unexpected program termination. You'll check in your work via [git](../readings/version-control.md#git), which will make life easier for this and subsequent assignments.
+In this phase you'll make your wave simulation program more capable and versatile by reading from arbitrary data files to determine initial state, writing to data files to indicate final state, and implementing [checkpointing](../readings/checkpointing.md) for resilience against unexpected program termination. You'll check in your work via [git](../readings/version-control.md) and build it with [CMake](../readings/cmake.md), which will make life easier for this and subsequent assignments.
+
+
 
 
 
 ## I/O
 
-In [phase 1](phase1.md), you [created and solved a specific wave plane](phase1.md#the-simulation); in this assignment, you'll read in an arbitrary wave plane, solve it, and write the solved wave plane out. The input file will be specified as the first command line argument, and the output file as the second. Running it might look something like:
+In [phase 1](phase1.md), you created and solved a specific wave plane; in this assignment, you'll read in an arbitrary wave plane, solve it, and write the solved wave plane out. The input file will be specified as the first command line argument, and the output file as the second. Running it might look something like:
 
 ```shell
-./wavesolve_serial initial.dat solved.dat
+./wavesolve_serial initial.wo solved.wo
 ```
 
 ### Data Format
@@ -41,7 +43,7 @@ $$\begin{bmatrix}
     9 & 10 & 11 & 12 \\
 \end{bmatrix}$$
 
-I recommend adding a constructor and a `write` function to your class, each of which take a filename as their sole argument; see the [example code]() for an idea of how to do so.
+I recommend adding a constructor and a `write` function to your class, each of which take a filename as their sole argument; see the [example C++ shared memory I/O](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeSharedMem.hpp) for an idea of how to do so.
 
 You can check whether your input and output files are correct with [`WaveSim`](https://github.com/BYUHPC/WaveSim.jl)--see `?WaveOrthotope` and `?write` after loading the `WaveSim` module. You can try to read `infile.wo` gracefully thus:
 
@@ -54,7 +56,7 @@ catch e
 end
 ```
 
-If there was an exception that the `WaveOrthotope` constructor is equipped to handle, `w` will be a [`WaveOrthotopeReadException`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/io.jl#L20), which may contain useful data about the nature of the read failure.
+If there was an exception that the `WaveOrthotope` constructor is equipped to handle, `w` will be a [`WaveOrthotopeReadException`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/io.jl#L20), which will contain useful data about the nature of the read failure.
 
 ### Reading and Writing Binary in C++
 
@@ -71,19 +73,20 @@ os.write(reinterpret_cast<const char *const>(&x), sizeof(x));
 
 ### Resilience to Bad Data
 
-Since this isn't a class about parsing or error handling, you aren't required to deal with bad arguments or bad data files gracefully. That said, sanity checks help with debugging; mimicking the bad input handling from the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeSharedMem.hpp) is encouraged.
+Since this isn't a class about parsing or error handling, you aren't required to deal with bad arguments or bad data files gracefully. That said, sanity checks help with debugging; mimicking the bad input handling from [the](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/run_solver.hpp#L42) [example](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRange.hpp#L155) [code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeSharedMem.hpp#L26) is encouraged.
 
 
 
 ## Checkpointing
 
-In addition to the final state, the program will also write checkpoint files at regular intervals. The **interval** will be determined by the [environment variable](../readings/environment-variables.md) `INTVL`, which if it exists will be a positive value that will be parsed as a float. During the course of the solve, if the interval is set to a positive value, the simulation time of the wave orthotope after a step divided by the interval is less than 0.002 (to account for floating point imprecision), a checkpoint file should be written, unless it hasn't been stepped yet. Said file should be named `chk-<time>.wo`, where `<time>` is the simulation time formatted as 4 digits, then the decimal point, then 2 digits. The solve loop that does this might look something like:
+In addition to the final state, the program will also write [checkpoint](../readings/checkpointing.md) files at regular intervals. The **interval** will be determined by the [environment variable](../readings/environment-variables.md) `INTVL`, which if it exists will be a positive value that will be parsed as a float. During the course of the solve, if the interval is set to a positive value, the simulation time of the wave orthotope after a step divided by the interval is less than 0.002 (to account for floating point imprecision), a checkpoint file should be written, unless it hasn't been stepped yet. Said file should be named `chk-<time>.wo`, where `<time>` is the simulation time formatted as 4 digits, then the decimal point, then 2 digits. The solve loop that does this might look something like:
 
 ```c++
 #include <format>
+#include <math.h>
 while (w.energy() > stop_energy) {
     w.step();
-    if (interval > 0 && w.time() / interval < 0.002) {
+    if (interval > 0 && fmod(w.time(), interval) < 0.002) {
         auto check_file_name = std::format("chk-{:07.2f}.wo", w.time());
         w.write(check_file_name);
     }
@@ -91,3 +94,57 @@ while (w.energy() > stop_energy) {
 ```
 
 As an example, if `INTVL` is set to `1.23` and a simulation runs for 3 seconds, two checkpoint files, `chk-0001.23.wo` and `chk-0002.46.wo`, should be created.
+
+You can read `INTVL` from the environment into a float with [`std::getenv`](https://en.cppreference.com/w/cpp/utility/program/getenv) and [`std::stof`](https://en.cppreference.com/w/cpp/string/basic_string/stof)
+
+
+
+## CMake
+
+You'll create a `CMakeLists.txt` to abstract the building of your `wavesolve_serial` away from the user. This will also allow you to name and organize your files however you would like, and makes grading much easier for me.
+
+I recommend setting up tests as well. The [example `CMakeLists.txt`](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/CMakeLists.txt#L79) is a good example of how to do so, if a bit overwrought for this assignment; your project will grow to similar scale, though, so it's not a bad idea to mirror that setup. You can also set up [Catch2](https://github.com/catchorg/Catch2/blob/devel/docs/cmake-integration.md) if you'd like to do unit testing; `module load catch2` will make it available on the supercomputer.
+
+Assuming you have two source files, `wavesolve_serial.cpp` and `WaveOrthotope.hpp`, a minimal `CMakeLists.txt` might look like:
+
+```cmake
+cmake_minimum_required(VERSION 3.19)
+project(wavesolve CXX)
+
+# Use C++20
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_EXTENSIONS FALSE)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+
+# Build wavesolve_serial
+add_executable(wavesolve_serial wavesolve_serial.cpp WaveOrthotope.hpp)
+```
+
+
+
+## Submission: Git
+
+You'll submit your work via [git](../readings/version-control.md). Clone your empty repository from our homework server, replacing `netid` with your net ID:
+
+```shell
+git clone netid@homework.rc.byu.edu:scicomp
+```
+
+Put your `CMakeLists.txt` and source files in the resulting `scicomp` directory, commit, and [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) the commit you would like me to use for grading "`phase1`."
+
+After making sure your code looks right, I'll build it on the supercomputer with the following:
+
+```shell
+git clone YOURNETID@homework.rc.byu.edu:scicomp
+cd scicomp
+git checkout phase1
+module load gcc/latest cmake catch2
+mkdir bld
+cd bld
+cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+cmake --build . --parallel
+```
+
+I recommend doing the same when you're finished to ensure that everything is in its place within the repo.
+
+I'll also test that the generated `wavesolve_serial` produces correct results; you should [do so](../resources.md#the-project) as well.

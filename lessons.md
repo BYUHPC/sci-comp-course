@@ -7,9 +7,9 @@
 
 ### [2: Linux](lessons/2.md)
 
-<!---
-[Lesson 3: Building and Using Software Effectively](lessons/3-using-software.md)
+### [3: Building and Software](lessons/3.md)
 
+<!---
 [Lesson 4: Schedulers, grep/sed/awk](lessons/.md) TODO
 
 [Lesson 5: Optimization](lessons/5-optimization.md)

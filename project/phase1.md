@@ -27,14 +27,14 @@ $$v_0 = \begin{bmatrix}
     0      & 0      & \dots  & 0      & 0      \\
 \end{bmatrix}$$
 
-...your job is to [solve](overview.md#running-the-simulation) these initial conditions and print the simulation time to stdout followed by a newline. The answer should be 157.77, but I care more about the means of getting this answer than the answer itself. You'll turn in a C++20 source file named `wave_solve.cpp` and (optionally) any headers required by it.
+...your job is to [solve](overview.md#running-the-simulation) these initial conditions and print the simulation time to stdout followed by a newline. The answer should be 157.77, but I care more about the means of getting this answer than the answer itself. You'll turn in a C++20 source file named `wavesolve.cpp` and (optionally) any headers required by it.
 
 The file(s) you create will be [compiled and run](../resources.md#compilation) by the latest version of GCC installed on the [supercomputer](../assignments/get-account.md) with the following:
 
 ```shell
 module load gcc/latest
-g++ -std=c++20 -o wave_solve wave_solve.cpp
-./wave_solve
+g++ -std=c++20 -o wavesolve wavesolve.cpp
+./wavesolve
 ```
 
 You can test your implementation in the same way. You'll probably want to [set up VS Code](../resources.md#programming) on the supercomputer to develop your code unless you're familiar with vim or emacs. If you have no experience with [Linux](../lessons/2-linux.md), you can also [test with an online C++ compiler](../resources.md#compilation).
@@ -58,7 +58,7 @@ int main() {
 
 ## Submission
 
-Submit your `wave_solve.cpp` and any associated headers on [Canvas](https://byu.instructure.com/courses/21221/assignments/810940).
+Submit your `wavesolve.cpp` and any associated headers on [Canvas](https://byu.instructure.com/courses/21221/assignments/810940).
 
 
 
@@ -71,7 +71,7 @@ This phase is worth 20 points. The following deductions, up to 20 points total, 
 | Failure to compile | 5 points |
 | Failure to output a result between 157 and 158 | 2 points |
 | Failure to output exactly 157.77 | 3 points |
-| Failure to run successfully (e.g. due to a segmentation fault) | 5 points |
+| Failure to run successfully (e.g. due to a segmentation fault or hang) | 5 points |
 | Code isn't relevant to the assignment, or just prints "157.77" or similar | 20 points |
 
 As an example, code that looks about right but fails to compile would receive 5 points--deductions for failure to compile, failure to run successfully, and failure to output a correct result all apply.
