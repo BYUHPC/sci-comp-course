@@ -1,6 +1,0 @@
----
----
-
-# Version Control
-
-TODO
