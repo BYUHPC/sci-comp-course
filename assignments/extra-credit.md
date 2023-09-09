@@ -47,4 +47,4 @@ If this looks like gibberish to you, it's unlikely that the extra credit will be
 
 ## Custom
 
-If you have an idea to improve the course (e.g. ellucidating example code, a few extra paragraphs for clarity, an assignment that yields the same learning for less effort) and would like extra credit, let us know and we can probably arrange something.
+If you have an idea to improve the course (e.g. elucidating example code, a few extra paragraphs for clarity, an assignment that yields the same learning for less effort) and would like extra credit, let us know and we can probably arrange something.
