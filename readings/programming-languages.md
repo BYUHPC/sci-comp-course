@@ -62,7 +62,7 @@ Since compilation only has to happen once, workflows with one compilation and ma
 
 ## Which is Better?
 
-### Interpreted Language Advangages
+### Interpreted Language Advantages
 
 - Programs can be evaluated immediately--code does not need to be recompiled after each change
 - Generally more portable between platforms and operating systems
