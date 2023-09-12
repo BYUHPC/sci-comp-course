@@ -149,26 +149,26 @@ public:
     // Constructor
     // USAGE: auto my_wave_orthotope = WaveOrthotope(20, 30, 0.1, 0);
     // SEE: https://www.learncpp.com/cpp-tutorial/constructor-member-initializer-lists/
-    WaveOrthotope(const auto m, const auto n, const auto c, const value_type t=0): m(m), n(n), c(c), t(t), disp(m*n), vel(m*n) {}
+    WaveOrthotope(auto m, auto n, auto c, value_type t=0): m(m), n(n), c(c), t(t), disp(m*n), vel(m*n) {}
 
     // Return the size as a std::array
     // USAGE: const auto [rows, cols] = my_wave_orthotope.size();
     // SEE: https://codeburst.io/c-17-structural-binding-180696f7a678#63b1
-    constexpr const auto size() const { return std::array{m, n}; }
+    constexpr auto size() const { return std::array{m, n}; }
 
     // Displacement indexing
     // USAGE: my_wave_orthotope.u(1, 2) = 1.0;
-    constexpr const value_type  u(const auto i, const auto j) const { return disp[i*n+j]; }
-    constexpr       value_type& u(const auto i, const auto j)       { return disp[i*n+j]; }
+    constexpr value_type  u(auto i, auto j) const { return disp[i*n+j]; }
+    constexpr value_type& u(auto i, auto j)       { return disp[i*n+j]; }
 
     // Displacement velocity indexing
     // USAGE: const auto v12 = my_wave_orthotope.v(1, 2);
-    constexpr const value_type  v(const auto i, const auto j) const { return vel [i*n+j]; }
-    constexpr       value_type& v(const auto i, const auto j)       { return vel [i*n+j]; }
+    constexpr value_type  v(auto i, auto j) const { return vel [i*n+j]; }
+    constexpr value_type& v(auto i, auto j)       { return vel [i*n+j]; }
 
     // Return the energy contained in this WaveOrthotope
     // USAGE: const auto E = my_wave_orthotope.energy();
-    const value_type energy() const {
+    value_type energy() const {
         value_type E{};
         // TODO: calculate total energy
         return E;
@@ -176,7 +176,7 @@ public:
 
     // Advance the membrane in time by dt
     // USAGE: my_wave_orthotope.step();
-    const value_type step() {
+    value_type step() {
         const value_type dt = 0.01;
         // TODO: update u and v by one time step
         t += dt;
@@ -185,7 +185,7 @@ public:
 
     // Advance the membrane in time by steps of dt until the average interior cell energy drops below 0.001
     // USAGE: const auto sim_time = my_wave_orthotope.solve();
-    const value_type solve() {
+    value_type solve() {
         while (energy() > (m-2)*(n-2)*0.001) {
             step();
         }
