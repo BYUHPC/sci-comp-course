@@ -13,7 +13,7 @@ On a Linux machine (preferably the supercomputer), use `wget https://rc.byu.edu/
 
 Once you have done so, navigate into `treasure_hunt` and modify the permissions of `which-file` to allow you to execute it.
 
-You will need to load a Python 3 environment module, for example `python/3.8`, to successfully run `which-file`.
+You will need to load the Python 3.8 environment module (`python/3.8`) to successfully run `which-file`.
 
 
 
