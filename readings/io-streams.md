@@ -30,7 +30,7 @@ grep -i 'claws al ghul' catman_begins.txt >> output.txt
 
 ### `stderr`: "`2>`" or "`2>>`"
 
-Prepending the output redirection tokens with a 2 redirects the standard error. Below is an example with the vlc media player.
+Prepending the output redirection tokens with a 2 redirects the standard error. Below is an example with the `vlc` media player.
 
 ```shell
 # Create or replace error.log
@@ -43,7 +43,7 @@ vlc mr_smith_goes_to_pawshington.mpg 2>> error.log
 
 ### Both `stdout` and `stderr`
 
-You can combine the redirects to redirect both stdout and stderr at the same time:
+You can combine the redirects to redirect both `stdout` and `stderr` at the same time:
 
 ```shell
 bionano_software > output.log 2> error.log   # create
@@ -54,7 +54,7 @@ bionano_software >> output.log 2>> error.log # append
 
 ### `stdin`: "`<`"
 
-The less-than token is used to redirect standard in. It tells the program to take its input from the file following the token:
+The less-than token is used to redirect standard input (`stdin`). It tells the program to take its input from the file following the token:
 
 ```shell
 # Create a file or replace an existing file:
@@ -69,7 +69,7 @@ sort cats.txt > sorted_cats.txt
 
 ### Combine streams
 
-One I/O stream can be redirected to another I/O stream. This is the syntax for redirecting stderr to stdout. It would ensure that all output, standard or error, would end up at the destination:
+One I/O stream can be redirected to another I/O stream. This is the syntax for redirecting `stderr` to `stdout`. It would ensure that all output, standard or error, would end up at the destination:
 
 ```shell
 ping -c 10 procatinator.com > output.txt 2>&1
@@ -79,5 +79,9 @@ ping -c 10 procatinator.com &> output.txt # shorthand
 ### Discard output
 
 `/dev/null` can be thought of as a black hole. It's a special device that discards anything that is passed to it. The ampersand-greater-than (`&>`) will redirect both streams to the same place:
+
+```shell
+./automated_task.sh &> /dev/null # run the program, throwing away all output
+```
 
 ![Discard output](../img/io-discard-output.png)
