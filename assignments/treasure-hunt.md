@@ -13,23 +13,23 @@ On a Linux machine (preferably the supercomputer), use `wget https://rc.byu.edu/
 
 Once you have done so, navigate into `treasure_hunt` and modify the permissions of `which-file` to allow you to execute it.
 
-You will need to load the Python 3.8 environment module (`python/3.8`) to successfully run `which-file`.
+You will need to load a Julia environment module (e.g. `julia/1.9`) to successfully run `which-file`.
 
 
 
 ## Find the Hash Seed
 
-`which-file` will give a random answer if the environment variable [`PYTHONHASHSEED`](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONHASHSEED) isn't set. The correct hash seed is determined by totaling the byte counts of all files in the directory `noisy_files` ending with "`.gz`"
+`which-file` will fail if the environment variable `TH_SALT` isn't set, or yield an incorrect result if it isn't set correctly. The correct salt is determined by totaling the byte counts of all files in the directory `noisy_files` ending with "`.gz`"
 
 You can find this total using `wc` (word count), giving the glob representing all "`.gz`" files in `noisy_files` as the last argument; search `wc`'s man page for "bytes" to see which flag to use to count bytes. The output of wc will end with something like "`1234 total`"–this is the total byte count. As a quick check, the last 4 digits of the total form a palindrome. 
 
-Set `PYTHONHASHSEED` to this total, making sure it is available to child processes.
+Set `TH_SALT` to this total, making sure it is available to child processes.
 
 
 
 ## Get the File Name
 
-With `PYTHONHASHSEED` set, `which-file` will print the correct filename to stdout, but the result will be muddied by random characters printed to stderr interspersed with the correct filename. To see the unsullied filename, run `which-file`, sending stderr to `/dev/null`.
+With `TH_SALT` set, `which-file` will print the correct filename to stdout, but the result will be muddied by random characters printed to stderr interspersed with the correct filename. To see the unsullied filename, run `which-file`, sending stderr to `/dev/null`.
 
 **Make sure not to modify `which-file`**-–it hashes itself to get the answer, so changing even a character will yield the wrong filename.
 
