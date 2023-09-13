@@ -53,7 +53,7 @@ You can check whether your input and output files are correct with [`WaveSim`](h
 
 ```julia
 w = try
-    WaveOrthotope("infile.wo")
+    WaveOrthotope(open("infile.wo"))
 catch e
     print("Failed to read")
     e isa WaveSim.WaveOrthotopeException ? e : rethrow(e)
