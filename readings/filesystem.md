@@ -3,7 +3,7 @@
 
 # Navigating Filesystems
 
-The first thing you’ll encounter with the Linux shell is the filesystem. You are already familiar with filesystems. Whenever your work with folders, directories, and files on a computer, you are working with a filesystem. The difference with the Linux shell is that, instead of using a mouse to click through graphical representations of folders and files, you navigate it with commands that you type.
+The first thing you’ll encounter with the Linux shell is the filesystem. You are already familiar with filesystems. Whenever you work with folders, directories, and files on a computer, you are working with a filesystem. The difference with the Linux shell is that, instead of using a mouse to click through graphical representations of folders and files, you navigate it with commands that you type.
 
 ## Filesystem
 
