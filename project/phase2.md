@@ -97,9 +97,9 @@ while (w.energy() > stop_energy) {
 }
 ```
 
-As an example, if `INTVL` is set to `1.23` and a simulation runs for 3 seconds, two checkpoint files, `chk-0001.23.wo` and `chk-0002.46.wo`, should be created.
+As an example, if `INTVL` is set to `1.23` and a simulation runs for 3 seconds, two checkpoint files, `chk-0001.23.wo` and `chk-0002.46.wo`, should be created. If `INTVL` is not defined, is not a positive value, or can't be parsed as a float, no checkpointing should occur.
 
-You can read `INTVL` from the environment into a float with [`std::getenv`](https://en.cppreference.com/w/cpp/utility/program/getenv) and [`std::stof`](https://en.cppreference.com/w/cpp/string/basic_string/stof)
+You can read `INTVL` from the environment into a float with [`std::getenv`](https://en.cppreference.com/w/cpp/utility/program/getenv) and [`std::stof`](https://en.cppreference.com/w/cpp/string/basic_string/stof).
 
 
 
@@ -134,14 +134,14 @@ You'll submit your work via [git](../readings/git.md). Clone your empty reposito
 git clone netid@homework.rc.byu.edu:scicomp
 ```
 
-Put your `CMakeLists.txt` and source files in the resulting `scicomp` directory, commit, and [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) the commit you would like me to use for grading "`phase1`."
+Put your `CMakeLists.txt` and source files in the resulting `scicomp` directory, commit, and [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) the commit you would like me to use for grading "`phase2`."
 
 After making sure your code looks right, I'll build it on the supercomputer with the following:
 
 ```shell
 git clone YOURNETID@homework.rc.byu.edu:scicomp
 cd scicomp
-git checkout phase1
+git checkout phase2
 module load gcc/latest cmake catch2
 mkdir bld
 cd bld
