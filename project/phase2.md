@@ -166,3 +166,4 @@ This phase is worth 20 points. The following deductions, up to 20 points total, 
 | Failure to compile | 5 points |
 | Failure to work on each of 4 test files | 2.5 points each |
 | Failure to run successfully (e.g. due to a segmentation fault or hang) | 5 points |
+| Failure to checkpoint correctly | 5 points |
