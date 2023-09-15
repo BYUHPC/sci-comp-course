@@ -92,7 +92,7 @@ In addition to the final state, the program will also write [checkpoint](../read
 #include <math.h>
 while (w.energy() > stop_energy) {
     w.step();
-    if (interval > 0 && fmod(w.time(), interval) < 0.002) {
+    if (interval > 0 && fmod(w.time()+0.002, interval) < 0.004) {
         auto check_file_name = std::format("chk-{:07.2f}.wo", w.time());
         w.write(check_file_name);
     }
