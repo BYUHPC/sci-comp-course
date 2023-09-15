@@ -11,6 +11,8 @@ It's a good idea to break your wave orthotope class over multiple classes in suc
 - `WaveOrthotopeSharedMem`: an abstract class inheriting from `WaveOrthotope` with I/O functionality
 - `WaveOrthotopeOpenMP`: a concrete class inheriting from `WaveOrthotopeSharedMem` containing the infrastructure required to solve wave orthotopes; you'll add OpenMP functionality later
 
+**You can test this and subsequent phases against [wavefiles.tar.gz](https://rc.byu.edu/course/wavefiles.tar.gz)**; usage instructions are on the [resources page](../resources.md#the-project).
+
 
 
 ## I/O
