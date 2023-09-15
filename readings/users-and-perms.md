@@ -58,8 +58,8 @@ g1 g3
 $ ls -l
 total 0
 -rw-r----- 1 user g1 0 Sep  5 15:50 file_a
--rw-rw-r-- 1 abc  g3 0 Sep  5 15:50 file_b
--rw-rw---- 1 abc  g2 0 Sep  5 15:50 file_c
+-rw-r----- 1 abc  g3 0 Sep  5 15:50 file_b
+-rw-rw-r-- 1 abc  g2 0 Sep  5 15:50 file_c
 ```
 
 
@@ -88,7 +88,7 @@ The letter representations can also be used, at the expense of brevity:
 chmod u+rwx,g+rx-w,u-rwx myfile # equivalent to above
 ```
 
-`+` adds permissions, `-` subtracts permissions.
+`+` adds permissions; `-` subtracts permissions.
 
 
 
