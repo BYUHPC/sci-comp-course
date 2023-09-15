@@ -136,7 +136,7 @@ You'll submit your work via [git](../readings/git.md). Clone your empty reposito
 git clone netid@homework.rc.byu.edu:scicomp
 ```
 
-Put your `CMakeLists.txt` and source files in the resulting `scicomp` directory, commit, and [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) the commit you would like me to use for grading "`phase2`."
+Put your `CMakeLists.txt` and source files in the resulting `scicomp` directory, commit, and [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) the commit you would like me to use for grading "`phase2`." Make sure to `git push origin phase2` so the tag shows up in the remote.
 
 After making sure your code looks right, I'll build it on the supercomputer with the following:
 
