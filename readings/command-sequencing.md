@@ -58,7 +58,7 @@ $ grep 'random readers' slurm-1234.out
 We can pipe the output into a tool called awk which is very useful for printing specific columns in text output, to print only the two numbers that we want:
 
 ```shell
-$ grep 'random readers' slurm-1234.out | awk '{ print $5, $9 }'
+$ grep 'random readers' slurm-1234.out | awk '{ print $3, $7 }'
 1 2847.90
 2 5926.94
 3 8877.60
