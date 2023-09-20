@@ -24,18 +24,18 @@ wget https://rc.byu.edu/course/wavefiles.tar.gz
 tar xf wavefiles.tar.gz
 ```
 
-Within the resultant `wavefiles` directory you'll find many wave orthotope files from 1 to 4 dimensions (in case you're doing the [extra credit](assignments/extra-credit.md#project)). Files with "`in`" in their names are input files, initialized and with simulation time zero; the corresponding "`out`" files are correct output files. As an example, `small-2d-out.wo` is the same wave orthotope as the one represented by `small-2d-in.wo`, but after solving. You could test your implementation using these two files by running your solver on the input file:
+Within the resultant `wavefiles` directory you'll find many wave orthotope files from 1 to 4 dimensions (in case you're doing the [extra credit](assignments/extra-credit.md#project)). Files with "`in`" in their names are input files, initialized and with simulation time zero; the corresponding "`out`" files are correct output files. As an example, `2d-small-out.wo` is the same wave orthotope as the one represented by `2d-small-in.wo`, but after solving. You could test your implementation using these two files by running your solver on the input file:
 
 ```shell
-./wavesolve_serial small-2d-in.wo my-small-2d-out.wo
+./wavesolve_serial 2d-small-in.wo my-2d-small-out.wo
 ```
 
 ...then using [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl) to ensure that your output file is correct:
 
 ```julia
 using WaveSim
-correct = WaveOrthotope("small-2d-out.wo")
-mine = WaveOrthotope("my-small-2d-out.wo")
+correct = WaveOrthotope("2d-small-out.wo")
+mine = WaveOrthotope("my-2d-small-out.wo")
 @assert isapprox(correct, mine)
 ```
 
