@@ -34,8 +34,8 @@ Within the resultant `wavefiles` directory you'll find many wave orthotope files
 
 ```julia
 using WaveSim
-correct = WaveOrthotope("2d-small-out.wo")
-mine = WaveOrthotope("my-2d-small-out.wo")
+correct = WaveOrthotope(open("2d-small-out.wo"))
+mine = WaveOrthotope(open("my-2d-small-out.wo"))
 @assert isapprox(correct, mine)
 ```
 
