@@ -36,7 +36,7 @@ The format of these files is as follows:
 
 1. `N`: the number of dimensions as a 64-bit unsigned integer; unless you're doing the extra credit, this will always be 2.
 1. `m`: the size of the wave orthotope, `N` 64-bit unsigned integers.
-1. `c`: the damping coefficient, a 64-bit float.
+1. `c`: the damping coefficient, a 64-bit float (in C++ this is a **`double`**).
 1. `t`: the simulation time, a 64-bit float.
 1. `u`: the displacement array, an array of size `m` in C array order (the first row is written/read in its entirety, then the second, etc.).
 1. `v`: the velocity array, in the same format as `u`.
@@ -51,7 +51,7 @@ $$\begin{bmatrix}
 
 I recommend adding a constructor and a `write` function to your class, each of which take a filename as their sole argument; see the [example C++ shared memory I/O](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeSharedMem.hpp) for an idea of how to do so.
 
-You can check whether your input and output files are correct with [`WaveSim`](https://github.com/BYUHPC/WaveSim.jl)--see `?WaveOrthotope` and `?write` after loading the `WaveSim` module. You can try to read `infile.wo` gracefully thus:
+You can check whether your input and output files are correct with the [`wavediff` and `waveshow` binaries](../resources.md#the-project) included in [`wavefiles.tar.gz`](https://rc.byu.edu/course/wavefiles.tar.gz). You could also use [`WaveSim`](https://github.com/BYUHPC/WaveSim.jl) if you want to look at the files interactively--see `?WaveOrthotope` and `?write` after loading the `WaveSim` module. Here's how to read `infile.wo` gracefully:
 
 ```julia
 w = try
@@ -72,9 +72,9 @@ If you insist, though, you can read and write manually:
 
 ```c++
 // Read x from istream is:
-is.read(reinterpret_cast<char *const>(&x), sizeof(x));
+is.read(reinterpret_cast<char *>(&x), sizeof(x));
 // Write x to ostream os:
-os.write(reinterpret_cast<const char *const>(&x), sizeof(x));
+os.write(reinterpret_cast<const char *>(&x), sizeof(x));
 ```
 
 ### Resilience to Bad Data
@@ -94,7 +94,7 @@ while (w.energy() > stop_energy) {
     w.step();
     if (interval > 0 && fmod(w.time()+0.002, interval) < 0.004) {
         auto check_file_name = std::format("chk-{:07.2f}.wo", w.time());
-        w.write(check_file_name);
+        w.write(check_file_name.c_str());
     }
 }
 ```

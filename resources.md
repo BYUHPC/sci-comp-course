@@ -24,13 +24,21 @@ wget https://rc.byu.edu/course/wavefiles.tar.gz
 tar xf wavefiles.tar.gz
 ```
 
-Within the resultant `wavefiles` directory you'll find many wave orthotope files from 1 to 4 dimensions (in case you're doing the [extra credit](assignments/extra-credit.md#project)). Files with "`in`" in their names are input files, initialized and with simulation time zero; the corresponding "`out`" files are correct output files. As an example, `2d-small-out.wo` is the same wave orthotope as the one represented by `2d-small-in.wo`, but after solving. You could test your implementation using these two files by running your solver on the input file:
+Within the resultant `wavefiles` directory are three helpful binaries: `wavesolve`, `waveshow`, and `wavediff`. `wavesolve` is a reference solver that works with up to 10 dimensions. `waveshow` prints wave orthotope files in human-readable form. `wavediff` checks whether two wave orthotope files represent the same wave orthotope. Call each with `--help` as the only argument to learn how to use them.
+
+You'll also find many wave orthotope files from 1 to 4 dimensions (in case you're doing the [extra credit](assignments/extra-credit.md#project)). Files with "`in`" in their names are input files, initialized and with simulation time zero; the corresponding "`out`" files are correct output files. As an example, `2d-small-out.wo` is the same wave orthotope as the one represented by `2d-small-in.wo`, but after solving. You could test your implementation using these two files by running your solver on the input file:
 
 ```shell
 ./wavesolve_serial 2d-small-in.wo my-2d-small-out.wo
 ```
 
-...then using [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl) to ensure that your output file is correct:
+...then using the included `wavediff` binary to ensure that your output file is correct:
+
+```shell
+wavediff 2d-small-out.wo 2d-small-in.wo
+```
+
+You could also use [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl) to ensure that your output file is correct:
 
 ```julia
 using WaveSim
@@ -38,6 +46,8 @@ correct = WaveOrthotope("2d-small-out.wo")
 mine = WaveOrthotope("my-2d-small-out.wo")
 @assert isapprox(correct, mine)
 ```
+
+...which allows you to look at each wave orthotope interactively.
 
 
 
