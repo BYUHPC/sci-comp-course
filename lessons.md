@@ -9,6 +9,8 @@
 
 ### [3: Building Software](lessons/3.md)
 
+### [4: Working on the Supercomputer](lessons/4.md)
+
 <!---
 [Lesson 4: Schedulers, grep/sed/awk](lessons/.md) TODO
 

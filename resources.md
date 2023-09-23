@@ -13,6 +13,8 @@ The course relies heavily on [Victor Eijkhout's Art of HPC](https://theartofhpc.
 
 Software on the supercomputer is generally accessed with [modules](https://rc.byu.edu/wiki/?id=Environment+Modules).
 
+Jobs are submitted via [Slurm](https://rc.byu.edu/wiki/?id=Slurm).
+
 
 
 ## The [Project](project/overview.md)
