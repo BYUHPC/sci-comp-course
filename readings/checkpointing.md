@@ -7,7 +7,7 @@ Checkpointing is a technique to save a program's state so that it can be restart
 
 Checkpointing is not a particularly effective form of fault tolerance. In its basic form, when the system faults the work does not continue, but can be picked up from the last checkpoint which means not all work is lost. However, in a batch-scheduled environment that is common in HPC, checkpointing is still an important form of fault tolerance.
 
-Consider a job that uses 100 nodes (somewhere around 3,000 cores). It is significantly more likely that hardware failure will happen in such a job than in a node which only uses 1 node (24-128 cores). What if hardware failure happens 50 hours into the 100 node job? 50,000 CPU hours would be wasted without checkpointing.
+Consider a job that uses 100 nodes (somewhere around 3,000 cores). It is significantly more likely that hardware failure will happen in such a job than in a node which only uses 1 node (24-128 cores). What if hardware failure happens 50 hours into the 100 node job? 5,000 CPU hours would be wasted without checkpointing.
 
 Some HPC sites have requirements that all code that runs on their system must be able to checkpoint every X hours. Checkpointing can help researchers run programs longer than the maximum walltime set by system administrators. For example, on the Fulton Supercomputing Lab systems, we have walltimes set at 1 day, 3 days, and 7 days. you are partially restricted where you can run based on the time you request for your job. However, no job can run more than 7 days on our system without special permission (which is granted infrequently).
 
