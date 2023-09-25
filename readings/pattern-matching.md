@@ -61,7 +61,7 @@ If you're doing anything serious, you'll want something stronger than POSIX rege
 
 ### Examples
 
-**TODO: add my regex video**
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6d2yaXjLPkc?si=4Hz07JG1WS-sbJCh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Metacharacters
 
@@ -98,7 +98,7 @@ Shorthand:
 
 ## `grep`, `sed`, and `awk`
 
-**TODO: add my grep/sed/awk video**
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zUnTn2Xh2WM?si=EEQbBLsYilvYXxou" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 `grep`, `sed`, and `awk` are discussed in more detail below. You don't need to know their functionality intimately, but you should be familiar with their basic usage and common use cases.
 
@@ -267,7 +267,85 @@ Halpert, Jim
 
 Grouping is done with parentheses-–close everything you want to use as a `\#` with parentheses. This also means if you want to use a literal parenthesis, you'll need to escape it with `\`.
 
-**TODO: `<details>` with extra examples**
+The following commands reference `hex.txt`:
+
+```
+d6c2
+75bf
+cb21
+84a7
+```
+
+The `i` command inserts a line above each applicable address:
+
+```shell
+$ sed '/^[0-9]/ i STARTS W/ DIGIT:' hex.txt
+d6c2
+STARTS W/ DIGIT:
+75bf
+cb21
+STARTS W/ DIGIT:
+84a7
+```
+
+You can leave off the pattern, in which case each line of the original file or input will be preceded by the inserted string. 
+
+The `a` command inserts a line below each applicable address:
+
+```shell
+$ sed '/^[0-9]/ a ^STARTS W/ DIGIT' hex.txt
+d6c2
+75bf
+^STARTS W/ DIGIT
+cb21
+84a7
+^STARTS W/ DIGIT
+```
+
+`d` deletes a line from the stream:
+
+```shell
+$ sed '/^[0-9]/ d' hex.txt
+d6c2
+cb21
+```
+
+You can also negate deletion with `!`, as in "delete everything but":
+
+```shell
+$ sed '/^[0-9]/ !d' hex.txt
+75bf
+94a7
+```
+
+The `q` command quits `sed` after encountering the first match:
+
+```shell
+$ sed '/^[0-9]/ q' hex.txt
+d6c2
+75bf
+```
+
+The `p` command prints a line. It is almost always combined with the `-n` flag, which means "suppress automatic printing". The `sed -n 'address p'` command is a common way to only output a few lines.
+
+You can also chain together multiple commands to be executed on the same address by putting multiple commands, separated by semicolons, in braces:
+
+```shell
+$ sed -n '/^[0-9]/ {p;q}' hex.txt # this command means "when you find a line starting with a digit, print that line then quit
+75bf
+```
+
+`-i` and `-i.bak` allow editing in place. This means that nothing is printed, but the specified file is modified. `sed -i 's/dog/cat/' pets.txt` is equivalent to `sed 's/dog/cat/' pets.txt > pets.txt`.
+
+You can also use `-i.bak` to save the original file as `original-name.bak`:
+
+```shell
+$ ls
+names.txt
+$ sed -i.bak 's/[Jj]im/Jimothy/g' names.txt
+$ ls
+names.txt names.txt.bak
+```
 
 
 
