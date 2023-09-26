@@ -449,7 +449,7 @@ Kevin
 
 When a pattern is omitted, `awk`'s default behavior is to perform the action on all lines. This is useful for extracting values from predictable text for putting it in an Excel sheet, for example.
 
-### Customizing `awk`A
+### Customizing `awk`
 
 Literal strings can be printed in an action, e.g. `{ print "Line: " $0 }`:
 
