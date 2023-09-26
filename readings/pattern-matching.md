@@ -73,7 +73,7 @@ If you're doing anything serious, you'll want something stronger than POSIX rege
 | `?`           | zero or one of    | `flavou?r`    | flavor, flavour    | flavouur |
 | `+`           | one or more of    | `flavou+r`    | flavouuuur         | flavor |
 | `*`           | zero or more of   | `flavou*r`    | flavor, flavouuur  | flavoor |
-| `{x}`         | x of              | `fla{2}vor`   | flaaavor           | flaaaaavor |
+| `{x}`         | x of              | `fla{2}vor`   | flaavor            | flaaaaavor |
 | `{x,y}`       | x to y of         | `fla{2,4}vor` | flaavor, flaaaavor | flavor, flaaaaavor |
 | `{x,}`        | x or more of      | `fla{2,}vor`  | flaavor, flaaaavor | flavor |
 | `{,y}`        | up to y of        | `fla{,4}vor`  | flavor, flaaaavor  | flaaaaaaaavor |
