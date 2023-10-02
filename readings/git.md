@@ -147,7 +147,7 @@ Note the long string of 40 hexadecimal characters. This is called the commit obj
 
 ### The Commit Object
 
-Commit objects contain details relating to each commit. Every commit is identified by a 40 character SHA-1 hash. When referencing a hash in a git command, it can be referenced by fewer characters as long as it is unique (as in the example above where we committed the files).
+Commit objects contain details relating to each commit. Every commit is identified by a 40 character SHA-1 hash. When referencing a hash in a git command, it can be referenced by fewer characters as long as it is unique.
 
 Within the commit object, you can find the following additional information: snapshot, parent, author, and committer. **Snapshots** contain the staged files in their exact state when committed, and the commit object points to a particular snapshot of files. Each commit object (except commit #1) has a pointer to the previous commit, called a **parent**. This enables git to keep a historical record of commits and file changes made during the lifetime of a project. It also allows you to revert to previous snapshots. Each commit object also records information about the **author** and **committer** such as name, email, and date and time of the commit. This creates trackable accountability of everyone's contributions, which is why we suggested you configure git to know your name and email address.
 
@@ -315,7 +315,7 @@ players.txt
 12 Tanner Mangum
 ```
 
-The file's current state will resemble the `players.txt`` file here. It will contain the content of both branches, and leave it to the user to determine what should stay or go. The "less-than", "equals", and "greater-than" lines are conveniences added to help determine where the lines originated from. 
+The file's current state will resemble the `players.txt` file here. It will contain the content of both branches, and leave it to the user to determine what should stay or go. The "less-than", "equals", and "greater-than" lines are conveniences added to help determine where the lines originated from. 
 
 You will need to update the conflicting file by hand, re-add it to the staging area, then run `git commit` again to complete the merge process.
 
