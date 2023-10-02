@@ -9,7 +9,7 @@ It's a good idea to break your wave orthotope class over multiple classes in suc
 
 - `WaveOrthotope`: an abstract class containing the simulation state (damping coefficient, simulation time, displacement, and velocity) and any common utilities you find a need for
 - `WaveOrthotopeSharedMem`: an abstract class inheriting from `WaveOrthotope` with I/O functionality
-- `WaveOrthotopeOpenMP`: a concrete class inheriting from `WaveOrthotopeSharedMem` containing the infrastructure required to solve wave orthotopes; you'll add OpenMP functionality later
+- `WaveOrthotopeOpenMP`: a concrete class inheriting from `WaveOrthotopeSharedMem` containing the infrastructure required to solve wave orthotopes; you'll add OpenMP functionality [later](phase3.md)
 
 **You can test this and subsequent phases against [wavefiles.tar.gz](https://rc.byu.edu/course/wavefiles.tar.gz)**; usage instructions are on the [resources page](../resources.md#the-project).
 
@@ -164,6 +164,6 @@ This phase is worth 20 points. The following deductions, up to 20 points total, 
 | Defect | Deduction |
 | --- | --- |
 | Failure to compile | 5 points |
-| Failure to work on each of 4 test files | 2.5 points each |
+| Failure to work on each of 3 test files | 4 points each |
 | Failure to run successfully (e.g. due to a segmentation fault or hang) | 5 points |
 | Failure to checkpoint correctly | 5 points |

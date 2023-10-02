@@ -16,7 +16,7 @@ If any of you have played the card game of Set, then you will know that it is a 
 1. The fill of the shape must always or never match.
 1. The type of shape must always or never match. 
 
-Based on these rules, how many sets can you find in these 12 cards? People are able to internalize the rules to create solve this pattern-matching problem. How can a computer perform a similar process?
+Based on these rules, how many sets can you find in these 12 cards? People are able to internalize the rules to solve this pattern-matching problem. How can a computer perform a similar process?
 
 **Regular expressions (regex)** give you a way to define your own matching rules for text. Regex is a powerful tool that lets you define exactly how you want to search and match subsets of text. If you've used a basic "find" feature in your word processor or browser, then you have a basic idea of the purpose of regular expressions, except rather than finding specific phrases, you define patterns.
 
@@ -49,19 +49,19 @@ Regex examples can be very brief:
 </code>
 </details>
 
-Regex engines are common throughout command line tools, text editors, and programming languages. However, a given tool or programming language will implement a particular regex engine. Regex engines may differ slightly in syntax and supported features. It's important to learn the basics of regex, but to know how it's used in your specific context.
+Regex engines are common throughout command line tools, text editors, and programming languages. However, a given tool or programming language will implement a particular regex engine. Regex engines may differ slightly in syntax and supported features. It's important to learn the basics of regex, and to know how it's used in your specific context.
 
 There are many regex engines; the most commonly used are:
 
 - **Perl**: The gold standard for regular expressions
 - **PCRE**: "Perl Compatible Regular Expressions" A C library inspired by Perl. Used by PHP, Julia, and R.
-- **POSIX**: Used for common Linux commands such as grep. It comes in basic and extended flavors. One of the oldest and most limited regex engines still in use today.
+- **POSIX**: Used for common Linux commands such as `grep`. It comes in basic and extended flavors. One of the oldest and most limited regex engines still in use today.
 
 If you're doing anything serious, you'll want something stronger than POSIX regex, although it's fine for very simple pattern matching.
 
 ### Examples
 
-**TODO: add my regex video**
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6d2yaXjLPkc?si=4Hz07JG1WS-sbJCh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Metacharacters
 
@@ -73,13 +73,13 @@ If you're doing anything serious, you'll want something stronger than POSIX rege
 | `?`           | zero or one of    | `flavou?r`    | flavor, flavour    | flavouur |
 | `+`           | one or more of    | `flavou+r`    | flavouuuur         | flavor |
 | `*`           | zero or more of   | `flavou*r`    | flavor, flavouuur  | flavoor |
-| `{x}`         | x of              | `fla{2}vor`   | flaaavor           | flaaaaavor |
+| `{x}`         | x of              | `fla{3}vor`   | flaaavor           | flaaaaavor |
 | `{x,y}`       | x to y of         | `fla{2,4}vor` | flaavor, flaaaavor | flavor, flaaaaavor |
 | `{x,}`        | x or more of      | `fla{2,}vor`  | flaavor, flaaaavor | flavor |
 | `{,y}`        | up to y of        | `fla{,4}vor`  | flavor, flaaaavor  | flaaaaaaaavor |
 | `|`           | alternation       | `cat|dog|bug` | cat, dog, bug      | caog |
-| `[xyz]`       | any of x, y, z    | `[0-9A-F]+`   | A048C1, 74F89A     | N4R9V3 |
-| `[^xyz]`      | any but x, y, z   | `[^aeiou]+`   | lynx, tsktsk       | links |
+| `[xyz]`       | any of x, y, z    | `^[0-9A-F]+$` | A048C1, 74F89A     | N4R9V3 |
+| `[^xyz]`      | any but x, y, z   | `^[^aeiou]+$` | lynx, tsktsk       | links |
 | `()`          | grouping          | `0x(00|FF)`   | 0x00, 0xFF         | 0x0F |
 | `\`           | escape            | `x\{2\}`      | x{2}               | xx |
 
@@ -98,7 +98,7 @@ Shorthand:
 
 ## `grep`, `sed`, and `awk`
 
-**TODO: add my grep/sed/awk video**
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zUnTn2Xh2WM?si=EEQbBLsYilvYXxou" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 `grep`, `sed`, and `awk` are discussed in more detail below. You don't need to know their functionality intimately, but you should be familiar with their basic usage and common use cases.
 
@@ -226,7 +226,7 @@ $ echo "this is old, really old | sed 's/old/new/g'
 this is new, really new
 ```
 
-Say you want to replace a filepath--using `/` as separators in sed would be confusing. Fortunately, you can use other separators other than `/`. You can use pretty much any character, even letters and numbers. For example, commas: `sed 's,/file/path/before,/the/new/path,' myscript.sh` will replace the first occurrent of `/file/path/before` with `/the/new/path` on each line in `myscript.sh`.
+Say you want to replace a filepath--using `/` as separators in sed would be confusing. Fortunately, you can use other separators other than `/`. You can use pretty much any character, even letters and numbers. For example, commas: `sed 's,/file/path/before,/the/new/path,' myscript.sh` will replace the first occurrence of `/file/path/before` with `/the/new/path` on each line in `myscript.sh`.
 
 You can also replace regexes with `sed`: `sed -E '/^Phone:/ s/[0-9]{7}/REDACTED/g' sensitive-info.txt`. You'll want the `-E` flag when using non-trivial regexes. However, this is a pretty weak phone number regex–as a thought exercise, what could be done to improve it?
 
@@ -265,9 +265,87 @@ Schrute, Dwight
 Halpert, Jim
 ```
 
-Grouping is done with parentheses-–close everything you want to use as a `\#` with parentheses. This also means if you want to use a literal parenthesis, you'll need to escape it with `\`.
+Grouping is done with parentheses—enclose everything you want to use as a `\#` with parentheses. This also means if you want to use a literal parenthesis, you'll need to escape it with `\`.
 
-**TODO: `<details>` with extra examples**
+The following commands reference `hex.txt`:
+
+```
+d6c2
+75bf
+cb21
+84a7
+```
+
+The `i` command inserts a line above each applicable address:
+
+```shell
+$ sed '/^[0-9]/ i STARTS W/ DIGIT:' hex.txt
+d6c2
+STARTS W/ DIGIT:
+75bf
+cb21
+STARTS W/ DIGIT:
+84a7
+```
+
+You can leave off the pattern, in which case each line of the original file or input will be preceded by the inserted string. 
+
+The `a` command inserts a line below each applicable address:
+
+```shell
+$ sed '/^[0-9]/ a ^STARTS W/ DIGIT' hex.txt
+d6c2
+75bf
+^STARTS W/ DIGIT
+cb21
+84a7
+^STARTS W/ DIGIT
+```
+
+`d` deletes a line from the stream:
+
+```shell
+$ sed '/^[0-9]/ d' hex.txt
+d6c2
+cb21
+```
+
+You can also negate deletion with `!`, as in "delete everything but":
+
+```shell
+$ sed '/^[0-9]/ !d' hex.txt
+75bf
+94a7
+```
+
+The `q` command quits `sed` after encountering the first match:
+
+```shell
+$ sed '/^[0-9]/ q' hex.txt
+d6c2
+75bf
+```
+
+The `p` command prints a line. It is almost always combined with the `-n` flag, which means "suppress automatic printing". The `sed -n 'address p'` command is a common way to only output a few lines.
+
+You can also chain together multiple commands to be executed on the same address by putting multiple commands, separated by semicolons, in braces:
+
+```shell
+$ sed -n '/^[0-9]/ {p;q}' hex.txt # this command means "when you find a line starting with a digit, print that line then quit
+75bf
+```
+
+`-i` and `-i.bak` allow editing in place. This means that nothing is printed, but the specified file is modified. `sed -i 's/dog/cat/' pets.txt` is equivalent to `sed 's/dog/cat/' pets.txt > pets.txt`.
+
+You can also use `-i.bak` to save the original file as `original-name.bak`:
+
+```shell
+$ ls
+names.txt
+$ sed -i.bak 's/[Jj]im/Jimothy/g' names.txt
+$ ls
+names.txt names.txt.bak
+```
 
 
 
@@ -284,7 +362,7 @@ The pattern comes first, the action is enclosed in braces: `pattern { action }`.
 
 ### How `awk` Works
 
-`awk` processes its input line-by-line, with each line being called a **record**. Each record is split into **fields** for processing. If pattern is true for a record, then `{ action }` is performed.
+`awk` processes its input line-by-line, with each line being called a **record**. Each record is split into **fields** for processing. If `pattern` is true for a record, then `{ action }` is performed.
 
 In the following file, each line is a record:
 
@@ -352,7 +430,7 @@ END { print NR, "employees"
     }
 ```
 
-When there is no pattern, a block (e.g., the first line of calculate_pay.awk) is executed for every record. The `END` block is executed after all lines have been read; you can also put a `BEGIN` block before everything else to initialize variables, etc. You can call an awk script with `awk -f`:
+When there is no pattern, a block (e.g., the first line of `calculate_pay.awk`) is executed for every record. The `END` block is executed after all lines have been read; you can also put a `BEGIN` block before everything else to initialize variables, etc. You can call an awk script with `awk -f`:
 
 ```shell
 awk -f calculate_pay.awk employees.txt
@@ -371,7 +449,7 @@ Kevin
 
 When a pattern is omitted, `awk`'s default behavior is to perform the action on all lines. This is useful for extracting values from predictable text for putting it in an Excel sheet, for example.
 
-### Customizing `awk`A
+### Customizing `awk`
 
 Literal strings can be printed in an action, e.g. `{ print "Line: " $0 }`:
 
@@ -389,7 +467,7 @@ April    8.00  15  Student
 Bill    10.00  30  Student    -->    Bill makes more than $9 an hour
 Charlie  7.50  20  Student 
 
-$4 == "Student" { print $1, "is a student" } 
+$4 == "Student" { print $1, "is a student." } 
 April    8.00  15  Student    -->    April is a student.
 Bill    10.00  30  Student    -->    Bill is a student.
 Charlie  7.50  20  Student    -->    Charlie is a student.
@@ -435,7 +513,7 @@ April    8.00  15  Student    -->    April starts with a vowel
 Bill    10.00  30  Student
 Charlie  7.50  20  Student
 
-$2 ~ /^[0-9]+\.00$/ { print @4, "is a whole dollar amount" }
+$2 ~ /^[0-9]+\.00$/ { print $2, "is a whole dollar amount" }
 April 8.00 15 Student --> 8.00 is a whole dollar amount
 Bill 10.00 30 Student --> 10.00 is a whole dollar amount
 Charlie 7.50 20 Student
@@ -444,13 +522,13 @@ Charlie 7.50 20 Student
 Computations can be performed on fields:
 
 ```
-{ print "Money Earned: " $2 * $3 }
+{ print "Money Earned: $" $2 * $3 }
 April    8.00  15  Student    -->    Money Earned: $120
 Bill    10.00  30  Student    -->    Money Earned: $300
 Charlie  7.50  20  Student    -->    Money Earned: $150
 ```
 
-By default, commas in a print statement will print a space between items. If no comma is given, the two items are concatenated:
+By default, commas in a `print` statement will print a space between items. If no comma is given, the two items are concatenated:
 
 ```
 { print $1, $4 }
@@ -524,6 +602,6 @@ Charlie  7.50  20  Student
 
 
 
-## Regex tutorial
+## Regex Tutorial
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sa-TUpSx1JA?si=Ohm4U23sS0c1O89o&amp;start=1612" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
