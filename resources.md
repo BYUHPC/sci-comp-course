@@ -44,8 +44,8 @@ You could also use [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl) to ensur
 
 ```julia
 using WaveSim
-correct = WaveOrthotope("2d-small-out.wo")
-mine = WaveOrthotope("my-2d-small-out.wo")
+correct = WaveOrthotope(open("2d-small-out.wo"))
+mine = WaveOrthotope(open("my-2d-small-out.wo"))
 @assert isapprox(correct, mine)
 ```
 
