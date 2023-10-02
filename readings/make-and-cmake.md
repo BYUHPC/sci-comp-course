@@ -3,7 +3,7 @@
 
 # Make and CMake
 
-HPC Tutorials has a [whole chapter on Make](https://rc.byu.edu/course/EijkhoutHPCtutorials.pdf#chapter.3) and [another on CMake](https://rc.byu.edu/course/EijkhoutHPCtutorials.pdf#chapter.4); use them as references if you have syntax questions or would like to go deeper.
+HPC Tutorials has a [whole chapter on Make](EijkhoutHPCTutorialsVol4.pdf#chapter.3) and [another on CMake](EijkhoutHPCTutorialsVol4.pdf#chapter.4); use them as references if you have syntax questions or would like to go deeper.
 
 This video gives a quick overview of how to use Make and CMake:
 

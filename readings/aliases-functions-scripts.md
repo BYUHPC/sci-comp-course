@@ -165,4 +165,4 @@ Almost anything you can do in the shell can be done in a script, including creat
 
 ## Exit Status
 
-Read the [exit status section](https://rc.byu.edu/course/EijkhoutHPCtutorials.pdf#subsection.1.5.4) of HPC Tutorials.
+Read the [exit status section](EijkhoutHPCTutorialsVol4.pdf#subsection.1.5.4) of HPC Tutorials.
