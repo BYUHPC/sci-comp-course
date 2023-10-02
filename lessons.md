@@ -11,11 +11,9 @@
 
 ### [4: Working on the Supercomputer](lessons/4.md)
 
+### [5: Optimization](lessons/5.md)
+
 <!---
-[Lesson 4: Schedulers, grep/sed/awk](lessons/.md) TODO
-
-[Lesson 5: Optimization](lessons/5-optimization.md)
-
 [Lesson 6: Storage and Memory](lessons/6-storage-and-memory.md)
 
 [Lesson 7: Concurrency, Parallelism, and Threading](lessons/7-parallelism.md)

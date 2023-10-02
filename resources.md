@@ -49,7 +49,7 @@ mine = WaveOrthotope("my-2d-small-out.wo")
 @assert isapprox(correct, mine)
 ```
 
-...which allows you to look at each wave orthotope interactively.
+This allows you to look at wave orthotopes interactively.
 
 
 
@@ -59,7 +59,7 @@ You're expected to come into the class with either some C++ experience or the ab
 
 Unless you have an established workflow for programming on the supercomputer, we strongly recommend [setting up VS Code for remote editing](https://rc.byu.edu/wiki/index.php?page=Remote+Development+with+VS+Code). You'll find the [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and [Julia](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) [extensions](https://marketplace.visualstudio.com/) helpful. The enlightened will love the [Vim extension](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim).
 
-Since this is a class about *high performance* computing you'll do some [optimization](https://viralinstruction.com/posts/hardware/). An [efficient algorithm](https://youtu.be/ZZuD6iUe3Pc) is of course vital for speed, but [data locality is critical](http://gameprogrammingpatterns.com/data-locality.html) and not talked about enough--for example, linked lists are theoretically faster than arrays for some algorithms, but [the hardware realities mean they're almost never actually the right choice](https://youtu.be/YQs6IC-vgmo).
+Since this is a class about *high performance* computing you'll do some [optimization](https://viralinstruction.com/posts/hardware/). An [efficient algorithm](https://youtu.be/ZZuD6iUe3Pc) is of course vital for speed, but [data locality is critical](http://gameprogrammingpatterns.com/data-locality.html) and not talked about enough--for example, linked lists are theoretically faster than arrays for some algorithms, but [the hardware realities mean they're almost never actually the right choice](https://youtu.be/YQs6IC-vgmo). [Vector instructions](http://walkingrandomly.com/?p=3378) enable significant speedups now that clock speeds have plateaued.
 
 Keep in mind that [C++ indexes from 0](https://www.w3schools.com/cpp/cpp_arrays.asp) and Julia [(mostly)](https://juliaarrays.github.io/OffsetArrays.jl/stable/) indexes from 1, although you [usually shouldn't need to worry about that in Julia](https://docs.julialang.org/en/v1/manual/arrays/#man-array-indexing).
 
