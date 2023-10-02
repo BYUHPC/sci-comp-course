@@ -41,7 +41,7 @@ Modern processors provide a small amount of SRAM in a series of core-specific or
 
 ![Cache control flow](../img/cache-control-flow.png)
 
-When a processor needs to access a certain memory location in RAM, it first checks if that location has been loaded into the processor's cache. If it has, the data is read directly from the cache, but if it hasn't (a cache miss), main memory needs to be accessed (a very expensive operation): cache lines are evicted if there isn't enough room to store the data coming in from main memory, then the data is copied into the cache. Only then does the processor finally read the data, directly from the cache.
+When a processor needs to access a certain memory location in RAM, it first checks if that location has been loaded into the processor's cache. If it has, the data is read directly from the cache, but if it hasn't (a **cache miss**), main memory needs to be accessed (a very expensive operation): cache lines are evicted if there isn't enough room to store the data coming in from main memory, then the data is copied into the cache. Only then does the processor finally read the data, directly from the cache.
 
 ### Latency
 
