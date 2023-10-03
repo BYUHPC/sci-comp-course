@@ -1,7 +1,7 @@
 ---
 ---
 
-# Optimization
+# Phase 3: Optimization
 
 This is a guided assignment that should give you an idea of what to look for when optimizing C++ code.
 
