@@ -67,7 +67,11 @@ Make any other optimizations you think are prudent. Some things to consider:
 
 ## Submission
 
-Update your `CMakeLists.txt` to create two more binaries, `optimize` and `solver_openmp`; make sure to [compile with OpenMP](../readings/openmp.md#compiling-with-openmp).
+Update your `CMakeLists.txt` to create two more binaries, `optimize` and `solver_openmp`; make sure to [compile with OpenMP](../readings/openmp.md#compiling-with-openmp). You can default to `-Ofast` (rather than `-O3`) for release builds by putting the following line **before** the call to `project` in `CMakeLists.txt`:
+
+```cmake
+set(CMAKE_CXX_FLAGS_RELEASE "-Ofast -DNDEBUG" CACHE STRING "Flags used by the CXX compiler during RELEASE builds")
+```
 
 `optimize` should give the same result as the binary that results from compiling the original `optimize.cpp`, but needs to be much faster: on a full `m9` node (which you can request with `salloc -p m9 -N 1 -n 28 ...`) with 8 OpenMP threads (`export OMP_NUM_THREADS=8`) it should run in less than a second. Feel free to [fine-tune compilation flags in your `CMakeLists.txt`](https://coderefinery.github.io/cmake-workshop/flags-definitions-debugging/#controlling-compiler-flags) to get an efficient binary.
 
