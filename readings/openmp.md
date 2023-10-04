@@ -13,7 +13,7 @@ for (long i{0}; i < 20'000'000l; ++i) {
 }
 ```
 
-If a compiler doesn't understand OpenMP's special comments, then this code will still compile and will run on a single thread. If it does understand OpenMP, then where the OMP parallel directive is, this will spawn threads for the next block.
+If a compiler doesn't understand OpenMP's special comments, then this code will still compile and will run on a single thread. If it does understand OpenMP, then where the OMP parallel directive is, this will spawn threads for the next block. This allows serial and parallel code to be generated from the same program with with very little effort.
 
 
 
