@@ -87,6 +87,6 @@ This phase is worth 20 points. The following deductions, up to 20 points total, 
 
 | Defect | Deduction |
 | --- | --- |
-| Failure to run in 50 seconds on `m9` | 5 points |
-| Failure to run in 100 seconds on `m9` | 5 points |
+| Failure to run correctly on `2d-medium-in.wo` in 50 seconds on `m9` | 5 points |
+| Failure to run correctly on `2d-medium-in.wo` in 100 seconds on `m9` | 5 points |
 | Failure of your `WaveSim.jl` to work correctly on each of 3 2-dimensional test files | 4 points each |

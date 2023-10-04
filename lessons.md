@@ -13,9 +13,9 @@
 
 ### [5: Optimization](lessons/5.md)
 
-<!---
-[Lesson 6: Storage and Memory](lessons/6-storage-and-memory.md)
+### [6: Storage](lessons/6.md)
 
+<!---
 [Lesson 7: Concurrency, Parallelism, and Threading](lessons/7-parallelism.md)
 
 [Lesson 8: Blocking and Non-Blocking Communication](lessons/8-communication.md)

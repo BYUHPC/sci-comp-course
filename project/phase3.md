@@ -24,7 +24,7 @@ Many of the functions in `optimize.cpp` take copies of large variables. To see h
 
 Set `rows` to 800, where it will stay for the rest of the assignment, and compile and time once more for comparison to subsequent changes.
 
-Fix any other functions (along with [lambdas](https://en.cppreference.com/w/cpp/language/lambda#Lambda_capture), [range-based for loops](https://en.cppreference.com/w/cpp/language/range-for#Example), etc.) that should take arguments by const reference rather than by value. When you're done and have recompiled, the `system` field from `time`'s output should be close to zero. **How much more of a speedup do these changes yield? Why isn't it as significant**?
+Fix any other functions (along with [lambdas](https://en.cppreference.com/w/cpp/language/lambda#Lambda_capture), [range-based for loops](https://en.cppreference.com/w/cpp/language/range-for#Example), etc.) that should take arguments by const reference rather than by value. When you're done and have recompiled, the `system` field from `time`'s output should be a very small portion of the `real` time. **How much more of a speedup do these changes yield? Why isn't it as significant**?
 
 
 
@@ -67,7 +67,7 @@ Make any other optimizations you think are prudent. Some things to consider:
 
 ## Submission
 
-Update your `CMakeLists.txt` to create two more binaries, `optimize` and `solver_openmp`.
+Update your `CMakeLists.txt` to create two more binaries, `optimize` and `solver_openmp`; make sure to [compile with OpenMP](../readings/openmp.md#compiling-with-openmp).
 
 `optimize` should give the same result as the binary that results from compiling the original `optimize.cpp`, but needs to be much faster: on a full `m9` node (which you can request with `salloc -p m9 -N 1 -n 28 ...`) with 8 OpenMP threads (`export OMP_NUM_THREADS=8`) it should run in less than a second. Feel free to [fine-tune compilation flags in your `CMakeLists.txt`](https://coderefinery.github.io/cmake-workshop/flags-definitions-debugging/#controlling-compiler-flags) to get an efficient binary.
 
