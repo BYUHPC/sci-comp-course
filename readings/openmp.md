@@ -15,6 +15,8 @@ for (long i{0}; i < 20'000'000l; ++i) {
 
 If a compiler doesn't understand OpenMP's special comments, then this code will still compile and will run on a single thread. If it does understand OpenMP, then where the OMP parallel directive is, this will spawn threads for the next block. This allows serial and parallel code to be generated from the same program with with very little effort.
 
+[HPC Tutorials volume 1 has an OpenMP section](EijkhoutHPCTutorialsVol1.pdf#subsection.2.6.2) that you can reference for further information if you'd like.
+
 
 
 ## Compiling with OpenMP
@@ -74,7 +76,3 @@ for (long i{0}; i < 20'000'000l; ++i) {
    counter += 1;
 }
 ```
-
----
-
-[HPC Tutorials volume 1 has an OpenMP section](EijkhoutHPCTutorialsVol1.pdf#subsection.2.6.2) that you can reference for further information if you'd like.

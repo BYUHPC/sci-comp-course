@@ -38,7 +38,7 @@ Some of the for loops in `optimize.cpp` iterate over columns first, then rows. C
 
 To see the results of this change, you'll need to coax the compiler to vectorize; in this case, you can do so by adding `-funsafe-math-optimizations` to your compile flags. Do so, then time `optimize` again for a point of comparison.
 
-Remove the `if (...) continue;` statements in the inner loops of `energy` and `step`, instead iterating over the correct bounds. **How much of a speedup results, and why?**
+Remove the `if (...) continue;` statements in the inner loops of `energy` and `step`, **instead iterating over the correct bounds** (you'll have to modify each for loop to do so). **How much of a speedup results, and why?**
 
 
 
