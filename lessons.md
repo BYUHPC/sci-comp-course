@@ -15,18 +15,18 @@
 
 ### [6: Storage](lessons/6.md)
 
+### [7: Concurrency, Parallelism, and Threading](lessons/7.md)
+
 <!---
-[Lesson 7: Concurrency, Parallelism, and Threading](lessons/7-parallelism.md)
+### [8: Threading in C++](lessons/8.md)
 
-[Lesson 8: Blocking and Non-Blocking Communication](lessons/8-communication.md)
+### [9: Blocking and Non-Blocking Communication](lessons/8-communication.md)
 
-[Lesson 9: SOMETHING EASY AND FUN](lessons/.md) TODO
+### [10: Distributed Programming and MPI](lessons/10-mpi.md)
 
-[Lesson 10: Distributed Programming and MPI](lessons/10-mpi.md)
+### [11: Applications of HPC](lessons/11-applications.md)
 
-[Lesson 11: Applications of HPC](lessons/11-applications.md)
+### [12: Accelerators](lessons/12-accelerators.md)
 
-[Lesson 12: Accelerators](lessons/12-accelerators.md)
-
-[Lesson 13: HPC Programming IRL](lessons/13-irl.md)
+### [13: HPC Programming IRL](lessons/13-irl.md)
 -->

@@ -28,6 +28,13 @@ target_link_libraries(blah PRIVATE OpenMP::OpenMP_CXX)
 ```
 
 
+
+## Running with OpenMP
+
+`export OMP_NUM_THREADS=N` (where `N` is some integer) will set the number of threads that OpenMP programs run with. Otherwise, OpenMP programs are executed just as any other would be.
+
+
+
 ## Directives
 
 The most useful [directives](https://www.openmp.org/spec-html/5.1/openmpch2.html#x30-290002) (which come after `#pragma omp`) are:
@@ -67,3 +74,7 @@ for (long i{0}; i < 20'000'000l; ++i) {
    counter += 1;
 }
 ```
+
+---
+
+[HPC Tutorials volume 1 has an OpenMP section](EijkhoutHPCTutorialsVol1.pdf#subsection.2.6.2) that you can reference for further information if you'd like.
