@@ -5,7 +5,7 @@
 
 This is the first phase of the semester-long project. It serves as a good litmus test--if you struggle implementing it once you understand the problem, you're likely to flounder in the rest of the class.
 
-The problem description can be found [here](overview.md); you'll need to read through it before understanding this assignment.
+The problem description can be found [here](overview.md); **you'll need to read through it before understanding this assignment**.
 
 
 
