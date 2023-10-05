@@ -67,7 +67,7 @@ Make any other optimizations you think are prudent. Some things to consider:
 
 ## Submission
 
-Update your `CMakeLists.txt` to create two more binaries, `optimize` and `solver_openmp`; make sure to [compile with OpenMP](../readings/openmp.md#compiling-with-openmp). You can default to `-Ofast` (rather than `-O3`) for release builds by putting the following line **before** the call to `project` in `CMakeLists.txt`:
+Update your `CMakeLists.txt` to create two more binaries, `optimize` and `wavesolve_openmp`; make sure to [compile with OpenMP](../readings/openmp.md#compiling-with-openmp). You can default to `-Ofast` (rather than `-O3`) for release builds by putting the following line **before** the call to `project` in `CMakeLists.txt`:
 
 ```cmake
 set(CMAKE_CXX_FLAGS_RELEASE "-Ofast -DNDEBUG" CACHE STRING "Flags used by the CXX compiler during RELEASE builds")
@@ -75,7 +75,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-Ofast -DNDEBUG" CACHE STRING "Flags used by the CX
 
 `optimize` should give the same result as the binary that results from compiling the original `optimize.cpp`, but needs to be much faster: on a full `m9` node (which you can request with `salloc -p m9 -N 1 -n 28 ...`) with 8 OpenMP threads (`export OMP_NUM_THREADS=8`) it should run in less than a second. Feel free to [fine-tune compilation flags in your `CMakeLists.txt`](https://coderefinery.github.io/cmake-workshop/flags-definitions-debugging/#controlling-compiler-flags) to get an efficient binary.
 
-`solver_openmp` will be much like [`solver_serial`](phase2.md), but will add OpenMP threading and has speed requirements. It must run on `2d-medium-in.wo` from [`wavefiles.tar.gz`](https://rc.byu.edu/course/wavefiles.tar.gz) with 8 OpenMP threads on a full `m9` node in 20 seconds.
+`wavesolve_openmp` will be much like [`solver_serial`](phase2.md), but will add OpenMP threading and has speed requirements. It must run on `2d-medium-in.wo` from [`wavefiles.tar.gz`](https://rc.byu.edu/course/wavefiles.tar.gz) with 8 OpenMP threads on a full `m9` node in 20 seconds.
 
 Add an informal plain text "essay" titled `cpp-optimization.txt` (or `cpp-optimization.md` if you want markdown formatting) that contains answers to the bolded questions above.
 
@@ -90,10 +90,10 @@ This phase is worth 20 points. The following deductions, up to 20 points total, 
 | Defect | Deduction |
 | --- | --- |
 | Failure to compile | 2 points per binary |
-| Failure of `solver_openmp` to work on each of 3 test files | 2 points each |
+| Failure of `wavesolve_openmp` to work on each of 3 test files | 2 points each |
 | Failure to run successfully (e.g. due to a segmentation fault or hang) | 2 points per binary |
-| Failure of `solver_openmp` to checkpoint correctly | 2 points |
-| Failure of `solver_openmp` to run on `2d-medium-in.wo` on `m9` with 8 threads in 20 seconds | 4 points |
+| Failure of `wavesolve_openmp` to checkpoint correctly | 2 points |
+| Failure of `wavesolve_openmp` to run on `2d-medium-in.wo` on `m9` with 8 threads in 20 seconds | 4 points |
 | ...in 60 seconds | 4 points |
 | Failure of `optimize` to output "5.39", and only "5.39", to stdout | 4 points |
 | Failure of `optimize` to run within a second on `m9` with 8 threads | 4 points |
