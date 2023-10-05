@@ -71,10 +71,10 @@ cd WaveSim.jl
 # Instantiate your package and force download of wavefiles.tar.gz
 julia --project=. -e "using Pkg; Pkg.instantiate(); using WaveSim; wavefiles()"
 # Time within a job on an m9 node
-sbatch --time 10 --mem 4G --ntasks 1 --nodes 1 --partition m9 --wrap \
-       julia --project=. -e 'using WaveSim
-                             solve!(WaveOrthotope(open(wavefiles(2, :tiny, :in))))
-                             @time solve!(WaveOrthotope(open(wavefiles(2, :medium, :in))))'
+sbatch -t 10 --mem 4G -n 1 -p m9 --wrap 'julia --project=. -e \
+       "using WaveSim
+        solve!(WaveOrthotope(open(wavefiles(2, :tiny, :in))))
+        @time solve!(WaveOrthotope(open(wavefiles(2, :medium, :in))))"'
 ```
 
 You should do so as well to ensure that it works as intended.
