@@ -12,3 +12,13 @@ export GEM_PATH="$GEM_HOME"
 bundle install
 bundle exec jekyll serve
 ```
+
+
+
+## Enhancements
+
+Phase 1 needs to be harder, and phase 2 needs to be easier. Phase 1 gives a false sense of security as it stands.
+
+"Shell and Slurm Practice" is kind of lame; it'd be nice to have a `find` thrown in there, and make it more open-ended and amenable to combining sed/grep/awk.
+
+The website situation is stupid--Canvas has nice navigation stuff, but it can't really be used for code samples because doing syntax highlighting manually is insane. Gordon Bean has a kind-of solution that allows you to use Markdown 

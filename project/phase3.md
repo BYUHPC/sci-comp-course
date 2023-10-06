@@ -12,7 +12,7 @@ g++ -std=c++20 -O3 -o optimize optimize.cpp # the "O" in "-O3" is the letter
 time ./optimize
 ```
 
-You'll submit an informal "essay" detailing the changes you made and the associated performance gains, so **write down answers to the bolded questions that follow as you get to them**.
+You'll submit an informal "essay" detailing the changes you made and the associated performance gains, so **write down answers to the bolded questions that follow as you get to them**. Since you'll be [submitting](#submission) with [git](../readings/git.md), it's recommended that you **do all your work in your `scicomp` directory**.
 
 Throughout the assignment, the result needs to remain correct--if the output simulation time changes you'll need to fix it before proceeding.
 
@@ -67,7 +67,7 @@ Make any other optimizations you think are prudent. Some things to consider:
 
 ## Submission
 
-Update your `CMakeLists.txt` to create two more binaries, `optimize` and `wavesolve_openmp`; make sure to [compile with OpenMP](../readings/openmp.md#compiling-with-openmp). You can default to `-Ofast` (rather than `-O3`) for release builds by putting the following line **before** the call to `project` in `CMakeLists.txt`:
+Update your `CMakeLists.txt` to create two more binaries, `optimize` and `wavesolve_openmp`; **make sure to [compile with OpenMP](../readings/openmp.md#compiling-with-openmp)**. You can default to `-Ofast` (rather than `-O3`) for release builds by putting the following line **before** the call to `project` in `CMakeLists.txt`:
 
 ```cmake
 set(CMAKE_CXX_FLAGS_RELEASE "-Ofast -DNDEBUG" CACHE STRING "Flags used by the CXX compiler during RELEASE builds")

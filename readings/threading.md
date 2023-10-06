@@ -78,3 +78,4 @@ The problem here is that Thread 2 fetches the value for count before Thread 1 st
 
 The following video makes use of OpenMP, which we don't go over until the [next lesson](openmp.md), but you don't need to understand much about it to follow what's happening.
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/cxAKr9-5YqU?si=_rwhviI11TPQyXyc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
