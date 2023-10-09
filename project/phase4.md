@@ -8,6 +8,7 @@ This project is meant to help you see that optimization is different (sometimes 
 Your job is to make [WaveSim.jl](https://github.com/BYUHPC/WaveSim.jl) faster while keeping it correct. Specifically, solving `2d-medium-in.wo` with it should complete in less than 50 seconds on an `m9` node:
 
 ```julia
+# Run this in the julia interpreter: `module load julia; [module save]; julia`
 # Read in the 2D wave orthotope files from wavefiles.tar.gz
 using WaveSim
 tiny2din, small2din, medium2din = (WaveOrthotope(open(wavefiles(2, filesize, :in)))
@@ -24,21 +25,27 @@ For most students, optimizing in 2 dimensions will be significantly easier.
 
 
 
+## Setting up Julia
+
+In a shell on the supercomputer, run `module restore; module load julia; module save`. That will make the most recent Julia available by default, which will enable VS Code to use it.
+
+Julia integrates nicely with VS Code; you can do without, but you'll need to do some extra work (e.g. [using viz](https://viz.rc.byu.edu:3443/) and specifying [`--project`](https://docs.julialang.org/en/v1/manual/command-line-interface/#command-line-interface-1)). [Install](https://code.visualstudio.com/learn/get-started/extensions) and [enable](https://code.visualstudio.com/docs/editor/extension-marketplace#_enable-an-extension) the [Julia extension](https://code.visualstudio.com/docs/languages/julia) on the [supercomputer](https://rc.byu.edu/wiki/index.php?page=Remote+Development+with+VS+Code). That done, you can **[run the REPL via the extension](https://github.com/julia-vscode/julia-vscode/wiki/REPL) with Alt+j, Alt+o or via the [command pallette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)**. The instructions in the rest of this assignment assume you launch the REPL thus.
+
+To get `ProfileView` to work, **you'll need to run `ENV["GKSwstype"] = "100"` in Julia each time you start it up**; alternately, you can put that command in [`startup.jl`](https://docs.julialang.org/en/v1/manual/command-line-interface/#Startup-file).
+
+
+
 ## Downloading and Using a Modified `WaveSim.jl`
 
-`git clone https://github.com/BYUHPC/WaveSim.jl.git` will download the `WaveSim.jl` [package](https://pkgdocs.julialang.org/v1/) to your current directory; you can then modify files in `WaveSim.jl/src` to start improving performance.
-
-You can test your changes in the directory where `WaveSim.jl` lives by modifying `LOAD_PATH`:
+`git clone https://github.com/BYUHPC/WaveSim.jl.git` will download the `WaveSim.jl` [package](https://pkgdocs.julialang.org/v1/) to your current directory. [Open that directory in VS Code](https://code.visualstudio.com/docs/editor/workspaces#_how-do-i-open-a-vs-code-workspace) and [launch the REPL](#setting-up-julia). Activate [package mode](https://docs.julialang.org/en/v1/stdlib/REPL/#Pkg-mode) by typing `]`, then run `activate .` followed by `instantiate`; you'll need to `activate` each time you open the REPL, but you only need to `instantiate` once. That done, you can use `WaveSim`:
 
 ```julia
-pushfirst!(LOAD_PATH, ".") # prioritize packages in this directory
-
 using WaveSim, ProfileView # this will now load the WaveSim.jl in this directory
-
 w = WaveOrthotope(open(wavefiles(2, :small, :in)))
-
 @profview solve!(w);
 ```
+
+Each time you make modifications and want to test again, I recommend that you [quit Julia](https://docs.julialang.org/en/v1/base/base/#Base.exit), [re-launch the REPL](#setting-up-julia), and run the same commands.
 
 
 
@@ -50,7 +57,7 @@ As mentioned in the [resources](../resources.md#julia), Julia's [performance tip
 
 By default, Julia does bound checking to avoid segmentation faults. You can wrap expressions (e.g. functions, while loops, for loops, etc.) with [`@inbounds`](https://docs.julialang.org/en/v1/base/base/#Base.@inbounds) to prevent bounds checking, but be aware that you are promising that the block following won't attempt out-of-bounds memory access.
 
-Julia [allows dynamic typing](https://docs.julialang.org/en/v1/manual/types/); this is convenient, but causes severe performance problems when a variable's type changes. [Avoid changing the types of variables](https://docs.julialang.org/en/v1/manual/performance-tips/#Avoid-changing-the-type-of-a-variable); you can track down such changes with [`@code_warntype`](https://docs.julialang.org/en/v1/manual/performance-tips/#man-code-warntype).
+Julia [allows dynamic typing](https://docs.julialang.org/en/v1/manual/types/); this is convenient, but causes severe performance problems when a variable's type changes. [Avoid changing the types of variables](https://docs.julialang.org/en/v1/manual/performance-tips/#Avoid-changing-the-type-of-a-variable); you can track down such changes with [`@code_warntype`](https://docs.julialang.org/en/v1/manual/performance-tips/#man-code-warntype). You may notice that one member of `WaveOrthotope`, `t`, will trigger warnings--don't worry about it, it has a negligible performance impact in this particular case.
 
 Unneeded allocations are harder to track down and eliminate in Julia than they are in C++; you can use [`julia --track-allocation=user`](https://docs.julialang.org/en/v1/manual/profile/#Line-by-Line-Allocation-Tracking) for thorough tracking, or see how many allocations a function commits with [`@time`](https://docs.julialang.org/en/v1/manual/profile/#@time).
 

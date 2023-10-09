@@ -44,7 +44,7 @@ Remove the `if (...) continue;` statements in the inner loops of `energy` and `s
 
 ## Threading
 
-Now that most of the program's inefficiencies are eliminated, it's worth turning to threading. Add [OpenMP threading](../readings/openmp.md) to your program, parallelizing each outer loop in `energy` and `step`. **Add `-fopenmp` to your compiler flags**. You'll need a [`reduction` clause on each loop in `energy` to correctly sum `E`](https://en.wikibooks.org/wiki/OpenMP/Reductions#A_parallel_way_of_summing). You can look to the `#pragma openmp ...` lines in [`MountainRangeOpenMP.hpp`](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeOpenMP.hpp) for an example; there's no need to overthink it, OpenMP threading is very easy. **What sort of speedup do you get when you run with 2 threads? 4? 8? 16? Why do you think the diminishment of returns is so severe?** Use `export OMP_NUM_THREADS=2` (or 4, or 8, etc.) to set the number of threads.
+Now that most of the program's inefficiencies are eliminated, it's worth turning to threading. Add [OpenMP threading](../readings/openmp.md) to your program, parallelizing each outer loop in `energy` and `step`. **Add `-fopenmp` to your compiler flags, and use `export OMP_NUM_THREADS=2` (or 4, or 8, etc.) to set the number of threads**. You'll need a [`reduction` clause on each loop in `energy` to correctly sum `E`](https://en.wikibooks.org/wiki/OpenMP/Reductions#A_parallel_way_of_summing). You can look to the `#pragma openmp ...` lines in [`MountainRangeOpenMP.hpp`](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeOpenMP.hpp) for an example; there's no need to overthink it, OpenMP threading is very simple. **What sort of speedup do you get when you run with 2 threads? 4? 8? 16? Why do you think the diminishment of returns is so severe?**
 
 
 
@@ -73,6 +73,8 @@ Update your `CMakeLists.txt` to create two more binaries, `optimize` and `waveso
 set(CMAKE_CXX_FLAGS_RELEASE "-Ofast -DNDEBUG" CACHE STRING "Flags used by the CXX compiler during RELEASE builds")
 ```
 
+**Make sure to run CMake with `cmake -DCMAKE_BUILD_TYPE=release` to take advantage of this setting**.
+
 `optimize` should give the same result as the binary that results from compiling the original `optimize.cpp`, but needs to be much faster: on a full `m9` node (which you can request with `salloc -p m9 -N 1 -n 28 ...`) with 8 OpenMP threads (`export OMP_NUM_THREADS=8`) it should run in less than a second. Feel free to [fine-tune compilation flags in your `CMakeLists.txt`](https://coderefinery.github.io/cmake-workshop/flags-definitions-debugging/#controlling-compiler-flags) to get an efficient binary.
 
 `wavesolve_openmp` will be much like [`wavesolve_serial`](phase2.md), but will add OpenMP threading and has speed requirements. It must run on `2d-medium-in.wo` from [`wavefiles.tar.gz`](https://rc.byu.edu/course/wavefiles.tar.gz) with 8 OpenMP threads on a full `m9` node in 20 seconds.
@@ -99,3 +101,5 @@ This phase is worth 20 points. The following deductions, up to 20 points total, 
 | Failure of `optimize` to run within a second on `m9` with 8 threads | 4 points |
 | `optimize` isn't relevant to the assignment, or just prints "5.39" or similar | 8 points |
 | The informal essay doesn't answer the bolded questions above, or the answers are nonsensical | 1-8 points |
+
+An extra credit point will be awarded to submissions that run in less than 0.1 seconds with 8 threads on `m9`.

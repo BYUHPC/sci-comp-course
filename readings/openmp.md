@@ -24,7 +24,9 @@ If a compiler doesn't understand OpenMP's special comments, then this code will 
 `g++ -fopenmp ...` will compile with OpenMP; it's usually easy to find the required flag on the man page or the internet for any compiler. `CMakeLists.txt` requires two things: finding OpenMP, and linking it to a target:
 
 ```cmake
+# At the top, under the `project` call:
 find_package(OpenMP REQUIRED)
+# With other compilation calls
 add_executable(blah blah.cpp)
 target_link_libraries(blah PRIVATE OpenMP::OpenMP_CXX)
 ```
@@ -53,7 +55,7 @@ The most useful [directives](https://www.openmp.org/spec-html/5.1/openmpch2.html
 
 ## Reductions
 
-Reductions use the commutative property of an operation to be able to parallelize those operations by doing them out of order. For example, the following two problems are equivalent:
+[Reductions](https://www.openmp.org/spec-html/5.0/openmpsu107.html) use the commutative property of an operation to be able to parallelize those operations by doing them out of order. For example, the following two problems are equivalent:
 
 $$1 + 2 + 3 + 4 + 5 + 6 = 21$$
 

@@ -60,7 +60,7 @@ store
                 store
 ```
 
-...`count` will end up as 6 like we expect. If the threads overlap in execution, though:
+...`count` will end up as 6 like we expect. If the threads overlap in time while executing, though, there's a problem:
 
 ```shell
 # Thread 1      # Thread 2
@@ -70,12 +70,40 @@ store           increment
                 store
 ```
 
-The problem here is that Thread 2 fetches the value for count before Thread 1 stores the new value. The end result is 5 which is not what we want. This is called a **race condition**.
+The issue is that thread 2 fetches the value for count before thread 1 stores the new value. The end result is 5 which is not what we want. This is called a **race condition**.
 
 
 
-## Race Conditions, Atomic Operations, and Reductions
+## Coordination
 
-The following video makes use of OpenMP, which we don't go over until the [next lesson](openmp.md), but you don't need to understand much about it to follow what's happening.
+### Race Conditions, Atomic Operations, and Reductions
+
+The video below makes use of OpenMP, which we don't go over until the [next lesson](openmp.md), but you don't need to understand much about it to follow what's happening.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/cxAKr9-5YqU?si=_rwhviI11TPQyXyc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+If any task is writing to a resource (e.g., memory or disk), then no other tasks should be reading from or writing to that same resource. This is true whether your task is a process or a thread. In either case, if someone is writing, nobody should be reading.
+
+What about parallel reads of the same resource? Is that safe assuming no tasks are writing to it? Yes, these parallel reads are safe because if the value is not being changed by any other task, then the reads will obtain the same value.
+
+How can we fix that race condition from above? One way is to use atomic operations. **Atomic operations** (or atomics) are operations that appear to the rest of the system to happen instantaneously.
+
+### Mutexes and Semaphores
+
+You may run into a situation where the operations you need to do aren't atomic or if your hardware doesn't have all the atomics you need. This is where other synchronization primitives come in–you have to coordinate manually.
+
+A **mutex** can be used to control access to a critical section (i.e., a section of code which must be serialized, meaning it is executed by only one worker at a time). A mutex supports lock and unlock operations. Think of a mutex like a [talking stick](https://en.wikipedia.org/wiki/Talking_stick)--just as only the one holding the stick may speak, only the thread that holds the mutex may access a given section of code.
+
+A **semaphore** can be thought of as an $$n$$-mutex--it allows up to $$n$$ threads to access a section of code at once, rather than just 1.
+
+### Barriers
+
+When a thread hits a **barrier**, it will wait until all the other threads subject to the barrier arrive before proceeding. Allowing the threads to sync up in this way can be used to ensure that variables mutated by all threads (e.g. a large array) are in a consistent state before the program proceeds.
+
+### Deadlock
+
+**Deadlock** is a situation where progress cannot be made. In computing, it generally refers to when a task is waiting for an action that will never occur. Deadlock is part of what makes debugging threaded programs a bit more intense than scalar programs.
+
+A good way to visualize this is the [dining philosophers problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem), where $$n$$ philosophers are at a table with $$n$$ utensils between them. Each philosopher needs two utensils to eat. If every philosopher picks up their left utensil and waits for the right to become available, then deadlock will be achieved: all philosophers will have only one utensil and all will be waiting for their right which won't occur.
+
+Deadlocks can be avoided by taking care to lock and unlock semaphores and mutexes in the right order and by using barriers to ensure consistent state.

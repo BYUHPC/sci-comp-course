@@ -76,7 +76,7 @@ When compiled and run on a random 25 MB file on my desktop, it took less than 1 
 
 ## Storage Capacity and Small Files
 
-Whenever you `flush()` or `close()` a file, the host has to empty it's file cache (in RAM) to disk. If you do so too often, you negate any benefit of the RAM caching your I/O. Using lots of small files means you're doing this by definition. Combined with many jobs, this can cause storage to bog down fairly easily. For example, a user might submit a job array of a thousand tasks that each reads in and processes one file of a few dozen bytes every few milliseconds. Often in such cases there are 10 more seeks for each file read in, meaning that the job array inflicts 3 million IOPs on the storage containing the input files. A storage system up to such a task would cost multiple millions of US dollars, and we kill jobs that bog down our storage systems so.
+Whenever you `flush()` or `close()` a file, the host has to empty its file cache (in RAM) to disk. If you do so too often, you negate any benefit of the RAM caching your I/O. Using lots of small files means you're doing this by definition. Combined with many jobs, this can cause storage to bog down fairly easily. For example, a user might submit a job array of a thousand tasks that each reads in and processes one file of a few dozen bytes every few milliseconds. Often in such cases there are 10 more seeks for each file read in, meaning that the job array inflicts 3 million IOPS on the storage containing the input files. A storage system up to such a task would cost multiple millions of US dollars, and we kill jobs that bog down our storage systems so.
 
 Small files also use storage inefficiently. Files are stored in 1 or more allocation **blocks**, which are the size of the minimum addressable space on the filesystem. These block sizes can vary between filesystems, but it is usually between 4 KiB and 32 KiB. Unoccupied space in a partially-used block cannot be used by another file. On a system with 4 KiB blocks, a 100 byte file, a 1 KiB file, and a 4 KiB file will each take up 4 KiB.
 
@@ -130,6 +130,6 @@ You can create a compressed tarball in one step, and extract likewise:
 # Create compressed tarballs, gzip and bunzip2
 tar cvzf test.tar.gz  sourcefilepath
 tar cvjf test.tar.bz2 sourcefilepath
-# Tar will automatically unzip while decompressing
+# Tar will automatically decompress while extracting
 tar xvf test.tar.gz
 ```

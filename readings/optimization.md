@@ -61,7 +61,7 @@ auto fast_product(const auto &x) { // passes by const reference--no copy, fast
 
 ### Hardware
 
-Vector instructions, like [SSE](http://sci.tuomastonteri.fi/programming/sse) and [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions), allow multiple floating point operations to happen in one clock cycle. For example, AVX2 provides 256-bit wide registers, allowing 4 double precision float operations to happen in a single clock cycle. You usually don't need to explicitly call vector instructions, but you can enable to compiler to emit code that uses them by giving it tight inner for loops free from [branches](https://en.wikipedia.org/wiki/Branch_(computer_science)). [This](http://walkingrandomly.com/?p=3378) is a good guide on squeezing out performance using vector instructions.
+Vector instructions, like [SSE](http://sci.tuomastonteri.fi/programming/sse) and [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions), allow multiple floating point operations to happen in one clock cycle. For example, AVX2 provides 256-bit wide registers, allowing 4 double precision float operations to happen in a single clock cycle. You usually don't need to explicitly call vector instructions, but you can enable the compiler to emit code that uses them by giving it tight inner for loops free from [branches](https://en.wikipedia.org/wiki/Branch_(computer_science)). [This](http://walkingrandomly.com/?p=3378) is a good guide on squeezing out performance using vector instructions.
 
 As mentioned in the [important reading above](http://gameprogrammingpatterns.com/data-locality.html), programming with memory and cache access in mind is vital. Keep your data compact, and iterate over it in the order it's laid out in memory to the extent possible.
 
