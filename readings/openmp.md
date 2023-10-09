@@ -3,7 +3,7 @@
 
 # OpenMP Threading
 
-[OpenMP](https://www.openmp.org/) is an API for multi-platform, shared-memory, parallel programming in C, C++, and Fortran. OpenMP commands take the form of special comments called pragmas. Threads will spawn where instances of `#parallel omp parallel` are.
+[OpenMP](https://www.openmp.org/) is an API for multi-platform, shared-memory, parallel programming in C, C++, and Fortran. OpenMP commands take the form of special comments called pragmas. Threads will spawn where instances of `#pragma omp parallel` are.
 
 ```c++
 // There's a race condition here, we'll talk about it below
@@ -13,7 +13,7 @@ for (long i{0}; i < 20'000'000l; ++i) {
 }
 ```
 
-If a compiler doesn't understand OpenMP's special comments, then this code will still compile and will run on a single thread. If it does understand OpenMP, then where the OMP parallel directive is, this will spawn threads for the next block. This allows serial and parallel code to be generated from the same program with with very little effort.
+If a compiler doesn't understand OpenMP's special comments, then this code will still compile and will run on a single thread. If it does understand OpenMP, then where the OMP parallel directive is, this will spawn threads for the next block. This allows serial and parallel code to be generated from the same program with very little effort.
 
 [HPC Tutorials volume 1 has an OpenMP section](EijkhoutHPCTutorialsVol1.pdf#subsection.2.6.2) that you can reference for further information if you'd like.
 
@@ -21,7 +21,7 @@ If a compiler doesn't understand OpenMP's special comments, then this code will 
 
 ## Compiling with OpenMP
 
-`g++ -fopenmp ...` will compile with OpenMP; it's usually easy to find the required flag on the man page or the internet for any compiler. `CMakeLists.txt` requires two things: finding OpenMP, and linking it to a target:
+`g++ -fopenmp ...` will compile with OpenMP; it's usually easy to find the required flag on the `man` page or the internet for any compiler. `CMakeLists.txt` requires two things: finding OpenMP, and linking it to a target:
 
 ```cmake
 # At the top, under the `project` call:
