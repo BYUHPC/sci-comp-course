@@ -28,3 +28,5 @@ Make sure the students know that they're supposed to do all their work in a sing
 I need to re-make some of the videos with the current example code; the ones that are especially important:
 
 - Optimization
+
+`WaveOrthotope`s should be `AbstractArray`s that are basically just `u`--the tuple thing is goofy. I think...

@@ -73,6 +73,8 @@ Update your `CMakeLists.txt` to create two more binaries, `optimize` and `waveso
 set(CMAKE_CXX_FLAGS_RELEASE "-Ofast -DNDEBUG" CACHE STRING "Flags used by the CXX compiler during RELEASE builds")
 ```
 
+**Make sure to run CMake with `cmake -DCMAKE_BUILD_TYPE=release` to take advantage of this setting**.
+
 `optimize` should give the same result as the binary that results from compiling the original `optimize.cpp`, but needs to be much faster: on a full `m9` node (which you can request with `salloc -p m9 -N 1 -n 28 ...`) with 8 OpenMP threads (`export OMP_NUM_THREADS=8`) it should run in less than a second. Feel free to [fine-tune compilation flags in your `CMakeLists.txt`](https://coderefinery.github.io/cmake-workshop/flags-definitions-debugging/#controlling-compiler-flags) to get an efficient binary.
 
 `wavesolve_openmp` will be much like [`wavesolve_serial`](phase2.md), but will add OpenMP threading and has speed requirements. It must run on `2d-medium-in.wo` from [`wavefiles.tar.gz`](https://rc.byu.edu/course/wavefiles.tar.gz) with 8 OpenMP threads on a full `m9` node in 20 seconds.
