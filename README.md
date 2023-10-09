@@ -19,6 +19,12 @@ bundle exec jekyll serve
 
 Phase 1 needs to be harder, and phase 2 needs to be easier. Phase 1 gives a false sense of security as it stands.
 
-"Shell and Slurm Practice" is kind of lame; it'd be nice to have a `find` thrown in there, and make it more open-ended and amenable to combining sed/grep/awk.
+"Shell and Slurm Practice" is kind of lame; it'd be nice to have a `find` thrown in there (plus material on `find`), and make it more open-ended and amenable to combining sed/grep/awk.
 
-The website situation is stupid--Canvas has nice navigation stuff, but it can't really be used for code samples because doing syntax highlighting manually is insane. Gordon Bean has a kind-of solution that allows you to use Markdown 
+The website situation is stupid--Canvas has nice navigation stuff, but it can't really be used for code samples because doing syntax highlighting manually is insane. Gordon Bean has a kind-of solution that allows you to use Markdown in Canvas, but it's not as nice as this way. He's working on something that will build a Canvas course from a Git repo which would be sweet but it sounds like that's a ways off.
+
+Make sure the students know that they're supposed to do all their work in a single git repo!
+
+I need to re-make some of the videos with the current example code; the ones that are especially important:
+
+- Optimization
