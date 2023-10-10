@@ -31,8 +31,6 @@ In a shell on the supercomputer, run `module restore; module load julia; module 
 
 Julia integrates nicely with VS Code; you can do without, but you'll need to do some extra work (e.g. [using viz](https://viz.rc.byu.edu:3443/) and specifying [`--project`](https://docs.julialang.org/en/v1/manual/command-line-interface/#command-line-interface-1)). [Install](https://code.visualstudio.com/learn/get-started/extensions) and [enable](https://code.visualstudio.com/docs/editor/extension-marketplace#_enable-an-extension) the [Julia extension](https://code.visualstudio.com/docs/languages/julia) on the [supercomputer](https://rc.byu.edu/wiki/index.php?page=Remote+Development+with+VS+Code). That done, you can **[run the REPL via the extension](https://github.com/julia-vscode/julia-vscode/wiki/REPL) with Alt+j, Alt+o or via the [command pallette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)**. The instructions in the rest of this assignment assume you launch the REPL thus.
 
-To get `ProfileView` to work, **you'll need to run `ENV["GKSwstype"] = "100"` in Julia each time you start it up**; alternately, you can put that command in [`startup.jl`](https://docs.julialang.org/en/v1/manual/command-line-interface/#Startup-file).
-
 
 
 ## Downloading and Using a Modified `WaveSim.jl`
@@ -40,7 +38,7 @@ To get `ProfileView` to work, **you'll need to run `ENV["GKSwstype"] = "100"` in
 `git clone https://github.com/BYUHPC/WaveSim.jl.git` will download the `WaveSim.jl` [package](https://pkgdocs.julialang.org/v1/) to your current directory. [Open that directory in VS Code](https://code.visualstudio.com/docs/editor/workspaces#_how-do-i-open-a-vs-code-workspace) and [launch the REPL](#setting-up-julia). Activate [package mode](https://docs.julialang.org/en/v1/stdlib/REPL/#Pkg-mode) by typing `]`, then run `activate .` followed by `instantiate`; you'll need to `activate` each time you open the REPL, but you only need to `instantiate` once. That done, you can use `WaveSim`:
 
 ```julia
-using WaveSim, ProfileView # this will now load the WaveSim.jl in this directory
+using WaveSim # this will now load the WaveSim.jl in this directory
 w = WaveOrthotope(open(wavefiles(2, :small, :in)))
 @profview solve!(w);
 ```
@@ -51,7 +49,7 @@ Each time you make modifications and want to test again, I recommend that you [q
 
 ## Performance in Julia
 
-As mentioned in the [resources](../resources.md#julia), Julia's [performance tips page](https://docs.julialang.org/en/v1/manual/performance-tips/) has everything most users will need to squeeze performance out of Julia. Use [`@profview`](https://github.com/timholy/ProfileView.jl) liberally to see where time is being taken.
+As mentioned in the [resources](../resources.md#julia), Julia's [performance tips page](https://docs.julialang.org/en/v1/manual/performance-tips/) has everything most users will need to squeeze performance out of Julia. Use [`@profview`](https://github.com/timholy/ProfileView.jl) liberally to see where time is being taken; if you're using VS Code, you don't need to install `ProfileView` since the Julia extension includes a custom `@profview`.
 
 ### Eliminating Unnecessary Work
 
