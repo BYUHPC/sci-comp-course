@@ -19,16 +19,16 @@ In similar fashion to the [first optimization assignment](phase3.md#submission),
 
 ## Grading
 
-This phase is worth 20 points. The following deductions, up to 20 points total, will apply for a program that doesn't work as laid out by the spec:
+This phase is worth 15 points. The following deductions, up to 15 points total, will apply for a program that doesn't work as laid out by the spec:
 
 | Defect | Deduction |
 | --- | --- |
-| Failure to compile `optimize` | 5 points |
-| Failure to run successfully (e.g. due to a segmentation fault or hang) | 5 points |
-| Failure of `optimize` to output "5.39", and only "5.39", to stdout | 5 points |
-| Failure of `optimize` to run within a second on `m9` with 8 threads | 5 points |
-| `optimize` isn't relevant to the assignment, just prints "5.39" or similar, or hasn't undergone any significant change since phase 3 | 10 points |
-| The informal essay doesn't answer the [questions in phase 3](phase3.md), the answers are nonsensical, or no significant changes have been made since phase 3 | 1-10 points |
-| The informal essay doesn't clearly denote which changes are new | 5 points |
+| Failure to compile `optimize` | 4 points |
+| Failure to run successfully (e.g. due to a segmentation fault or hang) | 4 points |
+| Failure of `optimize` to output "5.39", and only "5.39", to stdout | 4 points |
+| Failure of `optimize` to run within a second on `m9` with 8 threads | 4 points |
+| `optimize` isn't relevant to the assignment, just prints "5.39" or similar, or hasn't undergone any significant change since phase 3 | 8 points |
+| The informal essay doesn't answer the [questions in phase 3](phase3.md), the answers are nonsensical, or no significant changes have been made since phase 3 | 1-8 points |
+| The informal essay doesn't clearly denote which changes are new | 4 points |
 
 An extra credit point will be awarded to submissions that run in less than 0.1 seconds with 8 threads on `m9`.
