@@ -8,11 +8,11 @@ This project is meant to help you see that optimization is different (sometimes 
 Your job is to make [WaveSim.jl](https://github.com/BYUHPC/WaveSim.jl) faster while keeping it correct. Specifically, solving `2d-medium-in.wo` with it should complete in less than 50 seconds on an `m9` node:
 
 ```julia
-# Run this in the julia interpreter: `module load julia; [module save]; julia`
+# Run this in the julia interpreter: `module load julia; julia`
 # Read in the 2D wave orthotope files from wavefiles.tar.gz
 using WaveSim
-tiny2din, small2din, medium2din = (WaveOrthotope(open(wavefiles(2, filesize, :in)))
-                                   for filesize in (:tiny, :small, :medium));
+tiny2din, small2din, medium2din = (WaveOrthotope(open(wavefiles(2, s, :in)))
+                                   for s in (:tiny, :small, :medium));
 # Compile on 2d-tiny-in.wo
 @time solve!(tiny2din);
 # Time solve on 2d-medium-in.wo
@@ -43,7 +43,7 @@ w = WaveOrthotope(open(wavefiles(2, :small, :in)))
 @profview solve!(w);
 ```
 
-Each time you make modifications and want to test again, I recommend that you [quit Julia](https://docs.julialang.org/en/v1/base/base/#Base.exit), [re-launch the REPL](#setting-up-julia), and run the same commands.
+I strongly recommend using [`Revise`](https://timholy.github.io/Revise.jl/stable/)--it will enable you to test changes that you make live. Otherwise, you'll need to [quit Julia](https://docs.julialang.org/en/v1/base/base/#Base.exit), [re-launch the REPL](#setting-up-julia), and run again to see your changes reflected there.
 
 
 
