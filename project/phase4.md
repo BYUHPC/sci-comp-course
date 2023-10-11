@@ -19,7 +19,7 @@ tiny2din, small2din, medium2din = (WaveOrthotope(open(wavefiles(2, s, :in)))
 @time solve!(medium2din); # should be under 50s
 ```
 
-Depending on whether you want to try for the [extra credit](../assignments/extra-credit.md#project), you'll need to modify [`energy_2d.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/energy_2d.jl) and [`solve_2d.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/step_2d.jl) (2D) or [`energy.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/energy.jl) and [`solve.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/step.jl) (ND). You'll also need to change the default `implementation` in [`WaveSim.jl` itself](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/WaveSim.jl) from `ND` to `2D` if you use the 2D files. You can modify any other files you like as well, but you won't need to do so to attain the required performance.
+Depending on whether you want to try for the [extra credit](../assignments/extra-credit.md#project), you'll need to modify [`energy_2d.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/energy_2d.jl) and [`solve_2d.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/step_2d.jl) (2D) or [`energy.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/energy.jl) and [`solve.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/step.jl) (ND). You'll also need to **change the default `implementation` in [`WaveSim.jl` itself](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/WaveSim.jl) from `ND` to `2D` if you are going to use the 2D files**. You can modify any other files you like as well, but you won't need to do so to attain the required performance.
 
 For most students, optimizing in 2 dimensions will be significantly easier.
 
@@ -33,9 +33,9 @@ Julia integrates nicely with VS Code; you can do without, but you'll need to do 
 
 
 
-## Downloading and Using a Modified `WaveSim.jl`
+## Downloading and Using a Modified WaveSim.jl
 
-`git clone https://github.com/BYUHPC/WaveSim.jl.git` will download the `WaveSim.jl` [package](https://pkgdocs.julialang.org/v1/) to your current directory. [Open that directory in VS Code](https://code.visualstudio.com/docs/editor/workspaces#_how-do-i-open-a-vs-code-workspace) and [launch the REPL](#setting-up-julia). Activate [package mode](https://docs.julialang.org/en/v1/stdlib/REPL/#Pkg-mode) by typing `]`, then run `activate .` followed by `instantiate`; you'll need to `activate` each time you open the REPL, but you only need to `instantiate` once. That done, you can use `WaveSim`:
+`git clone https://github.com/BYUHPC/WaveSim.jl.git` will download the `WaveSim.jl` [package](https://pkgdocs.julialang.org/v1/) to your current directory. If you're using the 2D implementation, change `implementation`'s default in `src/WaveSim.jl` from `ND` to `2D`. [Open that directory in VS Code](https://code.visualstudio.com/docs/editor/workspaces#_how-do-i-open-a-vs-code-workspace) and [launch the REPL](#setting-up-julia). Activate [package mode](https://docs.julialang.org/en/v1/stdlib/REPL/#Pkg-mode) by typing `]`, then run `activate .` followed by `instantiate`; you'll need to `activate` each time you open the REPL, but you only need to `instantiate` once. That done, you can use `WaveSim`:
 
 ```julia
 using WaveSim # this will now load the WaveSim.jl in this directory
