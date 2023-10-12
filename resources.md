@@ -37,7 +37,7 @@ You'll also find many wave orthotope files from 1 to 4 dimensions (in case you'r
 ...then using the included `wavediff` binary to ensure that your output file is correct:
 
 ```shell
-wavediff 2d-small-out.wo 2d-small-in.wo
+wavediff 2d-small-out.wo my-2d-small-out.wo
 ```
 
 You could also use [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl) to ensure that your output file is correct:
