@@ -24,6 +24,8 @@ The second script, `analyze.sh`, will be a bash script that gets submitted as a 
 
 The third script, `submit.sh`, will be run on the login nodes (with `bash`, not `sbatch`) and submit a job array of size 10 that runs `energize.sh`, once per array task. It will then parse the job id from running sbatch (search the `sbatch` man page for "parsable") and submit a second job that is dependent on the first completing successfully; if the first job fails, the second job should not run. The second job will run `analyze.sh`. You will need to pass the job id from the first job to the `analyze.sh` either as a command line argument or an environment variable.
 
+**Make sure not to run `submit.sh` from a node-local directory like `/tmp` or `/dev/shm`**--if you do so, no outfile will show up since the job will try to write it to the compute node's storage rather than the storage of the node you're on.
+
 Put these scripts into a tar file. Compress the tar file using gzip. Submit this `.tar.gz` file through [Canvas](https://byu.instructure.com/courses/21221/assignments).
 
 ## Grading

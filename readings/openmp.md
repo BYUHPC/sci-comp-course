@@ -73,8 +73,15 @@ OpenMP comes with these built-in reduction operators in C and C++:
 The race condition in the [first example](#openmp-threading), which results from multiple threads trying to simultaneously modify `counter`, can be fixed with a sum reduction:
 
 ```c++
-#pragma omp parallel for reduction(+:counter)
-for (long i{0}; i < 20'000'000l; ++i) {
-   counter += 1;
+#include <iostream>
+
+int main() {
+    size_t counter = 0;
+    #pragma omp parallel for reduction(+:counter)
+    for (size_t i = 0; i < 20000000; ++i) {
+       counter += 1;
+    }
+    std::cout << counter << std::endl;
+    return 0;
 }
 ```
