@@ -29,7 +29,7 @@ target_link_libraries(blah PRIVATE Threads::Threads)
 
 int main() {
     // Latin numerals print in a spawned thread
-    auto latin_numeral_thread = std::jthread([]{ // using lambdas to spawn threads is the convention.
+    auto latin_numeral_thread = std::jthread([]{ // using lambdas to spawn threads is idiomatic
         for (auto &numeral: {"I", "II", "III", "IV", "V"}) {
             std::this_thread::sleep_for(std::chrono::milliseconds(50));
             std::cout << numeral << std::endl;
@@ -53,7 +53,7 @@ int main() {
  */
 ```
 
-This is simple enough when no coordination is required, or when clock-based coordination is sufficient as above, but getting threads to synchronize or communicate correctly is challenging. Even getting two threads to interleave the printing of "PING" and "PONG" requires 3 variables dedicated solely to coordination:
+This is simple enough when no coordination is required, or when clock-based coordination is sufficient as above, but getting threads to synchronize or communicate correctly is challenging. Even getting two threads to interleave the printing of "PING" and "PONG" below requires 3 variables dedicated solely to coordination:
 
 ```c++
 #include <iostream>
@@ -119,7 +119,7 @@ int main() {
 }
 ```
 
-### C++ Mutexes
+### C++ Mutexes and Semaphores
 
 [`std::mutex`](https://en.cppreference.com/w/cpp/thread/mutex) and [`std::counting_semaphore`](https://en.cppreference.com/w/cpp/thread/counting_semaphore) provide [mutexes and sempahores](threading.md#mutexes-and-semaphores) in C++. It's best to [use](#using-c-threads) [`std::unique_lock`](https://en.cppreference.com/w/cpp/thread/unique_lock) and [`std::lock_guard`](https://en.cppreference.com/w/cpp/thread/lock_guard) rather than locking and unlocking mutexes manually.
 

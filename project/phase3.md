@@ -102,4 +102,4 @@ This phase is worth 20 points. The following deductions, up to 20 points total, 
 | `optimize` isn't relevant to the assignment, or just prints "5.39" or similar | 8 points |
 | The informal essay doesn't answer the bolded questions above, or the answers are nonsensical | 1-8 points |
 
-An extra credit point will be awarded to submissions that run in less than 0.1 seconds with 8 threads on `m9`.
+An extra credit point will be awarded if `optimize` runs correctly in less than 0.1 seconds with 8 threads on `m9`.
