@@ -10,7 +10,7 @@
 Preparing a breakfast of cheesy eggs, muffins, and sliced fruit is a concurrent process. Each task has some ordering:
 
 - Cheese has to be shredded before it's added to the eggs
-- Muffin dough ust be made before it's baked
+- Muffin dough must be made before it's baked
 
 ...but there is some independence as well:
 
