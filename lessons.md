@@ -19,8 +19,8 @@
 
 ### [8: Threading in C++](lessons/8.md)
 
+### [9: Distributed Programming and MPI](lessons/9.md)
 <!---
-### [9: Blocking and Non-Blocking Communication](lessons/8-communication.md)
 
 ### [10: Distributed Programming and MPI](lessons/10-mpi.md)
 

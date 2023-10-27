@@ -28,5 +28,10 @@ Make sure the students know that they're supposed to do all their work in a sing
 I need to re-make some of the videos with the current example code; the ones that are especially important:
 
 - Optimization
+- MPI
 
 `WaveOrthotope`s should be `AbstractArray`s that are basically just `u`--the tuple thing is goofy. I think...
+
+The MPI example code should maybe be converted to use [MPL](https://github.com/rabauke/mpl) instead.
+
+Once LLVM or GCC supports compiling DPC++ for GPUs, use that rather than `nvc++` for the GPU phase.
