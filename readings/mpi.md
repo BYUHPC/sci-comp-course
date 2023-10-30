@@ -13,7 +13,7 @@ Read [subsections 2.6.3.1-6](EijkhoutHPCTutorialsVol1.pdf#subsection.2.6.3) of E
 
 ## MPI
 
-The [Message Passing Interface (MPI)](https://en.wikipedia.org/wiki/Message_Passing_Interface) is an interface for passing data between processes using messages. These processes can be on the same machine or across nodes. All MPI programs being with a call to MPI_Init and end with MPI_Finalize. The MPI functions are defined in mpi.h.
+The [Message Passing Interface (MPI)](https://en.wikipedia.org/wiki/Message_Passing_Interface) is an interface for passing data between processes using messages. These processes can be on the same machine or across nodes. All MPI programs being with a call to `MPI_Init` and end with `MPI_Finalize`. The MPI functions are defined in `mpi.h`.
 
 ```c++
 #include <iostream>
