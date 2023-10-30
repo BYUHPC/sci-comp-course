@@ -20,10 +20,10 @@
 ### [8: Threading in C++](lessons/8.md)
 
 ### [9: Distributed Programming and MPI](lessons/9.md)
+
+### [10: Distributed Programming and MPI continued](lessons/10.md)
+
 <!---
-
-### [10: Distributed Programming and MPI](lessons/10-mpi.md)
-
 ### [11: Applications of HPC](lessons/11-applications.md)
 
 ### [12: Accelerators](lessons/12-accelerators.md)

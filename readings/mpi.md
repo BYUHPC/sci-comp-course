@@ -13,7 +13,7 @@ Read [subsections 2.6.3.1-6](EijkhoutHPCTutorialsVol1.pdf#subsection.2.6.3) of E
 
 ## MPI
 
-The [Message Passing Interface (MPI)](https://en.wikipedia.org/wiki/Message_Passing_Interface) is an interface for passing data between processes using messages. These processes can be on the same machine or across nodes. All MPI programs being with a call to `MPI_Init` and end with `MPI_Finalize`. The MPI functions are defined in `mpi.h`.
+The [Message Passing Interface (MPI)](https://en.wikipedia.org/wiki/Message_Passing_Interface) is an interface for passing data between processes using messages. It allows for **distributed memory** programming, unlike OpenMP or C++ threads which require **shared memory**; this means that an MPI program can span multiple nodes. These processes can be on the same machine or across nodes. All MPI programs being with a call to `MPI_Init` and end with `MPI_Finalize`. The MPI functions are defined in `mpi.h`.
 
 ```c++
 #include <iostream>
@@ -35,7 +35,7 @@ With most MPI compilers, you can use `mpic++` in the place of a C++ compiler lik
 mpicxx -std=c++20 -o myprog myprog.cpp
 ```
 
-The partial `CMakeLists.txt` below will build the MPI program only if the MPI compiler for C++ is found; this allows building the other executables even if MPI isn't available. 
+The partial `CMakeLists.txt` below will build an MPI program only if the MPI compiler for C++ is found; this allows building the other executables even if MPI isn't available. 
 
 ```cmake
 cmake_minimum_required(VERSION 3.9)
@@ -62,9 +62,9 @@ Not knowing the name of the function that you are looking for, though, renders s
 
 ## MPI I/O
 
-The MPI datatypes which describe the memory layout of messages are reused to describe the file layout on persistent storage.
+The MPI data types which describe the memory layout of messages are reused to describe the file layout on persistent storage.
 
-File are opened with `MPI_File_open` and closed with `MPI_File_close`. There are various "modes" for opening files. This example opens the file in read-only mode. If it doesn't exist, `MPI_File_open` will return an error.
+File are opened with `MPI_File_open` and closed with `MPI_File_close`. There are various "modes" for opening files. This example opens the file in read-only mode. If it doesn't exist, `MPI_File_open` will return an [error](https://www.mcs.anl.gov/research/projects/mpi/mpi-standard/mpi-report-1.1/node148.htm).
 
 ```c++
 MPI_File handle;
@@ -110,7 +110,7 @@ MPI_File_read_all(f, &n, 1, MPI_INT, MPI_STATUS_IGNORE);
 
 // Read body
 int local_n = n / mpi_size;
-int local_offset = n * local_n;
+int local_offset = mpi_rank * local_n;
 if (mpi_rank == mpi_size-1) local_n += n % mpi_size; // last proc gets remainder
 std::vector<int> v(local_n);
 MPI_File_read_at(f, header_size+local_offset, v.data(), v.size(), MPI_INT, MPI_STATUS_IGNORE);
@@ -145,7 +145,7 @@ std::array<int, 4> data{1, 3, 5, 7};
 MPI_Send(&data[0], 1, Quad, dest, tag, comm);
 
 // when finished with the type
-MPI_Type_free($Quad);
+MPI_Type_free(&Quad);
 ```
 
 ### `MPI_Type_create_struct`
