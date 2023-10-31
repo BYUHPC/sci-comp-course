@@ -23,9 +23,9 @@
 
 ### [10: Distributed Programming and MPI continued](lessons/10.md)
 
-<!---
-### [11: Applications of HPC](lessons/11-applications.md)
+### [11: Applications of Supercomputing](lessons/11.md)
 
+<!---
 ### [12: Accelerators](lessons/12-accelerators.md)
 
 ### [13: HPC Programming IRL](lessons/13-irl.md)
