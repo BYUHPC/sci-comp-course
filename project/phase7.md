@@ -16,6 +16,8 @@ mpirun --npernode 4 wavesolve_mpi ...
 1. Get your I/O working--make an MPI program that reads in a [wave orthotope file](phase2.md#data-format) with [MPI I/O](../readings/mpi.md#mpi-io), prints the header and any other debug information you need, and writes back out an identical file with MPI I/O
 1. Once the I/O is working, figure out the [exchange of halos](#division-of-labor) and your `solve` function
 
+When you run with multiple processes, **put your output files in `~/compute`**--NFS (the rest of your home directory) is astonishingly slow to allow MPI I/O writes.
+
 Load `gcc/latest` and `openmpi` to get access to a recent MPI compiler.
 
 

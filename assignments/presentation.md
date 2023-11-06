@@ -29,5 +29,5 @@ You will be awarded 100% as long as you:
 
 -  Put in reasonable effort
 -  Follow the instructions
--  Provide a good explanation or discussion of both the domain specifics and the computational profile, roughly half the time spent on each
--  Turn in the assignment on time
+-  Provide meaningful commentary on both the domain specifics and the computational profile, roughly half the time spent on each
+-  Turn it in on time
