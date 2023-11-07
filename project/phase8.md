@@ -9,7 +9,7 @@ In this phase, you'll offload heavy computational work to a GPU. If you're alrea
 
 ## Iteration in 2 Dimensions
 
-The [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeGPU.hpp) shows how to use `std::for_each` and `std::transform_reduce`, which will be the only standard algorithms you need in your code. It does not, however, show [how to iterate over 2-dimensional ranges](https://www.nvidia.com/en-us/on-demand/session/gtcspring23-DLIT51170/?ncid=em-even-124008-vt33). For that, you'll want [this `cartesian_product.hpp`](https://github.com/gonzalobg/cpp_hpc_tutorial/blob/master/include/cartesian_product.hpp), which backports [`cartesian_product`](https://en.cppreference.com/w/cpp/ranges/cartesian_product_view) to C++20. With that included, you could sum the squares of the interior of `x` (which is a 1-dimensional `std::vector` pretending to be a 2-dimensional array of size `rows` by `cols`) thus:
+The [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeGPU.hpp) shows how to use [`std::for_each`](https://en.cppreference.com/w/cpp/algorithm/for_each) and [`std::transform_reduce`](https://en.cppreference.com/w/cpp/algorithm/transform_reduce), which will be the only standard algorithms you need in your code. It does not, however, show [how to iterate over 2-dimensional ranges](https://www.nvidia.com/en-us/on-demand/session/gtcspring23-DLIT51170/?ncid=em-even-124008-vt33). For that, you'll want [this `cartesian_product.hpp`](https://github.com/gonzalobg/cpp_hpc_tutorial/blob/master/include/cartesian_product.hpp), which backports [`cartesian_product`](https://en.cppreference.com/w/cpp/ranges/cartesian_product_view) to C++20. With that included, you could sum the squares of the interior of `x` (which is a 1-dimensional `std::vector` pretending to be a 2-dimensional array of size `rows` by `cols`) thus:
 
 ```c++
 auto interior = std::views::cartesian_product(std::views::iota(1ul, rows-1),
@@ -28,7 +28,7 @@ auto sq_sum = std::transform_reduce(std::execution::par_unseq,
 
 ## Quirks
 
-There are some limitations on the C++ you can successfully compile for GPUs with `nvc++`. [Only heap memory can be automatically managed](https://developer.nvidia.com/blog/accelerating-standard-c-with-gpus-using-stdpar/); this won't likely be a problem, since `std::vector`s are stored on the heap. One that is much more likely to bite you is the requirement that these heap data members **should be captured in the kernel function by pointer**, then indexed raw; this is shown in the example above, where indexing is manual and `x=x.data()` captures `x` as a pointer.
+There are some limitations on the C++ you can successfully compile for GPUs with `nvc++`. [Only heap memory can be automatically managed](https://developer.nvidia.com/blog/accelerating-standard-c-with-gpus-using-stdpar/), but this won't likely be a problem since `std::vector`s store their data on the heap. One that is much more likely to bite you is the requirement that these heap data members **should be captured in the kernel function by pointer**, then indexed raw; this is shown in the example above, where indexing is manual and `x=x.data()` makes `x` a pointer within the kernel.
 
 
 
