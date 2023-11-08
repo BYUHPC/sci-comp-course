@@ -52,9 +52,9 @@ Read [chapter 1](EijkhoutHPCTutorialsVol2.pdf#chapter.1) and [sections 2.3-2.5](
 
 There is enough breadth to MPI that we couldn't cover it all even if we dedicated the entire semester to doing so, which means that knowing how to find documentation on what we don't explicitly cover is vital--being able to quickly look up a function that we mention in a video can help you understand it better, and using a different approach than we did for phases 7a and 7b might take you into territory that we haven't talked about.
 
-As is often the case, the man pages are a good place to start. Once you have a compiler and MPI module loaded (e.g. `gcc/13` and `openmpi/4.1`), you can run `man 3 MPI_Function_name` to get the details on that function. For example, to find out more about `MPI_Allreduce`, you could use `module load gcc/latest openmpi; man 3 MPI_Allreduce`. You can also take advantage of your shell's tab completion to get a full listing of all available MPI functions by typing `man 3 MPI_` then pressing the tab key.
+As is often the case, the `man` pages are a good place to start. Once you have a compiler and MPI module loaded (e.g. `gcc/13` and `openmpi/4.1`), you can run `man 3 MPI_Function_name` to get the details on that function. For example, to find out more about `MPI_Allreduce`, you could use `module load gcc/latest openmpi; man 3 MPI_Allreduce`. You can also take advantage of your shell's tab completion to get a full listing of all available MPI functions by typing `man 3 MPI_` then pressing the tab key.
 
-[Online documentation](https://www.open-mpi.org/doc/current/) is also available but generally contains no more information than do the man pages. [Microsoft's online MPI documentation](https://docs.microsoft.com/en-us/message-passing-interface/mpi-reference) is reasonably well organized and concise (partly because it doesn't include Fortran information), although it is possible that there are subtle differences between it and OpenMPI, MVAPICH, etc. When you know a function name or have an idea of what it might be called, man pages and online documentation should be the first place you turn.
+[Online documentation](https://www.open-mpi.org/doc/current/) is also available but generally contains no more information than do the `man` pages. [Microsoft's online MPI documentation](https://docs.microsoft.com/en-us/message-passing-interface/mpi-reference) is reasonably well organized and concise (partly because it doesn't include Fortran information), although it is possible that there are subtle differences between it and OpenMPI, MVAPICH, etc. When you know a function name or have an idea of what it might be called, `man` pages and online documentation should be the first place you turn.
 
 Not knowing the name of the function that you are looking for, though, renders said documentation a vast sea of (often poorly organized) information in which you need to find a small drop of truth. As you get more familiar with MPI, you'll be able to find a handful of functions that look right and see which one is suited for what you want to do, but until then the best way to quickly find what you're looking for is usually to search something along the lines of "How to ____ with MPI" and try to pick a recent, relevant result. If that fails, reach out to us and we'll try to point you the right way.
 
@@ -138,7 +138,7 @@ Create a new type that represents an array of a known type as a single type:
 
 ```c++
 MPI_Datatype Quad;
-MPI_Type_contiguous(4, MPI_INT, &Qaud);
+MPI_Type_contiguous(4, MPI_INT, &Quad);
 MPI_Type_commit(&Quad);
 
 std::array<int, 4> data{1, 3, 5, 7};
@@ -181,7 +181,7 @@ Now, we have to describe that same struct to MPI. `static_assert` is a function 
 
 ```c++
 Meta meta;
-if rank == 0) {
+if (rank == 0) {
   meta.iterations = 10;
   meta.epsilon = 0.1f;
 }
