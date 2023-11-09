@@ -25,4 +25,4 @@ This specialization does mean that FPGAs are generally more expensive and harder
 
 ## ASICs
 
-[ASICs (Application-Specific Integrated Circuits)](https://en.wikipedia.org/wiki/Application-specific_integrated_circuit) are the logical conclusion of the concept of FPGAs--rather than being field-programmable, they're manufactured for one specific application. Once they leave the factory, their purpose is rigidly defined. They can be even faster and more efficient than FPGAs, but have no versatility. As such, they don't play much of a role in scientific computing.
+[ASICs (Application-Specific Integrated Circuits)](https://en.wikipedia.org/wiki/Application-specific_integrated_circuit) are the logical conclusion of the concept of FPGAs--rather than being field-programmable, they're manufactured for one specific application, and once they leave the factory their purpose is rigidly defined. As an example, the video decoding hardware on a CPU is essentially just a tiny ASIC fabricated in-place. They can be even faster and more efficient than FPGAs, but have no versatility. As such, they don't play much of a role in scientific computing.

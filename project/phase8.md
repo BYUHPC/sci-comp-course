@@ -3,7 +3,7 @@
 
 # Phase 8: GPU
 
-In this phase, you'll offload heavy computational work to a GPU. If you're already familiar with CUDA or similar, you can use it to write your code, but this lesson will assume that you're [using standard C++ and `nvc++`](../readings/gpu-programming.md#compiling). Since GPUs are so well-suited to this task, performance requirements are more strict; on a single P100 (which you can request with `salloc --gpus 1 -C pascal ...`) the program should run on `2d-medium-in.wo` in less than 5 seconds.
+In this phase, you'll offload heavy computational work to a GPU. If you're already familiar with CUDA or similar, you can use it to write your code, but this lesson will assume that you're [using standard C++ and `nvc++`](../readings/gpu-programming.md#compiling). Since GPUs are so well-suited to this task, performance requirements are more strict: on a single P100 (which you can request with `salloc --gpus 1 -C pascal ...`) the program should run on `2d-medium-in.wo` in less than 5 seconds.
 
 
 

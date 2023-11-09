@@ -50,7 +50,7 @@ Read [chapter 1](EijkhoutHPCTutorialsVol2.pdf#chapter.1) and [sections 2.3-2.5](
 
 ### Finding Documentation
 
-There is enough breadth to MPI that we couldn't cover it all even if we dedicated the entire semester to doing so, which means that knowing how to find documentation on what we don't explicitly cover is vital--being able to quickly look up a function that we mention in a video can help you understand it better, and using a different approach than we did for phases 7a and 7b might take you into territory that we haven't talked about.
+There is enough breadth to MPI that we couldn't cover it all even if we dedicated the entire semester to doing so, which means that knowing how to find documentation on what we don't explicitly cover is vital--being able to quickly look up a function that we mention in a video can help you understand it better, and using a different approach than the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeMPI.hpp) might take you into territory that we haven't talked about.
 
 As is often the case, the `man` pages are a good place to start. Once you have a compiler and MPI module loaded (e.g. `gcc/13` and `openmpi/4.1`), you can run `man 3 MPI_Function_name` to get the details on that function. For example, to find out more about `MPI_Allreduce`, you could use `module load gcc/latest openmpi; man 3 MPI_Allreduce`. You can also take advantage of your shell's tab completion to get a full listing of all available MPI functions by typing `man 3 MPI_` then pressing the tab key.
 
