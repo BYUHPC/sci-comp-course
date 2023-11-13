@@ -20,7 +20,7 @@ auto sq_sum = std::transform_reduce(std::execution::par_unseq,
                     /* reduce    */ std::plus<>(),
                     /* transform */ [cols=cols, x=x.data()](auto ij){
                                         auto [i, j] = ij;
-                                        return std::pow(x[i*n+j], 2);
+                                        return std::pow(x[i*cols+j], 2);
                                     });
 ```
 
