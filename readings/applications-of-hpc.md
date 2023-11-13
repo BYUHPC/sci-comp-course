@@ -8,3 +8,8 @@ Most scientific fields rely on high performance computing to some extent, from [
 ## Extra Credit
 
 When you come across a good article, send me the link in Slack. The end goal is to make a list of quality resources on this page.
+
+Submissions so far:
+
+- [AI accerlation with GPUs](https://blogs.nvidia.com/blog/accelerating-ai-artificial-intelligence-gpus/)
+- [Drug discovery with molecular modeling](https://www.mdpi.com/1420-3049/24/9/1693)
