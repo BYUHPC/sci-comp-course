@@ -26,7 +26,5 @@
 ### [11: Applications of Supercomputing](lessons/11.md)
 
 ### [12: Accelerators](lessons/12.md)
-<!---
 
-### [13: HPC Programming IRL](lessons/13-irl.md)
--->
+### [13: Supercomputing in the Real World](lessons/13.md)
