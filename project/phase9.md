@@ -3,7 +3,7 @@
 
 # Phase 9: Differential Equation Solver
 
-This phase is meant to be a more accurate representation of what you might actually do if the [project problem](overview.md) came up in the course of your research. Rather than manually writing a rudimentary leapfrog algorithm, you'll leverage existing infrastructure, taking advantage of the huge amount of time and research that others have put into fast, flexible differential equation solvers. You'll modify [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl) to replace the leapfrog algorithm with a [`SecondOrderODEProblem`](https://docs.sciml.ai/DiffEqDocs/stable/types/dynamical_types/) (or [whichever "problem" you'd like](https://docs.sciml.ai/DiffEqDocs/stable/types/ode_types/)) from [SciML](https://docs.sciml.ai/Overview/stable/)'s [`DifferentialEquations`](https://docs.sciml.ai/DiffEqDocs/stable/) package. Since this means a much [higher performance](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/faster_ode_example/) ceiling than a fixed-time-step leapfrog algorithm, it will be required to run on `2d-medium-in.wo` in 20 seconds. I recommend using your [phase 4](phase4.md) code as a starting point since you've already done some of the optimization work you'll need.
+This phase is meant to be a more accurate representation of what you might actually do if the [project problem](overview.md) came up in the course of your research. Rather than manually writing a rudimentary leapfrog algorithm, you'll leverage existing infrastructure, taking advantage of the huge amount of time and research that others have put into fast, flexible differential equation solvers. You'll modify [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl) to replace the [leapfrog algorithm](https://byuhpc.github.io/sci-comp-course/project/overview.html#moving-the-simulation-forward-in-time) with a [`SecondOrderODEProblem`](https://docs.sciml.ai/DiffEqDocs/stable/types/dynamical_types/) (or [whichever "problem" you'd like](https://docs.sciml.ai/DiffEqDocs/stable/types/ode_types/)) from [SciML](https://docs.sciml.ai/Overview/stable/)'s [`DifferentialEquations`](https://docs.sciml.ai/DiffEqDocs/stable/) package. Since this means a much [higher performance](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/faster_ode_example/) ceiling than a fixed-time-step leapfrog algorithm, it will be required to run on `2d-medium-in.wo` in 20 seconds. I recommend using your [phase 4](phase4.md) code as a starting point since you've already done some of the optimization work you'll need.
 
 
 
@@ -16,8 +16,8 @@ The self-contained [example code](https://github.com/BYUHPC/sci-comp-course-exam
 Defining the function that you'll pass to `SecondOrderODEProblem` itself isn't too bad, and `dhdt!` in the [example](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/initial.jl) offers some guidance. Notice that `dvdt!`'s main computation is just the [differential equation that defines the example problem](https://github.com/BYUHPC/sci-comp-course-example-cxx/tree/main#appendix-a-mathematical-justification)--you'll do something similar with the [damped wave equation differential equation](overview.md#appendix-c-mathematical-justification). Here's the gist:
 
 ```julia
-function dvdt!(ddu, du, u, c, t) # u is displacement, du is velocity, ddu is acceleration
-    ddu = laplacian(u) - c * du # this is just pseudo-code, it needs some fixing
+function dvdt!(a, v, u, c, t) # u: displacement; v: velocity; a: acceleration
+    a = laplacian(u) - c*v # this is just pseudo-code, it needs some fixing
 end
 ```
 
