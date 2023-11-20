@@ -9,4 +9,4 @@ Announcements will be made exclusively via [Slack](https://byu-sci-comp.slack.co
 
 Most of the time you spend on this class will probably be devoted to the [project](project/overview.md). Refer to the [tips and tricks](project/overview.md#appendix-a-tips-and-tricks), [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx), and [C++ resources](resources.md#c) often as you go through each phase.
 
-**The course is a work in progress**--content is being added constantly.
+**The course is a work in progress**--you can get [extra credit](assignments/extra-credit.md) by helping it along.

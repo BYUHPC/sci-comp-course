@@ -17,3 +17,4 @@ Submissions so far:
 - [HPC graph partitioning](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=184a87a7e72888ddbca49bd9de6fa826c9f4c149)
 - [Automated catalyst synthesis](https://www.nature.com/articles/s44160-023-00424-1?et_rid=987561522&et_cid=4983836)
 - [HPC and quantum computing](https://www.engineering.com/story/hpc-closing-the-gap-with-quantum-computing-advantage)
+- [HPC and](https://link.springer.com/book/10.1007/978-1-0716-3449-3) [drug discovery](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7107815/)
