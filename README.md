@@ -32,7 +32,7 @@ I need to re-make some of the videos with the current example code; the ones tha
 
 `WaveOrthotope`s should be `AbstractArray`s that are basically just `u`--the tuple thing is goofy. I think...
 
-The MPI example code should maybe be converted to use [MPL](https://github.com/rabauke/mpl) instead.
+The MPI example code should maybe be converted to use [MPL](https://github.com/rabauke/mpl) instead. DONE; need to modify readings and assignments.
 
 The MPI reading doesn't have enough information on communications--e.g. `MPI_{I,}{Send,Recv,Sendrecv}`
 
