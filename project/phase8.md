@@ -45,11 +45,6 @@ There are some limitations on the C++ you can successfully compile for GPUs with
 
 
 
-## Testing
-
-
-
-
 ## Submission
 
 Update your `CMakeLists.txt` to create `wavesolve_gpu`; as of this writing, CMake doesn't have infrastructure in place for GPU compilation with `nvc++`, so you'll have to look to the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/f5c8286e20d9aa49971dc7776d1c69c0286f80aa/CMakeLists.txt#L60) to see how to do so manually. Tag the commit you'd like me to grade from `phase8`, and push it.
