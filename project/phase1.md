@@ -39,6 +39,10 @@ g++ -std=c++20 -o wavesolve wavesolve.cpp
 
 You can test your implementation in the same way. You'll probably want to [set up VS Code](../resources.md#programming) on the supercomputer to develop your code unless you're familiar with vim or emacs. If you have no experience with [Linux](../lessons/2-linux.md), you can also [test with an online C++ compiler](../resources.md#compilation).
 
+
+
+## C++
+
 If you follow the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx) to create a `WaveOrthotope` class with `solve` and `sim_time` functions and a constructor taking rows, columns, and damping coefficient, your `main` can be very simple:
 
 ```c++
@@ -58,6 +62,26 @@ int main() {
     return 0;
 }
 ```
+
+The most challenging part of the assignment for most students is using [2-dimensional arrays of runtime size in C++](https://stackoverflow.com/a/32279494). I recommend using a one-dimensional `std::vector` to store your data, then using a function to pretend it's two-dimensional:
+
+```c++
+class WaveOrthotope {
+    size_t rows, cols;
+    std::vector<double> u, v;
+
+    // lots of other stuff
+
+    auto &displacement(auto i, auto j) { return u[i*cols+j]; }
+    auto &velocity(    auto i, auto j) { return v[i*cols+j]; }
+}
+
+// Usage:
+auto wo = WaveOrthotope(/*...*/);
+wo.velocity(1, 2) = 1.5; // set v[1, 2] to 1.5
+```
+
+No matter what you do, your life will be much easier in subsequent assignments if the data is contiguous.
 
 
 
