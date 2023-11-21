@@ -13,7 +13,7 @@ The self-contained [example code](https://github.com/BYUHPC/sci-comp-course-exam
 
 ### The Derivative Function
 
-Defining the function that you'll pass to `SecondOrderODEProblem` itself isn't too bad, and `dhdt!` in the [example](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/initial.jl) offers some guidance. Notice that `dhdt!`'s main computation is just the [differential equation that defines the example problem](https://github.com/BYUHPC/sci-comp-course-example-cxx/tree/main#appendix-a-mathematical-justification)--you'll do something similar with the [damped wave equation differential equation](overview.md#appendix-c-mathematical-justification). Here's the gist:
+Defining the function that you'll pass to `SecondOrderODEProblem` itself isn't too bad, and `dhdt!` in the [example](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/initial.jl) offers some guidance. Notice that `dhdt!`'s main computation is just the [differential equation that defines the example problem](https://github.com/BYUHPC/sci-comp-course-example-cxx/tree/main#appendix-a-mathematical-justification)--you'll do something similar with the [damped wave equation differential equation](overview.md#appendix-b-mathematical-justification). Here's the gist:
 
 ```julia
 function dvdt!(a, v, u, c, t) # u: displacement; v: velocity; a: acceleration
