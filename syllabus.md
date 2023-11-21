@@ -23,7 +23,7 @@ Help is readily available during business hours; send an [email](mailto:scicompc
 
 There will also be a weekly Q&A. Even if you can't attend, you can submit questions in advance (via email or Slack) that we'll answer during the Q&A; you can then watch the Q&A after we post the recording on Slack each week.
 
-If you run into confusing material, typos, syntax errors, or similar, you can get [extra credit by letting us know](assignments/extra-credit.md).
+If you run into confusing material, typos, syntax errors, or similar, you can get [extra credit by letting us know](assignments/extra-credit.md). You can also [leave feedback anonymously](assignments/feedback.md).
 
 
 
