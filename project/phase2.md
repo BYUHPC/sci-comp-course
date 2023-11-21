@@ -155,6 +155,8 @@ I recommend doing the same when you're finished to ensure that everything is in 
 
 I'll also test that the generated `wavesolve_serial` produces correct results; you should [do so](../resources.md#the-project) as well.
 
+**All of your work for subsequent assignments should be done in the same git repo.** You don't need to copy it to save your old work, git is already doing that. Having a bunch of redundant git repos has been found by former students to be a recipe for disaster.
+
 
 
 ## Grading
