@@ -7,6 +7,12 @@ This phase is meant to be a more accurate representation of what you might actua
 
 
 
+## Preparation
+
+You'll need to add `DifferentialEquations` to your package before using it. To do so, [activate `WaveSim.jl`](phase4.md#downloading-and-using-a-modified-wavesimjl) and run `add DifferentialEquations` in the package manager.
+
+
+
 ## Using an ODE Problem
 
 The self-contained [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/initial.jl) uses the one-dimensional [mountain range example problem](https://github.com/BYUHPC/sci-comp-course-example-cxx/tree/main#the-problem-orogeny); it's similar to what you'll do, but there are a couple of tricks to using a second order ODE problem.
@@ -46,6 +52,17 @@ SecondOrderODEProblem{true}(derivative!, u0, v0, timespan, c, callback=cb)
 ```
 
 You can pass `save_on=false` and `save_start=false` to `SecondOrderODEProblem` to save time and memory at the expense of diagnostic information.
+
+### Updating the Wave Orthotope
+
+Once you get a solution using `SecondOrderODEProblem`, you'll need to update your wave orthotope with the results. That will look something like:
+
+```julia
+solution = solve(problem)
+w.t[] += last(solution.t)
+w.u   .= last(solution.u).x[2] # get displacement from ArrayPartition
+w.v   .= last(solution.u).x[1] # get velocity from ArrayPartition
+```
 
 
 
