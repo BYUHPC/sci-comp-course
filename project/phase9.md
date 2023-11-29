@@ -48,7 +48,7 @@ A [`SecondOrderODEProblem`](https://docs.sciml.ai/DiffEqDocs/stable/types/dynami
 
 ```julia
 ODEProblem{true}(           derivative!, u0,     timespan, c, callback=cb)
-SecondOrderODEProblem{true}(derivative!, u0, v0, timespan, c, callback=cb)
+SecondOrderODEProblem{true}(derivative!, v0, u0, timespan, c, callback=cb)
 ```
 
 You can pass `save_on=false` and `save_start=false` to `SecondOrderODEProblem` to save time and memory at the expense of diagnostic information.

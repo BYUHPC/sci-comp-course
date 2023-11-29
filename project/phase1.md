@@ -67,7 +67,7 @@ The most challenging part of the assignment for most students is using [2-dimens
 
 ```c++
 class WaveOrthotope {
-    size_t rows, cols;
+    const size_t rows, cols;
     std::vector<double> u, v;
 
     // lots of other stuff
