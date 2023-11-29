@@ -46,7 +46,7 @@ int main() {
 
 The C++ standard library offers a [collection of algorithms](https://en.cppreference.com/w/cpp/algorithm) that are designed to operate on sequences of elements. These include operations like sorting, transforming, and accumulating. For instance, `std::transform` applies a function to each element of one or more sequences. Typically, these algorithms are applied to data structures that provide access to their elements through iterators, like `std::vector`.
 
-Since C++ 17, programmers can use `std::execution` policies to specify an execution model. By default, the standard algorithms will run sequentially. Specifying `std::execution::par` or `std::execution::par_unseq` as the first argument to these algorithms, however, tells the compiler that the algorithm can be parallelize or vectorized, respectively. This allows the compiler to take these high level abstractions and automatically parallelize them or offload them to a GPU.
+Since C++ 17, programmers can use `std::execution` policies to specify an execution model. By default, the standard algorithms will run sequentially. Specifying `std::execution::par` or `std::execution::par_unseq` as the first argument to these algorithms, however, tells the compiler that the algorithm can be parallelized or vectorized, respectively. This allows the compiler to take these high level abstractions and automatically parallelize them or offload them to a GPU.
 
 The `std::transform` call in the example code above will produce results equivalent to:
 
