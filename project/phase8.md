@@ -5,8 +5,6 @@
 
 In this phase, you'll offload heavy computational work to a GPU. If you're already familiar with CUDA or similar, you can use it to write your code, but this lesson will assume that you're [using standard C++ and `nvc++`](../readings/gpu-programming.md#compiling). Since GPUs are so well-suited to this task, performance requirements are more strict: on a single P100 (which you can request with `salloc --gpus 1 -C pascal ...`) the program should run on `2d-medium-in.wo` in less than 5 seconds.
 
-If you just use standard C++, you can compile just like you've done for previous phases--just use `g++`, with no special arguments required. This will allow you to do most of your debugging without having to wait around for GPU nodes.
-
 
 
 ## Iteration in 2 Dimensions
@@ -42,6 +40,8 @@ auto L = (u[I-1] + u[I+1] + u[I-n] + u[I+n]) / 2 - 2 * u[I];
 ## Quirks
 
 There are some limitations on the C++ you can successfully compile for GPUs with `nvc++`. [Only heap memory can be automatically managed](https://developer.nvidia.com/blog/accelerating-standard-c-with-gpus-using-stdpar/), but this won't likely be a problem since `std::vector`s store their data on the heap. One that is much more likely to bite you is the requirement that these heap data members **should be captured in the kernel function by pointer**, then indexed raw; this is shown in the example above, where indexing is manual and `x=x.data()` makes `x` a pointer within the kernel.
+
+Remember to `module load nvhpc` before running CMake.
 
 
 
