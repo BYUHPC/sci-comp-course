@@ -12,16 +12,25 @@ In this phase, you'll offload heavy computational work to a GPU. If you're alrea
 The [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeGPU.hpp) shows how to use [`std::for_each`](https://en.cppreference.com/w/cpp/algorithm/for_each) and [`std::transform_reduce`](https://en.cppreference.com/w/cpp/algorithm/transform_reduce), which will be the only standard algorithms you need in your code. It does not, however, show [how to iterate over 2-dimensional ranges](https://www.nvidia.com/en-us/on-demand/session/gtcspring23-DLIT51170/?ncid=em-even-124008-vt33). For that, you'll want [this `cartesian_product.hpp`](https://github.com/gonzalobg/cpp_hpc_tutorial/blob/master/include/cartesian_product.hpp), which backports [`cartesian_product`](https://en.cppreference.com/w/cpp/ranges/cartesian_product_view) to C++20. With that included, you could sum the squares of the interior of `x` (which is a 1-dimensional `std::vector` pretending to be a 2-dimensional array of size `rows` by `cols`) thus:
 
 ```c++
-auto interior = std::views::cartesian_product(std::views::iota(1ul, rows-1),
-                                              std::views::iota(1ul, cols-1));
+auto [first, last] = two_d_range(1, rows-1, 1, cols-1);
 auto sq_sum = std::transform_reduce(std::execution::par_unseq,
-                                    interior.begin(), interior.end(),
-                                    value_type{0}, // initial value
-                    /* reduce    */ std::plus<>(),
-                    /* transform */ [cols=cols, x=x.data()](auto ij){
+              /* iteration range */ first, last,
+              /* initial value   */ value_type{0},
+              /* reduce          */ std::plus<>(),
+              /* transform       */ [cols=cols, x=x.data()](auto ij){
                                         auto [i, j] = ij;
                                         return std::pow(x[i*cols+j], 2);
                                     });
+```
+
+...where `two_d_range` is defined thus:
+
+```c++
+auto two_d_range(size_t first_x, size_t last_x, size_t first_y, size_t last_y) {
+    auto range = std::views::cartesian_product(std::views::iota(first_x, last_x),
+                                               std::views::iota(first_y, last_y));
+    return std::array{range.begin(), range.end()};
+}
 ```
 
 You'll probably find it helpful to get the 1-dimensional index of the "current" cell and use it directly--for example, this makes typing out the Laplacian less tedious:
@@ -29,9 +38,9 @@ You'll probably find it helpful to get the 1-dimensional index of the "current" 
 ```c++
 auto [i, j] = ij;
 auto I = i * n + j;
-// broke
+// okay
 auto L = (u[i*n+j-1] + u[i*n+j+1] + u[(i-1)*n+j] + u[(i+1)*n+j]) / 2 - 2 * u[i*n+j];
-// woke
+// better
 auto L = (u[I-1] + u[I+1] + u[I-n] + u[I+n]) / 2 - 2 * u[I];
 ```
 
