@@ -47,7 +47,7 @@ Since energy decays consistently for the wave plates you'll be dealing with, you
 A [`SecondOrderODEProblem`](https://docs.sciml.ai/DiffEqDocs/stable/types/dynamical_types/#SciMLBase.SecondOrderODEProblem) is only slightly different from [`ODEProblem`](https://docs.sciml.ai/DiffEqDocs/stable/types/ode_types/)--in addition to specifying an initial value (displacement in your case), you'll pass in its initial derivative (velocity):
 
 ```julia
-ODEProblem{true}(           derivative!, u0,     timespan, c, callback=cb)
+ODEProblem{true}(           derivative!,     u0, timespan, c, callback=cb)
 SecondOrderODEProblem{true}(derivative!, v0, u0, timespan, c, callback=cb)
 ```
 
