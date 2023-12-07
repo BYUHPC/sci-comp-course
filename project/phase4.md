@@ -82,7 +82,7 @@ sbatch -t 10 --mem 16G -N 1 -n 28 -p m9 --wrap 'julia --project=. -e \
         @time solve!(WaveOrthotope(open(wavefiles(2, :medium, :in))))"'
 ```
 
-You should do so as well to ensure that it works as intended.
+You should do so as well to ensure that it works as intended. Note that you can request less resources to hasten job submission (e.g. `--mem 2G -N 1 -n 1`)--if your code runs fast enough when sharing resources, it'll run fast enough when it has a node to itself.
 
 
 
