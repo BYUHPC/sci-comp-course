@@ -31,7 +31,7 @@ If you run into confusing material, typos, syntax errors, or similar, you can ge
 
 The standard grading scale is used--A for 93% or more, A- for 90%-93%, B+ for 87%-90%, etc. Enough [extra credit](assignments/extra-credit.md) is offered that we don't round up. The [semester-long project](project/overview.md) accounts for about 55% of your grade, quizzes and tests for 25%, and everything else for 20%.
 
-For assignments and projects, there is a 20% penalty for the first day late, then an additional 10% penalty for each subsequent day late with a maximum penalty of 80%. For quizzes, tests, and presentations, there is a 20% penalty per day late, with no credit after 4 days late. The midterm can't be taken after the end of the semester.
+For assignments and projects, there is a 20% penalty for the first day late, then an additional 10% penalty for each subsequent day late with a maximum penalty of 80%. For quizzes, tests, and presentations, there is a 20% penalty per day late, with no credit after 4 days late. The final can't be taken after the end of the semester.
 
 Project rubrics aren't iron-clad--we may award more points than indicated in some cases. For example, if your program fails to compile and would thus receive 5 points according to the assignment's rubric, but fixing a single, obvious typo results in a correct program, you may actually receive significantly more points.
 
