@@ -56,6 +56,7 @@ Make any other optimizations you think are prudent. Some things to consider:
 
 - Does the problem's symmetry lend itself to algorithmic optimization?
 - Does the energy calculation need to continue once the floor has been exceeded?
+- Given the predictable exponential decay of energy, does it need to be calculated every iteration?
 - Does the potential energy calculation really require two separate loops over `u`?
 - Is iterating over separate, rather than contiguous, vectors the most efficient?
 - Would it be more efficient to interleave `u` and `v`?

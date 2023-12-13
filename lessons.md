@@ -19,14 +19,12 @@
 
 ### [8: Threading in C++](lessons/8.md)
 
-<!---
-### [9: Blocking and Non-Blocking Communication](lessons/8-communication.md)
+### [9: Distributed Programming and MPI](lessons/9.md)
 
-### [10: Distributed Programming and MPI](lessons/10-mpi.md)
+### [10: Distributed Programming and MPI continued](lessons/10.md)
 
-### [11: Applications of HPC](lessons/11-applications.md)
+### [11: Applications of Supercomputing](lessons/11.md)
 
-### [12: Accelerators](lessons/12-accelerators.md)
+### [12: Accelerators](lessons/12.md)
 
-### [13: HPC Programming IRL](lessons/13-irl.md)
--->
+### [13: Supercomputing in the Real World](lessons/13.md)

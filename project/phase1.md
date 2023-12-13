@@ -39,20 +39,49 @@ g++ -std=c++20 -o wavesolve wavesolve.cpp
 
 You can test your implementation in the same way. You'll probably want to [set up VS Code](../resources.md#programming) on the supercomputer to develop your code unless you're familiar with vim or emacs. If you have no experience with [Linux](../lessons/2-linux.md), you can also [test with an online C++ compiler](../resources.md#compilation).
 
-The [skeleton class in the overview](overview.md#appendix-b-skeleton-wave-simulation-class) and the `main` below constitute a good starting point, and I recommend using them as a scaffold for your program unless you have extensive experience with modern C++. There's not much need to worry about the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx) for this phase; it'll be more useful for structuring subsequent phases.
+
+
+## C++
+
+If you follow the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx) to create a `WaveOrthotope` class with `solve` and `sim_time` functions and a constructor taking rows, columns, and damping coefficient, your `main` can be very simple:
 
 ```c++
+#include <iostream>
+#include "whatever_your_header_is_called.hpp"
+
 int main() {
     // Create WaveOrthotope
-    auto m = 25, n = 50;
+    auto rows = 25, cols = 50;
     auto c = 0.01;
-    auto w = WaveOrthotope(25, 50, 0.01);
-    // TODO: set interior cells of v to 0.1
+    auto w = WaveOrthotope(rows, cols, c);
+    // Set interior cells of v to 0.1
+    // TODO
     // Solve and print result
-    std::cout << w.solve() << std::endl;
+    w.solve()
+    std::cout << w.sim_time() << std::endl;
     return 0;
 }
 ```
+
+The most challenging part of the assignment for most students is using [2-dimensional arrays of runtime size in C++](https://stackoverflow.com/a/32279494). I recommend using a one-dimensional `std::vector` to store your data, then using a function to pretend it's two-dimensional:
+
+```c++
+class WaveOrthotope {
+    const size_t rows, cols;
+    std::vector<double> u, v;
+
+    // lots of other stuff
+
+    auto &displacement(auto i, auto j) { return u[i*cols+j]; }
+    auto &velocity(    auto i, auto j) { return v[i*cols+j]; }
+}
+
+// Usage:
+auto wo = WaveOrthotope(/*...*/);
+wo.velocity(1, 2) = 1.5; // set v[1, 2] to 1.5
+```
+
+No matter what you do, your life will be much easier in subsequent assignments if the data is contiguous.
 
 
 

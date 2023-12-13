@@ -38,14 +38,14 @@ Here's how one step of `dt` for the whole wave rectangle might look in [Julia](.
 
 ```julia
 function step(u, v, dt)
-    m, n = size(u)
+    rows, cols = size(u)
     # Update v
-    for i in 2:m-1, j in 2:n-1
+    for i in 2:rows-1, j in 2:cols-1
         L = (u[i-1,j] + u[i+1,j] + u[i,j-1] + u[i,j+1]) / 2 - 2 * u[i,j]
         v[i,j] = (1 - dt * c) * v[i,j] + dt * L
     end
     # Update u
-    for i in 2:m-1, j in 2:n-1
+    for i in 2:rows-1, j in 2:cols-1
         u[i,j] += v[i,j] * dt
     end
 end
@@ -69,17 +69,17 @@ Here's how the total energy might be determined in [Julia](../programming-resour
 
 ```julia
 function energy(u, v)
-    m, n = size(u)
+    rows, cols = size(u)
     E = 0
     # Dynamic
-    for i in 2:m-1, j in 2:n-1
+    for i in 2:rows-1, j in 2:cols-1
         E += v[i,j]^2 / 2
     end
     # Potential
-    for i in 1:m-1, j in 2:n-1 # along x axis (note i range)
+    for i in 1:rows-1, j in 2:cols-1 # along x axis (note i range)
         E += (u[i,j] - u[i+1,j])^2 / 4;
     end
-    for i in 2:m-1, j in 1:n-1 # along y axis (note j range)
+    for i in 2:rows-1, j in 1:cols-1 # along y axis (note j range)
         E += (u[i,j] - u[i,j+1])^2 / 4;
     end
     # Return the total
@@ -91,7 +91,7 @@ end
 
 ## Running the Simulation
 
-Your job is to determine an initial state (the specifics of which vary phase to phase), repeatedly step the simulation forward until total energy falls below an average of 0.001 per interior cell (i.e. **solve** the simulation), and do something with the resultant final state (again, the specifics vary by phase). Given damping coefficient `c`, time step `dt`, initial simulation time `t0`, initial displacement `u0`, and initial velocify `v0`, and functions [`step`](#moving-the-simulation-forward-in-time) and [`energy`](#stopping-criterion-energy) defined above, here is a Julia function that would solve the wave rectangle defined by `c`, `t0`, `u0`, and `v0` and return the changed elements of the final state.
+Your job is to determine an initial state (the specifics of which vary phase to phase), repeatedly step the simulation forward until total energy falls below an average of 0.001 per interior cell (i.e. **solve** the simulation), and do something with the resultant final state (again, the specifics vary by phase). Given damping coefficient `c`, time step `dt`, initial simulation time `t0`, initial displacement `u0`, and initial velocity `v0`, and functions [`step`](#moving-the-simulation-forward-in-time) and [`energy`](#stopping-criterion-energy) defined above, here is a Julia function that would solve the wave rectangle defined by `c`, `t0`, `u0`, and `v0` and return the changed elements of the final state.
 
 ```julia
 function solve(c, dt, t0, u0, v0)
@@ -99,8 +99,8 @@ function solve(c, dt, t0, u0, v0)
     t = t0
     u, v = deepcopy.(u0, v0)
     # Constants
-    m, n = size(u)
-    stopping_energy = (m - 2) * (n - 2) / 1000
+    rows, cols = size(u)
+    stopping_energy = (rows-2) * (cols-2) / 1000
     # Solve
     while energy(u, v) > stopping_energy
         step(u, v, dt)
@@ -123,80 +123,7 @@ Look at the example [code often](https://github.com/BYUHPC/sci-comp-course-examp
 
 
 
-## Appendix B: Skeleton Wave Simulation Class
-
-Below is a class that contains the state of a wave simulation. It's provided since this isn't a programming class--we want you to learn relevant general concepts, not the painful ins and outs of C++. The parts you'll need to implement (for the [first phase](phase1.md), at least) are marked with `// TODO` comments. You'll likely need to modify it and split it into separate headers for each phase; look to the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx) for ideas on how to do so.
-
-```c++
-#include <array>
-#include <vector>
-#include <iostream>
-
-// Class representing a rectangular plane with Dirichlet boundary conditions over which waves propagate
-// Called "orthotope" rather than "rectangle" since extra credit is given for generalizing to arbitrary dimension
-class WaveOrthotope {
-    // Types
-    using size_type = size_t;
-    using value_type = double;
-
-    // Members
-    const size_type m, n;              // size
-    const value_type c;                // damping coefficient
-    value_type t;                      // simulation time
-    std::vector<value_type> disp, vel; // displacement and velocity arrays
-
-public:
-    // Constructor
-    // USAGE: auto my_wave_orthotope = WaveOrthotope(20, 30, 0.1, 0);
-    // SEE: https://www.learncpp.com/cpp-tutorial/constructor-member-initializer-lists/
-    WaveOrthotope(auto m, auto n, auto c, value_type t=0): m(m), n(n), c(c), t(t), disp(m*n), vel(m*n) {}
-
-    // Return the size as a std::array
-    // USAGE: const auto [rows, cols] = my_wave_orthotope.size();
-    // SEE: https://codeburst.io/c-17-structural-binding-180696f7a678#63b1
-    constexpr auto size() const { return std::array{m, n}; }
-
-    // Displacement indexing
-    // USAGE: my_wave_orthotope.u(1, 2) = 1.0;
-    constexpr value_type  u(auto i, auto j) const { return disp[i*n+j]; }
-    constexpr value_type& u(auto i, auto j)       { return disp[i*n+j]; }
-
-    // Displacement velocity indexing
-    // USAGE: const auto v12 = my_wave_orthotope.v(1, 2);
-    constexpr value_type  v(auto i, auto j) const { return vel [i*n+j]; }
-    constexpr value_type& v(auto i, auto j)       { return vel [i*n+j]; }
-
-    // Return the energy contained in this WaveOrthotope
-    // USAGE: const auto E = my_wave_orthotope.energy();
-    value_type energy() const {
-        value_type E{};
-        // TODO: calculate total energy
-        return E;
-    }
-
-    // Advance the membrane in time by dt
-    // USAGE: my_wave_orthotope.step();
-    value_type step() {
-        const value_type dt = 0.01;
-        // TODO: update u and v by one time step
-        t += dt;
-        return t;
-    }
-
-    // Advance the membrane in time by steps of dt until the average interior cell energy drops below 0.001
-    // USAGE: const auto sim_time = my_wave_orthotope.solve();
-    value_type solve() {
-        while (energy() > (m-2)*(n-2)*0.001) {
-            step();
-        }
-        return t;
-    }
-};
-```
-
-
-
-## Appendix C: Mathematical Justification
+## Appendix B: Mathematical Justification
 
 You don't need to read any of the following, but [some of it](#laplacian) is helpful for the extra credit.
 

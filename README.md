@@ -17,16 +17,21 @@ bundle exec jekyll serve
 
 ## Enhancements
 
-Phase 1 needs to be harder, and phase 2 needs to be easier. Phase 1 gives a false sense of security as it stands.
-
 "Shell and Slurm Practice" is kind of lame; it'd be nice to have a `find` thrown in there (plus material on `find`), and make it more open-ended and amenable to combining sed/grep/awk.
 
 The website situation is stupid--Canvas has nice navigation stuff, but it can't really be used for code samples because doing syntax highlighting manually is insane. Gordon Bean has a kind-of solution that allows you to use Markdown in Canvas, but it's not as nice as this way. He's working on something that will build a Canvas course from a Git repo which would be sweet but it sounds like that's a ways off.
 
-Make sure the students know that they're supposed to do all their work in a single git repo!
-
 I need to re-make some of the videos with the current example code; the ones that are especially important:
 
 - Optimization
+- MPI
 
 `WaveOrthotope`s should be `AbstractArray`s that are basically just `u`--the tuple thing is goofy. I think...
+
+The MPI example code should maybe be converted to use [MPL](https://github.com/rabauke/mpl) instead. DONE; need to modify readings and assignments.
+
+The MPI reading doesn't have enough information on communications--e.g. `MPI_{I,}{Send,Recv,Sendrecv}`
+
+Once LLVM or GCC supports compiling DPC++ for GPUs, use that rather than `nvc++` for the GPU phase.
+
+Updating to C++23 will be nice. `std::mdspan`, for example, will be great.

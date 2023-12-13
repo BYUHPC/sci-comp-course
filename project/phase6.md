@@ -32,3 +32,5 @@ This phase is worth 20 points. The following deductions, up to 20 points total, 
 | Failure of `wavesolve_thread` to checkpoint correctly | 4 points |
 | Failure of `wavesolve_thread` to run on `2d-medium-in.wo` on `m9` with 8 threads in 20 seconds | 4 points |
 | ...in 60 seconds | 4 points |
+| `wavesolve_thread` isn't a threaded program, or doesn't distribute work evenly between threads | 1-20 points |
+| `wavesolve_thread` spawns more than a small, constant number of threads | 10 points |
