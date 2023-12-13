@@ -59,7 +59,7 @@ CXXFLAGS += "-std=c++14"
 
 The `+=` means that the right-hand-side will be appended to the variable instead of setting it. 
 
-Food for thought: what if my compiler uses a different option for that same thing (e.g., `-std=c++1y` or maybe `/Ostd`)?
+Food for thought: what if my compiler uses a different option for that same thing (e.g., `-std=c++17` or maybe `/Ostd`)?
 
 ### Linking
 
