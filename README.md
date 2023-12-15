@@ -17,7 +17,7 @@ bundle exec jekyll serve
 
 ## Enhancements
 
-"Shell and Slurm Practice" is kind of lame; it'd be nice to have a `find` thrown in there (plus material on `find`), and make it more open-ended and amenable to combining sed/grep/awk.
+"Shell and Slurm Practice" is meh; it'd be nice to have a `find` thrown in there (plus material on `find`), and make it more open-ended and amenable to combining sed/grep/awk.
 
 The website situation is stupid--Canvas has nice navigation stuff, but it can't really be used for code samples because doing syntax highlighting manually is insane. Gordon Bean has a kind-of solution that allows you to use Markdown in Canvas, but it's not as nice as this way. He's working on something that will build a Canvas course from a Git repo which would be sweet but it sounds like that's a ways off.
 
@@ -25,8 +25,6 @@ I need to re-make some of the videos with the current example code; the ones tha
 
 - Optimization
 - MPI
-
-`WaveOrthotope`s should be `AbstractArray`s that are basically just `u`--the tuple thing is goofy. I think...
 
 The MPI example code should maybe be converted to use [MPL](https://github.com/rabauke/mpl) instead. DONE; need to modify readings and assignments.
 
