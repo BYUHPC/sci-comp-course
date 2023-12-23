@@ -3,7 +3,7 @@
 
 # Phase 7: MPI
 
-In this assignment you'll parallelize your solver with [MPI](../readings/mpi.md). You can use the C bindings [like in the example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeMPI.hpp), or [MPL](https://github.com/rabauke/mpl) if you prefer more idiomatic bindings or are familiar with it.
+In this assignment you'll parallelize your solver with [MPI](../readings/mpi.md). You can use [MPL](https://github.com/rabauke/mpl) [like in the example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeMPI.hpp), or the C bindings if you're more familiar with them.
 
 Performance requirements are less stringent than in previous phases to account for inter-node communication--the program must run on `2d-medium-in.wo` in 30 seconds given 4 processes on one full `m9` node and 4 processes on another. In a job with two full `m9` nodes, you can launch 4 processes per node with:
 
@@ -13,12 +13,12 @@ mpirun --npernode 4 wavesolve_mpi ...
 
 **This phase is significantly more challenging than previous phases for most students**. I strongly recommend that you break it into two steps:
 
-1. Get your I/O working--make an MPI program that reads in a [wave orthotope file](phase2.md#data-format) with [MPI I/O](../readings/mpi.md#mpi-io), prints the header and any other debug information you need, and writes back out an identical file with MPI I/O
+1. Get your I/O working--make an MPI program that reads in a [wave orthotope file](phase2.md#data-format) with [MPI I/O](../readings/mpi.md#io), prints the header and any other debug information you need, and writes back out an identical file with MPI I/O
 1. Once the I/O is working, figure out the [exchange of halos](#division-of-labor) and your `solve` function
 
 When you run with multiple processes, **put your output files in `~/compute`**--NFS (the rest of your home directory) is astonishingly slow to allow MPI I/O writes.
 
-Load `gcc/latest` and `openmpi` to get access to a recent MPI compiler.
+Load `gcc/latest` and `openmpi` to get access to a recent MPI compiler, and `mpl` to use MPL.
 
 
 

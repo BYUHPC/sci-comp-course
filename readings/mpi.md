@@ -53,7 +53,7 @@ Since MPI is such a broad topic, we'll only cover the basics here. Idiomatic sty
 With most MPI compilers, you can use `mpic++` in the place of a C++ compiler like `g++` to compile MPI C++ code:
 
 ```shell
-module load gcc/latest openmpi
+module load gcc/latest openmpi # and maybe mpl
 mpicxx -std=c++20 -o myprog myprog.cpp
 ```
 
@@ -63,8 +63,10 @@ The partial `CMakeLists.txt` below will build an MPI program only if the MPI com
 cmake_minimum_required(VERSION 3.9)
 find_package(MPI)
 if(MPI_CXX_FOUND)
+    find_package(mpl REQUIRED) # if you're using MPL
     add_executable(hello hello.cc)
     target_link_libraries(hello PRIVATE MPI::MPI_CXX)
+    target_link_libraries(hello PRIVATE mpl::mpl) # if you're using MPL
 endif()
 ```
 
