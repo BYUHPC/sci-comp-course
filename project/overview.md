@@ -115,7 +115,7 @@ end
 
 ## Appendix A: Tips and Tricks
 
-The foundation you lay in the first phases will be used for the rest of the course. It's thus a good idea to skim over future [phases of the project](../assignments.html) often to ensure that your code maintains the flexibility to easily accomodate future requirements. Pay down [technical debt](https://en.wikipedia.org/wiki/Technical_debt) early.
+The foundation you lay in the first phases will be used for the rest of the course. It's thus a good idea to skim over future [phases of the project](../assignments.html) often to ensure that your code maintains the flexibility to easily accommodate future requirements. Pay down [technical debt](https://en.wikipedia.org/wiki/Technical_debt) early.
 
 Get familiar with [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl) early, ideally by [phase 2](phase2.md)--you'll be modifying it in phases [4](phase4.md) and [8](phase8.md), so you may as well take advantage of its utility early on.
 

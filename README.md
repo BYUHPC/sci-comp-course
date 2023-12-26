@@ -26,10 +26,6 @@ I need to re-make some of the videos with the current example code; the ones tha
 - Optimization
 - MPI
 
-The MPI example code should maybe be converted to use [MPL](https://github.com/rabauke/mpl) instead. DONE; need to modify readings and assignments.
-
-The MPI reading doesn't have enough information on communications--e.g. `MPI_{I,}{Send,Recv,Sendrecv}`
-
 Once LLVM or GCC supports compiling DPC++ for GPUs, use that rather than `nvc++` for the GPU phase.
 
-Updating to C++23 will be nice. `std::mdspan`, for example, will be great.
+Updating to C++23 will be nice, especially since we'll finally get `std::mdspan`.

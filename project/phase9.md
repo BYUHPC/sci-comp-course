@@ -68,7 +68,7 @@ w.v   .= last(solution.u).x[1] # get velocity from ArrayPartition
 
 ## Results
 
-Given the improved accuracy of the iteration methods provided by `DifferentialEquations`, the answers will be a bit different--with Julia 1.9.3, `2d-tiny-in.wo` should finish at 0.577, `2d-small-in.wo` at 11.43, and `2d-medium-in.wo` at 98.4.
+Different solving algorithms will yield slightly different results, but they shouldn't differ from previous results by more than a few percent. As an example, using the [default solver](https://docs.sciml.ai/DiffEqDocs/stable/getting_started/#Choosing-a-Solver-Algorithm) should result in a final simulation time of just over 104 for `2d-medium-in.wo`.
 
 
 

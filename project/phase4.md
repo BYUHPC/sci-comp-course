@@ -35,7 +35,7 @@ Julia integrates nicely with VS Code; you can do without, but you'll need to do 
 
 ## Downloading and Using a Modified WaveSim.jl
 
-`git clone https://github.com/BYUHPC/WaveSim.jl.git` will download the `WaveSim.jl` [package](https://pkgdocs.julialang.org/v1/) to your current directory. If you're using the 2D implementation, change `implementation`'s default in `src/WaveSim.jl` from `ND` to `2D`. [Open that directory in VS Code](https://code.visualstudio.com/docs/editor/workspaces#_how-do-i-open-a-vs-code-workspace) and [launch the REPL](#setting-up-julia). Activate [package mode](https://docs.julialang.org/en/v1/stdlib/REPL/#Pkg-mode) by typing `]`, then run `activate .` followed by `instantiate`; you'll need to `activate` each time you open the REPL, but you only need to `instantiate` once. That done, you can use `WaveSim`:
+`git clone https://github.com/BYUHPC/WaveSim.jl.git` will download the `WaveSim.jl` [package](https://pkgdocs.julialang.org/v1/) to your current directory. If you're using the 2D implementation, change `implementation`'s default in `src/WaveSim.jl` from `ND` to `2D`. [Open that directory in VS Code](https://code.visualstudio.com/docs/editor/workspaces#_how-do-i-open-a-vs-code-workspace) and [launch the REPL](#setting-up-julia). Activate [package mode](https://docs.julialang.org/en/v1/stdlib/REPL/#Pkg-mode) by typing `]`, then run `activate .` (if the listed package isn't already `WaveSim`) followed by `instantiate`; you only need to `instantiate` once, and `WaveSim` should be active by default. That done, you can use `WaveSim`:
 
 ```julia
 using WaveSim # this will now load the WaveSim.jl in this directory
@@ -78,8 +78,8 @@ julia --project=. -e "using Pkg; Pkg.instantiate(); using WaveSim; wavefiles()"
 # Time within a job on an m9 node
 sbatch -t 10 --mem 16G -N 1 -n 28 -p m9 --wrap 'julia --project=. -e \
        "using WaveSim
-        solve!(WaveOrthotope(open(wavefiles(2, :tiny, :in))))
-        @time solve!(WaveOrthotope(open(wavefiles(2, :medium, :in))))"'
+        solve!(WaveOrthotope(wavefiles(2, :tiny, :in)))
+        @time solve!(WaveOrthotope((wavefiles(2, :medium, :in)))"'
 ```
 
 You should do so as well to ensure that it works as intended. Note that you can request less resources to hasten job submission (e.g. `--mem 2G -N 1 -n 1`)--if your code runs fast enough when sharing resources, it'll run fast enough when it has a node to itself.

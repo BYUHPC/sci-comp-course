@@ -24,7 +24,7 @@ Load `gcc/latest` and `openmpi` to get access to a recent MPI compiler, and `mpl
 
 ## Division of Labor
 
-Much as in the [previous phase](phase6.md), you'll split work roughly evenly among processes. I recommend an approach similar to in the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeMPI.hpp), with each process being in charge of about $$\frac{1}{N}$$ whole rows (where $$N$$ is the number of processes). Block partitioning is more efficient from a communications standpoint, but is considerably more troublesome to implement.
+Much as in the [previous phase](phase6.md), you'll split work roughly evenly among processes. I recommend an approach similar to in the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeMPI.hpp), with each process being in charge of about $$\frac{1}{N}$$ whole rows (where $$N$$ is the number of processes). Block partitioning is more efficient from a communications standpoint, but is considerably harder to implement.
 
 Since updating a cell of `u` requires data from the rows above and below it, the processes will need to store [ghost rows](https://sites.cs.ucsb.edu/~gilbert/cs140resources/notes/GhostCells.pdf) and exchange them on each iteration (see `exchange_halos` in the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeMPI.hpp)).
 

@@ -26,9 +26,9 @@ wget https://rc.byu.edu/course/wavefiles.tar.gz
 tar xf wavefiles.tar.gz
 ```
 
-Within the resultant `wavefiles` directory are three helpful binaries: `wavesolve`, `waveshow`, and `wavediff`. `wavesolve` is a reference solver that works with up to 10 dimensions. `waveshow` prints wave orthotope files in human-readable form. `wavediff` checks whether two wave orthotope files represent the same wave orthotope. Call each with `--help` as the only argument to learn how to use them.
+Within the resultant `wavefiles` directory are three helpful binaries: `wavesolve`, `waveshow`, and `wavediff`. `wavesolve` is a reference solver that works with up to 8 dimensions. `waveshow` prints wave orthotope files in human-readable form. `wavediff` checks whether two wave orthotope files represent the same wave orthotope. Call each with `--help` as the only argument to learn how to use them.
 
-You'll also find many wave orthotope files from 1 to 4 dimensions (in case you're doing the [extra credit](assignments/extra-credit.md#project)). Files with "`in`" in their names are input files, initialized and with simulation time zero; the corresponding "`out`" files are correct output files. As an example, `2d-small-out.wo` is the same wave orthotope as the one represented by `2d-small-in.wo`, but after solving. You could test your implementation using these two files by running your solver on the input file:
+You'll also find many wave orthotope files from 1 to 8 dimensions (in case you're doing the [extra credit](assignments/extra-credit.md#project)). Files with "`in`" in their names are input files, initialized and with simulation time zero; the corresponding "`out`" files are correct output files. As an example, `2d-small-out.wo` is the same wave orthotope as the one represented by `2d-small-in.wo`, but after solving. The `*large*` input files are zipped to save space and don't have corresponding output files since they're meant for benchmarking, not testing correctness. You could test your implementation using these two files by running your solver on the input file:
 
 ```shell
 ./wavesolve_serial 2d-small-in.wo my-2d-small-out.wo
@@ -44,8 +44,8 @@ You could also use [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl) to ensur
 
 ```julia
 using WaveSim
-correct = WaveOrthotope(open("2d-small-out.wo"))
-mine = WaveOrthotope(open("my-2d-small-out.wo"))
+correct = WaveOrthotope(wavefiles(2, :small, :in))
+mine = WaveOrthotope("my-2d-small-out.wo")
 @assert isapprox(correct, mine)
 ```
 
@@ -100,7 +100,7 @@ One aspect of C++ that trips up many students is fact that '`&`' is used for so 
 
 [GDB](https://www.bitdegree.org/learn/gdb-debugger) is ubiquitous for debugging C++ programs; you'll want to `module load gdb` to [get access to a recent version](https://rc.byu.edu/wiki/?id=Environment+Modules) on the supercomputer. If you prefer a graphical debugger, you can [integrate GDB into VS Code](https://youtu.be/G9gnSGKYIg4). If you do so, make sure to set [`miDebuggerPath`](https://youtu.be/G9gnSGKYIg4?t=109) to the path returned by `module load gdb && which gdb`; you'll probably also want to modify `tasks.json` by changing `command` to the result of `module load gcc/latest && which g++` and adding `-std=c++20` to `args`. [Valgrind](https://valgrind.org/docs/manual/quick-start.html) is essential for [tracking down memory problems](https://prajankya.me/valgrind-on-linux/); again, you'll want to `module load valgrind` for a recent version.
 
-There are [many tools available for profiling in C++](https://hackingcpp.com/cpp/tools/profilers.html); [perf]() is a good, simple choice in combination with Valgrind. Profiling and [optimization](https://www.agner.org/optimize/optimizing_cpp.pdf) in C++ are hard--this class will be the start of a long journey.
+There are [many tools available for profiling in C++](https://hackingcpp.com/cpp/tools/profilers.html); [perf](https://dev.to/etcwilde/perf---perfect-profiling-of-cc-on-linux-of) is a good, simple choice in combination with Valgrind. Profiling and [optimization](https://www.agner.org/optimize/optimizing_cpp.pdf) in C++ are hard--this class will be the start of a long journey.
 
 [Catch2](https://github.com/catchorg/Catch2) is a ubiquitous C++ testing framework that [integrates with CMake](https://github.com/catchorg/Catch2/blob/4dd6e81d0f4b6f88058e7b71f3f672aa478161ef/docs/cmake-integration.md). `module load catch2` makes it available on the supercomputer.
 
