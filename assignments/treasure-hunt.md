@@ -43,7 +43,7 @@ To ensure that you found the correct file, run `zcat` on the file (located in `n
 
 ## Submission
 
-Your [assignment submission](https://byu.instructure.com/courses/21221/assignments) will constitute the name of the file and the message contained therein.
+Your [assignment submission](https://byu.instructure.com/courses/25261/assignments) will constitute the name of the file and the message contained therein.
 
 
 

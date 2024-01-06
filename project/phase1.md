@@ -87,7 +87,7 @@ No matter what you do, your life will be much easier in subsequent assignments i
 
 ## Submission
 
-Submit your `wavesolve.cpp` and any associated headers on [Canvas](https://byu.instructure.com/courses/21221/assignments/810940).
+Submit your `wavesolve.cpp` and any associated headers on [Canvas](https://byu.instructure.com/courses/25261/assignments/810940).
 
 
 

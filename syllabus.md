@@ -41,4 +41,4 @@ Contact us if you have exceptional circumstances.
 
 ## BYU Online Policies
 
-See [Canvas](https://byu.instructure.com/courses/21221/assignments/syllabus) for general BYU Online policies.
+See [Canvas](https://byu.instructure.com/courses/25261/assignments/syllabus) for general BYU Online policies.
