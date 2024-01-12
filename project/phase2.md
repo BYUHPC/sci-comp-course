@@ -5,11 +5,7 @@
 
 In this phase you'll make your [wave simulation program](overview.md) more capable and versatile by reading from arbitrary data files to determine initial state, writing to data files to indicate final state, and implementing [checkpointing](../readings/checkpointing.md) for resilience against unexpected program termination. You'll check in your work via [git](../readings/git.md) and build it with [CMake](../readings/make-and-cmake.md), which will make life easier for this and subsequent assignments.
 
-It's a good idea to break your wave orthotope class over multiple classes in such a way that it'll be maximally useful for subsequent phases. I recommend a structure very similar to [`solver_serial` in the example code](https://github.com/BYUHPC/sci-comp-course-example-cxx#usage)--two abstract classes and one concrete one:
-
-- `WaveOrthotope`: an abstract class containing the simulation state (damping coefficient, simulation time, displacement, and velocity) and any common utilities you find a need for
-- `WaveOrthotopeSharedMem`: an abstract class inheriting from `WaveOrthotope` with I/O functionality
-- `WaveOrthotopeOpenMP`: a concrete class inheriting from `WaveOrthotopeSharedMem` containing the infrastructure required to solve wave orthotopes; you'll add OpenMP functionality [later](phase3.md)
+It's a good idea to break your wave orthotope class over multiple classes in such a way that it'll be maximally useful for subsequent phases. I recommend a structure similar to [`solver_serial` in the example code](https://github.com/BYUHPC/sci-comp-course-example-cxx#usage), although you don't yet need most of the `#ifdef`s in your `WaveOrthotope` base class header.
 
 **You can test this and subsequent phases against [wavefiles.tar.gz](wavefiles.tar.gz)**; usage instructions are on the [resources page](../resources.md#the-project).
 
