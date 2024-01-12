@@ -11,7 +11,7 @@ You can get up to 2 points of extra credit for finding errors in the course--thi
 
 ## Project
 
-You'll get a point of extra credit for each of the project phases (besides the [first one](../project/phase1.md)) that you generalize to N dimensions (1 through 8 must work, beyond that is optional). This means that *any* input file in the [example input and output files](https://rc.byu.edu/course/wavefiles.tar.gz) should be taken by your program and result in an output file that matches the reference, rather than only the `*2d*` ones. Performance must still adhere to the standards of each project, so you'll probably need [template metaprogramming](../resources.md#typical-knowledge-gaps) to avoid needing to create indices dynamically. Here's an outline of how that might look:
+You'll get a point of extra credit for each of the project phases (besides the [first one](../project/phase1.md)) that you generalize to N dimensions (1 through 8 must work, beyond that is optional). This means that *any* input file in the [example input and output files](../project/wavefiles.tar.gz) should be taken by your program and result in an output file that matches the reference, rather than only the `*2d*` ones. Performance must still adhere to the standards of each project, so you'll probably need [template metaprogramming](../resources.md#typical-knowledge-gaps) to avoid needing to create indices dynamically. Here's an outline of how that might look:
 
 ```c++
 // A for_each-style function that allows the loop index to be used as a template parameter for the supplied function
