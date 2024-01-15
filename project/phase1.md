@@ -27,7 +27,7 @@ $$v_0 = \begin{bmatrix}
     0      & 0      & \dots  & 0      & 0      \\
 \end{bmatrix}$$
 
-...your job is to [solve](overview.md#running-the-simulation) these initial conditions and print the simulation time to stdout followed by a newline. The answer should be 157.77, but I care more about the means of getting this answer than the answer itself. You'll turn in a C++20 source file named `wavesolve.cpp` and (optionally) any headers required by it.
+...your job is to [solve](overview.md#running-the-simulation) these initial conditions and print the simulation time to stdout followed by a newline; nothing else should be printed to stdout, and no input should be taken. The answer should be 157.77, but I care more about the means of getting this answer than the answer itself. You'll turn in a C++20 source file named `wavesolve.cpp` and (optionally) any headers required by it.
 
 The file(s) you create will be [compiled and run](../resources.md#compilation) by the latest version of GCC installed on the [supercomputer](../assignments/get-account.md) with the following:
 
