@@ -39,3 +39,5 @@ gem "webrick", "~> 1.8"
 gem "jekyll-relative-links", "~> 0.6.1"
 
 gem "jekyll-titles-from-headings", "~> 0.5.3"
+
+gem "json"
