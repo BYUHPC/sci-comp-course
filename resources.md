@@ -19,27 +19,27 @@ Jobs are submitted via [Slurm](https://rc.byu.edu/wiki/?id=Slurm).
 
 ## The [Project](project/overview.md)
 
-From [phase 2](project/phase2.md) onward, you'll want reference input and output files to test your work; **you can find them in [`wavefiles.tar.gz`](https://rc.byu.edu/course/wavefiles.tar.gz)**. Download and extract them with:
+From [phase 2](project/phase2.md) onward, you'll want reference input and output files to test your work; **you can find them in [`wavefiles.tar.gz`](project/wavefiles.tar.gz)**. Download and extract them with:
 
 ```shell
-wget https://rc.byu.edu/course/wavefiles.tar.gz
+wget https://byuhpc.github.io/sci-comp-course/project/wavefiles.tar.gz
 tar xf wavefiles.tar.gz
 ```
 
 Within the resultant `wavefiles/bin` directory are three helpful binaries: `wavesolve`, `waveshow`, and `wavediff`. `wavesolve` is a reference solver that works with up to 8 dimensions. `waveshow` prints wave orthotope files in human-readable form. `wavediff` checks whether two wave orthotope files represent the same wave orthotope. Call each with `--help` as the only argument to learn how to use them.
 
-You'll also find many wave orthotope files from 1 to 8 dimensions (in case you're doing the [extra credit](assignments/extra-credit.md#project)), stored in the directories `1D`, `2D`, etc. Files with "`in`" in their names are input files, initialized and with simulation time zero; the corresponding "`out`" files are correct output files. The `*large*` input files are zipped to save space and don't have corresponding output files since they're only meant for benchmarking, and will need to be unzipped before use.
+You'll also find many wave orthotope files from 1 to 8 dimensions (in case you're doing the [extra credit](assignments/extra-credit.md#project)), stored in the directories `1D`, `2D`, etc. Files with "`in`" in their names are input files, initialized and with simulation time zero; the corresponding "`out`" files are correct output files.
 
 As an example, `2d-small-out.wo` is the same wave orthotope as the one represented by `2d-small-in.wo`, but after solving. You could test your implementation using these two files by running your solver on the input file:
 
 ```shell
-./wavesolve_serial 2d-small-in.wo my-2d-small-out.wo
+./wavesolve_serial wavefiles/2D/2d-small-in.wo my-2d-small-out.wo
 ```
 
 ...then using the included `wavediff` binary to ensure that your output file is correct:
 
 ```shell
-wavediff 2d-small-out.wo my-2d-small-out.wo
+wavefiles/bin/wavediff wavefiles/2D/2d-small-out.wo my-2d-small-out.wo
 ```
 
 You could also use [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl) to ensure that your output file is correct:

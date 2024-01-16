@@ -26,7 +26,7 @@ The third script, `submit.sh`, will be run on the login nodes (with `bash`, not 
 
 **Make sure not to run `submit.sh` from a node-local directory like `/tmp` or `/dev/shm`**--if you do so, no outfile will show up since the job will try to write it to the compute node's storage rather than the storage of the node you're on.
 
-Put these scripts into a tar file. Compress the tar file using gzip. Submit this `.tar.gz` file through [Canvas](https://byu.instructure.com/courses/21221/assignments).
+Put these scripts into a tar file. Compress the tar file using gzip. Submit this `.tar.gz` file through [Canvas](https://byu.instructure.com/courses/25261/assignments).
 
 ## Grading
 

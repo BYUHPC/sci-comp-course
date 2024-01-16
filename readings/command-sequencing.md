@@ -3,7 +3,7 @@
 
 # Command Sequencing
 
-Read the [Command Sequencing section of HPC Tutorials](https://rc.byu.edu/course/EijkhoutHPCtutorials.pdf#subsection.1.5.3) before continuing
+Read the [Command Sequencing section of HPC Tutorials volume 4](EijkhoutHPCTutorialsVol4.pdf#subsection.1.5.3) before continuing.
 
 
 
