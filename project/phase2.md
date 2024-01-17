@@ -58,7 +58,7 @@ catch e
 end
 ```
 
-If there was an exception that the `WaveOrthotope` constructor is equipped to handle, `w` will be a [`WaveOrthotopeReadException`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/io.jl#L20), which will contain useful data about the nature of the read failure.
+If there was an exception that the `WaveOrthotope` constructor is equipped to handle, `w` will be a [`WaveOrthotopeReadException`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/io.jl#L113), which will contain useful data about the nature of the read failure.
 
 ### Reading and Writing Binary in C++
 
