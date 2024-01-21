@@ -47,7 +47,7 @@ $$\begin{bmatrix}
 
 I recommend adding a constructor and a `write` function to your class, each of which take a filename as their sole argument; see the ["nornal" I/O section of the example C++ code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRange.hpp) for an idea of how to do so.
 
-You can check whether your input and output files are correct with the [`wavediff` and `waveshow` binaries](../resources.md#the-project) included in [`wavefiles.tar.gz`](https://rc.byu.edu/course/wavefiles.tar.gz). You could also use [`WaveSim`](https://github.com/BYUHPC/WaveSim.jl) if you want to look at the files interactively--see `?WaveOrthotope` and `?write` after loading the `WaveSim` module. Here's how to read `infile.wo` gracefully:
+You can check whether your input and output files are correct with the [`wavediff` and `waveshow` binaries](../resources.md#the-project) included in [`wavefiles.tar.gz`](wavefiles.tar.gz). You could also use [`WaveSim`](https://github.com/BYUHPC/WaveSim.jl) if you want to look at the files interactively--see `?WaveOrthotope` and `?write` after loading the `WaveSim` module. Here's how to read `infile.wo` gracefully:
 
 ```julia
 w = try
