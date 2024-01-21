@@ -34,7 +34,7 @@ The format of these files is as follows:
 1. `m`: the size of the wave orthotope, `N` 64-bit unsigned integers.
 1. `c`: the damping coefficient, a 64-bit float (in C++ this is a **`double`**).
 1. `t`: the simulation time, a 64-bit float.
-1. `u`: the displacement array, an array of size `m` in C array order (the first row is written/read in its entirety, then the second, etc.).
+1. `u`: the displacement array, an array of 64-bit floats of size `m` in C array order (the first row is written/read in its entirety, then the second, etc.).
 1. `v`: the velocity array, in the same format as `u`.
 
 To make abundantly clear the order of `u` and `v`, here is a 3x4 array where elements are numbered in the order in which they would be read or written:
