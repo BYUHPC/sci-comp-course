@@ -28,6 +28,6 @@ I need to re-make some of the videos with the current example code; the ones tha
 - Optimization
 - MPI
 
-Once LLVM or GCC supports compiling DPC++ for GPUs, use that rather than `nvc++` for the GPU phase.
+Once LLVM or GCC supports compiling DPC++ for GPUs, use that rather than `nvc++` for the GPU phase. Looks like [AdaptiveCpp](https://github.com/AdaptiveCpp/AdaptiveCpp) might be a good option since it can compile for AMD GPUs as well.
 
 Updating to C++23 will be nice, especially since we'll finally get `std::mdspan`. Once compilers finally [support modules](https://en.cppreference.com/w/cpp/compiler_support/20), all the code should probably be updated to use them since they're nicer than headers.
