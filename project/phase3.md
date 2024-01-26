@@ -82,7 +82,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-Ofast -DNDEBUG" CACHE STRING "Flags used by the CX
 
 Add an informal plain text "essay" titled `cpp-optimization.txt` (or `cpp-optimization.md` if you want markdown formatting) that contains answers to the bolded questions above.
 
-Tag the commit you'd like me to grade from `phase3` and push it.
+Develop in a branch named `phase3` or tag the commit you'd like me to grade from `phase3` and push it.
 
 
 

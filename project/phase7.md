@@ -32,7 +32,7 @@ Since updating a cell of `u` requires data from the rows above and below it, the
 
 ## Submission
 
-Update your `CMakeLists.txt` to create `wavesolve_mpi` (making sure to [compile with MPI](../readings/mpi.md#compilation)), tag the commit you'd like me to grade from `phase7`, and push it.
+Update your `CMakeLists.txt` to create `wavesolve_mpi` (making sure to [compile with MPI](../readings/mpi.md#compilation)), develop in a branch named `phase7` or tag the commit you'd like me to grade from `phase7`, and push it.
 
 
 

@@ -13,7 +13,7 @@ Amend the notes you wrote for the original assignment with updated timing inform
 
 ## Submission
 
-In similar fashion to the [first optimization assignment](phase3.md#submission), push a commit tagged `phase5` containing your updated code and `cpp-optimization.txt`.
+In similar fashion to the [first optimization assignment](phase3.md#submission), develop in a branch named `phase5` or tag a commit containing `cpp-optimization.txt` and your updated code `phase5`.
 
 
 

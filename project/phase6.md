@@ -17,7 +17,7 @@ The first choice you'll have to make is how to split work among threads. The [ex
 
 ## Submission
 
-Update your `CMakeLists.txt` to create `wavesolve_thread` (making sure to [compile with C++ threads](../readings/jthread.md#compiling-with-c-threads)), tag the commit you'd like me to grade from `phase6`, and push it.
+Update your `CMakeLists.txt` to create `wavesolve_thread` (making sure to [compile with C++ threads](../readings/jthread.md#compiling-with-c-threads)), develop in a branch named `phase6` or tag the commit you'd like me to grade from `phase6`, and push it.
 
 
 
