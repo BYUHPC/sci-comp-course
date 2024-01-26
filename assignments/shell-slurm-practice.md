@@ -12,7 +12,7 @@ This assignment will provide practice for various Slurm commands and features su
 
 ## `energize.sh`
 
-The first script, `energize.sh`, will be a bash script that gets submitted as a job array in Slurm. It will print the following information to a file named `$SLURM_ARRAY_JOB_ID.$SLURM_ARRAY_TASK_ID.nrg`: the `$SLURM_ARRAY_TASK_ID`, followed by a space, followed by a random integer (which can be obtained with `$RANDOM`)
+The first script, `energize.sh`, will be a bash script that gets submitted as a job array in Slurm. It will print the following information to a file named `$SLURM_ARRAY_JOB_ID.$SLURM_ARRAY_TASK_ID.nrg`: the `$SLURM_ARRAY_TASK_ID`, followed by a space, followed by a random integer (which can be obtained with `$RANDOM`), hence referred to as that task's "energy."
 
 Note that Slurm has an option to control the name of the output file–you are not required to use it, but it may be helpful. Search the sbatch man page for `--output` and `filename pattern`; you'll want the symbols `%A` and `%a` for this job script.
 
