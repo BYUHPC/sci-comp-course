@@ -5,7 +5,7 @@
 
 This is a guided assignment that should give you an idea of what to look for when optimizing C++ code.
 
-Download [`optimize.cpp`](https://rc.byu.edu/course/optimize.cpp) on the supercomputer. Compile it with optimization and see how fast it runs:
+Download [`optimize.cpp`](optimize.cpp) on the supercomputer. Compile it with optimization and see how fast it runs:
 
 ```shell
 g++ -std=c++20 -O3 -o optimize optimize.cpp # the "O" in "-O3" is the letter
