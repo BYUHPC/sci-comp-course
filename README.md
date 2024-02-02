@@ -17,6 +17,8 @@ bundle exec jekyll serve
 
 ## Enhancements
 
+Adding `?linktarget=top` to the URL for a page on this site will add `target="_top"` to each link on said page, allowing it to be used in a iframe with less wonkiness. This should allow smoother integration with Canvas once I get around to it.
+
 "Shell and Slurm Practice" is meh; it'd be nice to have a `find` thrown in there (plus material on `find`), and make it more open-ended and amenable to combining sed/grep/awk.
 
 Our [Linux tutorial](https://rc.byu.edu/documentation/unix-tutorial/) could be basically a drop-in replacement for a lot of lesson 2.
