@@ -11,11 +11,9 @@ Your job is to make [WaveSim.jl](https://github.com/BYUHPC/WaveSim.jl) faster wh
 # Run this in the julia interpreter: `module load julia; julia`
 # Read in the 2D wave orthotope files from wavefiles.tar.gz
 using WaveSim
-tiny2din, small2din, medium2din = (WaveOrthotope(open(wavefiles(2, s, :in)))
+tiny2din, small2din, medium2din = (WaveOrthotope(wavefiles(2, s, :in))
                                    for s in (:tiny, :small, :medium));
-# Compile on 2d-tiny-in.wo
-@time solve!(tiny2din);
-# Time solve on 2d-medium-in.wo
+solve!(tiny2din); # compile
 @time solve!(medium2din); # should be under 50s
 ```
 
@@ -39,7 +37,7 @@ Julia integrates nicely with VS Code; you can do without, but you'll need to do 
 
 ```julia
 using WaveSim # this will now load the WaveSim.jl in this directory
-w = WaveOrthotope(open(wavefiles(2, :small, :in)))
+w = WaveOrthotope(wavefiles(2, :small, :in))
 @profview solve!(w);
 ```
 
@@ -78,8 +76,8 @@ julia --project=. -e "using Pkg; Pkg.instantiate(); using WaveSim; wavefiles()"
 # Time within a job on an m9 node
 sbatch -t 10 --mem 16G -N 1 -n 28 -p m9 --wrap 'julia --project=. -e \
        "using WaveSim
-        solve!(WaveOrthotope(wavefiles(2, :tiny, :in)))
-        @time solve!(WaveOrthotope((wavefiles(2, :medium, :in)))"'
+        solve!(WaveOrthotope(wavefiles(2, :tiny, :in))) # compile
+        @time solve!(WaveOrthotope(wavefiles(2, :medium, :in)))"'
 ```
 
 You should do so as well to ensure that it works as intended. Note that you can request less resources to hasten job submission (e.g. `--mem 2G -N 1 -n 1`)--if your code runs fast enough when sharing resources, it'll run fast enough when it has a node to itself.
