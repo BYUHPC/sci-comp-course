@@ -1,4 +1,5 @@
-// Adds `target="_top" to every link on the page so that the page can be used by iframes if 'linktarget=top' is in the link parameters; for use with Canvas
+// Adds `target="_top" to every link on the page and hides the header and footer so that the page can be used by iframes
+// if 'for_iframe=true' is in the link parameters; for use with Canvas.
 
 document.addEventListener('DOMContentLoaded', function () {
     const UrlParams = new URLSearchParams(window.location.search);
