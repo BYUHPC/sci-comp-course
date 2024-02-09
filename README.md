@@ -17,7 +17,7 @@ bundle exec jekyll serve
 
 ## Enhancements
 
-Adding `?for_iframe=true` to the URL for a page on this site will add `target="_top"` to each link on said page and hide the header and footer, allowing it to be used in a iframe with less wonkiness. This should allow smoother integration with Canvas once I get around to it.
+Bring the style more in line with the [BYU theme](https://github.com/byuweb/byu-theme-style-helpers).
 
 "Shell and Slurm Practice" is meh; it'd be nice to have a `find` thrown in there (plus material on `find`), and make it more open-ended and amenable to combining sed/grep/awk.
 
