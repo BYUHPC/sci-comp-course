@@ -41,7 +41,7 @@ w = WaveOrthotope(wavefiles(2, :small, :in))
 @profview solve!(w);
 ```
 
-I strongly recommend using [`Revise`](https://timholy.github.io/Revise.jl/stable/)--it will enable you to test changes that you make live. Otherwise, you'll need to [quit Julia](https://docs.julialang.org/en/v1/base/base/#Base.exit), [re-launch the REPL](#setting-up-julia), and run again to see your changes reflected there.
+I strongly recommend using [`Revise`](https://timholy.github.io/Revise.jl/stable/) by [default](https://timholy.github.io/Revise.jl/stable/config/#Using-Revise-by-default)--it will enable you to test changes that you make live. Otherwise, you'll need to [quit Julia](https://docs.julialang.org/en/v1/base/base/#Base.exit), [re-launch the REPL](#setting-up-julia), and run again to see your changes reflected there.
 
 
 
