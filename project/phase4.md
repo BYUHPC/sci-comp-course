@@ -8,7 +8,6 @@ This project is meant to help you see that optimization is different (sometimes 
 Your job is to make [WaveSim.jl](https://github.com/BYUHPC/WaveSim.jl) faster while keeping it correct. Specifically, solving `2d-medium-in.wo` with it should complete in less than 50 seconds on an `m9` node:
 
 ```julia
-# Run this in the julia interpreter: `module load julia; julia`
 # Read in the 2D wave orthotope files from wavefiles.tar.gz
 using WaveSim
 tiny2din, small2din, medium2din = (WaveOrthotope(wavefiles(2, s, :in))
