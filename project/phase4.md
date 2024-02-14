@@ -5,7 +5,7 @@
 
 This project is meant to help you see that optimization is different (sometimes dramatically so) in every language--**what you learned in the last phase was "the basics of optimizing C++," not "how to optimize."** The guiding principles (using efficient algorithms, vectorizing, eliminating unnecessary work, etc.) remain the same, but the method of implementing them varies widely. Since you have at least a bit of [experience](phase3.md), this phase will be more open-ended than the last.
 
-Your job is to make [WaveSim.jl](https://github.com/BYUHPC/WaveSim.jl) faster while keeping it correct. Specifically, solving `2d-medium-in.wo` with it should complete in less than 50 seconds on an `m9` node:
+Your job is to make [WaveSim.jl](https://github.com/BYUHPC/WaveSim.jl) faster while keeping it correct. Specifically, solving `2d-medium-in.wo` with it should complete in less than 60 seconds on an `m9` node:
 
 ```julia
 # Read in the 2D wave orthotope files from wavefiles.tar.gz
@@ -13,7 +13,7 @@ using WaveSim
 tiny2din, small2din, medium2din = (WaveOrthotope(wavefiles(2, s, :in))
                                    for s in (:tiny, :small, :medium));
 solve!(tiny2din); # compile
-@time solve!(medium2din); # should be under 50s
+@time solve!(medium2din); # should be under 60s
 ```
 
 Depending on whether you want to try for the [extra credit](../assignments/extra-credit.md#project), you'll need to modify [`energy_2d.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/energy_2d.jl) and [`solve_2d.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/step_2d.jl) (2D) or [`energy.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/energy.jl) and [`solve.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/step.jl) (ND). You'll also need to **change the default `implementation` in [`WaveSim.jl` itself](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/WaveSim.jl) from `ND` to `2D` if you are going to use the 2D files**. You can modify any other files you like as well, but you won't need to do so to attain the required performance.
@@ -89,6 +89,6 @@ This phase is worth 20 points. The following deductions, up to 20 points total, 
 
 | Defect | Deduction |
 | --- | --- |
-| Failure to run correctly on `2d-medium-in.wo` in 50 seconds on `m9` | 5 points |
-| Failure to run correctly on `2d-medium-in.wo` in 100 seconds on `m9` | 5 points |
+| Failure to run correctly on `2d-medium-in.wo` in 60 seconds on `m9` | 5 points |
+| Failure to run correctly on `2d-medium-in.wo` in 120 seconds on `m9` | 5 points |
 | Failure of your `WaveSim.jl` to work correctly on each of 3 2-dimensional test files | 4 points each |
