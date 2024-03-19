@@ -23,7 +23,7 @@ Defining the function that you'll pass to `SecondOrderODEProblem` itself isn't t
 
 ```julia
 function dvdt!(a, v, u, c, t) # u: displacement; v: velocity; a: acceleration
-    a = laplacian(u) - c*v # just pseudo-code, needs significant overhaul
+    @. a = laplacian(u) - c*v # just pseudo-code, needs significant overhaul
     return nothing
 end
 ```
