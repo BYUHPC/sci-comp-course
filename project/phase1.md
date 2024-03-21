@@ -71,7 +71,7 @@ protected:
     const size_t rows, cols;  // size
     const double c;           // damping coefficient
     double t;                 // simulation time
-    std::vector<double> u, v; // displacement and velocity; each are of size rows*cols
+    std::vector<double> u, v; // displacement and velocity; size is rows*cols
 
 public:
     WaveOrthotope(auto rows, auto cols, auto damping_coefficient);
@@ -79,9 +79,11 @@ public:
     auto &displacement(auto i, auto j) { return u[i*cols+j]; }
     auto &velocity(    auto i, auto j) { return v[i*cols+j]; }
 
-    virtual double energy(); // optional, to be used in solve
+    auto sim_time() const { return t; }
 
-    virtual double step(double dt); // optional, to be used in solve
+    double energy(); // optional, to be used in solve
+
+    double step(double dt); // optional, to be used in solve
 
     double solve();
 }
