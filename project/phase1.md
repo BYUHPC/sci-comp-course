@@ -74,7 +74,7 @@ protected:
     std::vector<double> u, v; // displacement and velocity; each are of size rows*cols
 
 public:
-    WaveOrthotope(double damping_coef, decltype(u) disp, decltype(v) vel);
+    WaveOrthotope(auto rows, auto cols, auto damping_coefficient);
 
     auto &displacement(auto i, auto j) { return u[i*cols+j]; }
     auto &velocity(    auto i, auto j) { return v[i*cols+j]; }
