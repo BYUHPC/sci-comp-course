@@ -43,7 +43,7 @@ You can test your implementation in the same way. You'll probably want to [set u
 
 ## C++
 
-If you follow the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx) to create a `WaveOrthotope` class with `solve` and `sim_time` functions and a constructor taking rows, columns, and damping coefficient, your `main` can be very simple:
+If you follow the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRange.hpp) to create a `WaveOrthotope` class with `solve` and `sim_time` functions and a constructor taking rows, columns, and damping coefficient, your `main` can be very simple:
 
 ```c++
 #include <iostream>
@@ -63,25 +63,35 @@ int main() {
 }
 ```
 
-The most challenging part of the assignment for most students is using [2-dimensional arrays of runtime size in C++](https://stackoverflow.com/a/32279494). I recommend using a one-dimensional `std::vector` to store your data, then using a function to pretend it's two-dimensional:
+The most challenging part of the assignment for most students is using [2-dimensional arrays of runtime size in C++](https://stackoverflow.com/a/32279494). I recommend using a one-dimensional `std::vector` to store your data, then using a function to pretend it's two-dimensional. Here's a simple interface class with everything you should need for this phase, including `displacement` and `velocity` functions for 2-dimensional array access:
 
 ```c++
 class WaveOrthotope {
-    const size_t rows, cols;
-    std::vector<double> u, v;
+protected:
+    const size_t rows, cols;  // size
+    const double c;           // damping coefficient
+    double t;                 // simulation time
+    std::vector<double> u, v; // displacement and velocity; each are of size rows*cols
 
-    // lots of other stuff
+public:
+    WaveOrthotope(double damping_coef, decltype(u) disp, decltype(v) vel);
 
     auto &displacement(auto i, auto j) { return u[i*cols+j]; }
     auto &velocity(    auto i, auto j) { return v[i*cols+j]; }
+
+    virtual double energy(); // optional, to be used in solve
+
+    virtual double step(double dt); // optional, to be used in solve
+
+    double solve();
 }
 
-// Usage:
+// Example velocity function usage:
 auto wo = WaveOrthotope(/*...*/);
 wo.velocity(1, 2) = 1.5; // set v[1, 2] to 1.5
 ```
 
-No matter what you do, your life will be much easier in subsequent assignments if the data is contiguous.
+No matter what you do, your life will be much easier in subsequent assignments if the data in `u` and `v` is contiguous.
 
 
 
