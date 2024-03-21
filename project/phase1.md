@@ -95,6 +95,8 @@ wo.velocity(1, 2) = 1.5; // set v[1, 2] to 1.5
 
 No matter what you do, your life will be much easier in subsequent assignments if the data in `u` and `v` is contiguous.
 
+Not everything in the [example mountain range class](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRange.hpp) is needed at this stage--for example, everything having to do with reading and writing files won't be relevant until the [next phase of the project](phase2.md).
+
 
 
 ## Submission
