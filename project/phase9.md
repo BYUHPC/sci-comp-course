@@ -3,7 +3,7 @@
 
 # Phase 9: Differential Equation Solver
 
-This phase is meant to be a more accurate representation of what you might actually do if the [project problem](overview.md) came up in the course of your research. Rather than manually writing a rudimentary leapfrog algorithm, you'll leverage existing infrastructure, taking advantage of the huge amount of time and research that others have put into fast, flexible differential equation solvers. You'll modify [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl) to replace the [leapfrog algorithm](https://byuhpc.github.io/sci-comp-course/project/overview.html#moving-the-simulation-forward-in-time) with a [`SecondOrderODEProblem`](https://docs.sciml.ai/DiffEqDocs/stable/types/dynamical_types/) (or [whichever "problem" you'd like](https://docs.sciml.ai/DiffEqDocs/stable/types/ode_types/)) from [SciML](https://docs.sciml.ai/Overview/stable/)'s [`DifferentialEquations`](https://docs.sciml.ai/DiffEqDocs/stable/) package. Since this means a much [higher performance](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/faster_ode_example/) ceiling than a fixed-time-step leapfrog algorithm, it will be required to run on `2d-medium-in.wo` in 20 seconds. I recommend using your [phase 4](phase4.md) code as a starting point since you've already done some of the optimization work you'll need.
+This phase is meant to be a more accurate representation of what you might actually do if the [project problem](overview.md) came up in the course of your research. Rather than manually writing a rudimentary leapfrog algorithm, you'll leverage existing infrastructure, taking advantage of the huge amount of time and research that others have put into fast, flexible differential equation solvers. You'll modify [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl) to replace the [leapfrog algorithm](https://byuhpc.github.io/sci-comp-course/project/overview.html#moving-the-simulation-forward-in-time) with a [`SecondOrderODEProblem`](https://docs.sciml.ai/DiffEqDocs/stable/types/dynamical_types/) (or [whichever "problem" you'd like](https://docs.sciml.ai/DiffEqDocs/stable/types/ode_types/)) from [SciML](https://docs.sciml.ai/Overview/stable/)'s [`DifferentialEquations`](https://docs.sciml.ai/DiffEqDocs/stable/) package. Since this means a [higher performance](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/faster_ode_example/) ceiling than a fixed-time-step leapfrog algorithm, it will be required to run on `2d-medium-in.wo` in 30 seconds. I recommend using your [phase 4](phase4.md) code as a starting point since you've already done some of the optimization work you'll need.
 
 
 
@@ -84,7 +84,7 @@ This phase is worth 20 points. The following deductions, up to 20 points total, 
 
 | Defect | Deduction |
 | --- | --- |
-| Failure to run correctly on `2d-medium-in.wo` in 20 seconds on `m9` | 5 points |
-| Failure to run correctly on `2d-medium-in.wo` in 40 seconds on `m9` | 5 points |
+| Failure to run correctly on `2d-medium-in.wo` in 30 seconds on `m9` | 5 points |
+| Failure to run correctly on `2d-medium-in.wo` in 60 seconds on `m9` | 5 points |
 | Failure of your `WaveSim.jl` to work correctly on each of 3 2-dimensional test files | 4 points each |
 | `WaveSim.jl` doesn't use an external differential equation solver from `DifferentialEquations` | 1-20 points |
