@@ -59,6 +59,8 @@ There are many regex engines; the most commonly used are:
 
 If you're doing anything serious, you'll want something stronger than POSIX regex, although it's fine for very simple pattern matching.
 
+[Regex Golf](https://alf.nu/RegexGolf) is a good place to practice with regular expressions.
+
 ### Examples
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6d2yaXjLPkc?si=4Hz07JG1WS-sbJCh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
