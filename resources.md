@@ -19,7 +19,7 @@ Jobs are submitted via [Slurm](https://rc.byu.edu/wiki/?id=Slurm).
 
 ## The [Project](project/overview.md)
 
-From [phase 2](project/phase2.md) onward, you'll want reference input and output files to test your work; **you can find them in [`wavefiles.tar.gz`](project/wavefiles.tar.gz)**. Download and extract them with:
+From [phase 2](project/phase2.md) onward, you'll want reference input and output files to test your work; **you can find them in [`wavefiles.tar.gz`](project/wavefiles.tar.gz)**. They can be downloaded and extracted with:
 
 ```shell
 wget https://byuhpc.github.io/sci-comp-course/project/wavefiles.tar.gz
@@ -51,7 +51,7 @@ mine = WaveOrthotope("my-2d-small-out.wo")
 @assert isapprox(correct, mine)
 ```
 
-This allows you to look at wave orthotopes interactively.
+Using `WaveSim.jl` allows you to look at wave orthotopes interactively.
 
 
 
