@@ -21,8 +21,6 @@ Prior to taking the class, students must know how to program in at least one lan
 
 Help is readily available during business hours; send an [email](mailto:scicompcourse@byu.edu) or a [Slack message](https://byu-sci-comp.slack.com/) and we'll help you out, over email or chat for simple problems or video conference for more complicated questions. When you do ask for help, it's expected that your code is clean and understandable--if you come to us with spaghetti code, you'll be asked to untangle it and come back.
 
-There will also be a weekly Q&A. Even if you can't attend, you can submit questions in advance (via email or Slack) that we'll answer during the Q&A; you can then watch the Q&A after we post the recording on Slack each week.
-
 If you run into confusing material, typos, syntax errors, or similar, you can get [extra credit by letting us know](assignments/extra-credit.md). You can also [leave feedback anonymously](assignments/feedback.md).
 
 
@@ -36,9 +34,3 @@ For assignments and projects, there is a 20% penalty for the first day late, the
 Project rubrics aren't iron-clad--we may award more points than indicated in some cases. For example, if your program fails to compile and would thus receive 5 points according to the assignment's rubric, but fixing a single, obvious typo results in a correct program, you may actually receive significantly more points.
 
 Contact us if you have exceptional circumstances.
-
-
-
-## BYU Online Policies
-
-See [Canvas](https://byu.instructure.com/courses/25261/assignments/syllabus) for general BYU Online policies.
