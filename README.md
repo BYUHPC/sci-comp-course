@@ -23,12 +23,11 @@ Bring the style more in line with the [BYU theme](https://github.com/byuweb/byu-
 
 Our [Linux tutorial](https://rc.byu.edu/documentation/unix-tutorial/) could be basically a drop-in replacement for a lot of lesson 2.
 
-The website situation is stupid--Canvas has nice navigation stuff, but it can't really be used for code samples because doing syntax highlighting manually is insane. Gordon Bean has a kind-of solution that allows you to use Markdown in Canvas, but it's not as nice as this way. He's working on something that will build a Canvas course from a Git repo which would be sweet but it sounds like that's a ways off. **Update**: we're probably going to move readings and assignments to a knowledge base-type wiki, then use iframes to embed them in Canvas; this will mean adding `target="_blank"` to all the hrefs so that they don't just open within the iframe.
-
 I need to re-make some of the videos with the current example code; the ones that are especially important:
 
-- Optimization
-- MPI
+- C++ optimization and debugging
+- Julia optimization and debugging
+- MPI debugging with tmpi
 
 Once LLVM or GCC supports compiling DPC++ for GPUs, use that rather than `nvc++` for the GPU phase. Looks like [AdaptiveCpp](https://github.com/AdaptiveCpp/AdaptiveCpp) might be a good option since it can compile for AMD GPUs as well.
 
