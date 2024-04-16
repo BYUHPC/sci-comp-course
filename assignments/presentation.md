@@ -11,8 +11,6 @@ You'll spend about half your time talking about the topic of interest and half o
 
 Your slides should be legible and your audio clear, but you won't be graded on audio or visual quality unless it impairs understanding--recording a Zoom meeting while sharing your screen and going through the slides will probably be good enough. There are [rooms in the library](https://lib.byu.edu/services/sound-recording-studio/) that you can use for recording if you'd like.
 
-In the [next assignment](presentation-summaries.md), you'll watch others' presentations and write summaries of them.
-
 
 
 ## Submission

@@ -41,12 +41,6 @@ To ensure that you found the correct file, run `zcat` on the file (located in `n
 
 
 
-## Submission
-
-Your [assignment submission](https://byu.instructure.com/courses/25261/assignments) will constitute the name of the file and the message contained therein.
-
-
-
 ## Grading
 
 10 points for a correct answer, 5 points for the correct file but an incorrect message, 0 points otherwise.

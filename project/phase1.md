@@ -99,12 +99,6 @@ Not everything in the [example mountain range class](https://github.com/BYUHPC/s
 
 
 
-## Submission
-
-Submit your `wavesolve.cpp` and any associated headers on [Canvas](https://byu.instructure.com/courses/25261/assignments/810940).
-
-
-
 ## Grading
 
 This phase is worth 20 points. The following deductions, up to 20 points total, will apply for a program that doesn't work as laid out by the spec:
