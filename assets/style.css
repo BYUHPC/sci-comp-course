@@ -1,0 +1,31 @@
+/* Hide header and footer if the page is in an iframe */
+body.hide-header-and-footer header {display: none; }
+
+body.hide-header-and-footer footer {display: none; }
+
+
+
+/* Fonts */
+body {
+    font-family: 'Public Sans', 'Noto Sans', 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.element { /* regular text */
+  font-weight: 400;
+}
+
+.element-italic {/* italic text */
+  font-style: italic;
+  font-weight: 400;
+}
+
+.element-semibold { /* semi-bold text */
+  font-weight: 600;
+}
+
+
+
+/* Colors */
+body {
+    background-color: #FFFFFF;
+}
