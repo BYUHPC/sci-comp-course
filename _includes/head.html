@@ -8,11 +8,17 @@
 
   <!--use MathJax to render formulas-->
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <!--hide header and footer when the page is displayed in an iframe, change background color to white-->
+
+  <!--hide header and footer when the page is displayed in an iframe
+      change background color to white
+      use BYU fonts-->
   <style>
     body.hide-header-and-footer header {display: none; }
     body.hide-header-and-footer footer {display: none; }
-    body { background-color: #FFFFFF; }
+    body {
+      background-color: #FFFFFF;
+      font-family: 'Public Sans', 'Noto Sans', 'Open Sans', Arial, Helvetica, sans-serif;
+    }
   </style>
 
   <!--JavaScript for iframe handling-->
@@ -20,4 +26,7 @@
 
   <!--Class icon-->
   <link rel="shortcut icon" type="image/x-icon" href="/sci-comp-course/favicon.ico">
+
+  <!--BYU fonts-->
+  <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/public-sans/fonts.css" media="all">
 </head>
