@@ -47,15 +47,11 @@ Unneeded copies are the most common form of extra work we see in students' code.
 
 ```c++
 auto slow_product(auto x) { // passes by value--makes an unnecessary copy, slow
-    decltype(x.front()) prod = 1;
-    for (auto elem: x) prod *= elem;
-    return prod;
+    return std::accumulate(x.begin(), x.end(), 1, std::multiplies<>());
 }
 
 auto fast_product(const auto &x) { // passes by const reference--no copy, fast
-    decltype(x.front()) prod = 1;
-    for (auto elem: x) prod *= elem;
-    return prod;
+    return std::accumulate(x.begin(), x.end(), 1, std::multiplies<>());
 }
 ```
 

@@ -12,7 +12,7 @@ g++ -std=c++20 -O3 -o optimize optimize.cpp # the "O" in "-O3" is the letter
 time ./optimize
 ```
 
-You'll submit an informal "essay" detailing the changes you made and the associated performance gains, so **write down answers to the bolded questions that follow as you get to them**. Since you'll be [submitting](#submission) with [git](../readings/git.md), it's recommended that you **do all your work in your `scicomp` directory**.
+You'll submit an informal "essay" detailing the changes you made and the associated performance gains, so **write down answers to the bolded questions that follow as you get to them**. Since you'll be [submitting](#submission) with [git](../readings/git.md), it's recommended that you **do all your work in your `scicomp` repository**.
 
 Throughout the assignment, the result needs to remain correct--if the output simulation time changes you'll need to fix it before proceeding.
 

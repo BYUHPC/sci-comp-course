@@ -31,9 +31,9 @@ In general, faster storage technology costs more per capacity than slower storag
 | --- | --- | --- | --- |
 | Remote storage | Glacial | Enormous | $ |
 | Hard drive | Slow | Huge | $ |
-| SSD | Moderate | Big | $$ |
-| DRAM (main memory) | Fast | Small | $$$ |
-| SRAM (CPU caches) | Lightning | Tiny | $$$$ |
+| SSD | Moderate | Big | $ $ |
+| DRAM (main memory) | Fast | Small | $ $ $ |
+| SRAM (CPU caches) | Lightning | Tiny | $ $ $ $ |
 
 ### CPU Caches
 
