@@ -55,11 +55,11 @@ The most useful [directives](https://www.openmp.org/spec-html/5.1/openmpch2.html
 
 ## Reductions
 
-[Reductions](https://www.openmp.org/spec-html/5.0/openmpsu107.html) use the commutative property of an operation to be able to parallelize those operations by doing them out of order. For example, the following two problems are equivalent:
+[Reductions](https://www.openmp.org/spec-html/5.0/openmpsu107.html) use the associative and commutative properties of an operation to be able to parallelize those operations by doing them out of order. For example, the following two problems are equivalent:
 
-$$1 + 2 + 3 + 4 + 5 + 6 = 21$$
+$$(1 + 2 + 3) + (4 + 5 + 6) = 21$$
 
-$$4 + 1 + 3 + 2 + 6 + 5 = 21$$
+$$(4 + 1) + (3 + 2) + (6 + 5) = 21$$
 
 Because of that, we could have thread A do the sum of 1, 2, and 3 and thread B do the sum of 4, 5, and 6, then sum the results of both threads. Only that last sum, the one where the sums of threads A and B are added together will need to be synchronized. 
 
