@@ -15,8 +15,6 @@ Where does Slurm come in and why do we need a scheduler/resource manager? Slurm 
 
 Each compute node runs `slurmd`. `sbatch` submits a job to the scheduling system's controller, `slurmctld`. The controller finds free resources or schedules the job to run when resources will become available. When it is time to launch the job, the controller sends the job to the `slurmd` running on the chosen compute node. Then `slurmd` runs the script that the user submitted.
 
-![slurmctld and slurmd](../img/slurmd.png)
-
 
 
 ## Priority
