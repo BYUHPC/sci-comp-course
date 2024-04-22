@@ -23,3 +23,8 @@ Please use the name you would go by in the classroom for your Slack profile.
 
 Set up ORC account:
 [Create a BYU Office of Research Computing account](https://rc.byu.edu/account/create/) if you don't already have one. There are no points for this "assignment," but subsequent assignments require it.
+
+Presentation submission instructions:
+Upload your recorded video somewhere public and post the link to it in the [#presentations slack channel](https://byu-sci-comp.slack.com/channels/presentations). You can use [Box](https://box.byu.edu) (which is free for students) for this--just make sure to [create a shared link that anyone can see](https://support.box.com/hc/en-us/articles/360043697094-Creating-Shared-Links) if you use it. You can of course use whichever video hosting platform you'd like--if you're already comfortable with one, feel free to use it as long as the video is publicly accessible.
+
+
