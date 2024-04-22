@@ -37,7 +37,7 @@ To enforce the fixed boundary condition, cells at the edge of the array are neve
 Here's how one step of `dt` for the whole wave rectangle might look in [Julia](../resources.md#julia) given displacement `u` and velocity `v`:
 
 ```julia
-function step(u, v, dt)
+function step!(u, v, c, dt)
     rows, cols = size(u)
     # Update v
     for i in 2:rows-1, j in 2:cols-1
@@ -94,20 +94,20 @@ end
 Your job is to determine an initial state (the specifics of which vary phase to phase), repeatedly step the simulation forward until total energy falls below an average of 0.001 per interior cell (i.e. **solve** the simulation), and do something with the resultant final state (again, the specifics vary by phase). Given damping coefficient `c`, time step `dt`, initial simulation time `t0`, initial displacement `u0`, and initial velocity `v0`, and functions [`step`](#moving-the-simulation-forward-in-time) and [`energy`](#stopping-criterion-energy) defined above, here is a Julia function that would solve the wave rectangle defined by `c`, `t0`, `u0`, and `v0` and return the changed elements of the final state.
 
 ```julia
-function solve(c, dt, t0, u0, v0)
+function solve(u0, v0, t0, c, dt)
     # Initialize
-    t = t0
     u, v = deepcopy.(u0, v0)
+    t = t0
     # Constants
     rows, cols = size(u)
     stopping_energy = (rows-2) * (cols-2) / 1000
     # Solve
     while energy(u, v) > stopping_energy
-        step(u, v, dt)
+        step!(u, v, c, dt)
         t += dt
     end
     # Return updated state as a tuple
-    return t, u, v
+    return u, v, t
 end
 ```
 
