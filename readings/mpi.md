@@ -139,10 +139,11 @@ comm_world.send(v.data()+v.size()-15, layout, partner);
 
 ```c++
 auto a = whatever();
-comm_world.allreduce([](auto a, auto b){ return a+b; }, a);
+decltype(a) global_a; // result is stored here
+comm_world.allreduce([](auto x, auto y){ return x+y; }, a, global_a);
 ```
 
-The first argument to `reduce` or `allreduce` is a function that takes two arguments--in this case, `[](auto a, auto b){ return a+b; }` to perform a sum. Reductions can optionally take a layout just like the sending and receiving function.
+The first argument to `reduce` or `allreduce` is a function that takes two arguments--in this case, `[](auto x, auto y){ return x+y; }` to perform a sum. Reductions can optionally take a layout just like the sending and receiving function.
 
 ## I/O
 
