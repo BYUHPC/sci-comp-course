@@ -5,7 +5,7 @@
 
 In this phase you'll make your [wave simulation program](overview.md) more capable and versatile by reading from arbitrary data files to determine initial state, writing to data files to indicate final state, and implementing [checkpointing](../readings/checkpointing.md) for resilience against unexpected program termination. You'll check in your work via [git](../readings/git.md) and build it with [CMake](../readings/make-and-cmake.md), which will make life easier for this and subsequent assignments.
 
-It's a good idea to break your wave orthotope class over multiple classes in such a way that it'll be maximally useful for subsequent phases. I recommend a structure similar to [`solver_serial` in the example code](https://github.com/BYUHPC/sci-comp-course-example-cxx#usage), although you don't yet need most of the `#ifdef`s in your `WaveOrthotope` base class header.
+It's a good idea to break your wave orthotope class over multiple classes in such a way that it'll be maximally useful for subsequent phases. I recommend a structure similar to [`mountainsolve_serial` in the example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/mountainsolve.cpp), although you don't yet need the `#ifdef`s at the top.
 
 **You can test this and subsequent phases against [wavefiles.tar.gz](wavefiles.tar.gz)**; usage instructions are on the [resources page](../resources.md#the-project).
 
@@ -45,7 +45,7 @@ $$\begin{bmatrix}
     9 & 10 & 11 & 12 \\
 \end{bmatrix}$$
 
-I recommend adding a constructor and a `write` function to your class, each of which take a filename as their sole argument; see the ["nornal" I/O section of the example C++ code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRange.hpp) for an idea of how to do so.
+I recommend adding a constructor and a `write` function to your class, each of which take a filename as their sole argument; search for "filename" in [`MountainRange.hpp`](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRange.hpp) for an idea of how to do so.
 
 You can check whether your input and output files are correct with the [`wavediff` and `waveshow` binaries](../resources.md#the-project) included in [`wavefiles.tar.gz`](wavefiles.tar.gz). You could also use [`WaveSim`](https://github.com/BYUHPC/WaveSim.jl) if you want to look at the files interactively--see `?WaveOrthotope` and `?write` after loading the `WaveSim` module. Here's how to read `infile.wo` gracefully:
 
@@ -105,12 +105,12 @@ You can read `INTVL` from the environment into a float with [`std::getenv`](http
 
 You'll create a `CMakeLists.txt` to abstract the building of your `wavesolve_serial` away from the user. This will also allow you to name and organize your files however you would like, and makes grading much easier for me.
 
-I recommend setting up tests as well. The [example `CMakeLists.txt`](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/CMakeLists.txt#L79) is a good example of how to do so, if a bit overwrought for this assignment; your project will grow to similar scale, though, so it's not a bad idea to mirror that setup. You can also set up [Catch2](https://github.com/catchorg/Catch2/blob/devel/docs/cmake-integration.md) if you'd like to do unit testing; `module load catch2` will make it available on the supercomputer.
+I recommend setting up tests as well. The [example `CMakeLists.txt`](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/CMakeLists.txt) is a good example of how to do so, if a bit overwrought for this assignment; your project will grow to similar scale, though, so it's not a bad idea to mirror that setup. You can also set up [Catch2](https://github.com/catchorg/Catch2/blob/devel/docs/cmake-integration.md) if you'd like to do unit testing; `module load catch2` will make it available on the supercomputer.
 
 Assuming you have two source files, `wavesolve_serial.cpp` and `WaveOrthotope.hpp`, a minimal `CMakeLists.txt` might look like:
 
 ```cmake
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.20)
 project(wavesolve CXX)
 
 # Use C++20
@@ -137,7 +137,7 @@ Put your `CMakeLists.txt` and source files in the resulting `scicomp` directory.
 After making sure your code looks right, I'll build it on the supercomputer with the following:
 
 ```shell
-git clone YOURNETID@homework.rc.byu.edu:scicomp
+git clone <yournetid>@homework.rc.byu.edu:scicomp
 cd scicomp
 git checkout phase2
 module load gcc/latest cmake catch2
@@ -151,7 +151,7 @@ I recommend doing the same when you're finished to ensure that everything is in 
 
 I'll also test that the generated `wavesolve_serial` produces correct results; you should [do so](../resources.md#the-project) as well.
 
-**All of your work for subsequent assignments should be done in the same git repo.** You don't need to copy it to save your old work, git is already doing that. Having a bunch of redundant git repos has been found by former students to be a recipe for disaster.
+**All of your work for subsequent assignments should be done in the same git repo.** You don't need to copy it to save your old work since git is already doing that. Having a multiple redundant git repos has been proved by former students to be a recipe for disaster.
 
 
 
