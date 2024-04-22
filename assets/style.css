@@ -62,8 +62,8 @@ table th, table td { padding: 10px 15px; }
 table th { background-color: #C5C5C5; border: 1px solid #666666; border-bottom-color: #666666; }
 table td { border: 1px solid #666666; }
 
-.site-header { border-top: 5px solid #002E5D; border-bottom: 1px solid #e6e6e6; min-height: 55.95px; position: relative; }
-.site-title, .site-title:visited { color: #002E5D; }
+.site-header { border-top: 5px solid #141414; border-bottom: 1px solid #e6e6e6; min-height: 55.95px; position: relative; }
+.site-title, .site-title:visited { color: #141414; }
 
 .site-nav .page-link { color: #141414; line-height: 1.5; }
 .site-nav .menu-icon > svg { fill: #666666; }

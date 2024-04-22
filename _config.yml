@@ -18,6 +18,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+author: BYU Office of Research Computing
+author_url: https://rc.byu.edu/
 title: BYU Scientific Computing Course
 email: scicompcourse@byu.edu
 baseurl: "/sci-comp-course" # the subpath of your site, e.g. /blog

@@ -5,10 +5,10 @@ To pull and run the website locally:
 ```bash
 git clone git@github.com:BYUHPC/sci-comp-course.git
 cd sci-comp-course
-# I had to do the following to avoid permissions issues, not sure if that's a setup problem on my end
+# I had to do this, not sure if that's just a setup problem on my end
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export GEM_PATH="$GEM_HOME"
-# Install the Ruby crap and run
+# Install Ruby stuff and run
 bundle install
 bundle exec jekyll serve
 ```
