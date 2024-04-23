@@ -47,7 +47,7 @@ The most useful [directives](https://www.openmp.org/spec-html/5.1/openmpch2.html
 - [`for`](https://www.openmp.org/spec-html/5.1/openmpsu73.html#x103-1130002.16.1): create a parallel for loop
 - [`barrier`](https://www.openmp.org/spec-html/5.1/openmpsu100.html#x133-1430002.19.2): create an explicit barrier; there are implied barriers at the end of `for`, `parallel`, and `single` blocks, which can be removed with [`nowait`](https://www.openmp.org/spec-html/5.2/openmpse94.html)
 - [`atomic`](https://www.openmp.org/spec-html/5.1/openmpsu105.html#x138-1480002.19.7): ensure that a specific storage location is accessed atomically
-- [`critical`](https://www.openmp.org/spec-html/5.1/openmpsu100.html#x133-1430002.19.2): restrict execution of a block to a single thread at a time
+- [`critical`](https://www.openmp.org/spec-html/5.1/openmpsu99.html#x132-1420002.19.1): restrict execution of a block to a single thread at a time
 - [`single`](https://www.openmp.org/spec-html/5.1/openmpsu43.html#x67-670002.10.2): specify that a block is executed by only one thread
 - [`simd`](https://www.openmp.org/spec-html/5.1/openmpsu49.html#x74-750002.11.5): indicate that a loop can be vectorized
 
@@ -70,7 +70,7 @@ OpenMP comes with these built-in reduction operators in C and C++:
 | **Arithmetic** | `+` | `*`  | `-` | `min` | `max` |
 | **Logical**    | `&` | `&&` | `|` | `||`  | `^`   |
 
-The race condition in the [first example](#openmp-threading), which results from multiple threads trying to simultaneously modify `counter`, can be fixed with a sum reduction:
+The race condition in the example at the top of this page, which results from multiple threads trying to simultaneously modify `counter`, can be fixed with a sum reduction:
 
 ```c++
 #include <iostream>

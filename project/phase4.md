@@ -58,7 +58,7 @@ Unneeded allocations are harder to track down and eliminate in Julia than they a
 
 ### Vectorization
 
-Along with the usual need to iterate in memory order (**which is [opposite of C++](https://docs.julialang.org/en/v1/manual/performance-tips/#man-performance-column-major)**) and remove branches from inner loops, you can help Julia vectorize with [`@simd`](https://docs.julialang.org/en/v1/manual/performance-tips/#man-performance-annotations) and [`@fastmath`](https://docs.julialang.org/en/v1/manual/performance-tips/#man-performance-annotations).
+Along with the usual need to iterate in memory order (**which is [opposite of C++](https://docs.julialang.org/en/v1/manual/performance-tips/#man-performance-column-major)**) and remove branches from inner loops, you can help Julia vectorize with [`@simd` and `@fastmath`](https://docs.julialang.org/en/v1/manual/performance-tips/#man-performance-annotations).
 
 
 
