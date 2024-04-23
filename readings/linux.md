@@ -17,10 +17,10 @@ For the purposes of this class, when we say "Linux" we're referring to the kerne
 
 ## Using Linux on the Supercomputer
 
-A Linux shell is a text-based interface that provides simple tools. It can be quite powerful when these tools are chained. Throughout this course, you will need to connect to the supercomputer to complete exercises and assignments. To access the Linux shells on the supercomputer, [make an account](../assignments/get-account.md) then:
+A Linux shell is a text-based interface that provides simple tools. It can be quite powerful when these tools are chained. Throughout this course, you will need to connect to the supercomputer to complete exercises and assignments. To access a Linux shell on the supercomputer, [create an account](https://rc.byu.edu/account/create/) then:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6MfnAlQiUcw?si=BLEECI9den04pQMw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 In short, open a terminal/command prompt and run `ssh [netid]@ssh.rc.byu.edu`.
 
-To avoid needing to enter your credentials for every shell, consider setting up [SSH multiplexing](https://rc.byu.edu/wiki/?id=Two-Factor+Authentication#multiplexing).
+To avoid needing to enter your credentials for every shell, consider setting up [SSH multiplexing](https://rc.byu.edu/wiki/?id=SSH+Multiplexing).

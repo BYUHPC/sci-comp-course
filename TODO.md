@@ -14,6 +14,8 @@ Put submission instructions on Canvas for some assignments--all references to Ca
 
 Create a presentation summaries assignment on Canvas itself since it's been removed
 
+Create a "create an account" assignment on Canvas.
+
 Slack setup:
 [Slack](https://slack.com/resources/using-slack/how-to-use-slack) will be our primary outgoing communication medium, and *you'll be expected to check it regularly* for messages and announcements. [Download Slack](https://slack.com/downloads) if you haven't already, [join our workspace](https://join.slack.com/t/byuscientific-8nt2310/shared_invite/zt-29t7uf41d-wmJCbRnnAutgBm4IL0cY3Q), and introduce yourself in the [general channel](https://byu-sci-comp.slack.com/channels/general). In the introduction, answer the following:
 - What's your major/program and how far along are you?
