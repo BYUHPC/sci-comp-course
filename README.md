@@ -17,8 +17,6 @@ bundle exec jekyll serve
 
 ## Enhancements
 
-Bring the style more in line with the [BYU theme](https://github.com/byuweb/byu-theme-style-helpers).
-
 "Shell and Slurm Practice" is meh; it'd be nice to have a `find` thrown in there (plus material on `find`), and make it more open-ended and amenable to combining sed/grep/awk.
 
 Our [Linux tutorial](https://rc.byu.edu/documentation/unix-tutorial/) could be basically a drop-in replacement for a lot of lesson 2.
