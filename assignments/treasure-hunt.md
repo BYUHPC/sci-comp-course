@@ -43,4 +43,4 @@ To ensure that you found the correct file, run `zcat` on the file (located in `n
 
 ## Grading
 
-10 points for a correct answer, 5 points for the correct file but an incorrect message, 0 points otherwise.
+Submit the name of the file and the message affirming its correctness. You'll get 10 points for a correct answer, 5 points for the correct file but an incorrect message, and 0 points otherwise.
