@@ -1,6 +1,7 @@
-/* Hides the header and footer so that the page can be used by iframes if 'for_iframe=true'
-   is in the link parameters; it's meant for use with Canvas. If 'links_open_in_parent=true'
-   is in the link parameters, adds `target="_top" to every link on the page.
+/* Hides the header and footer and adds `target="_top"` to every link on the page so that it
+   can be used by iframes if 'for_iframe=true' is in the link parameters; it's meant for use
+   with Canvas. If 'links_open_new_tab=true' is in the link parameters, adds
+   `target="_blank"` to every link on the page instead.
 */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -8,9 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (UrlParams.get('for_iframe') === 'true') {
         // Add target="_top" to links
         var links = document.getElementsByTagName('a');
-        if (UrlParams.get('links_open_in_parent') === 'true') {
-            for(var i=0; i<links.length; i++) {
-                if (!links[i].hasAttribute('target')) {
+        for(var i=0; i<links.length; i++) {
+            if (!links[i].hasAttribute('target')) {
+                if (UrlParams.get('links_open_new_tab') === 'true') {
+                    links[i].target = '_blank';
+                } else {
                     links[i].target = '_top';
                 }
             }
