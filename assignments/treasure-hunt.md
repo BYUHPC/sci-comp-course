@@ -13,7 +13,7 @@ On a Linux machine (preferably the supercomputer), download [`treasure_hunt.tar.
 
 Once you have done so, navigate into `treasure_hunt` and modify the permissions of `which-file` to allow you to execute it.
 
-You will need to load a Julia environment module (e.g. `julia/1.9`) to successfully run `which-file`.
+You will need to load a Julia environment module to successfully run `which-file`.
 
 
 

@@ -140,7 +140,7 @@ After making sure your code looks right, I'll build it on the supercomputer with
 git clone <yournetid>@homework.rc.byu.edu:scicomp
 cd scicomp
 git checkout phase2
-module load gcc/latest cmake catch2
+module load gcc/14.1 cmake catch2
 mkdir bld
 cd bld
 cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..

@@ -32,7 +32,7 @@ $$v_0 = \begin{bmatrix}
 The file(s) you create will be [compiled and run](../resources.md#compilation) by the latest version of GCC installed on the [supercomputer](https://rc.byu.edu) with the following:
 
 ```shell
-module load gcc/latest
+module load gcc/14.1
 g++ -std=c++20 -o wavesolve wavesolve.cpp
 ./wavesolve
 ```

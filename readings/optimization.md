@@ -75,7 +75,7 @@ Optimization in C++ is an art that takes a lot of learning; you won't get good a
 
 [`perf`](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/recording-and-analyzing-performance-profiles-with-perf_monitoring-and-managing-system-status-and-performance) measures the time taken by each call in your program. `perf record --call-graph=dwarf ./your-program && perf report` is a good place to start.
 
-[`valgrind`](https://valgrind.org/docs/manual/quick-start.html) has a ton of uses; it's probably most commonly used for finding segmentation faults. `valgrind --tool=callgrind ./your-program` and `valgrind --tool=cachegrind ./your-program` are particularly useful for optimization. Access a newer version on the supercomputer with `module load valgrind`.
+[`valgrind`](https://valgrind.org/docs/manual/quick-start.html) has a ton of uses; it's probably most commonly used for finding segmentation faults. `valgrind --tool=callgrind ./your-program` and `valgrind --tool=cachegrind ./your-program` are particularly useful for optimization.
 
 Whichever debugger you use is a decent profiler--just make a program that executes in an endless loop, launch it in the debugger, and interrupt it several times. Wherever it stops a lot can probably use some optimization.
 

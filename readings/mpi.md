@@ -53,7 +53,7 @@ Since MPI is such a broad topic, we'll only cover the basics here. Idiomatic sty
 With most MPI compilers, you can use `mpic++` in the place of a C++ compiler like `g++` to compile MPI C++ code:
 
 ```shell
-module load gcc/latest openmpi # and maybe mpl
+module load gcc/14.1 openmpi/5.0 # and maybe mpl
 mpicxx -std=c++20 -o myprog myprog.cpp
 ```
 
@@ -82,7 +82,7 @@ There is enough breadth to MPI that we couldn't cover it all even if we dedicate
 
 ### MPI
 
-As is often the case, the `man` pages are a good place to start. Once you have a compiler and MPI module loaded (e.g. `gcc/13` and `openmpi/4.1`), you can run `man 3 MPI_Function_name` to get the details on that function. For example, to find out more about `MPI_Allreduce`, you could use `module load gcc/latest openmpi; man 3 MPI_Allreduce`. You can also take advantage of your shell's tab completion to get a full listing of all available MPI functions by typing `man 3 MPI_` then pressing the tab key.
+As is often the case, the `man` pages are a good place to start. Once you have a compiler and MPI module loaded (e.g. `gcc/14.1` and `openmpi/5.0`), you can run `man 3 MPI_Function_name` to get the details on that function. For example, to find out more about `MPI_Allreduce`, you could use `module load gcc/14.1 openmpi/5.0; man 3 MPI_Allreduce`. You can also take advantage of your shell's tab completion to get a full listing of all available MPI functions by typing `man 3 MPI_` then pressing the tab key.
 
 [Online documentation](https://www.open-mpi.org/doc/current/) is also available but generally contains no more information than do the `man` pages. [Microsoft's online MPI documentation](https://docs.microsoft.com/en-us/message-passing-interface/mpi-reference) is reasonably well organized and concise (partly because it doesn't include Fortran information), although it is possible that there are subtle differences between it and OpenMPI, MPICH, etc. When you know a function name or have an idea of what it might be called, `man` pages and online documentation should be the first place you turn.
 
