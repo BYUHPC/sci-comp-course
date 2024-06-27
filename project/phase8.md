@@ -48,7 +48,7 @@ auto L = (u[I-1] + u[I+1] + u[I-n] + u[I+n]) / 2 - 2 * u[I];
 
 ## Quirks
 
-Remember to `module load nvhpc` before running CMake.
+Remember to `module load nvhpc/24.5` before running CMake.
 
 `wavesolve_gpu` will hang indefinitely if you try to run it on a login node, so get a shell on a node with P100s when you're ready to test:
 

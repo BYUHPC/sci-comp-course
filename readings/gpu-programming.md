@@ -65,7 +65,7 @@ for (size_t i=0; i<vecA.size(); i++) {
 As of this writing, compiling standard C++ code for GPUs is cutting edge and isn't yet well-supported by most compilers. For now, you can compile for the P100s of `m9g` with [NVIDIA's HPC SDK](https://developer.nvidia.com/hpc-sdk):
 
 ```shell
-module load nvhpc
+module load nvhpc/24.5
 nvc++ -stdpar=gpu -gpu=sm_60 -std=c++20 -o whatever whatever.cpp
 ```
 
