@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     int rank, size;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_rank(MPI_COMM_WORLD, &size);
-    std::cout << "Hi from process " << rank+1 << " of " << size+1 << std::endl;
+    std::cout << "Hi from process " << rank << " of " << size << std::endl;
     MPI_Finalize();
     return 0;
 }
@@ -39,7 +39,7 @@ Many modern C++ programs (including the [example code](https://github.com/BYUHPC
 int main(int argc, char *argv[]) {
     auto rank = mpl::environment::comm_world().rank();
     auto size = mpl::environment::comm_world().size();
-    std::cout << "Hi from process " << rank+1 << " of " << size+1 << std::endl;
+    std::cout << "Hi from process " << rank << " of " << size << std::endl;
     return 0;
 }
 ```
@@ -87,6 +87,12 @@ As is often the case, the `man` pages are a good place to start. Once you have a
 [Online documentation](https://www.open-mpi.org/doc/current/) is also available but generally contains no more information than do the `man` pages. [Microsoft's online MPI documentation](https://docs.microsoft.com/en-us/message-passing-interface/mpi-reference) is reasonably well organized and concise (partly because it doesn't include Fortran information), although it is possible that there are subtle differences between it and OpenMPI, MPICH, etc. When you know a function name or have an idea of what it might be called, `man` pages and online documentation should be the first place you turn.
 
 Not knowing the name of the function that you are looking for, though, renders said documentation a vast sea of (often poorly organized) information in which you need to find a small drop of truth. As you get more familiar with MPI, you'll be able to find a handful of functions that look right and see which one is suited for what you want to do, but until then the best way to quickly find what you're looking for is usually to search something along the lines of "How to ____ with MPI" and try to pick a recent, relevant result.
+
+### Debugging
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SGo3Aqz_54o?si=5JpjTC-qpaJu-Nat" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
 
 ## Communication
 
