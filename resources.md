@@ -100,6 +100,8 @@ One aspect of C++ that trips up many students is fact that '`&`' is used for so 
 
 ### Debugging, Profiling, and Optimization
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/EL19kEm5oaw?si=MPrszL6mDWluLGF6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 [GDB](https://www.bitdegree.org/learn/gdb-debugger) is ubiquitous for debugging C++ programs. If you prefer a graphical debugger, you can [integrate GDB into VS Code](https://youtu.be/G9gnSGKYIg4). If you do so, you'll probably want to modify `tasks.json` by changing `command` to the result of `module load gcc/14.1 && which g++` and adding `-std=c++20` to `args`. [Valgrind](https://valgrind.org/docs/manual/quick-start.html) is essential for [tracking down memory problems](https://prajankya.me/valgrind-on-linux/). For debugging MPI applications, I haven't found anything better than using [`tmpi`](https://github.com/Azrael3000/tmpi) with `gdb` (`module load reptyr tmpi`), although I hear that MPI debugging [is possible within VS Code now](https://iamsorush.com/posts/debug-mpi-vs-code/).
 
 There are [many tools available for profiling in C++](https://hackingcpp.com/cpp/tools/profilers.html); [perf](https://dev.to/etcwilde/perf---perfect-profiling-of-cc-on-linux-of) is a good, simple choice in combination with Valgrind. Profiling and [optimization](https://www.agner.org/optimize/optimizing_cpp.pdf) in C++ are hard--this class will be the start of a long journey.
@@ -109,6 +111,8 @@ There are [many tools available for profiling in C++](https://hackingcpp.com/cpp
 
 
 ## Julia
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/PhhIgy1Vozo?si=-MvvVe3A3AcDATE1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 [Julia](https://julialang.org/) is like Python on steroids--it's more [expressive](https://docs.julialang.org/en/v1/manual/metaprogramming/), [faster](https://julialang.org/benchmarks/), was [designed from the ground up for HPC](https://julialang.org/blog/2012/02/why-we-created-julia/), and has a [powerful REPL](https://docs.julialang.org/en/v1/stdlib/REPL/). It [has its quirks](https://viralinstruction.com/posts/badjulia/) and isn't the right tool for everything, but [it's probably the best widely-used language available to write programs for supercomputers](https://viralinstruction.com/posts/goodjulia/). The [example code](https://github.com/BYUHPC/WaveSim.jl) is a good start for the Julia phases of the [project](project/overview.md).
 
