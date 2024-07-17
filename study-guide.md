@@ -20,7 +20,7 @@
 
   async function generateStudyGuide() {
     const studyGuideContainer = document.getElementById('study-guide');
-    studyGuideContainer.style.display = 'none' // hide until fully loaded
+    studyGuideContainer.style.display = 'none'; // hide until fully loaded
 
     for (const lessonPath of lessonPages) {
       try {
