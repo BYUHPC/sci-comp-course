@@ -20,6 +20,7 @@
 
   async function generateStudyGuide() {
     const studyGuideContainer = document.getElementById('study-guide');
+    studyGuideContainer.style.display = 'none' // hide until fully loaded
 
     for (const lessonPath of lessonPages) {
       try {
@@ -37,6 +38,7 @@
           console.error("Error fetching or parsing lesson:", lessonPath, error);
         }
     }
+    studyGuideContainer.style.display = 'block'; // show
   }
 
   generateStudyGuide();
