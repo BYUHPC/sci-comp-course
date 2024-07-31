@@ -142,3 +142,7 @@ CMakeFiles/Example.dir/example.cc.o
 $ ./Example
 Hello, World
 ```
+
+### Cleaning Up
+
+CMake doesn't have an equivalent of `make clean`, so you should remove everything from the build directory and run `cmake` afresh whenever you update `CMakeLists.txt`. If you fail to do so, the updates you made to `CMakeLists.txt` may not be fully reflected in your build configuration.
