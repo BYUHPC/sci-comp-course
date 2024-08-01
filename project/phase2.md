@@ -64,8 +64,6 @@ If there was an exception that the `WaveOrthotope` constructor is equipped to ha
 
 I highly recommend using [`binary_io.hpp`](https://github.com/BYUHPC/simple-cxx-binary-io), which I wrote specifically to alleviate the suffering of students who would otherwise have to use C++'s [terrible binary I/O](https://martincmartin.com/2015/02/02/writing-to-a-binary-stream-in-cc-harder-than-it-should-be/) without protection.
 
-If you read from a `std::istream` in your constructor's [member initializer list](https://en.cppreference.com/w/cpp/language/constructor#Member_initializer_list), **make sure your class members are declared in the order that you'll read them in**--the declaration order, *not* the order of the initializer list, determines the order in which members are initialized.
-
 If you insist, though, you can read and write manually:
 
 ```c++
@@ -74,6 +72,8 @@ is.read(reinterpret_cast<char *>(&x), sizeof(x));
 // Write x to ostream os:
 os.write(reinterpret_cast<const char *>(&x), sizeof(x));
 ```
+
+If you read from a `std::istream` in your constructor's [member initializer list](https://en.cppreference.com/w/cpp/language/constructor#Member_initializer_list), **make sure your class members are declared in the order that you'll read them in**--the declaration order, *not* the order of the initializer list, determines the order in which members are initialized.
 
 ### Resilience to Bad Data
 
