@@ -15,6 +15,8 @@ Software on the supercomputer is generally accessed with [modules](https://rc.by
 
 Jobs are submitted via [Slurm](https://rc.byu.edu/wiki/?id=Slurm).
 
+["Getting Started"](https://www.youtube.com/watch?v=i1r9BxHBG0I&list=PL326A5EB4E3B16FED) playlist on [BYUSupercomputing's YouTube channel](http://youtube.com/BYUSupercomputing).
+
 
 
 ## The [Project](project/overview.md)
