@@ -17,6 +17,7 @@ Jobs are submitted via [Slurm](https://rc.byu.edu/wiki/?id=Slurm).
 
 ["Getting Started"](https://www.youtube.com/watch?v=i1r9BxHBG0I&list=PL326A5EB4E3B16FED) playlist on [BYUSupercomputing's YouTube channel](http://youtube.com/BYUSupercomputing).
 
+An overview of [super computer architecture](https://docs.google.com/presentation/d/1mEXeC9743htBHasQ8ITt41tmrqVvbtS_VENeOB2nOsI/edit#slide=id.p).
 
 
 ## The [Project](project/overview.md)
