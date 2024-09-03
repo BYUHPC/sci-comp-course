@@ -57,7 +57,7 @@ int main() {
     // Set interior cells of v to 0.1
     // TODO
     // Solve and print result
-    w.solve()
+    w.solve();
     std::cout << w.sim_time() << std::endl;
     return 0;
 }
