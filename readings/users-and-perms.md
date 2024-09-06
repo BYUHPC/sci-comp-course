@@ -85,7 +85,7 @@ rwxr-x---
 The letter representations can also be used, at the expense of brevity:
 
 ```shell
-chmod u+rwx,g+rx-w,u-rwx myfile # equivalent to above
+chmod u+rwx,g+rx-w,o-rwx myfile # equivalent to above
 ```
 
 `+` adds permissions; `-` subtracts permissions.
