@@ -85,7 +85,9 @@ clean:
 
 ## CMake
 
-CMake manages the build process in an operating system and compiler independent manner--it aims to run anywhere, including Windows, unlike GNU Make which typically runs on Linux-like systems.
+**Note:** In order to use `cmake` on the super computer, first run `module load cmake`.
+
+CMake manages the build process in an operating system and compiler independent manner--it aims to run anywhere, including Windows, unlike GNU Make which typically runs only on Linux-like systems.
 
 This means that CMake allows developers to build software independent of platform and compiler. For example, on Windows, the Intel C++ compiler uses `/Qstd=c++17` to specify the C++17 standard, while on Linux, the synonymous flag is `--std=c++17`. CMake abstracts away these differences so that developers can avoid the headache of keeping track of such differences. 
 
