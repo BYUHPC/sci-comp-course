@@ -30,12 +30,20 @@ julia> join(Char.(reinterpret(UInt8, [1.23])))
 
 The format of these files is as follows:
 
-1. `N`: the number of dimensions as a 64-bit unsigned integer; unless you're doing the extra credit, this will always be 2.
-1. `m`: the size of the wave orthotope, `N` 64-bit unsigned integers.
-1. `c`: the damping coefficient, a 64-bit float (in C++ this is a **`double`**).
+1. `N`: the number of dimensions as a 64-bit unsigned integer.
+    - In C++ this is an **`unsigned long`**.
+    - Unless you're doing the extra credit, this will always be 2.
+1. `m`: the wave orthotope size array, `N` 64-bit unsigned integers in order of dimensionality.
+    - _Order of Dimensionality_ means the first value is the number of rows (1D), then columns (2D), then layers (3d), then hyper-layers etc.
+1. `c`: the damping coefficient, a 64-bit float.
+    - In C++ this is a **`double`**.
 1. `t`: the simulation time, a 64-bit float.
-1. `u`: the displacement array, an array of 64-bit floats of size `m` in C array order (the first row is written/read in its entirety, then the second, etc.).
+1. `u`: the displacement array, an array of 64-bit floats in C array order.
+    - The total size of this array is given by $size =\prod_{i=1}^{N} m_i = m_1 × m_2 × … × m_N$
+    - Array order means the first row is written/read in its entirety, then the second, etc.
+    - In higher dimension waves, the next layer entirely follows the first layer.
 1. `v`: the velocity array, in the same format as `u`.
+
 
 To make abundantly clear the order of `u` and `v`, here is a 3x4 array where elements are numbered in the order in which they would be read or written:
 
