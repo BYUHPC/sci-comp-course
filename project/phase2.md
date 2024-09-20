@@ -34,7 +34,7 @@ The format of these files is as follows:
     - In C++ this is an **`unsigned long`**.
     - Unless you're doing the extra credit, this will always be 2.
 1. `m`: the wave orthotope size array, `N` 64-bit unsigned integers in order of dimensionality.
-    - _Order of Dimensionality_ means the first value is the number of rows (1D), then columns (2D), then layers (3d), then hyper-layers etc.
+    - _Order of Dimensionality_ means the first value is the number of rows (1d), then columns (2d), then layers (3d), then hyper-layers etc.
 1. `c`: the damping coefficient, a 64-bit float.
     - In C++ this is a **`double`**.
 1. `t`: the simulation time, a 64-bit float.
