@@ -3,7 +3,13 @@
 
 # Git
 
-## Version Control
+This document covers all of the following topics:
+1. [Motivation for a version control software](#motivation)
+2. [Introduction to the basic usage and data structures of the `git` version control system](#basics)
+3. [Introduction to basic branch management workflows](#branches)
+4. [How to manage remote repositories on GitHub.com](#github)
+
+## <a name="motivation"></a> Version Control
 
 How do you back up your projects? Here are what some people consider backups: 
 
@@ -25,7 +31,7 @@ Version control is a solution to these issues. Good version control will
 
 
 
-## Git Basics
+## <a name="basics"></a> Git Basics
 
 Git is the most popular version control software today.
 
@@ -231,7 +237,7 @@ index ba82105..b75165b 100644
 
 
 
-## Git Branches
+## <a name="branches"></a> Git Branches
 
 Branches are an extremely lightweight tool to manage workflows. Branches are just a movable pointer to a particular commit. The branch you start on is called "master" (or "main" in [newer versions](https://github.com/github/renaming?tab=readme-ov-file#renaming-the-default-branch-from-master)) by default. Every time you commit, the current branch's pointer moves to the new commit object. Note that there is also a special HEAD reference that points to the current branch you're on. This may or may not be the master.
 
@@ -362,7 +368,7 @@ $ git log --oneline --decorate
 
 
 
-## GitHub
+## <a name="github"></a> GitHub
 
 Today, a major component of using git is making use of remote git repositories on the internet. A remote git repo can be cloned into a local repo. Local repo changes can be pushed to remote repos. Remote repo changes can be pulled to the local repo. That leads us to the foremost provider of git repository hosting: GitHub. GitHub provides management features and access control that aren't provided by git itself.
 
