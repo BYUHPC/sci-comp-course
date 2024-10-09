@@ -39,6 +39,7 @@ git switch --orphan shell-and-slurm-practice        # Creates a new branch witho
 git add *.sh                                        # Adds all shell script files in the root directory to the staging area (don't include other unrelated files)
 git commit -m "Submit shell and slurm practice"     # (Or your own commit message.) Commits the changes to the branch
 git push                                            # Push the changes to the remote server
+
 git switch main                                     # (Or "master"). Return to your main project branch
 ```
 
