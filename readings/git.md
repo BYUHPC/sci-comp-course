@@ -3,7 +3,13 @@
 
 # Git
 
-## Version Control
+This document covers all of the following topics:
+1. [Motivation for a version control software](#motivation)
+2. [Introduction to the basic usage and data structures of the `git` version control system](#basics)
+3. [Introduction to basic branch management workflows](#branches)
+4. [How to manage remote repositories on GitHub.com](#github)
+
+## <a name="motivation"></a> Version Control
 
 How do you back up your projects? Here are what some people consider backups: 
 
@@ -24,8 +30,7 @@ Version control is a solution to these issues. Good version control will
 - be stored in multiple physical locations
 
 
-
-## Git Basics
+## <a name="basics"></a> Git Basics
 
 Git is the most popular version control software today.
 
@@ -36,6 +41,12 @@ $ git config --global user.name 'Your Name'
 $ git config --global user.email 'your@email.com'
 $ git config --global core.editor 'vim'
 ```
+
+> [!NOTE]
+> Throughout this introduction, we will demonstrate and show some of the _basic_ usages of common functions.\
+> More powerful and convenient options are available and can be found by adding the `--help` flag.\
+> For example: `git log --help` will give information on the many different ways to view history.\
+> Some of the most convenient options are highlighted in green Tip boxes.
 
 ### Overview
 
@@ -124,6 +135,10 @@ nothing added to commit but untracked files present (use "git add" to track)
 git commit -m "Initial Commit" # commits a snapshot of files
 ```
 
+> [!TIP]
+> Perform the "add" and "commit" operation at once with the this convenient option:\
+> `git commit -am "COMMIT MESSAGE HERE"`
+
 When you run `git commit`, a snapshot of the staged files is created. Once committed, the files are considered unmodified. Commits require that you include a message related to the commit, and the message for the first commit is typically "Initial Commit".
 
 ![Commit](../img/git-commit.png)
@@ -197,6 +212,9 @@ Likewise, you need to use `git mv [filename]` instead of just `mv` to rename or 
 
 After making changes to files, you may be interested in viewing the history of commits or the differences between various commits. The command `git log` provides a full audit trail. You can see who committed changes and when. You can also revert your working directory to the state of a previous commit. The command `git diff [hash1] [hash2]` is an invaluable tool for comparing differences in commits. You can give the hashes of two commits as arguments, and git will provide a color-coded listing of line-by-line differences between the two commits.
 
+> [!TIP]
+> View a dense, summarized form of the history by using `git log --oneline`.
+
 ```shell
 $ git log
 commit b501eb86ac35a6d71ccf37eac213ed461f97ef9c
@@ -231,7 +249,7 @@ index ba82105..b75165b 100644
 
 
 
-## Git Branches
+## <a name="branches"></a> Git Branches
 
 Branches are an extremely lightweight tool to manage workflows. Branches are just a movable pointer to a particular commit. The branch you start on is called "master" (or "main" in [newer versions](https://github.com/github/renaming?tab=readme-ov-file#renaming-the-default-branch-from-master)) by default. Every time you commit, the current branch's pointer moves to the new commit object. Note that there is also a special HEAD reference that points to the current branch you're on. This may or may not be the master.
 
@@ -240,6 +258,9 @@ Branches are an extremely lightweight tool to manage workflows. Branches are jus
 ### Create a Branch
 
 You can use the command `git branch` to create a new branch, which will point to your latest commit. To switch to this new branch, use `git checkout [branch]`. Note that head now points to the new branch.
+
+> [!TIP]
+> Perform both of these operations at once with the `git checkout -b BRANCH_NAME` command.
 
 ```shell
 $ git branch bronco
@@ -351,6 +372,10 @@ Rebasing makes your history cleaner, but does so by rewriting it. As such, it's 
 
 A tag is just a non-moving pointer to a particular commit. It's often used to tag specific releases.
 
+> [!WARNING]
+> Tags are **not pushed** by default when running the `git push` command. \
+> Push tags to a remote by using `git push --tags`.
+
 ```shell
 $ git tag v1.0 3c04417
 $ git log --oneline --decorate
@@ -362,7 +387,7 @@ $ git log --oneline --decorate
 
 
 
-## GitHub
+## <a name="github"></a> GitHub
 
 Today, a major component of using git is making use of remote git repositories on the internet. A remote git repo can be cloned into a local repo. Local repo changes can be pushed to remote repos. Remote repo changes can be pulled to the local repo. That leads us to the foremost provider of git repository hosting: GitHub. GitHub provides management features and access control that aren't provided by git itself.
 
@@ -442,3 +467,7 @@ Local changes can be pushed to remote repos. Branches were discussed previously.
 ```shell
 git push origin master
 ```
+
+> [!TIP]
+> Use `git config --global push.autoSetupRemote true` one time so that `git` will automatically use the local branch name as the remote branch name when creating branches.\
+> Otherwise, you'll half to jump through hoops each time you create a branch on a remote.
