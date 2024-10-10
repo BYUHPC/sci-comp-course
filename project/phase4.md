@@ -24,7 +24,7 @@ For most students, optimizing in 2 dimensions will be significantly easier.
 
 ## Setting up Julia
 
-In a shell on the supercomputer, run `module restore; module load julia; module save`. That will make the most recent Julia available by default, which will enable VS Code to use it.
+In a shell on the supercomputer, run `module load julia; module save`. That will make the most recent Julia available by default, which will enable VS Code to use it.
 
 Julia integrates nicely with VS Code; you can do without, but you'll need to do some extra work (e.g. [using viz](https://viz.rc.byu.edu:3443/) and specifying [`--project`](https://docs.julialang.org/en/v1/manual/command-line-interface/#command-line-interface-1)). [Install](https://code.visualstudio.com/learn/get-started/extensions) and [enable](https://code.visualstudio.com/docs/editor/extension-marketplace#_enable-an-extension) the [Julia extension](https://code.visualstudio.com/docs/languages/julia) on the [supercomputer](https://rc.byu.edu/wiki/index.php?page=Remote+Development+with+VS+Code). That done, you can **[run the REPL via the extension](https://github.com/julia-vscode/julia-vscode/wiki/REPL) with Alt+j, Alt+o or via the [command pallette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)**. The instructions in the rest of this assignment assume you launch the REPL thus.
 
