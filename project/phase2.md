@@ -33,7 +33,7 @@ The format of these files is as follows:
 1. `N`: the number of dimensions as a 64-bit unsigned integer.
     - In C++ this is an **`unsigned long`**.
     - Unless you're doing the extra credit, this will always be 2.
-1. `m`: the wave orthotope size array, `N` 64-bit unsigned integers in order of dimensionality.
+1. `m`: the wave orthotope size array, `N` 64-bit `unsigned long`s in order of dimensionality.
     - _Order of Dimensionality_ means the first value is the number of rows (1d), then columns (2d), then layers (3d), then hyper-layers etc.
 1. `c`: the damping coefficient, a 64-bit float.
     - In C++ this is a **`double`**.
