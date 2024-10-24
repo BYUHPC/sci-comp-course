@@ -19,7 +19,6 @@ In [phase 1](phase1.md), you created and solved a specific wave plane; in this a
 ./wavesolve_serial initial.wo solved.wo
 ```
 
-### Data Format
 
 The input files are binary--the bytes written there are the same literal bytes the machine uses to represent floats and integers. They aren't human-readable without translation--for example, when the double precision float 1.23 is "printed" in binary as a Unicode string, it looks like nonsense:
 
@@ -28,15 +27,68 @@ julia> join(Char.(reinterpret(UInt8, [1.23])))
 "®Gáz\x14®ó?"
 ```
 
-The format of these files is as follows:
+### Number Data Types
 
+> [!IMPORTANT]
+> The data types you define for your variables directly affect the way they convert to 1s and 0s in the output.\
+> Using the wrong data types can lead to:
+> * Difficulties reading and writing data properly during development
+> * Output files being marked as "corrupt" during testing
+
+Students coming from a background interpreted languages may not be familiar with the impacts of a decision concerning data types. In general, data types define the number of bits used while handling the variable. The exact sizes of data types vary from system to system; however, certain specifications can be relied upon. 
+
+Larger data types can hold bigger numbers, but also take up more space in memory and on storage devices; smaller data types are noticeably restricted in the amount of information they can hold, but they are more memory efficient. Using larger data types than required may also lead to performance bottle necks at the CPU and memory management levels. 
+
+#### Integral Types
+
+An overview of [basic data types in C++](https://en.cppreference.com/w/cpp/language/types#:~:text=the%20same%20type.-,Properties,-The%20following%20table). Note that the C++ standard only defines a minimum size for each of the data types, and individual platforms are free to use a larger size.
+| Integral Type | Min. Size (bits) | Bitwise example |
+| :----------: |:--:| :--------------|
+| char         | 8  | 0000000 |
+| short        | 16 | 00000000000000 |
+| int          | 16 | 00000000000000 |
+| long         | 32 | 0000000000000000000000000000 |
+| long long    | 64 | 00000000000000000000000000000000000000000000000000000000 |
+
+The integral values used in this lab all need to be stored in **64 bits**.
+
+In C++, the most appropriate data type is **`uint64_t`** since it is guaranteed to always be [64 bits wide](https://en.cppreference.com/w/cpp/types/integer). \
+Before using this data type, remember to add the `#include <cstdint>` statment.
+
+> [!CAUTION]
+> The `unsigned long` data type is commonly used because it happens to be 64 bits wide; \
+> however, this is a restrictive assumption since it is not guaranteed to be 64 bits on all machines.
+> 
+> As noted above, the C++ spec only requires the `long` data type to be at least _32 bits_.
+
+#### Float Types
+
+"Float" values use complex rules to be able to represent decimal values in binary bits. Compared to similar operations on integral values, operatoins on float values are slower at the CPU level.
+
+Floating point numbers are represented in bits in a form of scientific notation. Below are several examples of numbers in scientific notation. Since floats are stored in a fixed number of bits, there is a tradeoff between the number of significant digits they can represent and the magnitutde of number they can represent. Using more bits to represent large or small numbers comes at the cost of precision of significant digits.
+* **3.14159E0** (π)
+* **1E9** (1 billion)
+* **5.123E-6** (A really small value)
+
+An overview of the [fundamental floating types](https://en.cppreference.com/w/cpp/language/types#:~:text=for%20every%20type.-,Floating%2Dpoint%20types,-Standard%20floating%2Dpoint) in C++.
+| Floating Type | Size (bits) |
+| :------: | :----: |
+| Float | 32 |
+| Double | 64 |
+
+The floating point values used in this class should all be **doubles**.
+
+### Data Format
+
+> [!NOTE]
+> In these definitions, an "integer" should not be assumed to be an `int` data type.
+
+The format of these files is as follows:
 1. `N`: the number of dimensions as a 64-bit unsigned integer.
-    - In C++ this is an **`unsigned long`**.
     - Unless you're doing the extra credit, this will always be 2.
-1. `m`: the wave orthotope size array, `N` 64-bit `unsigned long`s in order of dimensionality.
+1. `m`: the wave orthotope size array, `N` 64-bit unsigned integer in order of dimensionality.
     - _Order of Dimensionality_ means the first value is the number of rows (1d), then columns (2d), then layers (3d), then hyper-layers etc.
 1. `c`: the damping coefficient, a 64-bit float.
-    - In C++ this is a **`double`**.
 1. `t`: the simulation time, a 64-bit float.
 1. `u`: the displacement array, an array of 64-bit floats in C array order.
     - The total size of this array is given by $size =\prod_{i=1}^{N} m_i = m_1 × m_2 × … × m_N$
@@ -44,6 +96,7 @@ The format of these files is as follows:
     - In higher dimension waves, the next layer entirely follows the first layer.
 1. `v`: the velocity array, in the same format as `u`.
 
+#### Array Format Example
 
 To make abundantly clear the order of `u` and `v`, here is a 3x4 array where elements are numbered in the order in which they would be read or written:
 
@@ -52,6 +105,8 @@ $$\begin{bmatrix}
     5 &  6 &  7 &  8 \\
     9 & 10 & 11 & 12 \\
 \end{bmatrix}$$
+
+#### Instructor Tips
 
 I recommend adding a constructor and a `write` function to your class, each of which take a filename as their sole argument; search for "filename" in [`MountainRange.hpp`](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRange.hpp) for an idea of how to do so.
 
