@@ -2,6 +2,14 @@
 
 [`std::jthread`](https://en.cppreference.com/w/cpp/thread/jthread)s are C++ 20's flagship mechanism for [threading](threading.md). Unlike [OpenMP](openmp.md), adding them to a program means that the program is squarely parallel and must be compiled as such.
 
+> [!NOTE]
+> You have previously benefitted from having multiple threads because OpenMP programatically compiled your code to spawn threads and coordinate the aggregration of results.
+> 
+> In this section, we'll be stepping a level deeper in the complexities to manually implement threading.
+> 
+> This will require manual coordination of thread executation which does expose more manual control in situations where:
+> 1. OpenMP is not available or
+> 2. more fine-tuned approaches are necessary
 
 
 ## Compiling with C++ Threads
@@ -54,6 +62,10 @@ int main() {
 ```
 
 This is simple enough when no coordination is required, or when clock-based coordination is sufficient as above, but getting threads to synchronize or communicate correctly is challenging. Even getting two threads to interleave the printing of "PING" and "PONG" below requires 3 variables dedicated solely to coordination:
+
+> [!NOTE]
+> This demonstrates with a real example the **complexity of coordinating thread execution**.\
+> The specifics of the technologies used (`mutex`, and `condition_variable`) are explained below.
 
 ```c++
 #include <iostream>
