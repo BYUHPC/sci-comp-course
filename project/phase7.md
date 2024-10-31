@@ -18,7 +18,7 @@ mpirun --npernode 4 wavesolve_mpi ...
 
 When you run with multiple processes, **put your output files in `~/nobackup/archive`**--NFS (the rest of your home directory) is astonishingly slow to allow MPI I/O writes.
 
-Load `gcc/13.2.0-hlknow5` and `openmpi` to get access to a recent MPI compiler, and `mpl` to use MPL.
+Load `gcc/13.2.0-hlknow5` and `openmpi/5.0.3-zduzrzb` to get access to a recent MPI compiler, and `mpl` to use MPL.
 
 
 
