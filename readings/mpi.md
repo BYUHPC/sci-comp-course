@@ -183,3 +183,6 @@ try {
     std::cerr << e.what() << std::endl;
 }
 ```
+
+## Ghost Cells
+Some times certain cells need to be shared across multiple processes so that the main cells have enough information to update properly. These are called ghost shells. Read [this document](https://sites.cs.ucsb.edu/~gilbert/cs140resources/notes/GhostCells.pdf) to better understand how they work.
