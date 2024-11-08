@@ -30,6 +30,10 @@ Since updating a cell of `u` requires data from the rows above and below it, the
 
 ## Recommended Development Process
 
+This guide is one possible way to approach the implemention for this project phase. It is not required. 
+
+This guide emphasizes the principle of **incremental development** by making small changes and verifying the results at each step.
+
 1. Disable (comment out) wave solving.
     1. For each of the following steps, 
     1. verify correctness of a single node **and**
