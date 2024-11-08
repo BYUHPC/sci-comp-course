@@ -28,7 +28,46 @@ Much as in the [previous phase](phase6.md), you'll split work roughly evenly amo
 
 Since updating a cell of `u` requires data from the rows above and below it, the processes will need to store [ghost rows](https://sites.cs.ucsb.edu/~gilbert/cs140resources/notes/GhostCells.pdf) and exchange them on each iteration (see `exchange_halos` in the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeMPI.hpp)).
 
+## Recommended Development Process
 
+1. Disable (comment out) wave solving.
+    1. For each of the following steps, 
+    1. verify correctness of a single node **and**
+    1. verify correctness on multiple nodes with multiple processes (2 nodes x 4 processes each)
+    1. Verify that header data can be read in properly using MPI
+1. Read in the header data 
+    1. COUT the results to the screen
+    1. Verify correctness
+1. Check that **all** data can be read and written properly using MPI (without halos)
+    1. Read the header data and vector data from MPI
+    1. Write the results
+    1. Manually inspect the result with `waveshow` or `wavediff`
+1. Check that **all** data can be read and written properly using MPI (with halos)
+    1. Read the header data and vector data from MPI
+    1. Fill in the appropriate U/V rows with halos with the **rank** of the current process
+    1. Write the results
+    1. Manually inspect the result with `waveshow` or `hexdump`
+    1. By visualizing the rank, you can verify:
+        1. Each process is writing to only the rows it should
+        1. Halo rows are not appearing in the result
+1. Check your code for actual functionality
+    1. Remove the code that populates junk values
+    1. Verify that the result is saved properly
+1. Check your wave energy
+    1. Find the energy of the initial wave
+    1. Print out the result
+    1. Verify correctness
+1. Check your wave solve
+    1. Reenable wave solving 
+    1. Hardcode the program to solve only a single iteration
+    1. Perform another version of your program to solve a single iteration (`wavesolve_threaded` or `wavesolve_original`)
+    1. Manually inspect the result with `waveshow` or `wavediff` 
+    1. Verify correctness
+1. Try solving the entire wave
+    1. Compare results with the answer files (`wavefiles/*D/*-out.wo` files) using `wavediff`
+1. If some end result is not correct, consider the following resources:
+    1. Try increasing the solve limit to solve 2 iterations, then 4…
+    1. Watch this video on [Debugging MPI](https://youtu.be/SGo3Aqz_54o)
 
 ## Submission
 
