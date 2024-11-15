@@ -19,7 +19,7 @@ In similar fashion to the [first optimization assignment](phase3.md#submission),
 
 ## Grading
 
-This phase is worth 15 points. The following deductions, up to 15 points total, will apply for a program that doesn't work as laid out by the spec:
+This phase is worth 20 points. The following deductions, up to 20 points total, will apply for a program that doesn't work as laid out by the spec:
 
 | Defect | Deduction |
 | --- | --- |
