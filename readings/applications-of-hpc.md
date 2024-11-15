@@ -15,7 +15,7 @@ Submissions so far:
 - [Drug discovery with molecular modeling](https://www.mdpi.com/1420-3049/24/9/1693)
 - [HPC graph analysis](https://sites.cs.ucsb.edu/~gilbert/cs140/notes/HendricksonBerry.pdf)
 - [HPC graph partitioning](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=184a87a7e72888ddbca49bd9de6fa826c9f4c149)
-- [Automated catalyst synthesis](https://www.nature.com/articles/s44160-023-00424-1?et_rid=987561522&et_cid=4983836)
+- [Automated catalyst synthesis](https://assets-eu.researchsquare.com/files/rs-2681831/v1/64ce4ca6-5d46-4921-8205-82798eccface.pdf?c=1699949168)
 - [HPC and quantum computing](https://www.engineering.com/story/hpc-closing-the-gap-with-quantum-computing-advantage)
 - [HPC and drug discovery](https://link.springer.com/book/10.1007/978-1-0716-3449-3)
     - ([scientific article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7107815/))
