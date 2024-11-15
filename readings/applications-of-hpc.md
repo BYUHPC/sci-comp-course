@@ -19,3 +19,4 @@ Submissions so far:
 - [HPC and quantum computing](https://www.engineering.com/story/hpc-closing-the-gap-with-quantum-computing-advantage)
 - [HPC and drug discovery](https://link.springer.com/book/10.1007/978-1-0716-3449-3)
     - ([scientific article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7107815/))
+- [Modelling Grain Growth](https://www.sciencedirect.com/science/article/pii/S0927025622005900?via%3Dihub)
