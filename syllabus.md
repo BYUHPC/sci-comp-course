@@ -15,6 +15,10 @@ As a graduate-level course, this class affords more independence than most under
 
 Prior to taking the class, students must know how to program in at least one language, including knowing how to write conditionals, loops, and functions. Experience with only the R programming language has been found to be insufficient preparation; prior C++ experience is preferred. No particular course is required as a prerequisite. A computer science background is not necessary except for the programming skills requirement. The [first phase of the project](project/phase1.md) serves as a good litmus test--if you struggle with it, the course will seriously challenge you since subsequent assignments increase in difficulty.
 
+## Artificial Intelligence
+
+This class operates underneath BYU's Electrical and Computer Engineering. \
+You will be held responsible for acting in accordance with the [ECEn AI Policy](https://ece.byu.edu/ai-policy).
 
 
 ## Getting Help
