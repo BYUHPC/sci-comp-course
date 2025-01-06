@@ -13,7 +13,7 @@ It's a good idea to break your wave orthotope class over multiple classes in suc
 
 ## I/O
 
-In [phase 1](phase1.md), you created and solved a specific wave plane; in this assignment, you'll read in an arbitrary wave plane, solve it, and write the solved wave plane out. The input file will be specified as the first command line argument, and the output file as the second. Running it might look something like:
+In [phase 1](phase1.md), you created and solved a specific wave plane; in this assignment, you'll read in an arbitrary wave plane, solve it, and write the solved wave plane out. The input file will be specified as the first command line argument, and the output file as the second. Running it should look like:
 
 ```shell
 ./wavesolve_serial initial.wo solved.wo
@@ -28,18 +28,18 @@ julia> join(Char.(reinterpret(UInt8, [1.23])))
 "®Gáz\x14®ó?"
 ```
 
-The format of these files is as follows:
+The format of these input files is as follows:
 
 1. `N`: the number of dimensions as a 64-bit unsigned integer.
     - In C++ this is an **`unsigned long`**.
     - Unless you're doing the extra credit, this will always be 2.
-1. `m`: the wave orthotope size array, `N` 64-bit `unsigned long`s in order of dimensionality.
+1. `m`: the wave orthotope size array which is `N` 64-bit `unsigned long`s in order of dimensionality.
     - _Order of Dimensionality_ means the first value is the number of rows (1d), then columns (2d), then layers (3d), then hyper-layers etc.
 1. `c`: the damping coefficient, a 64-bit float.
     - In C++ this is a **`double`**.
 1. `t`: the simulation time, a 64-bit float.
 1. `u`: the displacement array, an array of 64-bit floats in C array order.
-    - The total size of this array is given by $size =\prod_{i=1}^{N} m_i = m_1 × m_2 × … × m_N$
+    - The total size of this array is given by $m_1 × m_2 × … × m_N$
     - Array order means the first row is written/read in its entirety, then the second, etc.
     - In higher dimension waves, the next layer entirely follows the first layer.
 1. `v`: the velocity array, in the same format as `u`.
@@ -70,7 +70,7 @@ If there was an exception that the `WaveOrthotope` constructor is equipped to ha
 
 ### Reading and Writing Binary in C++
 
-I highly recommend using [`binary_io.hpp`](https://github.com/BYUHPC/simple-cxx-binary-io), which I wrote specifically to alleviate the suffering of students who would otherwise have to use C++'s [terrible binary I/O](https://martincmartin.com/2015/02/02/writing-to-a-binary-stream-in-cc-harder-than-it-should-be/) without protection.
+I highly recommend using [`binary_io.hpp`](https://github.com/BYUHPC/simple-cxx-binary-io), which was specifically written to alleviate the suffering of students who would otherwise have to use C++'s [terrible binary I/O](https://martincmartin.com/2015/02/02/writing-to-a-binary-stream-in-cc-harder-than-it-should-be/) without protection.
 
 If you insist, though, you can read and write manually:
 
