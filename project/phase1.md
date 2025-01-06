@@ -37,7 +37,7 @@ g++ -std=c++20 -o wavesolve wavesolve.cpp
 ./wavesolve
 ```
 
-You can test your implementation in the same way. You'll probably want to [set up VS Code](../resources.md#programming) on the supercomputer to develop your code unless you're familiar with vim or emacs. If you have no experience with [Linux](../lessons/2.md), you can also [test with an online C++ compiler](../resources.md#compilation).
+You can test your implementation in the same way. You'll probably want to [set up VS Code](https://rc.byu.edu/wiki/index.php?page=Remote+Development+with+VS+Code) on the supercomputer to develop your code unless you're familiar with vim or emacs. If you have no experience with [Linux](../lessons/2.md), you can also [test with an online C++ compiler](../resources.md#compilation).
 
 
 
