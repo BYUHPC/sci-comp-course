@@ -45,4 +45,6 @@ Before turning to AI, you should attend/review the weekly Q&A as it is enough to
 
 You are permitted to consult AI tools to assist with syntactical issues in your coding assignments. When using AI for this purpose, any solutions obtained must be manually typed. Copying and pasting code directly from AI outputs into your project is not permitted. This practice ensures a thorough reading of a solution and reinforces your understanding.
 
+AI is never allowed on tests or quizzes.
+
 HPC is often on the cutting edge of research out in industry and there isn't always a clearly defined solution. As such, it's pretty easy to spot where AI was used. It typically sends students down a harder and more complex path that's easy for an experienced programmer to spot. AI hallucinations will plague you and this course gives you a foundation to recognize when it errors. Please take the time now to build such a foundation.
