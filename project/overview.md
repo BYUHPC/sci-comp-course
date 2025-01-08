@@ -50,7 +50,7 @@ function step!(u, v, c, dt)
     end
 end
 ```
-
+As you take time to understand what the example code is doing, it's important to know that Julia indexes starting at 1 (not 0).
 
 
 ## Stopping Criterion: Energy
