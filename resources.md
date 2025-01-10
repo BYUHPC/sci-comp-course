@@ -19,6 +19,8 @@ Jobs are submitted via [Slurm](https://rc.byu.edu/wiki/?id=Slurm).
 
 An overview of [super computer architecture](https://docs.google.com/presentation/d/1mEXeC9743htBHasQ8ITt41tmrqVvbtS_VENeOB2nOsI/edit#slide=id.p).
 
+### Quality of Life
+Please read through our [Tips and Tricks page](https://rc.byu.edu/wiki/?id=Tips+and+Tricks) to make your life significantly easier. If you find yourself fustrated with something during the semester, please refer back to it or reach out.
 
 ## The [Project](project/overview.md)
 
