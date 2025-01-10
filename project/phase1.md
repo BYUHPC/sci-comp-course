@@ -43,7 +43,7 @@ You can test your implementation in the same way. You'll probably want to [set u
 
 ## C++
 
-If you follow the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRange.hpp) to create a `WaveOrthotope` class with `solve` and `sim_time` functions and a constructor taking rows, columns, and damping coefficient, your `main` can be very simple:
+If you follow the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeBasic.hpp) to create a `WaveOrthotope` class with `solve` and `sim_time` functions and a constructor taking rows, columns, and damping coefficient, your `main` can be very simple:
 
 ```c++
 #include <iostream>
@@ -95,7 +95,7 @@ wo.velocity(1, 2) = 1.5; // set v[1, 2] to 1.5
 
 No matter what you do, your life will be much easier in subsequent assignments if the data in `u` and `v` is contiguous.
 
-Not everything in the [example mountain range class](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRange.hpp) is needed at this stage--for example, everything having to do with reading and writing files won't be relevant until the [next phase of the project](phase2.md).
+The requirements for this phase are simplified to help you get started as quickly as possible. The simplified [example mountain range class](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRange.hpp) is nearly a minimum working example, but it does include a few non-essential preparations that will make things easier in the future.
 
 
 
