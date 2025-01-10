@@ -95,8 +95,9 @@ wo.velocity(1, 2) = 1.5; // set v[1, 2] to 1.5
 
 No matter what you do, your life will be much easier in subsequent assignments if the data in `u` and `v` is contiguous.
 
-The requirements for this phase are simplified to help you get started as quickly as possible. The simplified [example mountain range class](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRange.hpp) is nearly a minimum working example, but it does include a few non-essential preparations that will make things easier in the future.
+The requirements for this phase are simplified to help you get started as quickly as possible. The simplified [example mountain range class](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeBasic.hpp) is nearly a minimum working example, but it does include a few non-essential preparations that will make things easier in the future.
 
+A [sequence diagram](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/docs/MountainRangeBasic-sequence-diagram.md) has also been provided that visualizes how the computation is divided between entities. Even if this inital phase is simple enough to understand without a diagram, we recommend you review and understand the diagram anyways so that you can appreciate the way the model _changes_ when more advanced techniques are introduced.
 
 
 ## Grading
