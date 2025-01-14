@@ -7,6 +7,8 @@ In this phase you'll make your [wave simulation program](overview.md) more capab
 
 It's a good idea to break your wave orthotope class over multiple classes in such a way that it'll be maximally useful for subsequent phases. I recommend a structure similar to [`mountainsolve` in the example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/mountainsolve.cpp), although you don't yet need the `#ifdef`s at the top.
 
+A [MountainRange Sequence Diagram](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/docs/MountainRange-sequence-diagram.md) is available that illustrates the evaluation of the example code.
+
 **You can test this and subsequent phases against [wavefiles.tar.gz](wavefiles.tar.gz)**; usage instructions are on the [resources page](../resources.md#the-project).
 
 
