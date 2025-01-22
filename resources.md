@@ -58,7 +58,21 @@ mine = WaveOrthotope("my-2d-small-out.wo")
 
 Using `WaveSim.jl` allows you to look at wave orthotopes interactively.
 
+**New Winter 2024**
 
+You can now get the wavefiles by running:
+
+```shell
+module load wavefiles
+```
+
+The path to the input and output files is contained by the variables $INPUT and $OUTPUT respectively. You can see the input/output file names by running `ls` followed by the variable. Using the variables, you can run the commands like the following:
+
+```shell
+waveshow $INPUT/2d-tiny-in.wo
+wavediff my_input_file $OUTPUT/2d-tiny-out.wo
+wavesolve $INPUT/2d-tiny-in.wo my_output_file
+```
 
 ## Programming
 
