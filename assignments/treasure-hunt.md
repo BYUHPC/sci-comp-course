@@ -3,13 +3,15 @@
 
 # Bash Treasure Hunt
 
+**Please do this assignment and all future assignments on the supercomputer. We cannot help with debugging on your local machine.**
+
 For this assignment, you will use several tools you've learned throughout [this lesson](../lessons/2.md) to find a file and filter it to see the message it contains. 
 
 
 
 ## Prepare
 
-On a Linux machine (preferably the supercomputer), download [`treasure_hunt.tar.gz`](treasure_hunt.tar.gz) to a location where you have write permissions such as your home directory; you can copy the link and use `wget <link>` to download directly on the supercomputer. Extract the tarball using `tar xf treasure_hunt.tar.gz`.
+On the supercomputer, download [`treasure_hunt.tar.gz`](treasure_hunt.tar.gz) to a location where you have write permissions such as your home directory; you can copy the link and use `wget <link>` to download directly on the supercomputer. Extract the tarball using `tar xf treasure_hunt.tar.gz`.
 
 Once you have done so, navigate into `treasure_hunt` and modify the permissions of `which-file` to allow you to execute it.
 
