@@ -82,7 +82,7 @@ Make any other optimizations you think are prudent. Some things to consider:
 
 ## Submission
 
-Update your `CMakeLists.txt` to create two more binaries, `optimize` and `wavesolve_openmp`; **make sure to [compile with OpenMP](../readings/openmp.md#compiling-with-openmp)**. You can default to `-Ofast` (rather than `-O3`) for release builds by putting the following line **before** the call to `project` in `CMakeLists.txt`:
+Update your `CMakeLists.txt` to create two more binaries, `optimize` and `wavesolve_openmp`; **make sure to [compile with OpenMP](../readings/openmp.md#compiling-with-openmp)**. You can default to `-Ofast` (rather than `-O3`) for **release builds** by putting the following line **before** the call to `project` in `CMakeLists.txt`:
 
 ```cmake
 set(CMAKE_CXX_FLAGS_RELEASE "-Ofast -DNDEBUG" CACHE STRING "Flags used by the CXX compiler during RELEASE builds")
