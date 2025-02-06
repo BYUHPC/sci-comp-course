@@ -68,6 +68,7 @@ Since you'll probably be applying some of the changes you made above to your own
 Make any other optimizations you think are prudent. Some things to consider:
 
 - Does the problem's symmetry lend itself to algorithmic optimization?
+  - Could you operate on only a half, quarter, or eighth of `u` and `v`?
 - Does the energy calculation need to continue once the floor has been exceeded?
 - Given the predictable exponential decay of energy, does it need to be calculated every iteration?
 - Does the potential energy calculation really require two separate loops over `u`?
