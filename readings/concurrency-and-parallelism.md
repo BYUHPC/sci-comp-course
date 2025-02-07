@@ -24,12 +24,13 @@ For the sake of the following discussions, a chef in the kitchen is comparable t
 
 Consider a single chef working in the kitchen to prepare breakfast. The chef may leave the muffins to bake and switch to cooking eggs, but the chef is never physically working on both tasks at once. Similarly, a computer with a single core interleaves multiple processes by rapidly switching execution between them. This is concurrency: multiple tasks making progress without necessarily running simultaneously.
 
-### **Concurrency on Computers**
+### Concurrency on Computers
 
 ```mermaid
 ---
 displayMode: compact
 ---
+%%{ init: { "themeVariables": { "disableZoom": true } } }%%
 gantt
     title Concurrency on a Single-Core CPU
     dateFormat  X
@@ -56,7 +57,7 @@ gantt
 
 A computer system is described as "executing concurrently" when a single CPU core is assigned multiple tasks. In this case, the core is only ever working on a single task at a time, although multiple tasks are overlapping in progress.
 
-### **Concurrent Eligibility**
+### Concurrent Eligibility
 
 In the breakfast example, the muffins, eggs, and fruit can each be handled concurrently because they are independent of each other.
 
@@ -68,7 +69,7 @@ $$1 \times (2 \times 3) = (1 \times 2) \times 3$$
 
 These operations can be structured in a way that different segments of a computation can make progress without requiring strict ordering.
 
-### **Example**
+### Example
 
 A classic computing example of concurrency is the `make` build system. A Makefile specifies dependencies between targets, forming a partial order. If certain targets are independent, `make` can schedule them to be built concurrently. However, if a system has only one CPU core, these independent tasks will not truly run at the same time; rather, the system will switch between them efficiently.
 
@@ -80,12 +81,13 @@ Returning to the breakfast example, concurrency allows the tasks to be interleav
 
 Importantly, **parallelism requires concurrency, but not all concurrency leads to parallel execution**. A concurrent algorithm can execute in parallel if the hardware allows it, but on a single-core processor, it will still rely on task switching rather than true simultaneous execution.
 
-### **Parallelism on Computers**
+### Parallelism on Computers
 
 ```mermaid
 ---
 displayMode: compact
 ---
+%%{ init: { "themeVariables": { "disableZoom": true } } }%%
 gantt
     title Parallelism on a Multi-Core CPU
     dateFormat  X
@@ -116,7 +118,7 @@ A system is described as "executing in parallel" when multiple cores are simulta
 
 Even when a computer has multiple cores, it may still be "executing concurrently" when there are more active processes than cores available. In this case, each of the cores individually handles multiple processes concurrently.
 
-### **Example**
+### Example
 
 For example, in array summation, a concurrent approach might involve breaking the array into sections and scheduling computations to interleave on a single-core processor. A parallel approach, in contrast, would assign different sections to multiple CPU cores, where each core performs computations simultaneously before combining the results.
 
