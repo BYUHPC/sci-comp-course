@@ -67,7 +67,11 @@ $$1 + (2 + 3) = (1 + 2) + 3$$
 
 $$1 \times (2 \times 3) = (1 \times 2) \times 3$$
 
-These operations can be structured in a way that different segments of a computation can make progress without requiring strict ordering.
+These operations can be structured in a way that different segments of a computation can make progress without requiring strict ordering. However, not all kinds of computation can be reordered and cannot be broken into concurrent parts. For example:
+
+$$1 \div (2 \div 3) \ne (1 \div 2) \div 3$$
+
+Therefore, in order to make tasks compute faster, the designer must first find creative ways to break the task into smaller chunks while preserving the correct answer.
 
 ### Example
 
