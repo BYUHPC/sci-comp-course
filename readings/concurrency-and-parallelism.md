@@ -26,6 +26,9 @@ Consider a single chef working in the kitchen to prepare breakfast. The chef may
 
 ### Concurrency on Computers
 
+<img width="884" alt="image" src="https://github.com/user-attachments/assets/b45e685e-d992-4865-9d95-5c73bd09074e" />
+
+<!-- REPLACING THIS DIAGRAM WITH A SCREENSHOT
 ```mermaid
 ---
 displayMode: compact
@@ -54,6 +57,7 @@ gantt
     TC  : taskC3, 13, 15
     C Complete :milestone, 15,
 ```
+-->
 
 A computer system is described as "executing concurrently" when a single CPU core is assigned multiple tasks. In this case, the core is only ever working on a single task at a time, although multiple tasks are overlapping in progress.
 
@@ -87,6 +91,9 @@ Importantly, **parallelism requires concurrency, but not all concurrency leads t
 
 ### Parallelism on Computers
 
+<img width="868" alt="image" src="https://github.com/user-attachments/assets/2ba29142-d8b1-4b29-9471-df62f6a2dd8d" />
+
+<!-- REPLACING THIS DIAGRAM WITH A SCREENSHOT
 ```mermaid
 ---
 displayMode: compact
@@ -115,6 +122,7 @@ gantt
     TC  : taskC3, 5, 7
     C Complete :milestone, 7,
 ```
+-->
 
 In computing, parallelism occurs when multiple cores or processors execute independent tasks at the same time.
 
