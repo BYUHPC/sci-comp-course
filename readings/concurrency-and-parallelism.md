@@ -9,7 +9,7 @@ Many large tasks can be broken into smaller, manageable pieces to improve effici
 For example, consider preparing a breakfast consisting of scrambled eggs, muffins, and sliced fruit. Some steps must happen sequentially:
 
 - Cheese must be shredded before being added to the eggs.
-- Muffin dough must be prepared before it is baked.
+- Muffin batter must be prepared before it is baked.
 
 However, many tasks can overlap in progress:
 
