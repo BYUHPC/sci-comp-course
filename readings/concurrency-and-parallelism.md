@@ -89,7 +89,7 @@ A classic computing example of concurrency is the `make` build system. A Makefil
 
 Parallelism is a specific form of concurrency in which multiple tasks execute at the same time, requiring multiple CPU cores. While concurrency often requires structuring tasks to allow independent progress, parallelism is about physically executing multiple tasks simultaneously.
 
-Returning to the breakfast example, concurrency allows the tasks to be interleaved, but true parallelism occurs if multiple people are cooking at the same time—one person frying eggs while another slices fruit and another bakes muffins. The work is not just structured efficiently; it is actually happening simultaneously.
+Returning to the breakfast example, concurrency allows the tasks to be interleaved, but true parallelism occurs if multiple people are cooking at the same time—one person frying eggs while another slices fruit and another bakes muffins. The work is not just structured efficiently; it is actually happening simultaneously. True parallelism requires a second chef to enter the kitchen and begin slicing the fruit while the first chef remains hard at work with the eggs. If labor shortages or kitchen capacity prevented a second chef from becoming involved in the meal preparation, then the overall process would not actually be performed in parallel.
 
 Importantly, **parallelism requires concurrency, but not all concurrency leads to parallel execution**. A concurrent algorithm can execute in parallel if the hardware allows it, but on a single-core processor, it will still rely on task switching rather than true simultaneous execution.
 
