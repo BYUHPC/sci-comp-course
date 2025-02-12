@@ -129,7 +129,7 @@ In Julia, symbols are lightweight, immutable identifiers that represent a fixed 
 
 
 #### Types
-Typing in Julia is optional, but recommended for performance reasons. [This](https://docs.julialang.org/en/v1/manual/types/) is Julia's full documentation on it, but for the most part if you see `::` or `<:` that's the way to declare a type. There's actually a lot of nifty tricks you can do with them, but the basic understanding that it's optional and represented by `::` or `<:` is all that's needed for our class.
+Typing in Julia is optional, but recommended for performance reasons. [This](https://docs.julialang.org/en/v1/manual/types/) is Julia's full documentation on it, but for the most part if you see `::` or `<:` that's the way to declare a type. There's actually a lot of nifty tricks you can do with them, but the most important takeaways for this class are: 1) that Julia typing optional and 2) Julia typing represented by `::` or `<:`.
 
 
 #### Libraries
