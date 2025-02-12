@@ -139,3 +139,75 @@ Even when a computer has multiple cores, it may still be "executing concurrently
 For example, in array summation, a concurrent approach might involve breaking the array into sections and scheduling computations to interleave on a single-core processor. A parallel approach, in contrast, would assign different sections to multiple CPU cores, where each core performs computations simultaneously before combining the results.
 
 For more details, refer to [section 2.1 of HPC Tutorials volume 1](EijkhoutHPCTutorialsVol1.pdf#chapter.2).
+
+## Real Example
+
+```mermaid
+gantt
+title Breakfast Preparatin — Full Example
+dateFormat HH:mm
+axisFormat %H:%M
+tickInterval 5minute
+
+section Chef A - Muffins, Eggs, Bacon
+Start muffins              :milestone, a0, 00:00, 0
+Gather muffin ingredients  :a1, after a0, 1m
+Mix dry ingredients        :a2, after a1, 2m
+Add wet ingredients        :a3, after a2, 1m
+Put in blender             :a4, after a3, 1m
+Pour into tray             :a5, after a4, 1m
+Add blueberries            :a6, after a5, 30s
+Bake muffins (20 min)      :active, a9, after a6, 20m
+Add crumble                :a7, after a9, 30s
+Muffins ready              :milestone, a23, after a7, 0m
+
+Start eggs                 :milestone, a11, after a6, 0m
+Gather egg ingredients     :a10, after a11, 1m
+Boil eggs (12 min)        :active, a12, after a10, 12m
+Poach 5 eggs              :a20, after a12, 6m
+Crack 2 eggs              :a14, after a10, 30s
+Scramble eggs             :a15, after a14, 2m
+Crack 1 egg               :a16, after a15, 15s
+Fry egg                   :a17, after a16, 2m
+Shred cheese              :a18, after a17, 1m
+Add cheese to eggs        :a19, after a18, 30s
+Eggs ready                :milestone, a24, after a20, 0m
+
+Start bacon               :milestone, a25, after a19, 0m
+Heat grill (3 min)        :active, a13, after a25, 3m
+Cook bacon                :a21, after a23, 6m
+Finish eggs and bacon     :milestone, a22, after a21, 0m
+
+
+section Chef B - Fruit Prep
+Start fruit               :milestone, b0, 00:00, 0m
+Slice apples              :b1, after b0, 2m
+Slice pears               :b2, after b1, 2m
+Slice strawberries        :b3, after b2, 2m
+Juice oranges             :b4, after b3, 5m
+Finish fruit              :milestone, b7, after b4, 0m
+
+Start table               :milestone, b8, after b7, 0m
+Set tables                :b5, after b4, 3m
+Pour drinks               :b6, after b5, 2m
+Finish table              :milestone, b8, after b6, 0m
+
+section Chef C - Toast, Pancakes, Drinks
+Gather toast ingredients  :c1, 00:00, 1m
+Slice bread               :c2, after c1, 1m
+Toast bread               :c3, after c2, 4m
+Butter toast              :c4, after c3, 1m
+Serve toast               :c5, after c4, 1m
+
+Gather pancake ingredients:c6, after c5, 1m
+Mix batter                :c7, after c6, 3m
+Heat pan                  :c8, after c7, 2m
+Cook pancakes (3 batches) :c9, after c8, 9m
+Serve pancakes            :c10, after c9, 1m
+
+Boil water                :c11, after c10, 4m
+Brew coffee               :c12, after c11, 5m
+Brew tea                  :c13, after c12, 3m
+Pour coffee & tea         :c14, after c13, 2m
+Drinks ready              :milestone, c15, after c14, 0m
+```
