@@ -133,7 +133,7 @@ Typing in Julia is optional, but recommended for performance reasons. [This](htt
 
 
 #### Libraries
-Julia has a rich standard library installed by default. Handling dates and timestamps often requires other libraries like in Python ('pandas' uses 'datetime`) or R (`tidyverse` uses `lubridate`). Julia doesn't require installation of something like `pandas` or `tidyverse` as there are plenty of built-in libraries. You just need to import it at the top of your file (`using Dates`). The same thing applies to random numbers (`using Random`), downloads (`using Downloads`), and more.
+Julia has a rich standard library installed by default. Handling dates and timestamps often requires other libraries like in Python (`pandas` uses `datetime`) or R (`tidyverse` uses `lubridate`). Julia doesn't require installation of something like `pandas` or `tidyverse` as there are plenty of built-in libraries. You just need to import it at the top of your file (`using Dates`). The same thing applies to random numbers (`using Random`), downloads (`using Downloads`), and more.
 
 
 ## Julia is Fast
