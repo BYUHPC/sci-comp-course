@@ -46,7 +46,7 @@ As mentioned in the [resources](../resources.md#julia), Julia's [performance tip
 
 ### Eliminating Unnecessary Work
 
-By default, Julia does bound checking to avoid segmentation faults. You can wrap expressions (e.g. functions, while loops, for loops, etc.) with [`@inbounds`](https://docs.julialang.org/en/v1/base/base/#Base.@inbounds) to prevent bounds checking, but be aware that you are promising that the block following won't attempt out-of-bounds memory access.
+By default, Julia does bound checking to avoid segmentation faults. You can wrap expressions (e.g. functions, while loops, for loops, etc.) with [`@inbounds`](https://docs.julialang.org/en/v1/base/base/#Base.@inbounds) to prevent bounds checking, but be aware that you are promising that the block following won't attempt out-of-bounds memory access. Don't forget that Julia starts indexing at 1, not 0.
 
 Julia [allows dynamic typing](https://docs.julialang.org/en/v1/manual/types/); this is convenient, but causes severe performance problems when a variable's type changes. [Avoid changing the types of variables](https://docs.julialang.org/en/v1/manual/performance-tips/#Avoid-changing-the-type-of-a-variable); you can track down such changes with [`@code_warntype`](https://docs.julialang.org/en/v1/manual/performance-tips/#man-code-warntype). You may notice that one member of `WaveOrthotope`, `t`, will trigger warnings--don't worry about it, it has a negligible performance impact in this particular case. You'll need to call the "base" function for `@code_warntype` to give meaningful output--e.g. `@code_warntype energy(w, :total)` will give lots of information while `@code_warntype energy(w)` will not.
 
