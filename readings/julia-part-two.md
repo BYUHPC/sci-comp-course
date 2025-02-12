@@ -68,7 +68,7 @@ julia> print(arr3)
 [5, 7, 9]
 ```
 
-#### `...` Operator
+#### Splat Operator
 When `...` is used in a function call, it is called the `splat` operator. Let's create a function that takes in `x` and `y` and returns them as a tuple.
 ```
 julia> tuplifier(x, y) = (x, y)
