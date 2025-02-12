@@ -5,7 +5,7 @@
 
 This project is meant to help you see that optimization is different (sometimes dramatically so) in every language--**what you learned in the last phase was "the basics of optimizing C++," not "how to optimize."** The guiding principles (using efficient algorithms, vectorizing, eliminating unnecessary work, etc.) remain the same, but the method of implementing them varies widely. Since you have at least a bit of [experience](phase3.md), this phase will be more open-ended than the last.
 
-Your job is to make [WaveSim.jl](https://github.com/BYUHPC/WaveSim.jl) faster while keeping it correct. Specifically, solving `2d-medium-in.wo` with it should complete in less than 60 seconds on an `m9` node:
+Your job is to make [WaveSim.jl](https://github.com/BYUHPC/WaveSim.jl) faster while keeping it correct. Specifically, solving `2d-medium-in.wo` should complete in less than 60 seconds on an `m9` node:
 
 ```julia
 # Read in the 2D wave orthotope files from wavefiles.tar.gz
@@ -16,23 +16,15 @@ solve!(tiny2din); # compile
 @time solve!(medium2din); # should be under 60s
 ```
 
-Depending on whether you want to try for the [extra credit](../assignments/extra-credit.md#project), you'll need to modify [`energy_2d.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/energy_2d.jl) and [`solve_2d.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/step_2d.jl) (2D) or [`energy.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/energy.jl) and [`solve.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/step.jl) (ND). You'll also need to **change the default `implementation` in [`WaveSim.jl` itself](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/WaveSim.jl) from `ND` to `2D` if you are going to use the 2D files**. You can modify any other files you like as well, but you won't need to do so to attain the required performance.
-
-For most students, optimizing in 2 dimensions will be significantly easier.
-
-
-
 ## Setting up Julia
 
 In a shell on the supercomputer, run `module load julia; module save`. That will make the most recent Julia available by default when you login from a terminal.
 
-Julia integrates nicely with VS Code; you can do without it, but you'll need to run some extra commands. One way is to launch a "VSCode IDE/Editor" session from [OnDemand](https://ondemand.rc.byu.edu/). Check "Advanced Options" and set "QOS" and "Partition" to "login" so that you can [install](https://code.visualstudio.com/learn/get-started/extensions) and [enable](https://code.visualstudio.com/docs/editor/extension-marketplace#_enable-an-extension) the [Julia extension](https://code.visualstudio.com/docs/languages/julia) on the [supercomputer](https://rc.byu.edu/wiki/index.php?page=Remote+Development+with+VS+Code). For future jobs, you can request a compute node based on submission requirements (cores, memory, partition). You'll also ALWAYS need to check "Show VSCode Environment Setup" and add "module load julia" at the end of the "Environment Setup" box. That done, you can **[run the REPL via the extension](https://github.com/julia-vscode/julia-vscode/wiki/REPL) with Alt+j, Alt+o or via the [command pallette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)**. The instructions in the rest of this assignment assume you launch the REPL thus.
-
-
+Julia integrates nicely with VSCode. We have the Julia extension installed on the supercomputer, so if you are using the `Remote Explorer` extension and connected to our system, you can use it without downloading anything. Make sure you are in the WaveSim.jl directory (not just in the terminal, but the only thing open)! Once there, you can **[run the REPL via the extension](https://github.com/julia-vscode/julia-vscode/wiki/REPL) with Alt+j, Alt+o or via the [command pallette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)**. The instructions in the rest of this assignment assume you launch the REPL thus.
 
 ## Downloading and Using a Modified WaveSim.jl
 
-`git clone https://github.com/BYUHPC/WaveSim.jl.git` will download the `WaveSim.jl` [package](https://pkgdocs.julialang.org/v1/) to your current directory. If you're using the 2D implementation, change `implementation`'s default in `src/WaveSim.jl` from `ND` to `2D`. [Open that directory in VS Code](https://code.visualstudio.com/docs/editor/workspaces#_how-do-i-open-a-vs-code-workspace) and [launch the REPL](#setting-up-julia). Activate [package mode](https://docs.julialang.org/en/v1/stdlib/REPL/#Pkg-mode) by typing `]`, then run `activate .` (if the listed package isn't already `WaveSim`) followed by `instantiate`; you only need to `instantiate` once, and `WaveSim` should be active by default. That done, you can use `WaveSim`:
+`git clone https://github.com/BYUHPC/WaveSim.jl.git` will download the `WaveSim.jl` [package](https://pkgdocs.julialang.org/v1/) to your current directory. [Open that directory in VS Code](https://code.visualstudio.com/docs/editor/workspaces#_how-do-i-open-a-vs-code-workspace) and [launch the REPL](#setting-up-julia). Activate [package mode](https://docs.julialang.org/en/v1/stdlib/REPL/#Pkg-mode) by typing `]`, and then run `activate .` (if you aren't in the `WaveSim` environment). If this is your first time running, `instantiate` will download most of the dependencies; you only need to `instantiate` once to download. That done, you can use `WaveSim`:
 
 ```julia
 using WaveSim # this will now load the WaveSim.jl in this directory
@@ -42,7 +34,11 @@ w = WaveOrthotope(wavefiles(2, :small, :in))
 
 I strongly recommend using [`Revise`](https://timholy.github.io/Revise.jl/stable/) by [default](https://timholy.github.io/Revise.jl/stable/config/#Using-Revise-by-default)--it will enable you to test changes that you make live. Otherwise, you'll need to [quit Julia](https://docs.julialang.org/en/v1/base/base/#Base.exit), [re-launch the REPL](#setting-up-julia), and run again to see your changes reflected there.
 
+There is [extra credit](../assignments/extra-credit.md#project) available for this phase, but you'll likely need do a [future reading assignment](../readings/julia-part-two.md) about Julia's syntax in order to understand what's happening. The only files you'll need to modify are [`energy.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/energy.jl) and [`solve.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/step.jl) to get the extra credit.
 
+If you opt not to do the extra credit, you'll need to modify the default `implementation` from `ND` to `2D` in [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/WaveSim.jl). After that, only [`energy_2d.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/energy_2d.jl) and [`solve_2d.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/step_2d.jl) will need to be altered.
+
+For most students, optimizing in 2 dimensions will be significantly easier.
 
 ## Performance in Julia
 
