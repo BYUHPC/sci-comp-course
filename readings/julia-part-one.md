@@ -32,7 +32,8 @@ ExampleProject/
 └── src
     └── ExampleProject.jl
 ```
-Your code should be written under `src` in `.jl` files. A well-structured environment, will need more directories and files. It's recommended to have your project structured like so:
+
+Your code should be written under `src` in `.jl` files. A well-structured environment will need more directories and files. It's recommended to have your project structured like so:
 ```
 ExampleProject/
 ├── Project.toml     # Dependency and metadata
@@ -46,7 +47,7 @@ The `Project.toml` file is where Julia's package manager really shines. The firs
 ```
 name = "ExampleProject"
 uuid = "e41b9a79-b46e-43cd-9cab-11adccbaab2c"
-authors = ["Redacted <redacted@byu.edu>"]
+authors = ["Cosmo Cougar <cosmo@byu.edu>"]
 version = "0.1.0"
 ```
 This file also keeps track of the top level dependencies your project has. Let's add some extra dependencies. First, we'll navigate inside our project (very important as this is where Julia looks for the `Project.toml`!) and switch from the default environment to our specifc environment.
