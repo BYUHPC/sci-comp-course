@@ -32,7 +32,8 @@ ExampleProject/
 └── src
     └── ExampleProject.jl
 ```
-Your code should be written under `src` in `.jl` files. A well-structured environment, will need more directories and files. It's recommended to have your project structured like so:
+
+Your code should be written under `src` in `.jl` files. A well-structured environment will need more directories and files. It's recommended to have your project structured like so:
 ```
 ExampleProject/
 ├── Project.toml     # Dependency and metadata
@@ -46,7 +47,7 @@ The `Project.toml` file is where Julia's package manager really shines. The firs
 ```
 name = "ExampleProject"
 uuid = "e41b9a79-b46e-43cd-9cab-11adccbaab2c"
-authors = ["Redacted <redacted@byu.edu>"]
+authors = ["Cosmo Cougar <cosmo@byu.edu>"]
 version = "0.1.0"
 ```
 This file also keeps track of the top level dependencies your project has. Let's add some extra dependencies. First, we'll navigate inside our project (very important as this is where Julia looks for the `Project.toml`!) and switch from the default environment to our specifc environment.
@@ -128,11 +129,11 @@ In Julia, symbols are lightweight, immutable identifiers that represent a fixed 
 
 
 #### Types
-Typing in Julia is optional, but recommended for performance reasons. [This](https://docs.julialang.org/en/v1/manual/types/) is Julia's full documentation on it, but for the most part if you see `::` or `<:` that's the way to declare a type. There's actually a lot of nifty tricks you can do with them, but the basic understanding that it's optional and represented by `::` or `<:` is all that's needed for our class.
+Typing in Julia is optional, but recommended for performance reasons. [This](https://docs.julialang.org/en/v1/manual/types/) is Julia's full documentation on it, but for the most part if you see `::` or `<:` that's the way to declare a type. There's actually a lot of nifty tricks you can do with them, but the most important takeaways for this class are: 1) that Julia typing is optional and 2) Julia typing is represented by `::` or `<:`.
 
 
 #### Libraries
-Julia has a rich standard library installed by default. Handling dates and timestamps often requires other libraries like in Python ('pandas' uses 'datetime`) or R (`tidyverse` uses `lubridate`). Julia doesn't require installation of something like `pandas` or `tidyverse` as there are plenty of built-in libraries. You just need to import it at the top of your file (`using Dates`). The same thing applies to random numbers (`using Random`), downloads (`using Downloads`), and more.
+Julia has a rich standard library installed by default. Handling dates and timestamps often requires other libraries like in Python (`pandas` uses `datetime`) or R (`tidyverse` uses `lubridate`). Julia doesn't require installation of something like `pandas` or `tidyverse` as there are plenty of built-in libraries. You just need to import it at the top of your file (`using Dates`). The same thing applies to random numbers (`using Random`), downloads (`using Downloads`), and more.
 
 
 ## Julia is Fast
