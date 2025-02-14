@@ -195,24 +195,30 @@ Finish table               :milestone, b8, after b6, 0m
 section Chef C - Toast, Pancakes, Drinks
 Start toast                :milestone, c0, 00:00, 0m
 Gather toast ingredients   :c1, after c0, 1m
-Slice bread                :c2, after c1, 1m
-Toast bread                :c3, after c2, 4m
+Slice bread                :c2, after c20, 1m
+Toast bread                :active, c3, after c2, 4m
 Butter toast               :c4, after c3, 1m
-Serve toast                :c5, after c4, 1m
+Serve toast                :c5, after c9, 1m
 Finish toast               :milestone, c16, after c5, 0m
 
-Start pancakes             :milestone, c17, after c16, 0m
+Start pancakes             :milestone, c17, after c1, 0m
 Gather pancake ingredients :c6, after c17, 1m
-Mix batter                 :c7, after c6, 3m
-Heat pan                   :c8, after c7, 2m
-Cook pancakes (3 batches)  :c9, after c8, 9m
-Serve pancakes             :c10, after c9, 1m
+Mix batter                 :c7, after c2, 3m
+Heat pan                   :active, c8, after c7, 2m
+Cook pancakes              :c9, after c8, 3m
+Cook pancakes              :c21, after c5, 3m
+Cook pancakes              :c22, after c25, 3m
+Serve pancakes             :c10, after c22, 1m
 Finish pancakes            :milestone, c18, after c10, 0m
 
-Start drinks               :milestone, c19, after c18, 0m
-Boil water                 :c11, after c10, 4m
-Brew coffee                :c12, after c11, 5m
-Brew tea                   :c13, after c12, 3m
-Pour coffee & tea          :c14, after c13, 2m
+Start drinks               :milestone, c19, after c6, 0m
+Gather drinks ingredients  :c20, after c19, 1m
+Begin boiling water        :c23, after c20, 30s
+Boil water                 :active, c11, after c23, 4m
+Begin coffee brewing       :c24, after c11, 30s
+Brew coffee                :active, c12, after c24, 5m
+Begin tea brewing          :c25, after c21, 30s
+Brew tea                   :active, c13, after c25, 3m
+Pour coffee & tea          :c14, after c18, 2m
 Finish drinks              :milestone, c15, after c14, 0m
 ```
