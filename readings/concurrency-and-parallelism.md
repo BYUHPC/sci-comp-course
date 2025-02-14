@@ -225,7 +225,7 @@ Pour coffee & tea          :c14, after c18, 2m
 Finish drinks              :milestone, c15, after c14, 0m
 ```
 
-In the illustrated breakfast preparation process, the combined efforts of Chef A, Chef B, and Chef C form a parallel system where each chef operates independently to complete their assigned tasks. This system maximizes efficiency by allowing multiple food preparation processes to occur simultaneously rather than sequentially. Importantly, none of the chefs are required to wait on one another to complete their tasks, which prevents bottlenecks and ensures smooth workflow execution. If dependencies between chefs' tasks existed, inefficiencies would arise, causing idle time and delaying the overall breakfast completion.
+In the illustrated breakfast preparation process, the combined efforts of Chef A, Chef B, and Chef C form a parallel system where each chef operates independently to complete their assigned tasks. This system maximizes efficiency by allowing multiple food preparation processes to occur simultaneously rather than sequentially. Importantly, none of the chefs are required to wait on one another to complete their tasks; while this can prevent bottlenecks and ensure smooth workflow execution, it also leads to inefficiencies of it’s own.
 
 ### Chef Task Approaches and Their Computational Analogies
 
@@ -235,7 +235,7 @@ Chef A’s workflow demonstrates an approach where a person completes as much of
 
 #### Chef B: Fully Sequential Processing
 
-In contrast to Chef A, Chef B follows a strictly sequential approach, completing one task entirely before moving on to the next. Because of this, Chef B does not engage in concurrent execution. This method can be directly compared to a single-threaded process in computing, where a program runs linearly without switching between tasks. While this approach is simple and avoids the overhead of task switching, it does not take advantage of parallel execution and thus may not be the most efficient method in a high-demand system.
+In contrast to Chef A, Chef B follows a strictly sequential approach, completing one task entirely before moving on to the next. However, this approach is viable in this scenario because Chef B’s tasks do not involve long cooking or baking processes that require waiting. This method can be directly compared to a single-threaded process in computing, where a program runs linearly without switching between tasks. While this approach is simple and avoids the overhead of task switching, it does not take advantage of concurrent execution and thus may not be the most efficient method in a high-demand system.
 
 #### Chef C: High-Frequency Task Switching
 
