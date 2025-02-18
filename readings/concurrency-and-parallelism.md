@@ -134,6 +134,10 @@ A system is described as "executing in parallel" when multiple cores are simulta
 
 Even when a computer has multiple cores, it may still be "executing concurrently" when there are more active processes than cores available. In this case, each of the cores individually handles multiple processes concurrently.
 
+Modern consumer laptops typically have 4 to 8 cores. Often, some of these cores are optimized for power-efficient computations to preserve battery life, while others are optimized for high-performance computations.
+
+On the BYU supercomputer, each compute node has between 20 and 128 cores, depending on the cluster. The exact details of each cluster can be viewed on the Research Computing website. In total, the BYU Supercomputer network currently has 34,948 CPU cores available for computation!
+
 ### Example
 
 For example, in array summation, a concurrent approach might involve breaking the array into sections and scheduling computations to interleave on a single-core processor. A parallel approach, in contrast, would assign different sections to multiple CPU cores, where each core performs computations simultaneously before combining the results.
