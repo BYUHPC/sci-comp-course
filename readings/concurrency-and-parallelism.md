@@ -136,7 +136,7 @@ Even when a computer has multiple cores, it may still be "executing concurrently
 
 Modern consumer laptops typically have 4 to 8 cores. Often, some of these cores are optimized for power-efficient computations to preserve battery life, while others are optimized for high-performance computations.
 
-On the BYU supercomputer, each compute node has between 20 and 128 cores, depending on the cluster. The exact details of each cluster can be viewed on the Research Computing website. In total, the BYU Supercomputer network currently has 34,948 CPU cores available for computation!
+On the BYU supercomputer, each compute node has between 20 and 128 cores, depending on the cluster. The exact details of each cluster can be viewed on the [Research Computing website](https://rc.byu.edu/documentation/resources). In total, the BYU Supercomputer network currently has 34,948 CPU cores available for computation!
 
 ### Example
 
