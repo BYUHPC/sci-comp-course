@@ -148,6 +148,9 @@ For more details, refer to [section 2.1 of HPC Tutorials volume 1](EijkhoutHPCTu
 
 The following Gantt chart illustrates the breakfast preparation process, highlighting how different chefs manage their tasks with varying degrees of concurrency and parallelism. By analyzing their workflows, we can better understand key concepts in task scheduling, efficiency, and system optimization.
 
+<img width="727" alt="image" src="https://github.com/user-attachments/assets/a89cc891-d04e-4127-b25e-674a74f27d44" />
+
+<!-- REPLACING THIS DIAGRAM WITH A SCREENSHOT
 ```mermaid
 gantt
 title Breakfast Preparation — Full Example
@@ -228,6 +231,7 @@ Brew tea                   :active, c13, after c25, 3m
 Pour coffee & tea          :c14, after c18, 2m
 Finish drinks              :milestone, c15, after c14, 0m
 ```
+-->
 
 In the illustrated breakfast preparation process, the combined efforts of Chef A, Chef B, and Chef C form a parallel system where each chef operates independently to complete their assigned tasks. This system maximizes efficiency by allowing multiple food preparation processes to occur simultaneously rather than sequentially. Importantly, none of the chefs are required to wait on one another to complete their tasks; while this can prevent bottlenecks and ensure smooth workflow execution, it also leads to inefficiencies of it’s own.
 
