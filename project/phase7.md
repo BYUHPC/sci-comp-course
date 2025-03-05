@@ -29,7 +29,7 @@ Here's an example of how `2d-tiny-in.wo` would be divided using `split_range()` 
 
 Debugging MPI programs can be tricky. The ["Debugging, Profiling, and Optimization"](https://byuhpc.github.io/sci-comp-course/resources.html#debugging-profiling-and-optimization) section gives some resources you can turn to. If you want to do things the hard, old school way, you can `std::cout` information. You are not guaranteed to have process 0 print first followed by the others in order. Adding `#include <unistd.h>` and something like `sleep(1 * comm_rank);` can help with the timing issues.
 
-Writing very similar to the read, but in reverse. Make sure that each process only writes out the rows it's responsible for and NOT the halos.
+Writing is very similar to the read, but in reverse. Make sure that each process only writes out the rows it's responsible for and NOT the halos.
 
 ![MPI Write](../img/mpi-write.png)
 
