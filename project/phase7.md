@@ -76,7 +76,7 @@ This is what `step()` looks like:
 
 Food for thought: Depending on how you implement things, you might not need to exchange halos for `u` because it's only using `v` data which has been updated.
 
-It can be hard to see what went wrong when you run the entire program to completion. Luckily, you already [implemented checkpointing](https://byuhpc.github.io/sci-comp-course/project/phase2.html). Since `dt=0.01` setting `INTVL` to that or lower will get you checkpoint files at each step. Running `INTVL=0.01 wavesolve /path/to/2d-tiny-in.wo my_output.wo` will generate all the correct input files. 
+It can be hard to see what went wrong when you run the entire program to completion. Luckily, you already [implemented checkpointing](https://byuhpc.github.io/sci-comp-course/project/phase2.html). Since `dt=0.01` setting `INTVL` to that or lower will get you checkpoint files at each step. Running `INTVL=0.01 wavesolve /path/to/2d-tiny-in.wo my_output.wo` will generate all the correct checkpoint files. 
 
 ## Requirements
 
