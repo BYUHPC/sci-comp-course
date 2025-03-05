@@ -23,7 +23,7 @@ Much as in the [previous phase](phase6.md), you'll split work roughly evenly amo
 
 Since updating a cell of `u` requires data from the rows above and below it, the processes will need to store [ghost rows](https://sites.cs.ucsb.edu/~gilbert/cs140resources/notes/GhostCells.pdf) and exchange them on each iteration (see `exchange_halos` in the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeMPI.hpp)). It simplifies the complexitiy to also have `v` be in charge of the same corresponding rows and halos. 
 
-Here's an example of how `2d-tiny-in.wo` would be divided using `split_range()` and what the halos should look like:
+Here's an example of how `2d-tiny-in.wo` would be divided up using `split_range()` and what the halos should look like:
 
 ![MPI How to Read In](../img/mpi-read-in.png)
 
@@ -33,9 +33,9 @@ Writing is very similar to the read, but in reverse. Make sure that each process
 
 ![MPI Write](../img/mpi-write.png)
 
-Now that you can write, don't forget about [`wavefiles`](https://byuhpc.github.io/sci-comp-course/resources.html#the-project). It can be loaded with `module load wavefiles` or downloaded with [these instructions](https://byuhpc.github.io/sci-comp-course/resources.html#the-project). `wavediff` will help you quickly identify difference and `waveshow` will print the full input file. Use these liberally as you debug.
+Now that you can write, don't forget about [`wavefiles`](https://byuhpc.github.io/sci-comp-course/resources.html#the-project). It can be loaded with `module load wavefiles` or downloaded with [these instructions](https://byuhpc.github.io/sci-comp-course/resources.html#the-project). `wavediff` will help you quickly identify differences and `waveshow` will print the full input file. Use these liberally as you debug.
 
-When you run with multiple processes on [NFS](https://en.wikipedia.org/wiki/Network_File_System) (the file system protocol we use), OpenMPI is astonishingly slow to allow MPI I/O writes by [default](https://github.com/open-mpi/ompi/blob/b79b3e9264ce7bfdb77ceb93aefc841af76addcf/ompi/mca/fs/ufs/fs_ufs_file_open.c#L89); it limits only 1 process to write at time by locking. This can be changed with `export OMPI_MCA_fs_ufs_lock_algorithm=3`, which has a 0.1% chance of processes locking incorrectly in our case. As you develop read/writes, do NOT set this variable. Once your code works, set the environment variable and watch the MASSIVE speed ups. Run the program twice if you expected it to work or `unset OMPI_MCA_fs_ufs_lock_algorithm`. We will account for possible `OMPI_MCA_fs_ufs_lock_algorithm` related errors when grading.
+When you run with multiple processes on [NFS](https://en.wikipedia.org/wiki/Network_File_System) (the file system protocol we use), OpenMPI is astonishingly slow to allow MPI I/O writes by [default](https://github.com/open-mpi/ompi/blob/b79b3e9264ce7bfdb77ceb93aefc841af76addcf/ompi/mca/fs/ufs/fs_ufs_file_open.c#L89); it limits only 1 process to write at a time by locking. This can be changed with `export OMPI_MCA_fs_ufs_lock_algorithm=3`, which has a 0.1% chance of processes locking incorrectly in our case. As you develop read/writes, do NOT set this variable. Once your code works, set the environment variable and watch the MASSIVE speed ups. Run the program twice if you expected it to work or `unset OMPI_MCA_fs_ufs_lock_algorithm`. We will account for possible `OMPI_MCA_fs_ufs_lock_algorithm` related errors when grading.
 
 ## Energy
 
@@ -76,7 +76,7 @@ This is what `step()` looks like:
 
 Food for thought: Depending on how you implement things, you might not need to exchange halos for `u` because it's only using `v` data which has been updated.
 
-It can be hard to see what went wrong when you run the entire program to completion. Luckily, you already [implemented checkpointing](https://byuhpc.github.io/sci-comp-course/project/phase2.html). Since `dt=0.01` setting `INTVL` to that or lower will get you checkpoint files at each step. Running `INTVL=0.01 wavesolve /path/to/2d-tiny-in.wo my_output.wo` will generate all the correct checkpoint files. 
+It can be hard to see what went wrong when you run the entire program to completion. Luckily, you already [implemented checkpointing](https://byuhpc.github.io/sci-comp-course/project/phase2.html). Since `dt=0.01`, setting `INTVL` to that or lower will get you checkpoint files at each step. Running `INTVL=0.01 wavesolve /path/to/2d-tiny-in.wo my_output.wo` will generate all the correct checkpoint files. 
 
 ## Requirements
 
