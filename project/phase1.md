@@ -43,7 +43,7 @@ You can test your implementation in the same way. You'll probably want to [set u
 
 ## C++
 
-We recommend following the pattern demonstratated in the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRange.hpp). A [simplified sequence diagram](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/docs/MountainRange-simplified-sequence-diagram.md) is available to illustrate the evaluation of the program.
+We recommend following the pattern demonstrated in the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeBasic.hpp). A [simplified sequence diagram](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/docs/MountainRangeBasic-sequence-diagram.md) is available to illustrate the evaluation of the program.
 
 If you follow the pattern of the example code to create a `WaveOrthotope` class with `solve` and `sim_time` functions and a constructor taking rows, columns, and damping coefficient, your `main` can be very simple:
 
@@ -97,8 +97,9 @@ wo.velocity(1, 2) = 1.5; // set v[1, 2] to 1.5
 
 No matter what you do, your life will be much easier in subsequent assignments if the data in `u` and `v` is contiguous.
 
-Not everything in the [example mountain range class](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRange.hpp) is needed at this stage--for example, everything having to do with reading and writing files won't be relevant until the [next phase of the project](phase2.md).
+The requirements for this phase are simplified to help you get started as quickly as possible. The simplified [example mountain range class](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeBasic.hpp) is nearly a minimum working example, but it does include a few non-essential preparations that will make things easier in the future.
 
+A [sequence diagram](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/docs/MountainRangeBasic-sequence-diagram.md) has also been provided that visualizes how the computation is divided between entities. Even if this inital phase is simple enough to understand without a diagram, we recommend you review and understand the diagram anyways so that you can appreciate the way the model _changes_ when more advanced techniques are introduced.
 
 
 ## Grading
