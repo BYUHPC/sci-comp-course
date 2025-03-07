@@ -3,12 +3,14 @@
 
 # Phase 2: I/O, Checkpointing, and Version Control
 
-In this phase you'll make your [wave simulation program](overview.md) more capable and versatile by reading from arbitrary data files to determine initial state, writing to data files to indicate final state, and implementing [checkpointing](../readings/checkpointing.md) for resilience against unexpected program termination. You'll check in your work via [git](../readings/git.md) and build it with [CMake](../readings/make-and-cmake.md), which will make life easier for this and subsequent assignments.
+In this phase you'll make your [wave simulation program](overview.md) more capable and versatile by reading from arbitrary data files to determine initial state, writing to data files to indicate final state, and implementing [checkpointing](../readings/checkpointing.md) for resilience against unexpected program termination. You'll check in your work via [git](../readings/git.md) and build it with [CMake](../readings/make-and-cmake.md), which will make life easier for this and subsequent assignments. **Reminder: Please do this assignment and all future assignments on the supercomputer.** You will not be able to submit from your local machine.
+
 
 It's a good idea to break your wave orthotope class over multiple classes in such a way that it'll be maximally useful for subsequent phases. I recommend a structure similar to [`mountainsolve` in the example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/mountainsolve.cpp), although you don't yet need the `#ifdef`s at the top.
 
-**You can test this and subsequent phases against [wavefiles.tar.gz](wavefiles.tar.gz)**; usage instructions are on the [resources page](../resources.md#the-project).
+A [MountainRange Sequence Diagram](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/docs/MountainRange-sequence-diagram.md) is available that illustrates the evaluation of the example code.
 
+**You can test this and subsequent phases against [wavefiles.tar.gz](wavefiles.tar.gz)**; usage instructions are on the [resources page](../resources.md#the-project).
 
 
 ## I/O
@@ -31,12 +33,12 @@ julia> join(Char.(reinterpret(UInt8, [1.23])))
 The format of these input files is as follows:
 
 1. `N`: the number of dimensions as a 64-bit unsigned integer.
-    - In C++ this is an **`unsigned long`**.
+    - In C++ this is an `unsigned long`.
     - Unless you're doing the extra credit, this will always be 2.
 1. `m`: the wave orthotope size array which is `N` 64-bit `unsigned long`s in order of dimensionality.
     - _Order of Dimensionality_ means the first value is the number of rows (1d), then columns (2d), then layers (3d), then hyper-layers etc.
 1. `c`: the damping coefficient, a 64-bit float.
-    - In C++ this is a **`double`**.
+    - In C++ this is a `double`.
 1. `t`: the simulation time, a 64-bit float.
 1. `u`: the displacement array, an array of 64-bit floats in C array order.
     - The total size of this array is given by $m_1 × m_2 × … × m_N$
@@ -55,7 +57,7 @@ $$\begin{bmatrix}
 
 I recommend adding a constructor and a `write` function to your class, each of which take a filename as their sole argument; search for "filename" in [`MountainRange.hpp`](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRange.hpp) for an idea of how to do so.
 
-You can check whether your input and output files are correct with the [`wavediff` and `waveshow` binaries](../resources.md#the-project) included in [`wavefiles.tar.gz`](wavefiles.tar.gz). You could also use [`WaveSim`](https://github.com/BYUHPC/WaveSim.jl) if you want to look at the files interactively--see `?WaveOrthotope` and `?write` after loading the `WaveSim` module. Here's how to read `infile.wo` gracefully:
+You can check whether your input and output files are correct with the [`wavediff` and `waveshow` binaries](../resources.md#the-project) included in [`wavefiles.tar.gz`](wavefiles.tar.gz) or the wavefiles module. You could also use [`WaveSim`](https://github.com/BYUHPC/WaveSim.jl) if you want to look at the files interactively--see `?WaveOrthotope` and `?write` after loading the `WaveSim` module. Here's how to read `infile.wo` gracefully:
 
 ```julia
 w = try

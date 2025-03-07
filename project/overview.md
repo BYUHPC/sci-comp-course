@@ -100,7 +100,7 @@ function solve(u0, v0, t0, c, dt)
     t = t0
     # Constants
     rows, cols = size(u)
-    stopping_energy = (rows-2) * (cols-2) / 1000
+    stopping_energy = (rows-2) * (cols-2) * 0.001
     # Solve
     while energy(u, v) > stopping_energy
         step!(u, v, c, dt)

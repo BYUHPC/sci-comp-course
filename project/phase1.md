@@ -43,7 +43,9 @@ You can test your implementation in the same way. You'll probably want to [set u
 
 ## C++
 
-If you follow the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeBasic.hpp) to create a `WaveOrthotope` class with `solve` and `sim_time` functions and a constructor taking rows, columns, and damping coefficient, your `main` can be very simple:
+We recommend following the pattern demonstrated in the [example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/MountainRangeBasic.hpp). A [simplified sequence diagram](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/docs/MountainRangeBasic-sequence-diagram.md) is available to illustrate the evaluation of the program.
+
+If you follow the pattern of the example code to create a `WaveOrthotope` class with `solve` and `sim_time` functions and a constructor taking rows, columns, and damping coefficient, your `main` can be very simple:
 
 ```c++
 #include <iostream>

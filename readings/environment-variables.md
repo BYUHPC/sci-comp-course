@@ -9,7 +9,7 @@ Environment variables are used extensively on the supercomputer for setting up p
 
 ### Defining Environment Variables
 
-Some environment variables are already defined form the moment you open a shell--for example:
+Some environment variables are already defined from the moment you open a shell--for example:
 
 - `$USER`: your username
 - `$HOME`: your home directory
