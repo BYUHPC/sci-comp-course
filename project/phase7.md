@@ -82,7 +82,7 @@ It can be hard to see what went wrong when you run the entire program to complet
 
 The program must run on `2d-medium-in.wo` in 20 seconds given 4 processes on one full `m9` node and 4 processes on another (8 total processes). To get 2 nodes in an interactive job:
 ```shell
-salloc --time=00:05:00 --mem 30G -N 2 -n 28 -p m9
+salloc --time=00:05:00 --mem 30G -N 2 --ntasks-per-node 28 -p m9
 ```
 
 Inside a job with two full `m9` nodes, you can launch 4 processes per node with:
