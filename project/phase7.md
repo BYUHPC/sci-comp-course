@@ -64,7 +64,7 @@ We can combine these principles to get something more like this:
 
 ```
 auto layout = mpl::vector_layout<double>(num_cells_to_send);
-comm_world.sendrecv(x.data()+num_cells_to_send, layout, comm_rank-1, left_tag, // send
+comm_world.sendrecv(x.data()+cols, layout, comm_rank-1, left_tag, // send
                     x.data(), layout, comm_rank-1, right_tag); // receive
 ```
 
