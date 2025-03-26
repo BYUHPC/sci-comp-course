@@ -13,6 +13,7 @@ Accelerators are hardware components designed to speed up specific types of comp
 
 Matrix manipulation is a quintessential task that GPUs are well-suited to, which is why they're so helpful for [some kinds of machine learning](https://www.3blue1brown.com/topics/neural-networks). Most modern supercomputers have GPUs since many scientific programs are amenable to GPU acceleration.
 
+Skim over [this article](https://medium.com/@muhammedashraf2661/cuda-programming-an-introduction-to-gpu-architecture-dfd8dfffa13f) to learn more about how a GPU is set up and why it can be better than threading or using processes. Keep our project in mind as you read about Alice's.
 
 
 ## FPGAs
