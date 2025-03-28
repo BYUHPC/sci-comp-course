@@ -68,7 +68,7 @@ w.v   .= last(solution.u).x[1] # get velocity from ArrayPartition
 
 ## Results
 
-Different solving algorithms will yield slightly different results, but they shouldn't differ from previous results by more than a few percent. As an example, using the [default solver](https://docs.sciml.ai/DiffEqDocs/stable/getting_started/#Choosing-a-Solver-Algorithm) should result in a final simulation time of just over 104 for `2d-medium-in.wo`.
+Different solving algorithms will yield slightly different results, but they shouldn't differ from previous results by more than a few percent. As an example, using the [default solver](https://docs.sciml.ai/DiffEqDocs/stable/getting_started/#Choosing-a-Solver-Algorithm) should result in a final simulation time of `104.04739848380657` for `2d-medium-in.wo`. Again, if you're close, don't worry about the exact number.
 
 
 
