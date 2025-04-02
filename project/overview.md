@@ -22,7 +22,7 @@ This state will hence be called a **wave [orthotope](https://en.wikipedia.org/wi
 
 
 
-## Moving the Simulation Forward in Time
+## Moving the Simulation Forward in Time with the Leapfrog Algorithm
 
 To **step** interior cell $$(i, j)$$ from time $$t$$ to time $$t+dt$$, given displacement $$u$$ and velocity $$v$$, the following [leapfrog algorithm](https://en.wikipedia.org/wiki/Leapfrog_integration) is used:
 
