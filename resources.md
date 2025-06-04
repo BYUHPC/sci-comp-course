@@ -62,7 +62,7 @@ will generate correct checkpoint files for `2d-small-in.wo`. These files can be 
 
 Use these tools liberally.
 
-##### Altering $PATH
+#### Altering $PATH
 It can quickly become cumbersome to type out the path to the binary files. You can add them to your [$PATH](readings/environment-variables#PATH) like so:
 
 ```shell
