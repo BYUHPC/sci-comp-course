@@ -13,7 +13,7 @@ As a graduate-level course, this class affords more independence than most under
 
 ## Prerequisites
 
-This course is taught in C++ and Julia (starting Fall 2023). Some language instruction will occur during the course and skeleton code is used in some places, but prior C++ knowledge is extremely helpful. If you want a free C++ primer, consider something like [W3Schools](https://www.w3schools.com/cpp/cpp_intro.asp). Free Julia resources are available [here](https://julialang.org/learning/).
+This course is taught in C++ and Julia (starting Fall 2023). Some language instruction will occur during the course and skeleton code is used in some places, but prior C++ knowledge is extremely helpful. If you want a free C++ primer, consider something like [W3Schools](https://www.w3schools.com/cpp/cpp_intro.asp). [Free Julia resources](https://julialang.org/learning/) are available as well.
 
 **Prior to taking the class, students must know how to program in at least one language, including knowing how to write conditionals, loops, and functions.** C++ is strongly preferred. Experience with only the R programming language has been found to be insufficient preparation. A computer science background is not necessary except for the programming skills requirement. The [first phase of the project](project/phase1.md) serves as a good litmus test--if you struggle with it, the course will seriously challenge you since subsequent assignments increase in difficulty. The less programming experience you have the harder the class will be. We have found that people of most skill levels do very well in the class, though it definitely takes more effort for those with less of a programming background. If you don't have much experience programming, please plan to spend additional effort learning some of the programming concepts. The first phase of the semester-long project is one of the easier assignments, and is a good way to determine whether you're prepared for the class. Please email us or open a support ticket if you have questions. 
 
@@ -21,7 +21,7 @@ This course is taught in C++ and Julia (starting Fall 2023). Some language instr
 
 ## Getting Help
 
-Help is readily available during business hours; send an [email](mailto:scicompcourse@byu.edu) or a [Slack message](https://byu-sci-comp.slack.com/) and we'll help you out, over email or chat for simple problems or video conference for more complicated questions. When you do ask for help, it's expected that your code is clean and understandable--if you come to us with spaghetti code, you'll be asked to untangle it and come back.
+Help is readily available during business hours; send an [email](mailto:scicompcourse@byu.edu) or a [Slack message](https://byu-sci-comp.slack.com/) and we'll help you out, over email or chat for simple problems or in person or video calls for more complicated questions. When you do ask for help, it's expected that your code is clean and understandable--if you come to us with spaghetti code, you'll be asked to untangle it and come back.
 
 If you run into confusing material, typos, syntax errors, or similar, you can get [extra credit by letting us know](assignments/extra-credit.md). You can also [leave feedback anonymously](assignments/feedback.md).
 
