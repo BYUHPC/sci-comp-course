@@ -13,7 +13,7 @@ For the project, your job is to simulate the [damped](https://en.wikipedia.org/w
 
 Some aspects of the wave equation are ignored and a rudimentary algorithm is used to simulate it; this comes at the expense of accuracy and versatility but keeps complexity to a level appropriate for this course. 4 parameters fully describe the state of this basic simulation:
 
-- `c`: the **damping coefficient**, which determines how quickly energy dissipates--higher `c` means faster dissipation.
+- `c`: the **damping coefficient**, which determines how quickly energy dissipates—higher `c` means faster dissipation.
 - `t`: the amount of **time** that the simulation has progressed. Given a time step `dt`, this is the amount of iterations multiplied by `dt`, which will be fixed at `0.01` for most phases of the project to ensure simulation accuracy.
 - `u`: an array in which each element represents the **displacement** at the corresponding point on the plane. If visualizing as a drum head, this is the height of a point on the head relative to the height at its edges.
 - `v`: an array in which each element represents the rate of change with respect to time of the displacement (its **velocity**) at the corresponding point on the plane. If visualizing as a drum head, this is the velocity of a point on the head.
