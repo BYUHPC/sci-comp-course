@@ -3,7 +3,7 @@
 
 # Optimization
 
-First, read [this article](http://gameprogrammingpatterns.com/data-locality.html). **This is probably the best reading you'll come across in this class.** The specifics of game programming aren't important, but coming away with an understanding of how hardware realities force us to use data-oriented programming for performance is critical.
+First, read [this article](http://gameprogrammingpatterns.com/data-locality.html). **This is probably the best reading you'll come across in this class.** Save it, bookmark it, print it out, email it to yourself, post it on social media, set montly reminders, start chainmail, use it in your vows, etc. The specifics of game programming aren't important, but coming away with an understanding of how hardware realities force us to use data-oriented programming for performance is critical.
 
 Now that you've read that, a few words of advice before we talk about specific optimizations for programs:
 
