@@ -125,7 +125,7 @@ Look at the example [code often](https://github.com/BYUHPC/sci-comp-course-examp
 
 ## Appendix B: Mathematical Justification
 
-You don't need to read any of the following, but [some of it](#laplacian) is helpful for the extra credit.
+You don't need to read any of the following, but some of it is helpful for the extra credit.
 
 The damped wave equation is defined as:
 
@@ -137,7 +137,7 @@ Although some of the equations and justifications in this document are specific 
 
 ### Laplacian
 
-The $$L$$ equation defined [above](#moving-the-simulation-forward-in-time) is a 2-dimensional [approximation of the Laplacian](https://en.wikipedia.org/wiki/Discrete_Laplace_operator#Finite_differences), the general form of which is:
+The $$L$$ equation defined [above](#moving-the-simulation-forward-in-time-with-the-leapfrog-algorithm) is a 2-dimensional [approximation of the Laplacian](https://en.wikipedia.org/wiki/Discrete_Laplace_operator#Finite_differences), the general form of which is:
 
 $$\nabla^2 x_{I} \approx \left( \sum_n^{2N} \frac{x_{n}}{2} \right) - N \space x$$
 

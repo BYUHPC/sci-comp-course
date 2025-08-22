@@ -61,3 +61,5 @@ make install
 ```
 
 To modify `PATH` and any other environment variables required for your software to function on the supercomputer, take a look at our [Lmod documentation](https://rc.byu.edu/wiki/?id=Environment+Modules) (especially the "Make Your Own Modulefiles" section) to see how to make a modulefile.
+
+While we will not disuss them, many researchers also use [conda environments](https://rc.byu.edu/wiki/?id=Conda+Environments) or containers. Many HPC centers will not allow Docker containers due to security concerns, but will use software like Apptainer, Charliecloud, or Podman.

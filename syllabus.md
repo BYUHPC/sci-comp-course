@@ -43,8 +43,8 @@ As you work on the semester project, you may struggle to implement the code chan
 
 Before turning to AI, you should attend/review the weekly Q&A as it is enough to give you a general sense of direction. Next, read official documentation that's linked in each project phase. Documentation often provides simple solutions and can enhance your comprehension. We also encourage you to reach out to us or discuss with your classmates if you're stuck. 
 
-You are permitted to consult AI tools to assist with syntactical issues in your coding assignments. When using AI for this purpose, any solutions obtained must be manually typed. Copying and pasting code directly from AI outputs into your project is not permitted. This practice ensures a thorough reading of a solution and reinforces your understanding.
+You are permitted to consult AI tools to assist with syntactical issues in your coding assignments. When using AI for this purpose, any solutions obtained must be **manually typed**. Copying and pasting code directly from AI outputs into your project is not permitted. This practice ensures a thorough reading of a solution and reinforces your understanding. If you ask for help but cannot explain obviously AI generated code, we will not help you until you remove it. Submitting such code may result in a 0 for the assignment if you do not understand it.
 
-AI is never allowed on tests or quizzes.
+**AI is never allowed on tests or quizzes.**
 
 HPC is often on the cutting edge of research out in industry and there isn't always a clearly defined solution. As such, it's pretty easy to spot where AI was used. It typically sends students down a harder and more complex path that's easy for an experienced programmer to spot. AI hallucinations will plague you and this course gives you a foundation to recognize when it errors. Please take the time now to build such a foundation.
