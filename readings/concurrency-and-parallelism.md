@@ -5,7 +5,7 @@
 ## Introduction
 Concurrency and parallelism both deal with "doing more than one thing,” but they solve different problems. Concurrency is about *managing* multiple tasks so they can make progress during the same period. Parallelism is about *executing* multiple tasks at the same instant.
 
-Read [section 2.1 of HPC Tutorials volume 1](EijkhoutHPCTutorialsVol1.pdf#chapter.2).
+Read [section 2.1 (stop at 2.1.1) of HPC Tutorials volume 1](EijkhoutHPCTutorialsVol1.pdf#chapter.2).
 
 ## Concurrency
 
