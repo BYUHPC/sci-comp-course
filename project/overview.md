@@ -76,11 +76,11 @@ function energy(u, v)
         E += v[i,j]^2 / 2
     end
     # Potential
-    for i in 1:rows-1, j in 2:cols-1 # along x axis (note i range)
-        E += (u[i,j] - u[i+1,j])^2 / 4;
+    for i in 1:rows-1, j in 2:cols-1 
+        E += (u[i,j] - u[i+1,j])^2 / 4; # along y axis
     end
-    for i in 2:rows-1, j in 1:cols-1 # along y axis (note j range)
-        E += (u[i,j] - u[i,j+1])^2 / 4;
+    for i in 2:rows-1, j in 1:cols-1 
+        E += (u[i,j] - u[i,j+1])^2 / 4; # along x axis
     end
     # Return the total
     return E
