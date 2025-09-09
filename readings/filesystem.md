@@ -71,7 +71,7 @@ The arguments that come after a command, conventionally starting with a dash, ar
 ```shell
 ls -l   # detailed long list
 ls -h   # human readable size
-ls -lhr # detailed, human-readable, recursive
+ls -lhR # detailed, human-readable, recursive
 ```
 
 Some options come in a single-dashed 'short' variety and a double-dashed 'long' variety; the following two commands are equivalent:

@@ -25,22 +25,22 @@ real	0m20.685s
 user	0m20.596s
 sys	0m0.004s
 ```
-The `real` field is how long it actually took for the command to complete according to a stopwatch. **This is the answer we want for the assignment.** The `user` time is how long you spent in user mode on the CPU executing the program's code. Note: this is the total time spent by all CPUs used. If you're using mutliple CPUs, you might notice that the `user` time is more than the `real`time. The `system` time is how long you spent in kernel mode. Kernel mode is used when making system calls. In our case, this is mostly where we are getting or saving files. There's very little you can do to speed things up when in kernel mode, so you want to reduce the number of times you put yourself there (ex: be more efficient with memory so you don't keep having to get the file).
+The `real` field is how long it actually took for the command to complete according to a stopwatch. *The real time is the answer we want for the assignment.* The `user` time is how long you spent in user mode on the CPU executing the program's code. Note: this is the total time spent by all CPUs used. If you're using mutliple CPUs, you might notice that the `user` time is more than the `real` time. The `system` time is how long you spent in kernel mode. Kernel mode is used when making system calls. In our case, this is mostly where we are accessing memory. There's very little you can do to speed things up when in kernel mode, so you want to reduce the number of times you put yourself there (ex: be more efficient with memory so you don't keep having to get the file).
 
 
 ## Eliminating Unnecessary Work
 
-Many of the functions in `optimize.cpp` take copies of large variables. To see how huge an effect this can have, change the `laplacian` function to take `x` by [const reference](https://www.learncpp.com/cpp-tutorial/pass-by-const-lvalue-reference/) rather than by value. Re-compile and time it again after doing so. **How much of a speedup do you get? Why do you think it's so dramatic?**
+Many of the functions in `optimize.cpp` take copies of large variables. To see how huge an effect this can have, change the `laplacian` function to take `x` by [const reference](https://www.learncpp.com/cpp-tutorial/pass-by-const-lvalue-reference/) rather than by value. Re-compile and time it again after doing so. **1. How much of a speedup do you get? Why do you think it's so dramatic?**
 
 Set `rows` to 800, where it will stay for the rest of the assignment, and compile and time once more for comparison to subsequent changes.
 
-Fix any other functions (along with [lambdas](https://en.cppreference.com/w/cpp/language/lambda#Lambda_capture), [range-based for loops](https://en.cppreference.com/w/cpp/language/range-for#Example), etc.) that should take arguments by const reference rather than by value. When you're done and have recompiled, the `system` field from `time`'s output should be a very small portion of the `real` time. **How much more of a speedup do these changes yield? Why isn't it as significant**?
+Fix any other functions (along with [lambdas](https://en.cppreference.com/w/cpp/language/lambda#Lambda_capture), [range-based for loops](https://en.cppreference.com/w/cpp/language/range-for#Example), etc.) that should take arguments by const reference rather than by value. When you're done and have recompiled, the `system` field from `time`'s output should be a very small portion of the `real` time. **2. How much more of a speedup do these changes yield? Why isn't it as significant**?
 
 
 
 ## Cache Efficiency
 
-Some of the for loops in `optimize.cpp` iterate over columns first, then rows. Change the order of iteration on these loops, iterating over `i` then `j` rather than `j` then `i`. **How much faster does `optimize` run with this change? Why do you think that is?**
+Some of the for loops in `optimize.cpp` iterate over columns first, then rows. Change the order of iteration on these loops, iterating over `i` then `j` rather than `j` then `i`. **3. How much faster does `optimize` run with this change? Why do you think that is?**
 
 
 
@@ -49,7 +49,7 @@ Vectorization converts scalar operations into vector operations. This means you 
 
 To see the results of this change, you'll need to coax the compiler to vectorize; in this case, you can do so by replacing `-O3` with `-Ofast` in your compile flags. `-Ofast` includes the optimizations provided by `-O3` in addition to more agressive ones. `-Ofast` is safe for our class assignments and projects, but it can introduce problems in other applications. Always compare your results when using it. After replacing it, time `optimize` again for a point of comparison.
 
-Remove the `if (...) continue;` statements in the inner loops of `energy` and `step`, **instead iterating over the correct bounds** (you'll have to modify each for loop to do so). **How much of a speedup results, and why?**
+Remove the `if (...) continue;` statements in the inner loops of `energy` and `step`, and *iterate over the correct bounds* (you'll have to modify each for loop to do so). **4. How much of a speedup results, and why?**
 
 
 
@@ -57,7 +57,9 @@ Remove the `if (...) continue;` statements in the inner loops of `energy` and `s
 
 Now that most of the program's inefficiencies are eliminated, it's worth turning to threading. We'll discuss threading in greater detail in another assignment, but for now you can think of it as more workers working on the array in parallel. If you want to get ahead, check out this reading [OpenMP threading](../readings/openmp.md).
 
-Add OpenMP threading to your program, parallelizing each outer loop in `energy` and `step`. **Add `-fopenmp` to your compiler flags, and use `export OMP_NUM_THREADS=2` (or 4, or 8, etc.) to set the number of threads**. You'll need a [`reduction` clause on each loop in `energy` to correctly sum `E`](https://en.wikibooks.org/wiki/OpenMP/Reductions#A_parallel_way_of_summing). You can look to the multiple `#pragma openmp ...` lines in [`MountainRange.hpp`](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/a1325738cc863a94977f3b9aaa5bb0b5e4b93281/src/MountainRange.hpp#L185) for an example; there's no need to overthink it, OpenMP threading is very simple. **What sort of speedup do you get when you run with 2 threads? 4? 8? 16? Why do you think the diminishment of returns is so severe?**
+Add OpenMP threading to your program, parallelizing each outer loop in `energy` and `step`. *Add `-fopenmp` to your compiler flags, and use `export OMP_NUM_THREADS=2` (or 4, or 8, etc.) to set the number of threads*. You'll need a [`reduction` clause on each loop in `energy` to correctly sum `E`](https://en.wikibooks.org/wiki/OpenMP/Reductions#A_parallel_way_of_summing). You can look to the multiple `#pragma openmp ...` lines in [`MountainRange.hpp`](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/a1325738cc863a94977f3b9aaa5bb0b5e4b93281/src/MountainRange.hpp#L185) for an example; there's no need to overthink it, OpenMP threading is very simple. **5. What sort of speedup do you get when you run with 2 threads? 4? 8? 16?**
+
+**6. Why do you think the diminishment of returns is so severe?**
 
 
 
@@ -76,7 +78,9 @@ Make any other optimizations you think are prudent. Some things to consider:
 - Would it be more efficient to interleave `u` and `v`?
 - Could an iterative method (that yields *exactly* mathematically equivalent results, of course) speed things up?
 
-**How much more of a speedup were you able to get? What seemed to help the most, and why do you think that's the case? Did you find out anything interesting or unexpected during the course of this optimization?**
+**7. How much more of a speedup were you able to get? What seemed to help the most, and why do you think that's the case?**
+
+**8. Did you find out anything interesting or unexpected during the course of this optimization?**
 
 
 

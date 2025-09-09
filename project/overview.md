@@ -76,11 +76,11 @@ function energy(u, v)
         E += v[i,j]^2 / 2
     end
     # Potential
-    for i in 1:rows-1, j in 2:cols-1 # along x axis (note i range)
-        E += (u[i,j] - u[i+1,j])^2 / 4;
+    for i in 1:rows-1, j in 2:cols-1 
+        E += (u[i,j] - u[i+1,j])^2 / 4; # along y axis
     end
-    for i in 2:rows-1, j in 1:cols-1 # along y axis (note j range)
-        E += (u[i,j] - u[i,j+1])^2 / 4;
+    for i in 2:rows-1, j in 1:cols-1 
+        E += (u[i,j] - u[i,j+1])^2 / 4; # along x axis
     end
     # Return the total
     return E
@@ -125,7 +125,7 @@ Look at the example [code often](https://github.com/BYUHPC/sci-comp-course-examp
 
 ## Appendix B: Mathematical Justification
 
-You don't need to read any of the following, but [some of it](#laplacian) is helpful for the extra credit.
+You don't need to read any of the following, but some of it is helpful for the extra credit.
 
 The damped wave equation is defined as:
 
@@ -137,7 +137,7 @@ Although some of the equations and justifications in this document are specific 
 
 ### Laplacian
 
-The $$L$$ equation defined [above](#moving-the-simulation-forward-in-time) is a 2-dimensional [approximation of the Laplacian](https://en.wikipedia.org/wiki/Discrete_Laplace_operator#Finite_differences), the general form of which is:
+The $$L$$ equation defined [above](#moving-the-simulation-forward-in-time-with-the-leapfrog-algorithm) is a 2-dimensional [approximation of the Laplacian](https://en.wikipedia.org/wiki/Discrete_Laplace_operator#Finite_differences), the general form of which is:
 
 $$\nabla^2 x_{I} \approx \left( \sum_n^{2N} \frac{x_{n}}{2} \right) - N \space x$$
 
