@@ -3,10 +3,14 @@
 
 # Phase 2: I/O, Checkpointing, and Version Control
 
-In this phase you'll make your [wave simulation program](overview.md) more capable and versatile by reading from arbitrary data files to determine initial state, writing to data files to indicate final state, and implementing [checkpointing](../readings/checkpointing.md) for resilience against unexpected program termination. You'll check in your work via [git](../readings/git.md) and build it with [CMake](../readings/make-and-cmake.md), which will make life easier for this and subsequent assignments. **Reminder: Please do this assignment and all future assignments on the supercomputer.** You will not be able to submit from your local machine.
+**Reminders:** 
+ - Please do this assignment and all future assignments *on the supercomputer*. You will not be able to submit from your local machine.
+ - Our [AI Policy](../syllabus.md#ai-policy) is enforced and meant to help you grow.
+
+In this phase you'll make your [wave simulation program](overview.md) more capable and versatile by reading from arbitrary data files to determine initial state, writing to data files to indicate final state, and implementing [checkpointing](../readings/checkpointing.md) for resilience against unexpected program termination. You'll check in your work via [git](../readings/git.md) and build it with [CMake](../readings/make-and-cmake.md), which will make life easier for this and subsequent assignments. 
 
 
-It's a good idea to break your wave orthotope class over multiple classes in such a way that it'll be maximally useful for subsequent phases. I recommend a structure similar to [`mountainsolve` in the example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/mountainsolve.cpp), although you don't yet need the `#ifdef`s at the top.
+It's a good idea to break your wave orthotope class over multiple classes in such a way that it'll be maximally useful for subsequent phases. I recommend a structure similar to [`mountainsolve` in the example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/mountainsolve.cpp), although you don't yet need the `#ifdef`s (sometimes `#if defined`s) or the namespace.
 
 
 **You can test this and subsequent phases against [wavefiles.tar.gz](wavefiles.tar.gz)**; usage instructions are on the [resources page](../resources.md#the-project).
@@ -20,6 +24,8 @@ In [phase 1](phase1.md), you created and solved a specific wave plane; in this a
 ./wavesolve_serial initial.wo solved.wo
 ```
 
+Solving `2d-tiny-in.wo` will be incredibly fast. Solving `2d-medium-in.wo` wil take longer, but should not take more than 4 minutes.
+
 ### Data Format
 
 The input files are binary--the bytes written there are the same literal bytes the machine uses to represent floats and integers. They aren't human-readable without translation--for example, when the double precision float 1.23 is "printed" in binary as a Unicode string, it looks like nonsense:
@@ -32,12 +38,12 @@ julia> join(Char.(reinterpret(UInt8, [1.23])))
 The format of these input files is as follows:
 
 1. `N`: the number of dimensions as a 64-bit unsigned integer.
-    - In C++ this is an `unsigned long`.
+    - In C++, you can use `size_t` for a 64-bit unsigned integer.
     - Unless you're doing the extra credit, this will always be 2.
-1. `m`: the wave orthotope size array which is `N` 64-bit `unsigned long`s in order of dimensionality.
+1. `m`: the wave orthotope size array which is `N` 64-bit unsigned integers in order of dimensionality.
     - _Order of Dimensionality_ means the first value is the number of rows (1d), then columns (2d), then layers (3d), then hyper-layers etc.
 1. `c`: the damping coefficient, a 64-bit float.
-    - In C++ this is a `double`.
+    - In C++, this is a `double`.
 1. `t`: the simulation time, a 64-bit float.
 1. `u`: the displacement array, an array of 64-bit floats in C array order.
     - The total size of this array is given by $m_1 × m_2 × … × m_N$
@@ -87,7 +93,6 @@ If you read from a `std::istream` in your constructor's [member initializer list
 ### Resilience to Bad Data
 
 Since this isn't a class about parsing or error handling, you aren't required to deal with bad arguments or bad data files gracefully. That said, sanity checks help with debugging; mimicking the bad input handling from [the example code](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/main/src/mountainsolve.cpp) is encouraged.
-
 
 
 ## Checkpointing
