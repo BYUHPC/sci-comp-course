@@ -12,7 +12,11 @@ g++ -std=c++20 -O3 -o optimize optimize.cpp # the "O" in "-O3" is the letter
 time ./optimize
 ```
 
-You'll submit an informal "essay" detailing the changes you made and the associated performance gains, so **write down answers to the bolded questions that follow as you get to them**. Since you'll be [submitting](#submission) with [git](../readings/git.md), it's recommended that you **do all your work in your `scicomp` repository**.
+You'll submit an informal "essay" detailing the changes you made and the associated performance gains, so **write down answers to the bolded questions that follow as you get to them**. Place them in an informal plain text "essay" titled `cpp-optimization.txt` (or `cpp-optimization.md` if you want markdown formatting). 
+
+Using what you learn while working on `optimize.cpp`, you'll need to optimize your WaveOrthotope class.
+
+Since you'll be [submitting](#submission) with [git](../readings/git.md), it's recommended that you **do all your work in your `scicomp` repository**.
 
 Throughout the assignment, the result needs to remain correct--if the output simulation time changes you'll need to fix it before proceeding.
 
@@ -30,9 +34,9 @@ The `real` field is how long it actually took for the command to complete accord
 
 ## Eliminating Unnecessary Work
 
-Many of the functions in `optimize.cpp` take copies of large variables. To see how huge an effect this can have, change the `laplacian` function to take `x` by [const reference](https://www.learncpp.com/cpp-tutorial/pass-by-const-lvalue-reference/) rather than by value. Re-compile and time it again after doing so. **1. How much of a speedup do you get? Why do you think it's so dramatic?**
+Many of the functions in `optimize.cpp` take copies of large variables. To see how huge an effect this can have, change the `laplacian` function to take `x` by [const reference](https://www.learncpp.com/cpp-tutorial/pass-by-const-lvalue-reference/) rather than by value. Re-compile and time it again after doing so. **1. How much of a speedup do you get? Why do you think it's so dramatic?** Check that the output of `optimize` is `65.21`.
 
-Set `rows` to 800, where it will stay for the rest of the assignment, and compile and time once more for comparison to subsequent changes.
+Set `rows` to 800, where it will stay for the rest of the assignment, and compile and time once more for comparison to subsequent changes. The answer should now be `5.39` for the rest of the assignment.
 
 Fix any other functions (along with [lambdas](https://en.cppreference.com/w/cpp/language/lambda#Lambda_capture), [range-based for loops](https://en.cppreference.com/w/cpp/language/range-for#Example), etc.) that should take arguments by const reference rather than by value. When you're done and have recompiled, the `system` field from `time`'s output should be a very small portion of the `real` time. **2. How much more of a speedup do these changes yield? Why isn't it as significant**?
 
@@ -47,9 +51,9 @@ Some of the for loops in `optimize.cpp` iterate over columns first, then rows. C
 ## Vectorization
 Vectorization converts scalar operations into vector operations. This means you can take an operation that's performed one-at-a-time, cell-by-cell on an array and instead do it on the entire array at once (or at least larger chunks). Both CPUs and GPUs have this capability, albeit GPUs do this on a much greater scale.
 
-To see the results of this change, you'll need to coax the compiler to vectorize; in this case, you can do so by replacing `-O3` with `-Ofast` in your compile flags. `-Ofast` includes the optimizations provided by `-O3` in addition to more agressive ones. `-Ofast` is safe for our class assignments and projects, but it can introduce problems in other applications. Always compare your results when using it. After replacing it, time `optimize` again for a point of comparison.
+To see the results of this change, you'll need to coax the compiler to vectorize; in this case, you can do so by replacing `-O3` with `-Ofast` in your compile flags. `-Ofast` includes the optimizations provided by `-O3` in addition to more agressive ones. `-Ofast` is safe for our class assignments and projects, but it can introduce problems in other applications. Always compare your results when using it. After replacing it, time `optimize` again for a point of comparison. **4. How much of a speedup resulted from changing `-O3` to `-Ofast`?**
 
-Remove the `if (...) continue;` statements in the inner loops of `energy` and `step`, and *iterate over the correct bounds* (you'll have to modify each for loop to do so). **4. How much of a speedup results, and why?**
+Remove the `if (...) continue;` statements in the inner loops of `energy` and `step`, and *iterate over the correct bounds* (you'll have to modify each for loop to do so). **5. How much of a speedup results, and why?**
 
 
 
@@ -57,9 +61,7 @@ Remove the `if (...) continue;` statements in the inner loops of `energy` and `s
 
 Now that most of the program's inefficiencies are eliminated, it's worth turning to threading. We'll discuss threading in greater detail in another assignment, but for now you can think of it as more workers working on the array in parallel. If you want to get ahead, check out this reading [OpenMP threading](../readings/openmp.md).
 
-Add OpenMP threading to your program, parallelizing each outer loop in `energy` and `step`. *Add `-fopenmp` to your compiler flags, and use `export OMP_NUM_THREADS=2` (or 4, or 8, etc.) to set the number of threads*. You'll need a [`reduction` clause on each loop in `energy` to correctly sum `E`](https://en.wikibooks.org/wiki/OpenMP/Reductions#A_parallel_way_of_summing). You can look to the multiple `#pragma openmp ...` lines in [`MountainRange.hpp`](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/a1325738cc863a94977f3b9aaa5bb0b5e4b93281/src/MountainRange.hpp#L185) for an example; there's no need to overthink it, OpenMP threading is very simple. **5. What sort of speedup do you get when you run with 2 threads? 4? 8? 16?**
-
-**6. Why do you think the diminishment of returns is so severe?**
+Add OpenMP threading to your program, parallelizing each outer loop in `energy` and `step`. *Add `-fopenmp` to your compiler flags, and use `export OMP_NUM_THREADS=2` (or 4, or 8, etc.) to set the number of threads*. You'll need a [`reduction` clause on each loop in `energy` to correctly sum `E`](https://en.wikibooks.org/wiki/OpenMP/Reductions#A_parallel_way_of_summing). You can look to the multiple `#pragma openmp ...` lines in [`MountainRange.hpp`](https://github.com/BYUHPC/sci-comp-course-example-cxx/blob/a1325738cc863a94977f3b9aaa5bb0b5e4b93281/src/MountainRange.hpp#L185) for an example; there's no need to overthink it, OpenMP threading is very simple. **6. What sort of speedup do you get when you run with 2 threads? 4? 8? 16? 32? Why do you think the diminishment of returns is so severe?** Note: `time`'s output might look different. Find the number immediately before "elapsed".
 
 
 
@@ -82,7 +84,9 @@ Make any other optimizations you think are prudent. Some things to consider:
 
 **8. Did you find out anything interesting or unexpected during the course of this optimization?**
 
+## Wavesolve_openmp
 
+Using what you've now learned, refactor your WaveOrthotope to have new optimizations. See below for the time requirements.
 
 ## Submission
 
@@ -94,11 +98,11 @@ set(CMAKE_CXX_FLAGS_RELEASE "-Ofast -DNDEBUG" CACHE STRING "Flags used by the CX
 
 **Make sure to run CMake with `cmake -DCMAKE_BUILD_TYPE=release` to take advantage of this setting**. We grade with the release build type for this and future assignments, so you should build, test, and time with it as well.
 
-`optimize` should give the same result as the binary that results from compiling the original `optimize.cpp`, but needs to be much faster: on a full `m9` node (which you can request with `salloc -p m9 -N 1 -n 28 ...`) with 8 OpenMP threads (`export OMP_NUM_THREADS=8`) it should run in less than a second. Feel free to [fine-tune compilation flags in your `CMakeLists.txt`](https://coderefinery.github.io/cmake-workshop/flags-definitions-debugging/#controlling-compiler-flags) to get an efficient binary.
+`optimize` should give the same result as the binary that results from compiling the original `optimize.cpp`, but needs to be much faster: on a full `m9` node (which you can request with `salloc -p m9 --nodes 1 --ntasks 28 --mem 16G --time 00:15:00`) with 8 OpenMP threads (`export OMP_NUM_THREADS=8`) it should run in less than a second. Feel free to [fine-tune compilation flags in your `CMakeLists.txt`](https://coderefinery.github.io/cmake-workshop/flags-definitions-debugging/#controlling-compiler-flags) to get an efficient binary.
 
 `wavesolve_openmp` will be much like [`wavesolve_serial`](phase2.md), but will add OpenMP threading and has speed requirements. It must run on `2d-medium-in.wo` from [`wavefiles.tar.gz`](wavefiles.tar.gz) with 8 OpenMP threads on a full `m9` node in 20 seconds.
 
-Add an informal plain text "essay" titled `cpp-optimization.txt` (or `cpp-optimization.md` if you want markdown formatting) that contains answers to the bolded questions above.
+Be sure to include your "essay" titled `cpp-optimization.txt` (or `cpp-optimization.md`).
 
 Develop in a branch named `phase3` or tag the commit you'd like me to grade from `phase3` and push it.
 
