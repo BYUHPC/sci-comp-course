@@ -48,7 +48,7 @@ The user sets are in order of user, group, and other. Let's break down an exampl
 d|rwx|r-x|r-x| 2 root root 4096 Oct 9 16:28 cataction
 ```
 
-As an example, the following user has read access to `file_a` and `file_b`, and write access to `file_a`:
+As an example, the following user has read access to `file_a`, `file_b`, and `file_c`, and has write access to `file_a`:
 
 ```shell
 $ whoami
