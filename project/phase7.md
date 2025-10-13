@@ -33,19 +33,19 @@ Writing is very similar to the read, but in reverse. Make sure that each process
 
 ![MPI Write](../img/mpi-write.png)
 
-Now that you can write, don't forget about [`wavefiles`](https://byuhpc.github.io/sci-comp-course/resources.html#the-project). It can be loaded with `module load wavefiles` or downloaded with [these instructions](https://byuhpc.github.io/sci-comp-course/resources.html#the-project). `wavediff` will help you quickly identify differences and `waveshow` will print the full input file. Use these liberally as you debug.
+Now that you can write, don't forget about [`wavefiles`](https://byuhpc.github.io/sci-comp-course/resources.html#the-project). `wavediff` will help you quickly identify differences and `waveshow` will print the full input file. Use these liberally as you debug.
 
 When you run with multiple processes on [NFS](https://en.wikipedia.org/wiki/Network_File_System) (the file system protocol we use), OpenMPI is astonishingly slow to allow MPI I/O writes by [default](https://github.com/open-mpi/ompi/blob/b79b3e9264ce7bfdb77ceb93aefc841af76addcf/ompi/mca/fs/ufs/fs_ufs_file_open.c#L89); it limits only 1 process to write at a time by locking. This can be changed with `export OMPI_MCA_fs_ufs_lock_algorithm=3`, which has a 0.1% chance of processes locking incorrectly in our case. As you develop read/writes, do NOT set this variable. Once your code works, set the environment variable and watch the MASSIVE speed ups. Run the program twice if you expected it to work or `unset OMPI_MCA_fs_ufs_lock_algorithm`. We will account for possible `OMPI_MCA_fs_ufs_lock_algorithm` related errors when grading.
 
 ## Energy
 
-The `energy()` function is a great spot to make sure each process is only working on its assigned rows and not the halos. Before doing any stepping, `2d-tiny-in.out` has 0.096 for dynamic energy and 0 for potential energy. You can see that by running `waveshow $INPUT/2d-tiny-in.wo`. Each process should have it's own `double global_e, local_e` or something similar. `local_e` is the energy from the cells the process is in charge of. Once that's calculated, you can then call `comm_world.allreduce(std::plus<>(), local_e, global_e);` to have the processes exchange and sum up all the `local_e`s into the `global_e` variable.
+The `energy()` function is a great spot to make sure each process is only working on its assigned rows and not the halos. Before doing any stepping, `2d-tiny-in.out` has 0.096 for dynamic energy and 0 for potential energy. Each process should have it's own `double global_e, local_e` or something similar. `local_e` is the energy from the cells the process is in charge of. Once that's calculated, you can then call `comm_world.allreduce(std::plus<>(), local_e, global_e);` to have the processes exchange and sum up all the `local_e`s into the `global_e` variable.
 
 ![MPI Energy Calculation](../img/mpi-energy.png)
 
 ## Step
 
-If you can correctly calculate the energy, you're likely working with the correct cells. From there, we can work on the `step()` function. You'll update the cells the process is responsible for like normal, but then you'll need to swap the halos so you have up to date information the next time `step()` is called.
+If you can correctly calculate the energy, you're likely working with the correct cells. From there, we can work on the `step()` function. You'll update the cells the process is responsible for like normal, but then you'll need to swap the halos so you have up-to-date information the next time `step()` is called.
 
 The `exchange_halos()` in the example code is great, but it only sends and receives one cell. 
 ```
