@@ -29,14 +29,14 @@ To make work complete sooner via concurrency, a programmer first looks for ways 
 Let's look at an example. Chef Core is making dinner (the “correct answer”) with these tasks:
 
 Task 1: Make Soup
-1.1 Prepare ingredients - 30 minutes
-1.2 Simmer soup - 60 minutes
-1.3 Dish up soup - 5 minutes
+- 1.1 Prepare ingredients - 30 minutes
+- 1.2 Simmer soup - 60 minutes
+- 1.3 Dish up soup - 5 minutes
 
 Task 2: Make Breadsticks
-2.1 Knead dough (we're bad bakers so we don't let it rise) - 30 minutes
-2.2 Bake breadsticks - 20 minutes
-2.3 Plate breadsticks - 5 minutes
+- 2.1 Knead dough (we're bad bakers so we don't let it rise) - 30 minutes
+- 2.2 Bake breadsticks - 20 minutes
+- 2.3 Plate breadsticks - 5 minutes
 
 Total time (purely serial): 150 minutes
 
@@ -46,12 +46,12 @@ If Chef Core cannot run concurrently, he completes the tasks in the listed order
 
 Chef Core knows about concurrency and decides to partially reorder the tasks like so:
 
-1.1 Prepare ingredients - 30 minutes
-1.2 Simmer soup - 60 minutes 
-2.1 Knead dough - 30 minutes
-2.2 Bake breadsticks - 20 minutes
-1.3 Dish up soup - 5 minutes
-2.3 Plate breadsticks - 5 minutes
+- 1.1 Prepare ingredients - 30 minutes
+- 1.2 Simmer soup - 60 minutes 
+- 2.1 Knead dough - 30 minutes
+- 2.2 Bake breadsticks - 20 minutes
+- 1.3 Dish up soup - 5 minutes
+- 2.3 Plate breadsticks - 5 minutes
 
 Total time: 150 minutes
 
@@ -61,13 +61,13 @@ Now both the soup and the breadsticks can be served at roughly the same time! Be
 
 He also realizes that he's spending a lot of time waiting for the soup to simmer and the breadsticks to bake. These are external events where he isn't working. On a real CPU core, this might be waiting for the filesystem to fetch/write a file, waiting for the network to return something, waiting for user input, etc. Since Chef Core knows he's not working, he decides to switch tasks and come back to them once the external event has completed.
 
-1.1 Prepare ingredients - 30 minutes
-1.2 Simmer soup - 5 minute set up
-2.1 Knead dough - 30 minutes
-2.2 Bake breadsticks - 5 minute set up
-3.0 Check on soup and breadsticks - 15 minutes
-2.3 Plate breadsticks - 5 minutes
-1.3 Dish up soup - 5 minutes
+- 1.1 Prepare ingredients - 30 minutes
+- 1.2 Simmer soup - 5 minute set up
+- 2.1 Knead dough - 30 minutes
+- 2.2 Bake breadsticks - 5 minute set up
+- 3.0 Check on soup and breadsticks - 15 minutes
+- 2.3 Plate breadsticks - 5 minutes
+- 1.3 Dish up soup - 5 minutes
 
 Total time: 95 minutes
 
@@ -81,13 +81,13 @@ Parallelism is when multiple units of work execute at the same time (e.g., on mu
 Chef Core now adds a salad and dessert but still has only 95 minutes. He hires Sous-Chef Second Core and adds the following tasks:
 
 Task 3: Make Salad
-3.1 Chop lettuce - 5 minutes
-3.2 Dice tomato - 5 minutes
-3.3 Add dressing - 5 minutes
+- 3.1 Chop lettuce - 5 minutes
+- 3.2 Dice tomato - 5 minutes
+- 3.3 Add dressing - 5 minutes
 
 Task 4: Decorate a Cake
-4.1 Frost the cake - 30 minutes
-4.2 Cut the cake - 5 minutes
+- 4.1 Frost the cake - 30 minutes
+- 4.2 Cut the cake - 5 minutes
 
 On the night, the sous-chef does 3.2 before 3.1 and then 4.1 before finishing the salad. There’s no strict ordering, so the sequence is unusual but valid for concurrency. With two cooks working at once, Chef Core and the sous-chef are in parallel until the sous-chef finishes. Parallelism lets them complete more work in the same wall-clock time.
 
