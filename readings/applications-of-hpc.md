@@ -10,14 +10,16 @@ Most scientific fields rely on high performance computing to some extent, from [
 When you come across a good article, send me the link in Slack. The end goal is to make a list of quality resources on this page.
 
 Submissions so far:
-
-- [AI accerlation with GPUs](https://blogs.nvidia.com/blog/accelerating-ai-artificial-intelligence-gpus/)
+- [Links to a variety at the bottom of the page](https://www.fz-juelich.de/en/research/research-fields/information/supercomputing/modelling-and-simulation?expand=translations,fzjsettings,nearest-institut)
+- [Oat Research done on BYU systems](https://www.nature.com/articles/s41586-025-09676-7#Ack1)
+- [Automated catalyst synthesis](https://assets-eu.researchsquare.com/files/rs-2681831/v1/64ce4ca6-5d46-4921-8205-82798eccface.pdf?c=1699949168)
+- [Modeling Grain Growth](https://www.sciencedirect.com/science/article/pii/S0927025622005900?via%3Dihub)
+- [HPC and quantum computing](https://www.engineering.com/story/hpc-closing-the-gap-with-quantum-computing-advantage)
+- [GROMACS (molecular dynamics software)](https://www.sciencedirect.com/science/article/pii/S2352711015000059)
 - [Drug discovery with molecular modeling](https://www.mdpi.com/1420-3049/24/9/1693)
+- [AI accerlation with GPUs](https://blogs.nvidia.com/blog/accelerating-ai-artificial-intelligence-gpus/)
 - [HPC graph analysis](https://sites.cs.ucsb.edu/~gilbert/cs140/notes/HendricksonBerry.pdf)
 - [HPC graph partitioning](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=184a87a7e72888ddbca49bd9de6fa826c9f4c149)
-- [Automated catalyst synthesis](https://assets-eu.researchsquare.com/files/rs-2681831/v1/64ce4ca6-5d46-4921-8205-82798eccface.pdf?c=1699949168)
-- [HPC and quantum computing](https://www.engineering.com/story/hpc-closing-the-gap-with-quantum-computing-advantage)
 - [HPC and drug discovery](https://link.springer.com/book/10.1007/978-1-0716-3449-3)
     - ([scientific article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7107815/))
-- [Modelling Grain Growth](https://www.sciencedirect.com/science/article/pii/S0927025622005900?via%3Dihub)
-- [GROMACS (molecular dynamics software)](https://www.sciencedirect.com/science/article/pii/S2352711015000059)
+
