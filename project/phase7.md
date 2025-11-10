@@ -107,6 +107,6 @@ This phase is worth 30 points. The following deductions, up to 30 points total, 
 | Failure to compile `wavesolve_mpi` | 5 points |
 | Failure of `wavesolve_mpi` to work on each of 3 test files | 5 points each |
 | Failure of `wavesolve_mpi` to checkpoint correctly | 5 points |
-| Failure of `wavesolve_mpi` to run on `2d-medium-in.wo` on two `m9` nodes with 4 threads each in 20 seconds | 5 points |
+| Failure of `wavesolve_mpi` to run on `2d-medium-in.wo` on two `m9` nodes with 4 threads each in 30 seconds | 5 points |
 | ...in 60 seconds | 5 points |
 | `wavesolve_mpi` isn't an MPI program, or doesn't distribute work evenly among processes | 1-30 points |
