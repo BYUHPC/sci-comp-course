@@ -56,7 +56,7 @@ No output means they are the same.
 Once [checkpointing](project/phase2#checkpointing) is implemented, you can debug your solver at each iteration. Running:
 
 ```shell
-INTVL=0.01 wavefiles/bin/wavesolver wavefiles/2D/2d-small-in.wo
+INTVL=0.01 wavefiles/bin/wavesolve wavefiles/2D/2d-small-in.wo
 ```
 will generate correct checkpoint files for `2d-small-in.wo`. These files can be compared to your implementation's checkpoint files by using the automatic `wavediff` or by spot checking with `waveshow`.
 
