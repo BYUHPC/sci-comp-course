@@ -12,7 +12,7 @@ When you come across a good article, send me the link in Slack. The end goal is 
 Submissions so far:
 - [Links to a variety at the bottom of the page](https://www.fz-juelich.de/en/research/research-fields/information/supercomputing/modelling-and-simulation?expand=translations,fzjsettings,nearest-institut)
 - [BISON](https://www.tandfonline.com/doi/full/10.1080/00295450.2020.1836940)
-- [Protein Folding](https://www.biorxiv.org/content/biorxiv/early/2025/07/22/2025.07.18.665594.full.pdf)
+- [Protein Folding](https://www.biorxiv.org/content/biorxiv/early/2025/07/22/2025.07.18.665594.full.pdf), [More AlphaFold](https://www.nature.com/articles/s41586-021-03819-2)
 - [Oat Research done on BYU systems](https://www.nature.com/articles/s41586-025-09676-7#Ack1)
 - [Automated catalyst synthesis](https://assets-eu.researchsquare.com/files/rs-2681831/v1/64ce4ca6-5d46-4921-8205-82798eccface.pdf?c=1699949168)
 - [Modeling Grain Growth](https://www.sciencedirect.com/science/article/pii/S0927025622005900?via%3Dihub)
