@@ -133,6 +133,8 @@ $$\ddot u = \nabla^2 u - c \space \dot u$$
 
 ...where $$c$$ is the damping coefficient, $$u$$ represents displacement from equilibrium, $$\dot u$$ represents the first derivative of $$u$$ with respect to time (and $$\ddot u$$ the second), and $$\nabla^2$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator).
 
+In this form, the problem can be defined as a second order ordinary differential equation (ODE). There are other ways to solve second order ODEs besides the Leapfrog Algorithm. We'll explore another one in [phase 9](phase9.md).
+
 Although some of the equations and justifications in this document are specific to an elastic membrane and/or to 2 dimensions, the same equations can (if appropriately modified for the number of dimensions) represent other wave phenomena in different dimensions. For example, light bouncing around in a perfectly reflective box containing an opaque medium could be simulated, as could longitudinal pulses traveling through a stiff rod.
 
 ### Laplacian
@@ -156,3 +158,7 @@ The potential energy is held in the springs. Given unit spring coefficient, the 
 $$PE_{i,j;I,J} = \frac{\left( u_{i,j} - u_{I,J} \right)^2}{4}$$
 
 Division is by 4 rather than two because both ends of each spring are free; it can thus be modeled as a central point with springs of half length on each side, with half the potential energy of a system with only one free end. The potential of the boundaries at the edges is made identical (and, importantly, the simulation is simplified) by considering these "springs" to have half the spring coefficient of interior "springs."
+
+## Appendix C: Example Code
+
+To see how a similar problem can be programmed in C++, see our [Mountain Range example code](https://github.com/BYUHPC/sci-comp-course-example-cxx).

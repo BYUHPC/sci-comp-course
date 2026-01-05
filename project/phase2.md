@@ -3,9 +3,12 @@
 
 # Phase 2: I/O, Checkpointing, and Version Control
 
-**Reminders:** 
- - Please do this assignment and all future assignments *on the supercomputer*. You will not be able to submit from your local machine.
+## Reminders 
+
+ - [Do this assignment and all future assignments *on the supercomputer*](phase1.md#where-to-do-the-assignment). You will *not be able to submit* from your local machine and we will not debug on local machines.
  - Our [AI Policy](../syllabus.md#ai-policy) is enforced and meant to help you grow.
+
+## Introduction
 
 In this phase you'll make your [wave simulation program](overview.md) more capable and versatile by reading from arbitrary data files to determine initial state, writing to data files to indicate final state, and implementing [checkpointing](../readings/checkpointing.md) for resilience against unexpected program termination. You'll check in your work via [git](../readings/git.md) and build it with [CMake](../readings/make-and-cmake.md), which will make life easier for this and subsequent assignments. 
 

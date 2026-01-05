@@ -29,7 +29,7 @@ $$v_0 = \begin{bmatrix}
 
 ...your job is to [solve](overview.md#running-the-simulation) these initial conditions and print the simulation time to stdout followed by a newline; nothing else should be printed to stdout, and no input should be taken. The answer should be 157.77, but I care more about the means of getting this answer than the answer itself. You'll turn in a C++20 source file named `wavesolve.cpp` and (optionally) any headers required by it.
 
-The file(s) you create will be [compiled and run](../resources.md#compilation) by the latest version of GCC installed on the [supercomputer](https://rc.byu.edu) with the following:
+The file(s) you create will be [compiled and run](../resources.md#compilation) a version of GCC installed on the [supercomputer](https://rc.byu.edu) with the following:
 
 ```shell
 module load gcc/14.1
@@ -37,7 +37,15 @@ g++ -std=c++20 -o wavesolve wavesolve.cpp
 ./wavesolve
 ```
 
-You can test your implementation in the same way. You'll probably want to [set up VS Code](https://rc.byu.edu/wiki/index.php?page=Remote+Development+with+VS+Code) on the supercomputer to develop your code unless you're familiar with vim or emacs. If you have no experience with [Linux](../lessons/2.md), you can also [test with an online C++ compiler](../resources.md#compilation) for this assignment. Future assignments will need to be completed on the supercomputer.
+You can test your implementation in the same way.
+
+## Where to Do the Assignment
+
+If you have no experience with [Linux](../lessons/2.md), you can [test with an online C++ compiler](../resources.md#compilation) for this assignment. Future assignments and project phases will need to be completed on the supercomputer.
+
+You can connect to the supercomputer by [logging in from any terminal](https://rc.byu.edu/wiki/?id=Logging+In).
+
+You'll probably want to [set up VS Code](https://rc.byu.edu/wiki/index.php?page=Remote+Development+with+VS+Code) on the supercomputer to develop your code unless you're familiar with vim or emacs.  
 
 
 
