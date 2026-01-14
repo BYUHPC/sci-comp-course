@@ -5,7 +5,7 @@
 
 ## Reminders
 
- - [Do this assignment and all future assignments *on the supercomputer*](phase1.md#where-to-do-the-assignment). We will not debug on local machines.
+ - [Do this assignment and all future assignments *on the supercomputer*](../project/phase1.md#where-to-do-the-assignment). We will not debug on local machines.
 
 
 ## Prepare
