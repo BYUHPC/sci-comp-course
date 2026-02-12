@@ -104,7 +104,7 @@ Hello World!
 ```
 
 ### Syntax Part I
-The general syntax of Julia is easy for experienced programmers to pick up. If you want to look at some of the basics, there are plenty of online resources collected [here](https://julialang.org/learning/tutorials/). Slightly more advanced, but probably more useful is [this documentation](https://juliadatascience.io/data_structures) that covers the native data structures in Julia. We'll focus on a few those areas that will be most useful in this course and that you might not have seen before.
+The general syntax of Julia is easy for experienced programmers to pick up. If you want to look at some of the basics, there are plenty of online resources collected [here](https://julialang.org/learning/tutorials/). Slightly more advanced, but probably more useful is [this documentation](https://docs.julialang.org/en/v1/base/collections/) that covers the native data structures in Julia. We'll focus on a few those areas that will be most useful in this course and that you might not have seen before.
 
 It's far easier to write Julia code than C++ code. There are many [noteworthy differences from C++](https://docs.julialang.org/en/v1/manual/noteworthy-differences/#Noteworthy-differences-from-C/C), but some the most revelant ones are:
  - **Indexing in Julia starts at 1**, not 0.
@@ -147,4 +147,4 @@ However, Julia cannot natively detect when you change source code. If you've bee
 While declaring types in Julia is optional, it's incredibly useful for the JIT and helps speed up your code. If your program will always return a certain type (e.g., `Int`, `Float64`, `Bool`, etc.), the JIT can reduce runtime type checking, create a predictable memory layout, and use more efficient machine code. `@code_warntype` can help identify where changing types occur in your code.
 
 ### Multiple Dispatch
-One of the reasons Julia is so fast is because it implements multiple dispatch. This gives it flexibility with method calls and optimizations. Read below [Fig 2](https://juliadatascience.io/julia_accomplish#fig:language_comparison) until the start of Section 2.3.
+One of the reasons Julia is so fast is because it implements multiple dispatch. This gives it flexibility with method calls and optimizations. Read all of [The Art of Multiple Dispatch](https://scientificcoder.com/the-art-of-multiple-dispatch).
