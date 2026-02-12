@@ -34,9 +34,9 @@ w = WaveOrthotope(wavefiles(2, :small, :in))
 
 I strongly recommend using [`Revise`](https://timholy.github.io/Revise.jl/stable/) by [default](https://timholy.github.io/Revise.jl/stable/config/#Using-Revise-by-default)--it will enable you to test changes that you make live. Otherwise, you'll need to [quit Julia](https://docs.julialang.org/en/v1/base/base/#Base.exit), [re-launch the REPL](#setting-up-julia), and run again to see your changes reflected there.
 
-There is [extra credit](../assignments/extra-credit.md#project) available for this phase, but you'll likely need do a [future reading assignment](../readings/julia-part-two.md) about Julia's syntax in order to understand what's happening. The only files you'll need to modify are [`energy.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/energy.jl) and [`solve.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/step.jl) to get the extra credit.
+There is [extra credit](../assignments/extra-credit.md#project) available for this phase, but you'll likely need do a [future reading assignment](../readings/julia-part-two.md) about Julia's syntax in order to understand what's happening. The only files you'll need to modify are [`energy.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/energy.jl) and [`step.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/step.jl) to get the extra credit.
 
-If you opt not to do the extra credit, you'll need to modify the default `implementation` from `ND` to `2D` in [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/WaveSim.jl). After that, only [`energy_2d.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/energy_2d.jl) and [`solve_2d.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/step_2d.jl) will need to be altered.
+If you opt not to do the extra credit, you'll need to modify the default `implementation` from `ND` to `2D` in [`WaveSim.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/WaveSim.jl). After that, only [`energy_2d.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/energy_2d.jl) and [`step_2d.jl`](https://github.com/BYUHPC/WaveSim.jl/blob/main/src/step_2d.jl) will need to be altered.
 
 For most students, optimizing in 2 dimensions will be significantly easier.
 
