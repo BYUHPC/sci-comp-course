@@ -11,7 +11,7 @@ In this assignment you'll parallelize your solver with [MPI](../readings/mpi.md)
 It's strongly recommend that you break it into two steps:
 
 1. Get your I/O working--make an MPI program that reads in a [wave orthotope file](phase2.md#data-format) with [MPI I/O](../readings/mpi.md#io), prints the header and any other debug information you need, and writes back out an identical file with MPI I/O.
-1. Once the I/O is working, figure out your `energy()` function, [exchange of halos](#division-of-labor), and your `solve()` function.
+1. Once the I/O is working, figure out your `energy()` function, exchange of halos, and your `solve()` function.
 
 ## Compiling
 
