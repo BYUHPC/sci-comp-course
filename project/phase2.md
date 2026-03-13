@@ -27,7 +27,7 @@ In [phase 1](phase1.md), you created and solved a specific wave plane; in this a
 ./wavesolve_serial initial.wo solved.wo
 ```
 
-Solving `2d-tiny-in.wo` will be incredibly fast. Solving `2d-medium-in.wo` wil take longer, but should not take more than 4 minutes.
+Solving `2d-tiny-in.wo` will be incredibly fast. Solving `2d-medium-in.wo` will take longer, but should not take more than 4 minutes.
 
 ### Data Format
 
