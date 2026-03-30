@@ -11,6 +11,7 @@ When you come across a good article, send me the link in Slack. The end goal is 
 
 Submissions so far:
 - [Links to a variety at the bottom of the page](https://www.fz-juelich.de/en/research/research-fields/information/supercomputing/modelling-and-simulation?expand=translations,fzjsettings,nearest-institut)
+- [CFD Methods for HPC](https://www.tandfonline.com/doi/full/10.1080/10618562.2020.1778168#abstract)
 - [BISON](https://www.tandfonline.com/doi/full/10.1080/00295450.2020.1836940)
 - [Protein Folding](https://www.biorxiv.org/content/biorxiv/early/2025/07/22/2025.07.18.665594.full.pdf), [More AlphaFold](https://www.nature.com/articles/s41586-021-03819-2)
 - [Oat Research done on BYU systems](https://www.nature.com/articles/s41586-025-09676-7#Ack1)
