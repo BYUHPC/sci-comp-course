@@ -19,7 +19,7 @@ $$1 + (2 + 3) = (1 + 2) + 3$$
 
 $$1 \times (2 \times 3) = (1 \times 2) \times 3$$
 
-These operations can be structured in a way that different segments of a computation can make progress without requiring strict ordering. However, not all kinds of computation are not reorderable and thus cannot be broken into concurrent parts. For example:
+These operations can be structured in a way that different segments of a computation can make progress without requiring strict ordering. However, not all kinds of computation are reorderable and thus cannot be broken into concurrent parts. For example:
 
 $$1 \div (2 \div 3) \ne (1 \div 2) \div 3$$
 
