@@ -100,7 +100,7 @@ Since this isn't a class about parsing or error handling, you aren't required to
 
 ## Checkpointing
 
-In addition to the final state, the program will also write [checkpoint](../readings/checkpointing.md) files at regular intervals. The **interval** will be determined by the [environment variable](../readings/environment-variables.md) `INTVL`, which if it exists will be a positive value that will be parsed as a float. During the course of the solve, if the interval is set to a positive value, the simulation time of the wave orthotope after a step divided by the interval is less than 0.002 (to account for floating point imprecision), a checkpoint file should be written, unless it hasn't been stepped yet. Said file should be named `chk-<time>.wo`, where `<time>` is the simulation time formatted as 4 digits, then the decimal point, then 2 digits. The solve loop that does this might look something like:
+In addition to the final state, the program will also write [checkpoint](../readings/checkpointing.md) files at regular intervals. The **interval** will be determined by the [environment variable](../readings/environment-variables.md) `INTVL`, which if it exists will be a positive value that will be parsed as a float. During the course of the solve, if the interval is set to a positive value and the simulation time of the wave orthotope after a step divided by the interval is less than 0.002 (to account for floating point imprecision), a checkpoint file should be written, unless it hasn't been stepped yet. Said file should be named `chk-<time>.wo`, where `<time>` is the simulation time formatted as 4 digits, then the decimal point, then 2 digits. The solve loop that does this might look something like:
 
 ```c++
 #include <format>
@@ -151,7 +151,7 @@ You'll submit your work via [git](../readings/git.md). Clone your empty reposito
 git clone netid@homework.rc.byu.edu:scicomp
 ```
 
-Put your `CMakeLists.txt` and source files in the resulting `scicomp` directory. I'll grade from the commit I obtain by running, I'll `git pull origin phase2; git checkout phase2`, so either develop in a [branch](../readings/git.md#git-branches) named `phase2` or [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) the commit you'd like me to grade from `phase2`. Make sure to `git push origin phase2` so it shows up in the remote.
+Put your `CMakeLists.txt` and source files in the resulting `scicomp` directory. I'll grade from the commit I obtain by running `git pull origin phase2; git checkout phase2`, so either develop in a [branch](../readings/git.md#git-branches) named `phase2` or [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) the commit you'd like me to grade from `phase2`. Make sure to `git push origin phase2` so it shows up in the remote.
 
 After making sure your code looks right, I'll build it on the supercomputer with the following:
 
@@ -170,7 +170,7 @@ I recommend doing the same when you're finished to ensure that everything is in 
 
 I'll also test that the generated `wavesolve_serial` produces correct results; you should [do so](../resources.md#the-project) as well.
 
-**All of your work for subsequent assignments should be done in the same git repo.** You don't need to copy it to save your old work since git is already doing that. Having a multiple redundant git repos has been proved by former students to be a recipe for disaster.
+**All of your work for subsequent assignments should be done in the same git repo.** You don't need to copy it to save your old work since git is already doing that. Having multiple redundant git repos has been proved by former students to be a recipe for disaster.
 
 
 
